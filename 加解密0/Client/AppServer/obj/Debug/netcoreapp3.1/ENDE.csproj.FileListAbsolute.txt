@@ -1,0 +1,13 @@
+C:\Users\Administrator\source\repos\AppServer\bin\Debug\netcoreapp3.1\ENDE.exe
+C:\Users\Administrator\source\repos\AppServer\bin\Debug\netcoreapp3.1\ENDE.deps.json
+C:\Users\Administrator\source\repos\AppServer\bin\Debug\netcoreapp3.1\ENDE.runtimeconfig.json
+C:\Users\Administrator\source\repos\AppServer\bin\Debug\netcoreapp3.1\ENDE.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\AppServer\bin\Debug\netcoreapp3.1\ENDE.dll
+C:\Users\Administrator\source\repos\AppServer\bin\Debug\netcoreapp3.1\ENDE.pdb
+C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\ENDE.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\ENDE.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\ENDE.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\ENDE.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\ENDE.dll
+C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\ENDE.pdb
+C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\ENDE.genruntimeconfig.cache
