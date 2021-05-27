@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/AppBusinessProcessor.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/NettyBusinessDuplexHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/NettyChannelManager.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/NettyHeartBeatDuplexHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/NettyMessage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/NettyMessageDecoder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/NettyServerHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Server/ServerBusinessProcessor.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/myutil/ByteTransUtil.java" charset="GBK" />
+  </component>
+</project>

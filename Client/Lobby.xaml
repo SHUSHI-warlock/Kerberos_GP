@@ -1,0 +1,331 @@
+﻿<Window x:Class="Client.Lobby"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        xmlns:cvt="clr-namespace:Client.Converter.LobbyCvt"
+        mc:Ignorable="d"
+        Title="Lobby" Height="720" Width="960" MinWidth="675" MinHeight="575"  Loaded="Window_Loaded">
+    <!--675=300+375房间列表最小宽度加右侧栏宽度-->
+
+    <Window.Resources>
+        <cvt:RoomStateConveter x:Key="roomStateCvt"/>
+        <cvt:HasPswConverter x:Key="hasPswCvt"/>
+        <cvt:UserStateConverter x:Key="userStateCvt"/>
+        <cvt:TimeConveter x:Key="timeCvt"/>
+        <ImageSource x:Key="searchImage">Resources\Image\查找.png</ImageSource>
+        <ImageSource x:Key="refreshImage">Resources\Image\刷新.png</ImageSource>
+        <ImageSource x:Key="buttonImage">Resources\Image\按钮 (11).png</ImageSource>
+        <ImageSource x:Key="exitImage">Resources/Image/退出 (7).png</ImageSource>
+
+        <DataTemplate x:Key="msgTemplate">
+            <TextBlock TextWrapping="WrapWithOverflow" Width="190">
+                    <Run Foreground="Red" Text="{Binding UserId}"/>
+                    <Run Foreground="Green" Text="{Binding Time, Converter={StaticResource timeCvt}}"/>
+                    <LineBreak/>
+                    <Run Foreground="Black" Text="{Binding Msg}"/>
+            </TextBlock>
+                
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Image/bg/bg1.jpg" Opacity="0.5"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" MinHeight="300"/>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="30"  />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="375"/>
+            <ColumnDefinition Width="200" />
+
+        </Grid.ColumnDefinitions>
+        
+        <!--顶部栏-->
+        <Grid x:Name="TopPanel"  Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </Grid.Background>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Label HorizontalAlignment="Left" FontSize="16" FontWeight="DemiBold">欢迎!玩家:</Label>
+                <Label Name="Welcome_user" FontSize="16" Foreground="Red">lzh</Label>
+            </StackPanel>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#ff0066" FontSize="20" FontWeight="DemiBold">跳棋游戏大厅</TextBlock>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" MouseLeftButtonDown="Exit_ButtonDown">
+                <Image Source="{StaticResource exitImage}"></Image>
+                <TextBlock VerticalAlignment="Center" Foreground="#FF65BAE8" FontSize="20">退出</TextBlock>
+            </StackPanel>
+        </Grid>
+        <!--右侧栏-->
+        <Grid x:Name="RightPanel"  Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" MinHeight="150"/>
+                <RowDefinition Height="4"/>
+                <RowDefinition Height="*" MinHeight="200"/>
+
+
+            </Grid.RowDefinitions>
+            <!--用户列表-->
+            <Grid x:Name="UserBody" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="23"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label HorizontalAlignment="Left" Foreground="White" FontSize="16">用户列表</Label>
+                    <Label Name="playerNum" HorizontalAlignment="Right" >服务器人数:5人</Label>
+                </Grid>
+                <ListView Name="UserList" Grid.Row="1" Grid.RowSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn x:Name="headerUserId" Header="用户名" Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding userId}" TextAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="headerUserState" Header="状态" Width="75" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding userState, Converter={StaticResource userStateCvt}}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <!--用来遮蔽用户的鼠标-->
+                <Label Background="Blue" Opacity="0.15"  Grid.Row="1"/>
+            </Grid>
+
+            <!--聊天-->
+            <Grid  Grid.Row="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" MinHeight="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30" MinHeight="30"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="大厅聊天" Foreground="White" FontSize="16" Grid.Row="0"></Label>
+                <ListBox Grid.Row="1" Name="LobbyChat" Width="auto" ItemTemplate="{StaticResource msgTemplate}"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                </ListBox>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="SendMag"  Grid.Column="0"></TextBox>
+                    <Button Grid.Column="1" Content="发送" Click="SendMag_ButtonDown"></Button>
+                </Grid>
+            </Grid>
+
+            <!--拖动-->
+            <GridSplitter  VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="5" Grid.Row="1"/>
+        </Grid>
+        <!--主界面房间列表-->
+        <!--375是所有列宽的最小和-->
+        <Grid x:Name="MainBody" MinWidth="375" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ListView Name="RoomList" SizeChanged="RoomList_SizeChanged" Grid.Row="0" Grid.RowSpan="2" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.Background>
+                    <SolidColorBrush Color="White" Opacity="0.5"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView x:Name="RoomGridView" AllowsColumnReorder="False" >
+                        <GridViewColumn x:Name="headerRoomPsw" Header="" Width="30">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="20" HorizontalAlignment="Center" Source="{Binding HasPsw, Converter={StaticResource hasPswCvt}}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerRoomId" Header="房间号" Width="45">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RoomId}" TextAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerRoomName" Header="房间名"  >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RoomName}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerMaxPlayer" Header="最大人数" Width="60" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RoomMaxPlayer}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerRoomPlayer" Header="当前人数"  Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PlayerNum}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerRoomState" Header="状态" Width="80" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding RoomState, Converter={StaticResource roomStateCvt}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <!--用来遮蔽用户的鼠标-->
+            <Label Background="Red" Opacity="0.15"  Grid.Row="0"/>
+        </Grid>
+
+        <!--操作栏-->
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--过滤栏-->
+            <Border Background="#ccffff"  Grid.Column="0" Grid.ColumnSpan="2" Padding="10,0,0,0">
+                <Border.CornerRadius>10</Border.CornerRadius>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="30"/>
+
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="过滤条件" HorizontalAlignment="Center" FontWeight="DemiBold" Grid.Row="0" />
+                    <CheckBox x:Name="IsFull" Content="   房间未满"  Grid.Row="1" Checked="CheckedChanged" Unchecked="CheckedChanged"/>
+                    <CheckBox x:Name="IsStart" Content="   房间未开始" Grid.Row="2" Checked="CheckedChanged" Unchecked="CheckedChanged"></CheckBox>
+                    <CheckBox Name="HasPassword" Content="   房间无密码" Grid.Row="3" Checked="CheckedChanged" Unchecked="CheckedChanged"></CheckBox>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" >
+                        <Label Content="最大人数:"></Label>
+                        <ComboBox Name="MaxPlayer" Width="50" Height="20" SelectionChanged="MaxPlayer_SelectionChanged">
+                            <ComboBoxItem Content="all"/>
+                            <ComboBoxItem Content="2"/>
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="6"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+
+            <!--搜索栏-->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="100"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{StaticResource searchImage}" Grid.Column="1" />
+                    <TextBox VerticalContentAlignment="Center" Foreground="White" FontSize="16" MinWidth="100" x:Name="KeyWords" Grid.Column="2" BorderThickness="0" BorderBrush="{x:Null}" TextChanged="KeyWords_TextChanged">
+                        <TextBox.Resources>
+                            <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
+                                <VisualBrush.Visual>
+                                    <TextBlock Foreground="White" FontSize="16" FontStyle="Italic" Text="输入关键字"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+
+                        </TextBox.Resources>
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="{x:Null}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Null}" >
+                                        <Setter Property="Background" Value="{StaticResource HintText}"/>
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="">
+                                        <Setter Property="Background" Value="{StaticResource HintText}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <Label Grid.Column="4" >
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="Refresh_ButtonDown">
+                            <Image Source="{StaticResource refreshImage}"></Image>
+                            <TextBlock VerticalAlignment="Center" Foreground="#FF1AFA29" FontSize="20">刷新</TextBlock>
+                        </StackPanel>
+
+                    </Label>
+
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="当前房间数:" Foreground="White" FontSize="16" Grid.Column="1"></Label>
+                    <Label Name="RoomNum" Content="" Grid.Column="2" Foreground="White" FontSize="16" ></Label>
+                    <Label Grid.Column="4">
+                        <Canvas>
+                            <Image Width="100" Source="{StaticResource buttonImage}" ></Image>
+                            <TextBlock Canvas.Left="19" Canvas.Top="10" Foreground="White" FontSize="16" MouseLeftButtonDown="EnterRoom_ButtonDown">加入房间</TextBlock>
+                        </Canvas>
+
+                    </Label>
+
+                    <Label Grid.Column="6">
+                        <Canvas>
+                            <Image Width="100" Source="{StaticResource buttonImage}"></Image>
+                            <TextBlock Canvas.Left="19" Canvas.Top="10" Foreground="White" FontSize="16" MouseLeftButtonDown="CteateRoom_ButtonDown">创建房间</TextBlock>
+                        </Canvas>
+
+                    </Label>
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--底部栏-->
+        <Grid  Background="LightGray" Grid.Row="3" Grid.ColumnSpan="2">
+            <Label HorizontalAlignment="Left" FontSize="16">小组成员:李正浩、李家辉、李太龙、罗宇轩</Label>
+            <Label x:Name="NowTime" Content="time" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16"></Label>
+        </Grid>
+
+        <!--页面-->
+        <!--
+        <Frame Name="Frame" />
+        -->
+    </Grid>
+</Window>

@@ -1,0 +1,412 @@
+﻿<Window x:Class="Client.GameRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        xmlns:cvt="clr-namespace:Client.Converter.LobbyCvt"
+        mc:Ignorable="d"
+        Title="GameRoom" Height="1280" Width="1920" Loaded="Window_Loaded" >
+
+    <Window.Resources>
+        <cvt:RoomStateConveter x:Key="roomStateCvt"/>
+        <cvt:HasPswConverter x:Key="hasPswCvt"/>
+        <cvt:UserStateConverter x:Key="userStateCvt"/>
+        <cvt:TimeConveter x:Key="timeCvt"/>
+
+        <ImageSource x:Key="searchImage">Resources\Image\查找.png</ImageSource>
+        <ImageSource x:Key="refreshImage">Resources\Image\刷新.png</ImageSource>
+        <ImageSource x:Key="exitImage">Resources/Image/退出 (7).png</ImageSource>
+
+
+        <ImageSource x:Key="keyImage">/Resources/Image/密码 (4).png</ImageSource>
+        <ImageSource x:Key="buttonImage">Resources\Image\按钮 (11).png</ImageSource>
+        <ImageSource x:Key="redbuttonImage">Resources\Image\按钮 (2).png</ImageSource>
+        <ImageSource x:Key="submitbuttonImage">Resources\Image\按钮 (8).png</ImageSource>
+
+
+        <ImageSource x:Key="redBallImage">/Resources/Image/gameImage/红球.png</ImageSource>
+        <ImageSource x:Key="yellowBallImage">/Resources/Image/gameImage/黄球.png</ImageSource>
+        <ImageSource x:Key="blueBallImage">/Resources/Image/gameImage/蓝球.png</ImageSource>
+        <ImageSource x:Key="greenBallImage">/Resources/Image/gameImage/绿球.png</ImageSource>
+        <ImageSource x:Key="purpleBallImage">/Resources/Image/gameImage/紫球.png</ImageSource>
+        <ImageSource x:Key="pinkBallImage">/Resources/Image/gameImage/粉球.png</ImageSource>
+        <ImageSource x:Key="checkerImage">/Resources/Image/gameImage/棋子.png</ImageSource>
+        <ImageSource x:Key="playerImage">/Resources/Image/gameImage/玩家.png</ImageSource>
+        <ImageSource x:Key="timeImage">/Resources/Image/gameImage/时间.png</ImageSource>
+        <ImageSource x:Key="loopImage">/Resources/Image/gameImage/轮次.png</ImageSource>
+
+
+        <DataTemplate x:Key="msgTemplate">
+            <TextBlock TextWrapping="WrapWithOverflow" Width="190">
+                    <Run Foreground="Red" Text="{Binding UserId}"/>
+                    <Run Foreground="Green" Text="{Binding Time, Converter={StaticResource timeCvt}}"/>
+                    <LineBreak/>
+                    <Run Foreground="Black" Text="{Binding Msg}"/>
+            </TextBlock>
+
+        </DataTemplate>
+
+
+
+    </Window.Resources>
+
+
+
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Image/bg/bg1.jpg" Opacity="0.5"/>
+        </Grid.Background>
+        <DockPanel>
+            <Grid x:Name="TopPanel"  DockPanel.Dock="Top" Height="50">
+
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontSize="36">跳棋游戏房间</TextBlock>
+
+            </Grid>
+
+            <!--操作栏-->
+            <Grid  DockPanel.Dock="Bottom" Height="50">
+
+                <Grid  Background="LightGray" >
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16">小组成员:李正浩、李家辉、李太龙、罗宇轩</Label>
+                    <Label x:Name="NowTime" Content="time" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16"></Label>
+                </Grid>
+            </Grid>
+
+
+            <Grid x:Name="RightPanel"  DockPanel.Dock="Right" Width="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*" MinHeight="150"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="*" MinHeight="150"/>
+                    <RowDefinition Height="130"/>
+                </Grid.RowDefinitions>
+                <!--用户列表-->
+                <Border  Grid.Row="0">
+
+                    <Grid x:Name="RoomInfoGrid" ShowGridLines="True">
+                        <Grid.Background>
+                            <SolidColorBrush Color="White" Opacity="0.7"/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Text="房间信息" Foreground="Black" FontSize="16"></TextBlock>
+                        <Image Source="{StaticResource keyImage}" Grid.Column="1" HorizontalAlignment="Right"></Image>
+                        <TextBlock Text="房间号：" FontSize="16" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Text_RoomId" FontSize="16" Padding="10" VerticalAlignment="Center" Text="1" Grid.Row="1" Grid.Column="1"/>
+                        <TextBlock Text="房间名：" FontSize="16" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Text_RoomName" FontSize="16" Padding="10" VerticalAlignment="Center" Text="asdasfasg" Grid.Row="2" Grid.Column="1"/>
+
+                        <TextBlock Text="玩家：" FontSize="16" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Text_Player" FontSize="16" Padding="10" VerticalAlignment="Center" Text="4/6" Grid.Row="3" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="游戏通知" Grid.Row="0" Foreground="White" FontSize="16"></TextBlock>
+                    <Border Background="Gainsboro" Grid.Row="1">
+                        <TextBlock MinHeight="100" ></TextBlock>
+                    </Border>
+                </Grid>
+                
+                
+
+                <GridSplitter Grid.Row="2" Height="4" HorizontalAlignment="Stretch"></GridSplitter>
+
+                <!--房间聊天-->
+                <Grid  Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="房间聊天" Grid.Row="0" Foreground="White" FontSize="16"></Label>
+                    <ListBox MinHeight="100" Grid.Row="1" Name="LobbyChat" Width="auto" ItemTemplate="{StaticResource msgTemplate}"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    </ListBox>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="SendMag"  Grid.Column="0"></TextBox>
+                        <Button Grid.Column="1" Content="发送" ></Button>
+                    </Grid>
+                </Grid>
+
+                <!--房间操作-->
+                <Grid x:Name="roomControl" Grid.Row="4" Visibility="Visible">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="房间操作" Grid.Column="1" Grid.ColumnSpan="3" Foreground="White" FontSize="16"/>
+                    <Button Name="Button_prepare" Grid.Row="1" Grid.Column="1" Click="Button_prepare_Click" BorderThickness="0">
+                        <Button.Background>
+                            <SolidColorBrush Color="White" Opacity="0.0"/>
+                        </Button.Background>
+                        <Grid>
+                            <Image Source="{StaticResource buttonImage}"></Image>
+                            <TextBlock x:Name="prepare_Text" Text="准备" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
+                        </Grid>
+                    </Button>
+
+                    <Button Name="Button_exit" Grid.Row="1" Grid.Column="3" Click="Button_exit_Click" BorderThickness="0">
+                        <Button.Background>
+                            <SolidColorBrush Color="White" Opacity="0.0"/>
+                        </Button.Background>
+                        <Grid>
+                            <Image Source="{StaticResource redbuttonImage}"></Image>
+                            <TextBlock Text="退出房间" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
+                        </Grid>
+                    </Button>
+
+                </Grid>
+                <!--游戏操作-->
+                <Grid x:Name="gameControl" Visibility="Hidden" Grid.Row="5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="游戏操作" Foreground="White" FontSize="16" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"></TextBlock>
+                    <Button Name="Button_return" Grid.Row="1" Grid.Column="1" BorderThickness="0" Click="Button_return_Click">
+                        <Button.Background>
+                            <SolidColorBrush Color="White" Opacity="0.0"/>
+                        </Button.Background>
+                        <Grid>
+                            <Image Source="{StaticResource buttonImage}"></Image>
+                            <TextBlock Text="上一步" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
+                        </Grid>
+                    </Button>
+
+                    <Button Name="Button_cancel" Grid.Row="1" Grid.Column="3" BorderThickness="0" Click="Button_cancel_Click" >
+                        <Button.Background>
+                            <SolidColorBrush Color="White" Opacity="0.0"/>
+                        </Button.Background>
+                        <Grid>
+                            <Image Source="{StaticResource buttonImage}"></Image>
+                            <TextBlock Text="取消选择" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
+                        </Grid>
+                    </Button>
+
+                    <Button Name="Button_continue" Grid.Column="1" Grid.Row="2" BorderThickness="0">
+                        <Button.Background>
+                            <SolidColorBrush Color="White" Opacity="0.0"/>
+                        </Button.Background>
+                        <Grid>
+                            <Image Source="{StaticResource buttonImage}"></Image>
+                            <TextBlock Text="跳过" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
+                        </Grid>
+                    </Button>
+
+                    <Button Name="Button_submit" Grid.Column="3" Grid.Row="2" BorderThickness="0" Click="Button_submit_Click">
+                        <Button.Background>
+                            <SolidColorBrush Color="White" Opacity="0.0"/>
+                        </Button.Background>
+                        <Grid>
+                            <Image Source="{StaticResource submitbuttonImage}" Opacity="0.8"></Image>
+                            <TextBlock Text="确认" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <!--游戏主体-->
+            <Grid >
+                <Grid.Background>
+                    <SolidColorBrush Color="White" Opacity="0.5"/>
+                </Grid.Background>
+                    
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+
+                    <Canvas Name="Board" Margin="300,0,0,0" MouseLeftButtonDown="Board_MouseLeftButtonDown" MouseRightButtonDown="Board_MouseRightButtonDown">
+
+                        <Image Source="/Resources/Image/777.png" />
+
+                        <Ellipse x:Name="MaskImage" Visibility="Hidden" Canvas.Left="277.5" Canvas.Top="-6.5"  Height="40" Width="40" Stroke="#FFFF4B4B" StrokeThickness="5" />
+                        
+
+                        <Border Name="Player_1" Visibility="Visible" Width="200" Height="120" Canvas.Left="0" Canvas.Top="-20" Background="#FFFFDEB1" CornerRadius="20"  >
+                            <Grid  Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="ID:" Grid.Column="1"></Label>
+                                <Label Content="状态:" Grid.Row="1" Grid.Column="1"></Label>
+                                <Label Content="棋子:" Grid.Row="2" Grid.Column="1"></Label>
+                                <Image Source="{StaticResource playerImage}"/>
+                                <Image Grid.Row="1" Source="{StaticResource loopImage}"/>
+                                <Image Grid.Row="2" Source="{StaticResource checkerImage}"/>
+                                <Label Name="Player1_Id" Grid.Column="2">asd</Label>
+                                <Label Name="Player1_State" Grid.Row="1" Grid.Column="2">asd</Label>
+                                <Image Source="{StaticResource redBallImage}" Grid.Row="2" Grid.Column="2" />
+                            </Grid>
+                        </Border>
+                        <Border Name="Player_2" Visibility="Visible" Width="200" Height="120" Canvas.Left="500" Canvas.Top="20" Background="#FFFFDEB1" CornerRadius="20"  >
+                            <Grid  Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="ID:" Grid.Column="1"></Label>
+                                <Label Content="状态:" Grid.Row="1" Grid.Column="1"></Label>
+                                <Label Content="棋子:" Grid.Row="2" Grid.Column="1"></Label>
+                                <Image Source="{StaticResource playerImage}"/>
+                                <Image Grid.Row="1" Source="{StaticResource loopImage}"/>
+                                <Image Grid.Row="2" Source="{StaticResource checkerImage}"/>
+                                <Label Name="Player2_Id" Grid.Column="2">asd</Label>
+                                <Label Name="Player2_State" Grid.Row="1" Grid.Column="2">asd</Label>
+                                <Image Source="{StaticResource blueBallImage}" Grid.Row="2" Grid.Column="2" />
+                            </Grid>
+                        </Border>
+                        <Border x:Name="Player_3" Visibility="Visible" Width="200" Height="120" Canvas.Left="600" Canvas.Top="320" Background="#FFFFDEB1" CornerRadius="20"   >
+                            <Grid  Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="ID:" Grid.Column="1"/>
+                                <Label Content="状态:" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="棋子:" Grid.Row="2" Grid.Column="1"/>
+                                <Image Source="{StaticResource playerImage}"/>
+                                <Image Grid.Row="1" Source="{StaticResource loopImage}"/>
+                                <Image Grid.Row="2" Source="{StaticResource checkerImage}"/>
+                                <Label x:Name="Player3_Id" Grid.Column="2" Content="asd"/>
+                                <Label x:Name="Player3_State" Grid.Row="1" Grid.Column="2" Content="asd"/>
+                                <Image Source="{StaticResource yellowBallImage}" Grid.Row="2" Grid.Column="2" />
+                            </Grid>
+                        </Border>
+                        <Border x:Name="Player_4" Visibility="Visible" Width="200" Height="120" Canvas.Left="410" Canvas.Top="580" Background="#FFFFDEB1" CornerRadius="20"  >
+                            <Grid  Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="ID:" Grid.Column="1"/>
+                                <Label Content="状态:" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="棋子:" Grid.Row="2" Grid.Column="1"/>
+                                <Image Source="{StaticResource playerImage}"/>
+                                <Image Grid.Row="1" Source="{StaticResource loopImage}"/>
+                                <Image Grid.Row="2" Source="{StaticResource checkerImage}"/>
+                                <Label x:Name="Player4_Id" Grid.Column="2" Content="asd"/>
+                                <Label x:Name="Player4_State" Grid.Row="1" Grid.Column="2" Content="asd"/>
+                                <Image Source="{StaticResource purpleBallImage}" Grid.Row="2" Grid.Column="2" />
+                            </Grid>
+                        </Border>
+                        <Border x:Name="Player_5" Visibility="Visible" Width="200" Height="120" Canvas.Left="-110" Canvas.Top="540" Background="#FFFFDEB1" CornerRadius="20"  >
+                            <Grid  Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="ID:" Grid.Column="1"/>
+                                <Label Content="状态:" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="棋子:" Grid.Row="2" Grid.Column="1"/>
+                                <Image Source="{StaticResource playerImage}"/>
+                                <Image Grid.Row="1" Source="{StaticResource loopImage}"/>
+                                <Image Grid.Row="2" Source="{StaticResource checkerImage}"/>
+                                <Label x:Name="Player5_Id" Grid.Column="2" Content="asd"/>
+                                <Label x:Name="Player5_State" Grid.Row="1" Grid.Column="2" Content="asd"/>
+                                <Image Source="{StaticResource greenBallImage}" Grid.Row="2" Grid.Column="2" />
+                            </Grid>
+                        </Border>
+                        <Border x:Name="Player_6" Visibility="Visible" Width="200" Height="120" Canvas.Left="-200" Canvas.Top="240" Background="#FFFFDEB1" CornerRadius="20" >
+                            <Grid  Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="ID:" Grid.Column="1"/>
+                                <Label Content="状态:" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="棋子:" Grid.Row="2" Grid.Column="1"/>
+                                <Image Source="{StaticResource playerImage}"/>
+                                <Image Grid.Row="1" Source="{StaticResource loopImage}"/>
+                                <Image Grid.Row="2" Source="{StaticResource checkerImage}"/>
+                                <Label x:Name="Player6_Id" Grid.Column="2" Content="asd"/>
+                                <Label x:Name="Player6_State" Grid.Row="1" Grid.Column="2" Content="asd"/>
+                                <Image Source="{StaticResource pinkBallImage}" Grid.Row="2" Grid.Column="2" />
+                            </Grid>
+                        </Border>
+
+                    </Canvas>
+
+                </Grid>
+
+
+
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

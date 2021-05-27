@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE4D2899-9B03-43AB-873F-A5B163C6C907}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converter\GameCvt\PostionY_Converter.cs" />
+    <Compile Include="Converter\GameCvt\PostionX_Converter.cs" />
+    <Compile Include="Converter\LobbyCvt\HasPswConverter.cs" />
+    <Compile Include="Converter\LobbyCvt\RoomStateConveter.cs" />
+    <Compile Include="Converter\LobbyCvt\TimeConveter.cs" />
+    <Compile Include="Converter\LobbyCvt\UserStateConverter.cs" />
+    <Compile Include="Converter\MessageCvt\IndexConverter.cs" />
+    <Compile Include="Converter\MessageCvt\ReceiverConverter.cs" />
+    <Compile Include="Converter\MessageCvt\SenderConverter.cs" />
+    <Compile Include="core\CheckerCore.cs" />
+    <Compile Include="core\CheckerPoint.cs" />
+    <Compile Include="core\Services\ChatMsg.cs" />
+    <Compile Include="CreateRoom.xaml.cs">
+      <DependentUpon>CreateRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageShow.xaml.cs">
+      <DependentUpon>MessageShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MsgTrans\LobbyMsg.cs" />
+    <Compile Include="MsgTrans\Message.cs" />
+    <Compile Include="MsgTrans\MessageConstain.cs" />
+    <Compile Include="MsgTrans\MyTcpClient.cs" />
+    <Compile Include="PswInput.xaml.cs">
+      <DependentUpon>PswInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ByteTansUtil.cs" />
+    <Compile Include="Utils\LogHelper\Logger.cs" />
+    <Compile Include="Utils\UIHelper\Checker.xaml.cs">
+      <DependentUpon>Checker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\UIHelper\GameUIhelper.cs" />
+    <Compile Include="Utils\UIHelper\NextStep.xaml.cs">
+      <DependentUpon>NextStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\UIHelper\RoadLabel.xaml.cs">
+      <DependentUpon>RoadLabel.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CreateRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lobby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="core\Services\ILobby.cs" />
+    <Compile Include="core\Services\IRoom.cs" />
+    <Compile Include="core\Services\Player.cs" />
+    <Compile Include="core\Services\RoomInfo.cs" />
+    <Compile Include="core\Services\User.cs" />
+    <Compile Include="GameRoom.xaml.cs">
+      <DependentUpon>GameRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lobby.xaml.cs">
+      <DependentUpon>Lobby.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MessageShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PswInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utils\UIHelper\Checker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utils\UIHelper\NextStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utils\UIHelper\RoadLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\111.png" />
+    <Resource Include="Resources\Image\333.png" />
+    <Resource Include="Resources\Image\444.jpg" />
+    <Resource Include="Resources\Image\555.png" />
+    <Resource Include="Resources\Image\666.png" />
+    <Resource Include="Resources\Image\777.png" />
+    <Resource Include="Resources\Image\aaa.png" />
+    <Resource Include="Resources\Image\b.png" />
+    <Resource Include="Resources\Image\Board.jpg" />
+    <Resource Include="Resources\Image\Board1.jpg" />
+    <Resource Include="Resources\Image\ddd.png" />
+    <Resource Include="Resources\Image\Piece_A.PNG" />
+    <Resource Include="Resources\Image\Piece_A1.PNG" />
+    <Resource Include="Resources\Image\Piece_A2.PNG" />
+    <Resource Include="Resources\Image\Piece_B.png" />
+    <Resource Include="Resources\Image\Piece_C.png" />
+    <Resource Include="Resources\Image\Piece_D.png" />
+    <Resource Include="Resources\Image\Piece_E.png" />
+    <Resource Include="Resources\Image\Piece_F.png" />
+    <Resource Include="Resources\Image\人数.png" />
+    <Resource Include="Resources\Image\关闭 %281%29.png" />
+    <Resource Include="Resources\Image\关闭.png" />
+    <Resource Include="Resources\Image\刷新.png" />
+    <Resource Include="Resources\Image\加密 %281%29.png" />
+    <Resource Include="Resources\Image\加密.png" />
+    <Resource Include="Resources\Image\加密1.png" />
+    <Resource Include="Resources\Image\取   消.png" />
+    <Resource Include="Resources\Image\右箭头.png" />
+    <Resource Include="Resources\Image\右返回 %281%29.png" />
+    <Resource Include="Resources\Image\右返回 %282%29.png" />
+    <Resource Include="Resources\Image\右返回.png" />
+    <Resource Include="Resources\Image\名字 %281%29.png" />
+    <Resource Include="Resources\Image\名字 %282%29.png" />
+    <Resource Include="Resources\Image\名字.png" />
+    <Resource Include="Resources\Image\头像 %281%29.png" />
+    <Resource Include="Resources\Image\密码 %281%29.png" />
+    <Resource Include="Resources\Image\密码 %283%29.png" />
+    <Resource Include="Resources\Image\密码 %284%29.png" />
+    <Resource Include="Resources\Image\密码.png" />
+    <Resource Include="Resources\Image\开始-default %281%29.png" />
+    <Resource Include="Resources\Image\开始.png" />
+    <Resource Include="Resources\Image\开始巡检 %281%29.png" />
+    <Resource Include="Resources\Image\房间 %281%29.png" />
+    <Resource Include="Resources\Image\房间.png" />
+    <Resource Include="Resources\Image\报文.png" />
+    <Resource Include="Resources\Image\按钮 %281%29.png" />
+    <Resource Include="Resources\Image\按钮 %2810%29.png" />
+    <Resource Include="Resources\Image\按钮 %2811%29.png" />
+    <Resource Include="Resources\Image\按钮 %2812%29.png" />
+    <Resource Include="Resources\Image\按钮 %2813%29.png" />
+    <Resource Include="Resources\Image\按钮 %2814%29.png" />
+    <Resource Include="Resources\Image\按钮 %282%29.png" />
+    <Resource Include="Resources\Image\按钮 %284%29.png" />
+    <Resource Include="Resources\Image\按钮 %285%29.png" />
+    <Resource Include="Resources\Image\按钮 %286%29.png" />
+    <Resource Include="Resources\Image\按钮 %287%29.png" />
+    <Resource Include="Resources\Image\按钮 %288%29.png" />
+    <Resource Include="Resources\Image\按钮 %289%29.png" />
+    <Resource Include="Resources\Image\按钮.png" />
+    <Resource Include="Resources\Image\按钮1.png" />
+    <Resource Include="Resources\Image\搜索 %282%29.png" />
+    <Resource Include="Resources\Image\搜索 %283%29.png" />
+    <Resource Include="Resources\Image\新东方-刷新图标 %282%29.png" />
+    <Resource Include="Resources\Image\无标题.jpg" />
+    <Resource Include="Resources\Image\时 间.png" />
+    <Resource Include="Resources\Image\时间.png" />
+    <Resource Include="Resources\Image\查找.png" />
+    <Resource Include="Resources\Image\梯形.png" />
+    <Resource Include="Resources\Image\棋牌 %281%29.png" />
+    <Resource Include="Resources\Image\棋牌 %282%29.png" />
+    <Resource Include="Resources\Image\棋牌 %283%29.png" />
+    <Resource Include="Resources\Image\棋牌.png" />
+    <Resource Include="Resources\Image\注 册.png" />
+    <Resource Include="Resources\Image\注册 %281%29.png" />
+    <Resource Include="Resources\Image\注册 %282%29.png" />
+    <Resource Include="Resources\Image\注册 %283%29.png" />
+    <Resource Include="Resources\Image\注册 %284%29.png" />
+    <Resource Include="Resources\Image\注册 %285%29.png" />
+    <Resource Include="Resources\Image\状态 %281%29.png" />
+    <Resource Include="Resources\Image\状态 %282%29.png" />
+    <Resource Include="Resources\Image\状态.png" />
+    <Resource Include="Resources\Image\登录 %282%29.png" />
+    <Resource Include="Resources\Image\登录 %283%29.png" />
+    <Resource Include="Resources\Image\登录 %285%29.png" />
+    <Resource Include="Resources\Image\登录 %287%29.png" />
+    <Resource Include="Resources\Image\登录-密码.png" />
+    <Resource Include="Resources\Image\登录-用户.png" />
+    <Resource Include="Resources\Image\确认.png" />
+    <Resource Include="Resources\Image\箭头 %281%29.png" />
+    <Resource Include="Resources\Image\箭头.png" />
+    <Resource Include="Resources\Image\解密.png" />
+    <Resource Include="Resources\Image\解密1.png" />
+    <Resource Include="Resources\Image\轮次 %282%29.png" />
+    <Resource Include="Resources\Image\轮次.png" />
+    <Resource Include="Resources\Image\轮次1.png" />
+    <Resource Include="Resources\Image\退出 %282%29.png" />
+    <Resource Include="Resources\Image\退出 %283%29.png" />
+    <Resource Include="Resources\Image\退出 %283%291.png" />
+    <Resource Include="Resources\Image\退出 %284%29.png" />
+    <Resource Include="Resources\Image\退出 %285%29.png" />
+    <Resource Include="Resources\Image\退出 %286%29.png" />
+    <Resource Include="Resources\Image\退出 %287%29.png" />
+    <Resource Include="Resources\Image\退出-导出_操作_jurassic.png" />
+    <Resource Include="Resources\Image\通信-53.png" />
+    <Resource Include="Resources\Image\通信-94.png" />
+    <Resource Include="Resources\Image\通信.png" />
+    <Resource Include="Resources\Image\通信适配 默认.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\bg\bilibili.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\bg\0.gif" />
+    <Resource Include="Resources\Image\bg\1.gif" />
+    <Resource Include="Resources\Image\bg\2.gif" />
+    <Resource Include="Resources\Image\bg\3 %282%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Image\Icon\" />
+    <Folder Include="Utils\DesUtil\" />
+    <Folder Include="Utils\RSAUtil\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\gameImage\时间.png" />
+    <Resource Include="Resources\Image\gameImage\棋子.png" />
+    <Resource Include="Resources\Image\gameImage\玩家.png" />
+    <Resource Include="Resources\Image\gameImage\粉球.png" />
+    <Resource Include="Resources\Image\gameImage\紫球.png" />
+    <Resource Include="Resources\Image\gameImage\红球.png" />
+    <Resource Include="Resources\Image\gameImage\绿球.png" />
+    <Resource Include="Resources\Image\gameImage\蓝球.png" />
+    <Resource Include="Resources\Image\gameImage\轮次.png" />
+    <Resource Include="Resources\Image\gameImage\黄球.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\bg\bg1.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

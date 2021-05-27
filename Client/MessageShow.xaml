@@ -1,0 +1,207 @@
+﻿<Window x:Class="Client.MessageShow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        xmlns:cvt="clr-namespace:Client.Converter.MessageCvt"
+        mc:Ignorable="d"
+        Title="WireEagle" Height="450" Width="800">
+    <Window.Resources>
+        <DrawingImage x:Key="pauseImage">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                    <GeometryDrawing Brush="Black" Geometry="F1 M1024,1024z M0,0z M512,12C236.31,12 12,236.31 12,512 12,787.69 236.31,1012 512,1012 787.69,1012 1012,787.69 1012,512 1012,236.31 787.69,12 512,12z M512,956.44C266.94,956.44 67.56,757.06 67.56,512 67.56,266.94 266.94,67.56 512,67.56 757.06,67.56 956.44,266.94 956.44,512 956.44,757.06 757.06,956.44 512,956.44z" />
+                    <GeometryDrawing Brush="Black" Geometry="F1 M1024,1024z M0,0z M373.11,289.78A27.76,27.76,0,0,0,345.33,317.56L345.33,706.44A27.78,27.78,0,1,0,400.89,706.44L400.89,317.56A27.76,27.76,0,0,0,373.11,289.78z M650.89,289.78A27.76,27.76,0,0,0,623.11,317.56L623.11,706.44A27.78,27.78,0,0,0,678.67,706.44L678.67,317.56A27.76,27.76,0,0,0,650.89,289.78z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+        <DrawingImage x:Key="continueImage">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                    <GeometryDrawing Brush="Black" Geometry="F1 M1024,1024z M0,0z M512.01598,0C229.68971,0 0,229.68971 0,512.01598 0,794.34225 229.68971,1024 512.01598,1024 794.31029,1024 1024,794.31029 1024,512.01598 1024,229.72167 794.31029,0 512.01598,0z M512.01598,960.081895C264.940545,960.081895 63.918105,759.059455 63.918105,512.01598 63.918105,264.972505 264.940545,63.918105 512.01598,63.918105 759.059456,63.918105 960.081896,264.940545 960.081896,512.01598 960.081896,759.091415 759.059455,960.081895 512.01598,960.081895z M743.079929,472.195L463.246466,301.022315 459.123748,298.881058C456.758778,297.858368 435.154459,288.941793 412.1759,288.941793 372.418839,288.941793 346.691802,315.371929 346.691802,356.215598L346.691802,681.111325 348.417591,686.128896C354.425893,703.802252,374.592055,733.683966,411.792392,733.683966L411.792392,733.683966C423.617241,733.683966,435.857559,730.488061,449.344279,723.584905L725.981837,566.793794 728.698356,565.036046C747.745951,551.549326,768.327581,517.67273,747.138729,479.513622L743.079929,472.195z M419.047096,667.368934C415.020255,669.414313 412.751163,669.733904 412.016104,669.797822 411.632595,669.478231 411.15321,668.934928 410.641865,668.263787L410.641865,356.215599C410.641865,354.84136 410.705783,353.722793 410.833619,352.891858 416.746044,352.572267 427.803876,355.352705 432.342061,357.014576L689.260884,514.157237 419.047096,667.368934z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+        <DrawingImage x:Key="restartImage">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                    <DrawingGroup.Transform>
+                        <TranslateTransform X="0" Y="0.014917035587131977" />
+                    </DrawingGroup.Transform>
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M1024,1024z M0,0z M142.883389,940.648975L71.441694,940.648975 71.441694,726.323892 285.766777,726.323892 285.766777,797.765587 142.883389,797.765587 142.883389,940.648975z" />
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M1024,1024z M0,0z M511.998809,1023.997619A509.379281,509.379281,0,0,1,76.799821,781.86981L137.525262,744.184316A440.557115,440.557115,0,1,0,71.441694,511.998809L0,511.998809A511.998809,511.998809,0,1,1,511.998809,1023.997619z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+        <cvt:SenderConverter x:Key="senderCvt"/>
+        <cvt:ReceiverConverter x:Key="receiverCvt"/>
+        <cvt:IndexConverter x:Key="indexCvt"/>
+
+        <ImageSource x:Key="p2pImage">Resources/Image/通信适配 默认.png</ImageSource>
+        <ImageSource x:Key="msgImage">Resources/Image/报文.png</ImageSource>
+        <ImageSource x:Key="keyImage">Resources/Image/密码.png</ImageSource>
+        <ImageSource x:Key="stateImage">Resources/Image/轮次.png</ImageSource>
+        <ImageSource x:Key="rightImage">Resources/Image/右箭头.png</ImageSource>
+
+
+
+    </Window.Resources>
+
+    <Grid Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="1"  Source="{StaticResource pauseImage}"/>
+            <Image Grid.Column="2" Source="{StaticResource continueImage}"/>
+            <Image Grid.Column="3" Source="{StaticResource restartImage}"/>
+
+            
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="消息捕获列表" Grid.Row="0"></Label>
+            <ListView Name="MsgList" Grid.Row="1" Grid.RowSpan="2" >
+                <ListView.View>
+                    <GridView x:Name="MsgGridView" AllowsColumnReorder="False" >
+                        <GridViewColumn x:Name="headerIndex" Header="序号" Width="45">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock x:Name="MsgIndex" TextAlignment="Center" 
+                                       Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}},Mode=OneWay, Converter={StaticResource indexCvt}}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerSender" Header="发送方" Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MessageP2P, Converter={StaticResource senderCvt}}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerReceiver" Header="接收方" Width="60" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MessageP2P, Converter={StaticResource receiverCvt}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerTime" Header="消息时间"  Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Time}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerMsgType" Header="报文类型" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding MessageType}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="headerStateCode" Header="状态码" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding StateCode}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <!--用来遮蔽用户的鼠标-->
+            <!--
+            <Label Background="Red" Opacity="0.1"  Grid.Row="1"/>
+            -->
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="10"/>
+            
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Image Height="30" Source="{StaticResource p2pImage}"></Image>
+                    <Label VerticalAlignment="Center" Content="通信双方："/>
+                    <TextBlock x:Name="SenderText" VerticalAlignment="Center">客户端</TextBlock>
+                    <Image Height="30" Source="{StaticResource rightImage}"></Image>
+                    <TextBlock VerticalAlignment="Center">AS服务器</TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5,0,5,0">
+                    <Image Height="30" Source="{StaticResource msgImage}"></Image>
+                    <Label VerticalAlignment="Center" Content="报文类型："/>
+                    <TextBlock VerticalAlignment="Center">客户端登录AS</TextBlock>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="3" Margin="5,0,5,0">
+                    <Image Height="30" Source="{StaticResource stateImage}"></Image>
+                    <Label VerticalAlignment="Center" Content="报文状态："/>
+                    <TextBlock VerticalAlignment="Center">正常</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="4" Margin="5,0,5,0">
+                    <Image Height="30" Source="{StaticResource keyImage}"></Image>
+                    <Label VerticalAlignment="Center" Content="加密类型："/>
+                    <TextBlock VerticalAlignment="Center">Des</TextBlock>
+                </StackPanel>
+            </StackPanel>
+           
+        </Grid>
+        
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="加密前或解密后的明文"/>
+                <TextBlock Grid.Row="1"  Background="#FF6DEE6D">asdafgasfasfasdgasdg</TextBlock>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="加密后或解密前的密文"/>
+                <TextBlock Grid.Row="1" Background="#FFFC6D6D">asdafgasfasfasdgasdg</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Left" Content="秘钥："  Grid.Row="0"/>
+                <TextBlock Grid.Row="2" >asdafgasfasfasdgasdg</TextBlock>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

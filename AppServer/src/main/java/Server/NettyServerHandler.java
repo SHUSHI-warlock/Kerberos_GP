@@ -1,0 +1,301 @@
+package Server;
+
+import Service.ChatMsg;
+import Service.Constant;
+import Service.RoomInfo;
+import Service.User.Player;
+import Service.User.User;
+import com.google.gson.Gson;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+
+import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
+/**
+ * 服务端 Channel 实现类，提供对客户端 Channel 建立连接、断开连接、异常时的处理
+ */
+
+@ChannelHandler.Sharable
+public class NettyServerHandler extends ChannelInboundHandlerAdapter {
+	protected static Logger logger = Logger.getLogger(NettyServerHandler.class);
+	private static Gson gson = new Gson();
+	AtomicInteger num=new AtomicInteger(0);
+    private NettyChannelManager channelManager=new NettyChannelManager();
+    //房间管理类
+    //NettyRoomChannelManager roomManager=new NettyRoomChannelManager();
+
+	//房间列表
+	private ConcurrentHashMap<Integer,CheckerRoom> rooms = new ConcurrentHashMap<Integer, CheckerRoom>();
+	//玩家列表
+	private ConcurrentHashMap<String, Player>players = new ConcurrentHashMap<>();
+
+	@Override
+    public void channelActive(ChannelHandlerContext ctx) {
+    	
+    	System.out.println("有人链接进来,链接总人数："+num.incrementAndGet());
+        // 从管理器中添加
+        channelManager.add(ctx.channel());
+        //channelManager.sendAll("大厅有人进入");
+    }
+    
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+
+		NettyMessage message = (NettyMessage)msg;
+		logger.info(String.format("接收到报文Head:[P2P:%d Type:%d State:%d UnCode:%d Length:%d]",
+				message.getMessageP2P(),message.getMessageType(),message.getStateCode(),message.getUnEncode(),message.getLength()));
+
+		if(message.getMessageP2P()!=1)
+		{
+			//丢弃报文
+			return;
+		}
+
+		if(message.getMessageType()==1)//用户登录大厅
+		{
+			User user = gson.fromJson(message.bodyToString(),User.class);
+			enterLobby(ctx.channel(), user);
+			return;
+		}
+
+		Player player = players.get(channelManager.findUser(ctx.channel()));
+
+		switch (message.getMessageType())
+		{
+			case 2://用户请求房间列表
+				roomInfos(player);
+				break;
+			case 3://用户创建房间
+				createRoom(player,gson.fromJson(message.bodyToString(),RoomInfo.class));
+				break;
+			case 4://用户进入房间
+				enterRoom(player,gson.fromJson(message.bodyToString(),RoomInfo.class));
+				break;
+			case 5://用户退出房间
+				exitRoom(player);
+				break;
+			case 6://用户准备
+				prepare(player);
+				break;
+			case 7://用户取消准备
+				unprepare(player);
+				break;
+			case 8://聊天消息
+				chat(player,gson.fromJson(message.bodyToString(),ChatMsg.class));
+			default:
+				//
+				break;
+		}
+
+    //    ctx.channel().writeAndFlush("i am server !");
+
+//        ctx.writeAndFlush("i am server !").addListener(ChannelFutureListener.CLOSE);
+    }
+
+	/**
+	 * 进入大厅请求
+	 * @param channel
+	 * @param user
+	 */
+    public void enterLobby(Channel channel, User user){
+		channelManager.addUser(channel, user.getUserId());
+		user.userState = Constant.online;
+		players.put(user.getUserId(),new Player(user));
+
+		logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
+
+		channelManager.send(user.getUserId(), new NettyMessage(2,1,0));
+	}
+
+	/**
+	 * 返回房间信息请求
+	 * @param user
+	 */
+	public void roomInfos(User user){
+		logger.debug(String.format( "用户%s请求房间消息",user.getUserId()));
+		NettyMessage roomInfoMessage = new NettyMessage(2,2,0);
+
+		//json转list
+		//List<RoomInfo> list= gson.fromJson(msg, new TypeToken<List<RoomInfo>>() {}.getType());
+		LobbyMsg msg = new LobbyMsg();
+		List<RoomInfo> list  = new ArrayList<>();
+		for(Integer roomId : rooms.keySet()){
+			list.add(rooms.get(roomId).getRefreashInfo());
+		}
+		msg.setRoomInfos(list);
+		List<User> ulist = new ArrayList<>();
+		for(String u : players.keySet()){
+			ulist.add(players.get(u));
+		}
+		msg.setUsers(ulist);
+		roomInfoMessage.setMessageBody(gson.toJson(msg));
+		channelManager.send(user.getUserId(), roomInfoMessage);
+	}
+
+	/**
+	 * 进入房间请求
+	 * @param user
+	 * @param roomInfo
+	 */
+	public void enterRoom(Player user, RoomInfo roomInfo){
+
+		NettyMessage response = new NettyMessage(2,4,0);
+
+		CheckerRoom room = null;
+		if(!rooms.containsKey(roomInfo.getRoomId())){
+			//房间已经不存在
+			response.setStateCode(1);
+		}
+		else{
+			room = rooms.get(roomInfo.getRoomId());
+			if(room.getRoomInfo().isPlayerFull()){
+				//房间人满了
+				response.setStateCode(2);
+			}
+			else if(room.getRoomInfo().getRoomState()==2)
+			{
+				//房间已经开始了
+				response.setStateCode(3);
+			}
+			else{
+				//channelManager.send(user.getUserId(), response);
+				//上锁
+				user.userState = Constant.enter_room;
+				room.enterRoom(user);
+				logger.debug(String.format("用户%s进入房间%d成功",user.getUserId(),roomInfo.getRoomId()));
+
+				return;
+			}
+		}
+		logger.debug(String.format("用户%s进入房间%d失败",user.getUserId(),roomInfo.getRoomId()));
+
+		channelManager.send(user.getUserId(), response);
+
+	}
+
+	/**
+	 * 创建房间请求
+	 * @param user
+	 * @param roomInfo
+	 */
+	public void createRoom(Player user, RoomInfo roomInfo){
+		int i;
+		for ( i = 0; i < 9999; i++) {
+			if(!rooms.containsKey(i)){
+				roomInfo.setRoomId(i);
+				rooms.put(i,new CheckerRoom(channelManager,roomInfo));
+				break;
+			}
+		}
+		NettyMessage response = new NettyMessage(2,3,0);
+		channelManager.send(user.getUserId(), response);
+		try {
+			user.userState = Constant.enter_room;
+			rooms.get(i).enterRoom(user);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			logger.error("无法加入！");
+		}
+	}
+
+	private void deleteRoom(int roomId)
+	{
+		logger.debug(String.format( "房间%d正在删除",roomId));
+		rooms.remove(roomId);
+	}
+
+
+	public void exitRoom(User user){
+		Player player = user instanceof Player ? ((Player) user) : null;
+		if(player==null||player.roomId==-1) {
+			//退出请求有误！
+			logger.error(String.format( "用户%s退出请求有误！",user.getUserId()));
+			return;
+		}
+		//要先保存房间号
+		int roomId = player.roomId;
+		//用户退出
+		rooms.get(roomId).exitRoom(player);
+		player.userState = Constant.online;
+
+
+		//检测房间是否为空
+		if(rooms.get(roomId).getRoomInfo().getPlayerNum() ==0)
+		{
+			logger.info(String.format( "房间%d为空",roomId));
+			//删除房间
+			deleteRoom(roomId);
+		}
+
+	}
+
+	public void unprepare(User user){
+		Player player = user instanceof Player ? ((Player) user) : null;
+		if(player==null||player.roomId==-1) {
+			//退出请求有误！
+			logger.error(String.format( "用户%s取消准备请求有误！",user.getUserId()));
+			return;
+		}
+		rooms.get(player.roomId).unPrepare(player);
+	}
+
+	public void prepare(User user){
+		Player player = user instanceof Player ? ((Player) user) : null;
+		if(player==null||player.roomId==-1) {
+			//退出请求有误！
+			logger.error(String.format( "用户%s准备请求有误！",user.getUserId()));
+			return;
+		}
+		rooms.get(player.roomId).prepare(player);
+	}
+
+	/**
+	 * 聊天
+	 * @param user
+	 * @param msg
+	 */
+	public void chat(User user, ChatMsg msg)
+	{
+		NettyMessage message = new NettyMessage(2,5,0);
+		message.setMessageBody(gson.toJson(msg));
+		if(msg.getType()==1)
+		{//大厅聊天
+			logger.info(String.format("用户%s消息发送！",user.getUserId()));
+			channelManager.sendOther(user.getUserId(),message);
+		}
+	}
+
+
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) {
+		String uid = channelManager.findUser(ctx.channel());
+
+		if(players.get(uid).userState== Constant.in_room)
+		{//在房间中
+			// TODO: 2021/5/13 在房间中退出
+		}
+
+		// 从管理器中移除
+		channelManager.remove(ctx.channel());
+		players.remove(uid);
+
+		logger.info(String.format( "用户%s退出大厅 || 当前大厅总人数:%d", uid, players.size()));
+	}
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        // 断开连接
+        ctx.channel().close();
+    }
+
+}

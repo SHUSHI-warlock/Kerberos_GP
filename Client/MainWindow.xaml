@@ -1,0 +1,23 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Client"
+        
+        mc:Ignorable="d"
+        Title="Login" Width="800" Height="480">
+    <Window.Resources>
+        <DrawingImage x:Key="DrawingImage">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M1024,1024z M0,0z M940.8,195.2C928,96,841.6,16,736,16L288,16C182.4,16 96,96 83.2,195.2 35.2,211.2 0,252.8 0,304L0,816C0,876.8,51.2,928,112,928L124.8,928C163.2,976,224,1008,288,1008L736,1008C800,1008,860.8,976,899.2,928L912,928C972.8,928,1024,876.8,1024,816L1024,304C1024,252.8,988.8,211.2,940.8,195.2z M288,48L736,48C822.4,48 892.8,108.8 908.8,192 848,195.2 800,243.2 800,304L800,816 224,816 224,304C224,243.2 176,195.2 115.2,192 131.2,108.8 201.6,48 288,48z M32,816L32,304C32,259.2 67.2,224 112,224 156.8,224 192,259.2 192,304L192,816C192,860.8 156.8,896 112,896 67.2,896 32,860.8 32,816z M736,976L288,976C236.8,976 192,953.6 156.8,918.4 185.6,905.6 208,880 217.6,848L803.2,848C812.8,880 835.2,905.6 864,918.4 832,953.6 787.2,976 736,976z M992,816C992,860.8 956.8,896 912,896 867.2,896 832,860.8 832,816L832,304C832,259.2 867.2,224 912,224 956.8,224 992,259.2 992,304L992,816z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+    </Window.Resources>
+        <Canvas>
+        <Image Source="{StaticResource DrawingImage}" Width="32"/>
+    </Canvas>
+</Window>
