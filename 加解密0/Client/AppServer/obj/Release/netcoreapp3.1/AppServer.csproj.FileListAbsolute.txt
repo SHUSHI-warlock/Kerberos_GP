@@ -1,0 +1,13 @@
+C:\Users\Administrator\source\repos\AppServer\bin\Release\netcoreapp3.1\AppServer.exe
+C:\Users\Administrator\source\repos\AppServer\bin\Release\netcoreapp3.1\AppServer.deps.json
+C:\Users\Administrator\source\repos\AppServer\bin\Release\netcoreapp3.1\AppServer.runtimeconfig.json
+C:\Users\Administrator\source\repos\AppServer\bin\Release\netcoreapp3.1\AppServer.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\AppServer\bin\Release\netcoreapp3.1\AppServer.dll
+C:\Users\Administrator\source\repos\AppServer\bin\Release\netcoreapp3.1\AppServer.pdb
+C:\Users\Administrator\source\repos\AppServer\obj\Release\netcoreapp3.1\AppServer.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\AppServer\obj\Release\netcoreapp3.1\AppServer.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\AppServer\obj\Release\netcoreapp3.1\AppServer.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\AppServer\obj\Release\netcoreapp3.1\AppServer.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\AppServer\obj\Release\netcoreapp3.1\AppServer.dll
+C:\Users\Administrator\source\repos\AppServer\obj\Release\netcoreapp3.1\AppServer.pdb
+C:\Users\Administrator\source\repos\AppServer\obj\Release\netcoreapp3.1\AppServer.genruntimeconfig.cache
