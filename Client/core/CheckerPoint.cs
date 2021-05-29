@@ -69,7 +69,7 @@ namespace Client.core
 
         public override int GetHashCode()
         {
-            //二维映射到一位，N*N可数
+            //二维映射到一位，N*N有限域
             return (x+y+1)*(x + y) / 2 + x;
         }
     }

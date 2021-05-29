@@ -8,11 +8,13 @@ import java.text.MessageFormat;
 
 /**
  * <p>
- * 消息对象，根据协议定义消息格式。消息格式为：magicNumber+length+messageType+logId+flag+消息体byte[]，
- * 前16个字节分别对应4个整数字段，按大端存取数字,第17个字节通过0|1表示请求|响应；
- * 
- * @author myumen
- * @date 2017.09.26
+ * 消息对象，根据协议定义消息格式。消息格式为：messageP2P+messageType+stateCode+unEncode+Length+消息体byte[]，
+ * messageP2P 表示通信双端
+ * messageType 指明该消息是某两方通信中的哪一种报文
+ * stateCode 附带消息状态，一般用于返回结果错误码
+ * unEncode 暂时无含义，属于冗余部分，通常置为-1
+ * Length 为消息体的byte大小
+ * @date 2021.05.10
  */
 public class NettyMessage implements Serializable {
 	private static final long serialVersionUID = 3201210212398130551L;

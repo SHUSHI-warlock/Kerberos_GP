@@ -12,7 +12,7 @@ namespace Client.Converter.LobbyCvt
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((int)value == 1)
+            if ((int)value == 0)
                 return "    未开始";
             else
                 return "    已开始";

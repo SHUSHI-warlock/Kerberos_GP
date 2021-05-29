@@ -60,7 +60,7 @@ namespace Client.core.Services
         public int PlayerNum
         {
             get { return playerNum; }
-            private set
+            set
             {
                 playerNum = value;
                 if (this.PropertyChanged != null)
@@ -77,6 +77,10 @@ namespace Client.core.Services
                     this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("RoomMaxPlayer"));
             }
         }
+        /// <summary>
+        /// 房间状态
+        /// 0是未开始 1是已开始
+        /// </summary>
         public int RoomState
         {
             get { return roomState; }

@@ -94,20 +94,24 @@
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Row="0" Text="房间信息" Foreground="Black" FontSize="16"></TextBlock>
-                        <Image Source="{StaticResource keyImage}" Grid.Column="1" HorizontalAlignment="Right"></Image>
-                        <TextBlock Text="房间号：" FontSize="16" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Image Name="Room_lock" Source="{StaticResource keyImage}" Grid.Column="1" HorizontalAlignment="Right"></Image>
+                        <TextBlock  Text="房间号：" FontSize="16" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBlock x:Name="Text_RoomId" FontSize="16" Padding="10" VerticalAlignment="Center" Text="1" Grid.Row="1" Grid.Column="1"/>
                         <TextBlock Text="房间名：" FontSize="16" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBlock x:Name="Text_RoomName" FontSize="16" Padding="10" VerticalAlignment="Center" Text="asdasfasg" Grid.Row="2" Grid.Column="1"/>
 
                         <TextBlock Text="玩家：" FontSize="16" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBlock x:Name="Text_Player" FontSize="16" Padding="10" VerticalAlignment="Center" Text="4/6" Grid.Row="3" Grid.Column="1"/>
+                        <TextBlock Text="位置：" FontSize="16" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Text_Pos" FontSize="16" Padding="10" VerticalAlignment="Center" Text="0" Grid.Row="4" Grid.Column="1"/>
+
                     </Grid>
                 </Border>
 
@@ -118,7 +122,11 @@
                     </Grid.RowDefinitions>
                     <TextBlock Text="游戏通知" Grid.Row="0" Foreground="White" FontSize="16"></TextBlock>
                     <Border Background="Gainsboro" Grid.Row="1">
-                        <TextBlock MinHeight="100" ></TextBlock>
+                        <ScrollViewer MinHeight="100" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                            <TextBlock x:Name="RoomNews"   TextWrapping="Wrap">
+                         
+                            </TextBlock>
+                        </ScrollViewer>
                     </Border>
                 </Grid>
                 
@@ -134,7 +142,7 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Label Content="房间聊天" Grid.Row="0" Foreground="White" FontSize="16"></Label>
-                    <ListBox MinHeight="100" Grid.Row="1" Name="LobbyChat" Width="auto" ItemTemplate="{StaticResource msgTemplate}"
+                    <ListBox Name="RoomChat" MinHeight="100" Grid.Row="1"  Width="auto" ItemTemplate="{StaticResource msgTemplate}"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     </ListBox>
                     <Grid Grid.Row="2">
@@ -142,8 +150,8 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="SendMag"  Grid.Column="0"></TextBox>
-                        <Button Grid.Column="1" Content="发送" ></Button>
+                        <TextBox x:Name="SendMag"  Grid.Column="0" TextWrapping="WrapWithOverflow"></TextBox>
+                        <Button Grid.Column="1" Content="发送"  Click="ChatButton_Click"></Button>
                     </Grid>
                 </Grid>
 

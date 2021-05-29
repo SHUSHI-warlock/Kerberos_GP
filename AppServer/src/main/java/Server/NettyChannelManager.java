@@ -13,7 +13,6 @@ import java.util.concurrent.ConcurrentMap;
  * 1. 客户端 Channel 的管理
  * 2. 向客户端 Channel 发送消息
  */
-
 public class NettyChannelManager {
     protected static Logger logger = Logger.getLogger(NettyChannelManager.class);
 

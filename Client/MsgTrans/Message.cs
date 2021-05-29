@@ -120,7 +120,6 @@ namespace Client.MsgTrans
             String body = null;
             if (this.messageBody != null && this.messageBody.Length > 0)
             {
-
                 body = Encoding.UTF8.GetString(messageBody);
             }
             return body;

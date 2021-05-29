@@ -67,6 +67,8 @@ namespace Client
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
+            if (!this.IsLoaded)
+                return;
             if(sender.Equals(noBytton))
             {
                 yesButton.IsChecked = false;
@@ -80,7 +82,6 @@ namespace Client
                 PswInput.Visibility = Visibility.Visible;
                 Password.Visibility = Visibility.Visible;
             }
-
         }
 
       

@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -72,12 +73,14 @@
     <Compile Include="core\CheckerCore.cs" />
     <Compile Include="core\CheckerPoint.cs" />
     <Compile Include="core\Services\ChatMsg.cs" />
+    <Compile Include="core\Services\GameMsg.cs" />
     <Compile Include="CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>
     <Compile Include="MessageShow.xaml.cs">
       <DependentUpon>MessageShow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MsgTrans\ClientKey.cs" />
     <Compile Include="MsgTrans\LobbyMsg.cs" />
     <Compile Include="MsgTrans\Message.cs" />
     <Compile Include="MsgTrans\MessageConstain.cs" />

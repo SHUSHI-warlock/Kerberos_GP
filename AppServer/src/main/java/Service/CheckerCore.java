@@ -1,10 +1,16 @@
 package Service;
 
+import Server.CheckerRoom;
+import org.apache.log4j.Logger;
+
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 public class CheckerCore {
+    private static Logger logger = Logger.getLogger(CheckerRoom.class);
+
     public static final int Row = 17;
     public static final int Col = 13;
     public static final int MaxPlayer = 6;
@@ -18,38 +24,65 @@ public class CheckerCore {
     public CheckerCore(){
         finished = new boolean[MaxPlayer+1];
         board = new int[Row][Col];
-    };
-
-    public void startGame(int playerNum)
-    {
         //初始化棋盘
         for (int i = 0; i < Row; i++)
             for (int j = 0; j < Col; j++)
                 board[i][j] = -1;
+    };
 
-        setRegion(true,new Point(0,6), 13, 0);
-        setRegion(false,new Point(7,10), 4, 0);
-        setRegion(false,new Point(7,1), 4, 0);
-        switch (playerNum)
-            {
-                case 6:
-                    setRegion(true,new Point(9,10), 4, 5);
-                    setRegion(false,new Point(7,1), 4, 6);
-                case 4:
-                    setRegion(true,new Point(9,1), 4, 4);
-                    setRegion(false,new Point(7,10), 4, 3);
-                case 2:
-                    setRegion(true,new Point(0,6), 4, 1);
-                    setRegion(false,new Point(16,6), 4, 2);
-                    break;
-            }
-
+    public void startGame(int playerNum)
+    {
         //初始化玩家
         this.playerNum = playerNum;
-        for (int i = 0; i <= playerNum; i++)
-            finished[i]=false;
+        for (int i = 0; i <= MaxPlayer; i++)
+            finished[i]=true;
+
+        //初始化棋盘
+        setRegion(true,new CheckerPoint(0,6), 13, 0);
+        setRegion(false,new CheckerPoint(7,10), 4, 0);
+        setRegion(false,new CheckerPoint(7,1), 4, 0);
+        switch (playerNum)
+        {
+            case 6:
+                setRegion(true,new CheckerPoint(9,10), 4, 3);
+                setRegion(false,new CheckerPoint(7,1), 4, 6);
+                finished[3]=false;finished[6]=false;
+            case 4:
+                setRegion(true,new CheckerPoint(9,1), 4, 2);
+                setRegion(false,new CheckerPoint(7,10), 4, 5);
+                finished[2]=false;finished[5]=false;
+            case 2:
+                setRegion(true,new CheckerPoint(0,6), 4, 1);
+                setRegion(false,new CheckerPoint(16,6), 4, 4);
+                finished[1]=false;finished[4]=false;
+                break;
+        }
         curPlayer = 1;
     }
+
+    public int playerMove(GameMsg msg){
+        if(msg.pos!=curPlayer)
+            return 1;
+        else if(!canMove(msg.s,msg.e))
+            return 2;
+        else {
+            //执行移动
+            move(msg.s,msg.e);
+            if(isFinished(msg.pos))
+                finished[msg.pos] = true;
+            return 0;
+        }
+    }
+
+    public int nextMove(){
+        curPlayer = getNextPlayer();
+        if(curPlayer==-1)
+        {
+            logger.warn("都走完了！");
+        }
+        return curPlayer;
+    }
+
 
     /**
      * 返回当前能走的路
@@ -57,14 +90,14 @@ public class CheckerCore {
      * @param pre 之前走过的点
      * @return 当前可走的路 没有返回null
      */
-    private List<Point> getNextStep(Point p,Stack<Point> pre) {
-        List<Point> cur = new ArrayList<>(6);
-        Point temp;boolean isPre;
+    private List<CheckerPoint> getNextStep(CheckerPoint p, Stack<CheckerPoint> pre) {
+        List<CheckerPoint> cur = new ArrayList<>(6);
+        CheckerPoint temp;boolean isPre;
         for (int i = 0; i < 6; i++) {
             temp = getAJump(p,i);   //六个方向全看一遍
             if(temp!=null){
                 isPre = false;
-                for (Point pp:pre) {//判断有没有走之前走的
+                for (CheckerPoint pp:pre) {//判断有没有走之前走的
                     if(temp.coincide(pp)){
                         isPre = true;
                         break;
@@ -84,19 +117,19 @@ public class CheckerCore {
      * @param pre 路径
      * @return 是否可达
      */
-    private boolean dfs(Point end,Stack<Point> pre) {
-        Point cur = pre.peek();
+    private boolean dfs(CheckerPoint end, Stack<CheckerPoint> pre) {
+        CheckerPoint cur = pre.peek();
         if(cur.coincide(end)) return true;
-        List<Point> curSteps = getNextStep(cur,pre);
+        List<CheckerPoint> curSteps = getNextStep(cur,pre);
         if(curSteps==null)  //无处可走
             return false;
-        for (Point pp:curSteps) {   //这步可以走到
+        for (CheckerPoint pp:curSteps) {   //这步可以走到
             if(pp.coincide(end)) {
                 pre.push(pp);
                 return true;
             }
         }
-        for (Point pp:curSteps) {   //尝试走这一步
+        for (CheckerPoint pp:curSteps) {   //尝试走这一步
             pre.push(pp);
             if(dfs(end, pre)) return true;
             else pre.pop();
@@ -110,7 +143,7 @@ public class CheckerCore {
      * @param e 终点
      * @return 是否可达(也可以返回路径)
      */
-    public boolean canMove(Point s,Point e) {
+    private boolean canMove(CheckerPoint s, CheckerPoint e) {
         //判断s和e的合法性
         if(isOut(s)||isOut(e)||isBlank(s)||!isBlank(e))
             return false;
@@ -118,14 +151,14 @@ public class CheckerCore {
         // TODO: 2021/4/29 (怎么判断进了非对家？)
 
         //挪动操作
-        Point temp;
+        CheckerPoint temp;
         for (int i = 0; i < 6; i++) {
             temp = getAround(s,i);
             if(!isOut(temp)&&isBlank(temp)&&e.coincide(temp)) return true;
         }
 
         //DFS搜索
-        Stack<Point> steps = new Stack<>();
+        Stack<CheckerPoint> steps = new Stack<>();
         steps.push(s);
         if(dfs(e,steps))
             return true;
@@ -138,8 +171,8 @@ public class CheckerCore {
      * @param way 方向，与getAround规定一致
      * @return 返回落点，否则返回null
      */
-    private Point getAJump(Point p, int way){
-        Point temp = new Point(p);
+    private CheckerPoint getAJump(CheckerPoint p, int way){
+        CheckerPoint temp = new CheckerPoint(p);
         for(int i=1;;i++) {
             temp = getAround(temp, way);
             if (isOut(temp)) return null;
@@ -158,7 +191,7 @@ public class CheckerCore {
      * @param s 起点
      * @param e 终点
      */
-    public void move(Point s,Point e) {
+    private void move(CheckerPoint s, CheckerPoint e) {
         int temp = board[s.x][s.y];
         board[s.x][s.y] = 0;
         board[e.x][e.y] = temp;
@@ -179,20 +212,21 @@ public class CheckerCore {
      * @return 完成:true 未完成:false
      */
     public boolean isFinished(int player) {
-        boolean trType ;Point top;int length=4;
+        boolean trType ;
+        CheckerPoint top;int length=4;
         switch (player)
         {//这里要设置对家的信息
-            case 1:trType = false;top = new Point(16,6);break;
-            case 3:trType = true; top = new Point(9,1); break;
-            case 5:trType = false;top = new Point(7,1); break;
-            case 2:trType = true; top = new Point(0,6); break;
-            case 4:trType = false;top = new Point(7,10);break;
-            case 6:trType = true; top = new Point(9,10);break;
+            case 1:trType = false;top = new CheckerPoint(16,6);break;
+            case 2:trType = true; top = new CheckerPoint(9,1); break;
+            case 3:trType = false;top = new CheckerPoint(7,1); break;
+            case 4:trType = true; top = new CheckerPoint(0,6); break;
+            case 5:trType = false;top = new CheckerPoint(7,10);break;
+            case 6:trType = true; top = new CheckerPoint(9,10);break;
             default:// TODO: 2021/4/29 添加错误日志
                 System.out.println("错误");
                 return false;
         }
-        Point temp = new Point(top);
+        CheckerPoint temp = new CheckerPoint(top);
         int way = trType?1:0;       //三角形方向，1左下，0左上
         int up = trType?1:-1;       //增加方向
         for (int i = top.x, k=1; up*i < up*top.x+length; i+=up,k++) {
@@ -201,8 +235,6 @@ public class CheckerCore {
                     return false;
             temp = getAround(temp,way);
         }
-
-        finished[player] = true;
         return true;
     }
 
@@ -227,16 +259,16 @@ public class CheckerCore {
 
     /**
      * 计算下一个回合移动的玩家
-     * @return 如果其他人都完成就返回自己（哪怕自己也完成了）
+     * @return 返回下一个该走的，如果所有人都走完了返回-1
      */
-    public int getNextPlayer() {
-        for(int i=curPlayer+1; ;i++)
+    private int getNextPlayer(){
+        for(int i=curPlayer; ;)
         {
-            i = (i-1)%playerNum+1;
-            if(i==curPlayer)    //循环了，其他都走完了
-                return curPlayer;
+            i = i%MaxPlayer+1;
             if(!getFinished(i))
                 return i;
+            else if(i==curPlayer)    //循环了，所有人都走完了
+                return -1;
         }
     }
 
@@ -245,22 +277,22 @@ public class CheckerCore {
      * @param p 坐标
      * @return 区域号
      */
-    private int getRegion(Point p) {
+    private int getRegion(CheckerPoint p) {
         if(isOut(p))
             return -1;
-        if(isInRegion(false,new Point(7,10), 4, p)) return 3;
-        if(isInRegion(false,new Point(16,6), 4, p)) return 2;
-        if(isInRegion(false,new Point(7,1), 4, p))  return 6;
+        if(isInRegion(false,new CheckerPoint(7,10), 4, p)) return 3;
+        if(isInRegion(false,new CheckerPoint(16,6), 4, p)) return 2;
+        if(isInRegion(false,new CheckerPoint(7,1), 4, p))  return 6;
 
-        if(isInRegion(true,new Point(0,6), 4, p))   return 1;
-        if(isInRegion(true,new Point(9,10), 4, p))  return 5;
-        if(isInRegion(true,new Point(9,1), 4, p))   return 4;
+        if(isInRegion(true,new CheckerPoint(0,6), 4, p))   return 1;
+        if(isInRegion(true,new CheckerPoint(9,10), 4, p))  return 5;
+        if(isInRegion(true,new CheckerPoint(9,1), 4, p))   return 4;
 
-        if(isInRegion(true,new Point(0,6), 13, p))  return 0;
+        if(isInRegion(true,new CheckerPoint(0,6), 13, p))  return 0;
         else return -1;
     }
 
-    public int getChess(Point p){
+    public int getChess(CheckerPoint p){
         if(isOut(p))
             return -1;
         return board[p.x][p.y];
@@ -274,8 +306,8 @@ public class CheckerCore {
      * @param p 坐标
      * @return 在:true 不在:false
      */
-    private boolean isInRegion(boolean trType,Point top,int length,Point p) {
-        Point temp = new Point(top);
+    private boolean isInRegion(boolean trType, CheckerPoint top, int length, CheckerPoint p) {
+        CheckerPoint temp = new CheckerPoint(top);
         int way = trType?1:0;       //三角形方向，1左下，0左上
         int up = trType?1:-1;       //增加方向
         for (int i = top.x, k=1; up*i < up*top.x+length; i+=up,k++) {
@@ -293,8 +325,8 @@ public class CheckerCore {
      * @param length 边长
      * @param value 值
      */
-    private void setRegion(boolean trType,Point top,int length,int value) {
-        Point temp = new Point(top);
+    private void setRegion(boolean trType, CheckerPoint top, int length, int value) {
+        CheckerPoint temp = new CheckerPoint(top);
         int way = trType?1:0;       //三角形方向，1左下，0左上
         int up = trType?1:-1;       //增加方向
         for (int i = top.x, k=1; up*i < up*top.x+length; i+=up,k++) {
@@ -309,7 +341,7 @@ public class CheckerCore {
      * @param p 坐标
      * @return 出界:true 未出界:false
      */
-    private boolean isOut(Point p){
+    private boolean isOut(CheckerPoint p){
         if(p.x<0||p.x>=Row||p.y<0||p.y>=Col)
             return true;
         return board[p.x][p.y] == -1;
@@ -320,7 +352,7 @@ public class CheckerCore {
      * @param p 点
      * @return 是否
      */
-    private boolean isBlank(Point p) {
+    private boolean isBlank(CheckerPoint p) {
         return board[p.x][p.y]==0;
     }
 
@@ -332,15 +364,18 @@ public class CheckerCore {
      * 测试样例： p(1,1) 0(0,1) 1(2,1) 2(0,2) 3(2,2) 4(1,0) 5(1,2)
      *          p(2,1) 0(1,0) 1(3,0) 2(1,1) 3(3,1) 4(2,0) 5(2,2)
      */
-    private Point getAround(Point p,int way){
-        Point temp = new Point(p);
+    private CheckerPoint getAround(CheckerPoint p, int way){
+        CheckerPoint temp = new CheckerPoint(p);
         if(way==4)
             temp.y--;
         else if(way == 5)
             temp.y++;
         else{
             temp.x += way%2==1?1:-1;
-            temp.y += AroundY[4*(p.x%2)+way];
+            if((p.x % 2)==0)
+                temp.y += AroundY[way];
+            else
+                temp.y += AroundY[4+way];
         }
         return temp;
     }
@@ -371,13 +406,13 @@ public class CheckerCore {
         game.startGame(1);
 
         //game.printBoard();
-        game.setRegion(true,new Point(0,6), 13, 0);
-        game.setRegion(true,new Point(0,6), 4, 1);
-        game.setRegion(true,new Point(9,10), 4, 5);
-        game.setRegion(true,new Point(9,1), 4, 4);
-        game.setRegion(false,new Point(7,10), 4, 3);
-        game.setRegion(false,new Point(16,6), 4, 2);
-        game.setRegion(false,new Point(7,1), 4, 6);
+        game.setRegion(true,new CheckerPoint(0,6), 13, 0);
+        game.setRegion(true,new CheckerPoint(0,6), 4, 1);
+        game.setRegion(true,new CheckerPoint(9,10), 4, 5);
+        game.setRegion(true,new CheckerPoint(9,1), 4, 4);
+        game.setRegion(false,new CheckerPoint(7,10), 4, 3);
+        game.setRegion(false,new CheckerPoint(16,6), 4, 2);
+        game.setRegion(false,new CheckerPoint(7,1), 4, 6);
 
         System.out.println("");
         //game.printBoard();
@@ -385,8 +420,8 @@ public class CheckerCore {
         //验证区域判断错误
         for (int i = 0; i < Row; i++)
             for (int j = 0; j < Col; j++)
-                if(game.getRegion(new Point(i,j))!=game.board[i][j]) {
-                    System.out.printf("错误：[%d,%d]=%d region=%d\n",i,j,game.board[i][j],game.getRegion(new Point(i,j)));
+                if(game.getRegion(new CheckerPoint(i,j))!=game.board[i][j]) {
+                    System.out.printf("错误：[%d,%d]=%d region=%d\n",i,j,game.board[i][j],game.getRegion(new CheckerPoint(i,j)));
                 }
 
         //game.setRegion(false,new Point(7,10), 4, 4);
@@ -404,7 +439,7 @@ public class CheckerCore {
             System.out.println("下一跳:「"+pp.x+","+pp.y+"」");
         }
 */
-        boolean a = game.canMove(new Point(0,6),new Point(8,4));
+        boolean a = game.canMove(new CheckerPoint(0,6),new CheckerPoint(8,4));
         System.out.println(a);
     }
 

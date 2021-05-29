@@ -78,9 +78,9 @@ namespace Client
                 client.Close();
                 return;
             }
-            Message message = msg as Message;
             
-            if (message.MessageP2P==2&&message.MessageType==1&&message.StateCode==0)
+            
+            if (msg.MessageP2P==2&&msg.MessageType==1&&msg.StateCode==0)
             {
                 //验证成功！
                 //client.OnReceive -= ServerAuth;

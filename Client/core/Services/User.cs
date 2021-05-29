@@ -29,7 +29,7 @@ namespace Client.core.Services
         offline = 0,        //离线
         online = 1,         //在线，大厅中
         enter_room = 2,     //进入房间中
-        exit_rome = 3,      //退出房间中
+        exit_room = 3,      //退出房间中
         in_room = 4,        //在房间中
         prepared = 5,       //准备
         unprepared = 6,     //未准备

@@ -184,7 +184,7 @@ namespace Client.Utils.UIHelper
             logger.Debug("ShowMovePath 显示移动动画!");
             List<CheckerPoint> roadpath = new List<CheckerPoint>(path);
             
-            checkers[boards[roadpath[path.Count-1]].x, boards[roadpath[path.Count-1]].y].ShowRoad(roadpath);
+            checkers[boards[roadpath[0]].x, boards[roadpath[0]].y].ShowRoad(roadpath);
 
         }
         

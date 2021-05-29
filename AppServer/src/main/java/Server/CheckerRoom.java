@@ -1,14 +1,12 @@
 package Server;
 
-import Service.CheckerCore;
-import Service.Constant;
-import Service.Room;
-import Service.RoomInfo;
+import Service.*;
 import Service.User.Player;
 import com.google.gson.Gson;
-
+import org.apache.log4j.Logger;
 
 public class CheckerRoom implements Room {
+    private static org.apache.log4j.Logger logger = Logger.getLogger(CheckerRoom.class);
     private NettyChannelManager nettyChannelManager;
     private static Gson gson = new Gson();
 
@@ -25,7 +23,7 @@ public class CheckerRoom implements Room {
     {
         game = new CheckerCore();
         this.roomInfo = roomInfo;
-        this.roomInfo.setRoomState(1); //未开始
+        this.roomInfo.setRoomState(0); //未开始
         this.nettyChannelManager = nettyChannelManager;
 
         playerPos = new boolean[7];
@@ -60,6 +58,7 @@ public class CheckerRoom implements Room {
                 break;
             }
         }
+
         roomInfo.addPlayer(p);
 
         // TODO: 2021/5/13 通知其他玩家有人进入房间
@@ -98,10 +97,27 @@ public class CheckerRoom implements Room {
             p.userState = Constant.prepared;
             NettyMessage playerStateMessage = new NettyMessage(2,6,0);
             playerStateMessage.setMessageBody(gson.toJson(p));
-
             sendOthers(p.getUserId(),playerStateMessage);
         }
+        //判断是否开始了
+        if(CanStart())
+        {
+            new Thread( new Runnable() {
+                public void run(){
+                    logger.debug(String.format("房间%d开始游戏！",roomInfo.getRoomId()));
+                    roomInfo.setRoomState(1);
 
+                    game.startGame(roomInfo.getPlayerNum());
+                    int curr = game.getCurPlayer();
+
+                    NettyMessage gameMessage = new NettyMessage(2,7,0);
+                    //游戏开始时发送第一个移动玩家
+                    GameMsg gameMsg = new GameMsg(0,curr);
+                    gameMessage.setMessageBody(gson.toJson(gameMsg));
+                    sendAll(gameMessage);
+                    }
+            }).start();
+        }
     }
 
     @Override
@@ -115,9 +131,71 @@ public class CheckerRoom implements Room {
         }
     }
 
+    public void msgHandle(String user,NettyMessage m)
+    {
+        logger.info(String.format("用户%s房间消息发送！",user));
+        sendOthers(user,m);
+    }
+
+    private boolean CanStart()
+    {
+        if (roomInfo.getPlayerNum() == roomInfo.getRoomMaxPlayer())
+        {
+            for(Player p : roomInfo.getPlayers())
+            if (p != null && p.userState == Constant.unprepared)
+                return false;
+            return true;
+        }
+        return false;
+    }
+
+    public void playerMove(Player p,GameMsg msg)
+    {
+        NettyMessage backMessage = new NettyMessage(2,8,0);
+
+        int res = game.playerMove(msg);
+        if(res==0) {
+            logger.info(String.format("%d号玩家%s提交移动成功",msg.pos,p.getUserId()));
+            send2Player(p.getUserId(),backMessage);
+            //广播给其他玩家
+            NettyMessage boardcastMsg = new NettyMessage(2,7,0);
+            boardcastMsg.setMessageBody(gson.toJson(msg));
+            sendOthers(p.getUserId(),boardcastMsg);
+
+            //判断游戏是否结束
+            if(game.isGameOver()){
+                NettyMessage bMsg = new NettyMessage(2,7,0);
+                GameMsg gameMsg = new GameMsg(1,-1);
+                bMsg.setMessageBody(gson.toJson(gameMsg));
+                sendAll(bMsg);
+                //游戏结束
+                roomInfo.setRoomState(0);
+            }
+            else {//计算下一个移动玩家
+                int nextPos = game.nextMove();
+
+                NettyMessage bMsg = new NettyMessage(2,7,0);
+                GameMsg gameMsg = new GameMsg(2,nextPos);
+                bMsg.setMessageBody(gson.toJson(gameMsg));
+                sendAll(bMsg);
+            }
+        }
+        else if(res==1) {
+            logger.warn(String.format("当前不是%d号玩家%s的移动回合",msg.pos,p.getUserId()));
+            backMessage.setStateCode(1);
+            send2Player(p.getUserId(),backMessage);
+        }
+        else {
+            logger.error(String.format("%d号玩家%s的移动无效！",msg.pos,p.getUserId()));
+            backMessage.setStateCode(2);
+            send2Player(p.getUserId(),backMessage);
+        }
+    }
+
     private void send2Player(String id, NettyMessage message){
         nettyChannelManager.send(id,message);
     }
+
     private void sendAll(NettyMessage message){
         for(Player p : roomInfo.getPlayers()){
             if(p!=null)

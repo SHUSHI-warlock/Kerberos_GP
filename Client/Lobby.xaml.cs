@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 
+
 namespace Client
 {
     /// <summary>
@@ -31,6 +32,7 @@ namespace Client
         public Player player;
         //private GameRoom gameRoom;
 
+
         /// <summary>
         /// 房间对象
         /// </summary>
@@ -40,6 +42,11 @@ namespace Client
         /// 创建房间的信息
         /// </summary>
         public static RoomInfo createRoom;
+
+        /// <summary>
+        /// 消息读取器的开关
+        /// </summary>
+        //private volatile bool canStop = false;
 
         private DispatcherTimer ShowTimer;  //时间刷新
         public Lobby(MyTcpClient client, User user)
@@ -60,7 +67,7 @@ namespace Client
             //player = new Player("lzh");
             //gameRoom = new GameRoom();
 
-           
+
         }
 
         /// <summary>
@@ -101,7 +108,7 @@ namespace Client
 
             //开一个读线程读取数据
             Thread thread = new Thread(new ParameterizedThreadStart(ReciveHandle));
-            thread.IsBackground = true;
+            thread.IsBackground = true; //主线程退出时自动结束
             thread.Start(client);
 
             //messageShowWin.SenderText.Text = "你大爷";
@@ -120,14 +127,14 @@ namespace Client
             users.Add(new User("ltl", UserState.online));
             users.Add(new User("lyx", UserState.offline));
 
-            allRoomInfos.Add(new RoomInfo(0, "asd", 4, 2, -1, 0));
+            allRoomInfos.Add(new RoomInfo(0, "1", 4, 2, -1, 0));
             allRoomInfos.Add(new RoomInfo(1, "我带你们打asdafasf", 6, 2, -1, 1));
-            allRoomInfos.Add(new RoomInfo(2, "asd", 4, 2, -1, 0));
-            allRoomInfos.Add(new RoomInfo(3, "asfg", 4, 0, 1, 1));
-            allRoomInfos.Add(new RoomInfo(4, "asd", 4, 2, -1, 0));
+            allRoomInfos.Add(new RoomInfo(2, "5", 4, 2, -1, 0));
+            allRoomInfos.Add(new RoomInfo(3, "2", 4, 0, 1, 1));
+            allRoomInfos.Add(new RoomInfo(4, "4", 4, 2, -1, 0));
             allRoomInfos.Add(new RoomInfo(5, "进这个房间可以游戏", 2, 0, 1, 0));
-            allRoomInfos.Add(new RoomInfo(6, "asd", 4, 2, -1, 1));
-            allRoomInfos.Add(new RoomInfo(7, "asd", 4, 2, -1, 0));
+            allRoomInfos.Add(new RoomInfo(6, "3", 4, 2, -1, 1));
+            allRoomInfos.Add(new RoomInfo(7, "7", 4, 2, -1, 0));
 
             allRoomInfos[0].addPlayer(new Player("wl", 1, 233));
             allRoomInfos[0].addPlayer(new Player("wbc", 4, 233));
@@ -138,18 +145,22 @@ namespace Client
             allRoomInfos[5].addPlayer(temp);
 
 
-            lobbyMsgs.Add(new ChatMsg("lzh",new DateTime(2021,5,20,13,36,24),"喂喂喂！"));
+            lobbyMsgs.Add(new ChatMsg("lzh", new DateTime(2021, 5, 20, 13, 36, 24), "喂喂喂！"));
             lobbyMsgs.Add(new ChatMsg("lzh", new DateTime(2021, 5, 20, 13, 36, 24), "呦呦呦，这不是摇摆羊吗?几天不见这么拉了？"));
             lobbyMsgs.Add(new ChatMsg("lzh", new DateTime(2021, 5, 20, 13, 36, 24), "喂喂喂！"));
 
             showRoomInfo();
         }
 
+        /// <summary>
+        /// 循环接收消息
+        /// </summary>
+        /// <param name="Client"></param>
         public void ReciveHandle(object Client)
         {
             MyTcpClient tcpClient = Client as MyTcpClient;
 
-            while(true)
+            while (true)
             {
                 Message message = tcpClient.Recive();
                 switch (message.MessageType)
@@ -166,13 +177,14 @@ namespace Client
                     case 5:
                         MsgHandler(message);
                         break;
-                    
                     default:
                         //
                         break;
                 }
             }
         }
+
+        #region 客户端处理服务器消息函数
 
         /// <summary>
         /// 处理服务器返回的服务器消息
@@ -185,7 +197,7 @@ namespace Client
                 logger.Info("大厅信息已收到，准备刷新！");
                 string temp = message.bodyToString();
                 LobbyMsg lobbyMsg = JsonConvert.DeserializeObject<LobbyMsg>(temp);
-                if(lobbyMsg==null)
+                if (lobbyMsg == null)
                 {
                     logger.Info("大厅信息解析失败！");
                     return;
@@ -209,7 +221,7 @@ namespace Client
         /// <param name="message"></param>
         public void CreateRoomHandler(Message message)
         {
-            if(message.StateCode==0)
+            if (message.StateCode == 0)
             {//创建房间成功
                 logger.Debug("创建房间成功！");
                 //MessageBox.Show("创建房间成功！");
@@ -229,34 +241,39 @@ namespace Client
         /// <param name="message"></param>
         public void EnterRoomHandler(Message message)
         {
-            if(message.StateCode==0)
+            if (message.StateCode == 0)
             {//加入房间成功！
                 logger.Debug("加入房间成功，即将进入房间！");
+                //提示框显示
                 RoomInfo room = JsonConvert.DeserializeObject<RoomInfo>(message.bodyToString());
-                
+
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     EnterRoom(room);
                 });
             }
-            else if (message.StateCode==1)
+            else if (message.StateCode == 1)
             {
                 logger.Error("房间已经不存在！ error:501");
+                //提示框显示
                 MessageBox.Show("房间已经不存在了！\n error:501");
             }
-            else if(message.StateCode == 2)
+            else if (message.StateCode == 2)
             {
                 logger.Error("房间满人了！error:502");
+                //提示框显示
                 MessageBox.Show("房间满人了！\n error:502");
             }
             else if (message.StateCode == 3)
             {
                 logger.Error("房间已经开始了！ error:503");
+                //提示框显示
                 MessageBox.Show("房间已经开始了！\n error:503");
             }
-            else 
+            else
             {
                 logger.Error("房间加入失败！ error:未知错误");
+                //提示框显示
                 MessageBox.Show("房间加入失败！\n error:未知错误");
             }
 
@@ -273,7 +290,7 @@ namespace Client
             {//接收消息成功
                 ChatMsg msg = JsonConvert.DeserializeObject<ChatMsg>(message.bodyToString());
 
-                if (msg.Type==1)
+                if (msg.Type == 1)
                 {
                     logger.Debug("收到一条大厅消息！");
                     Application.Current.Dispatcher.Invoke(() =>
@@ -293,35 +310,51 @@ namespace Client
                 logger.Error("报文状态错误！");
             }
         }
+       
+        #endregion
 
+        #region 客户端请求函数
+
+        /// <summary>
+        /// 请求大厅信息
+        /// </summary>
         public void QueryLobbyInfo()
         {
-            Message message = new Message(1,2, 0);
+            Message message = new Message(1, 2, 0);
             client.Send(message);
         }
-
+        /// <summary>
+        /// 请求创建房间
+        /// </summary>
+        /// <param name="room"></param>
         public void QueryCreateRoom(RoomInfo room)
         {
             Message message = new Message(1, 3, 0);
             message.SetBody(room);
             client.Send(message);
         }
-
+        /// <summary>
+        /// 请求进入房间
+        /// </summary>
+        /// <param name="room"></param>
         public void QueryEnterRoom(RoomInfo room)
         {
             Message message = new Message(1, 4, 0);
             message.SetBody(room);
             client.Send(message);
         }
-
+        /// <summary>
+        /// 发送聊天消息
+        /// </summary>
+        /// <param name="msg"></param>
         public void SendChatMsg(ChatMsg msg)
         {
             Message message = new Message(1, 8, 0);
-            msg.Type = 1;
             message.SetBody(msg);
             client.Send(message);
         }
 
+        #endregion
 
         /// <summary>
         /// 刷新房间页面
@@ -338,7 +371,7 @@ namespace Client
                     roomInfos.Add(room);
                 }
             }
-            RoomNum.Content = String.Format("{0}/{1}",filterNum,allRoomInfos.Count);
+            RoomNum.Content = String.Format("{0}/{1}", filterNum, allRoomInfos.Count);
         }
         /// <summary>
         /// 过滤房间
@@ -353,21 +386,21 @@ namespace Client
                 return false;
             if ((bool)HasPassword.IsChecked && IsRoomHasPsw(room))
                 return false;
-            if (MaxPlayer.SelectedItem != null&&
+            if (MaxPlayer.SelectedItem != null &&
                 !MaxPlayer.Text.Equals("all") &&
                 !MaxPlayer.Text.Equals(room.RoomMaxPlayer.ToString()))
                 return false;
 
 
-            if (KeyWords.Text == ""||
+            if (KeyWords.Text == "" ||
                 room.RoomId.ToString().Contains(KeyWords.Text) ||
                 room.RoomName.Contains(KeyWords.Text))
-            //搜索
+                //搜索
                 return true;
-            
+
             return false;
-            
-           
+
+
         }
         private bool IsRoomFull(RoomInfo room)
         {
@@ -392,7 +425,6 @@ namespace Client
             playerNum.Content = string.Format("服务器人数:{0}人", users.Count);
         }
 
-
         /// <summary>
         /// 进入房间
         /// </summary>
@@ -400,10 +432,10 @@ namespace Client
         private void EnterRoom(RoomInfo room)
         {
             bool flag = false;
-            foreach( Player p in room.players)
+            foreach (Player p in room.players)
             {
                 if (p == null) continue;
-                if(p.userId==player.userId&&p.userState==UserState.enter_room)
+                if (p.userId == player.userId && p.userState == UserState.enter_room)
                 {
                     player = p;
                     p.userState = UserState.unprepared;
@@ -412,16 +444,16 @@ namespace Client
                 }
             }
 
-            if(!flag)
+            if (!flag)
             {
                 logger.Error("传回的房间信息中没有自己!!!");
                 return;
             }
 
             //
-            this.IsEnabled=false;
+            this.IsEnabled = false;
             messageShowWin.Hide();
-            gameRoom = new GameRoom();
+            gameRoom = new GameRoom(client);
             gameRoom.SetPlayer(player);
             gameRoom.ShowRoom(room);
             //gameRoom.ShowRoom(room,player);
@@ -443,13 +475,13 @@ namespace Client
             logger.Info("PreviousSize:" + e.PreviousSize.ToString());
             //logger.Info("NewSize:"+e.NewSize.ToString());
 
-            foreach(GridViewColumn g in RoomGridView.Columns)
+            foreach (GridViewColumn g in RoomGridView.Columns)
             {
                 switch (g.Header)
                 {
-                    case "":g.Width = 30;break;
+                    case "": g.Width = 30; break;
                     case "房间号": g.Width = 45; break;
-                    case "房间名": g.Width = e.NewSize.Width-290; break;
+                    case "房间名": g.Width = e.NewSize.Width - 290; break;
                     case "最大人数": g.Width = 60; break;
                     case "当前人数": g.Width = 60; break;
                     case "状态": g.Width = 80; break;
@@ -466,13 +498,13 @@ namespace Client
         private void CheckedChanged(object sender, RoutedEventArgs e)
         {
             logger.Info(String.Format("过滤条件:房间未满：{0} 房间未开始：{1} 房间无密码：{2} ",
-                (bool)IsFull.IsChecked?"True":"False", (bool)IsStart.IsChecked ? "True" : "False", (bool)HasPassword.IsChecked ? "True" : "False"));
+                (bool)IsFull.IsChecked ? "True" : "False", (bool)IsStart.IsChecked ? "True" : "False", (bool)HasPassword.IsChecked ? "True" : "False"));
 
             showRoomInfo();
         }
         private void KeyWords_TextChanged(object sender, TextChangedEventArgs e)
         {
-            logger.Info("关键字过滤:"+((TextBox)sender).Text);
+            logger.Info("关键字过滤:" + ((TextBox)sender).Text);
             showRoomInfo();
         }
         private void MaxPlayer_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -483,7 +515,27 @@ namespace Client
             showRoomInfo();
         }
 
-        
+
+        /// <summary>
+        /// 禁止运行期间关闭
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            //TODO 退出时发送报文
+            player.userState = UserState.offline;
+            //PlayerStateChanged(_player);
+            Message message = new Message(1, 10, 0);
+            client.Send(message);
+
+            client.Close();
+            
+
+            logger.Debug("退出大厅!");
+            messageShowWin.Hide();
+        }
+
+
         /// <summary>
         /// 退出点击
         /// </summary>
@@ -491,11 +543,12 @@ namespace Client
         /// <param name="e"></param>
         private void Exit_ButtonDown(object sender, MouseButtonEventArgs e)
         {
-            logger.Debug("退出大厅!");
-            messageShowWin.Hide();
+            
             this.Close();
         }
-        
+
+
+
         /// <summary>
         /// 刷新点击
         /// </summary>
@@ -538,31 +591,49 @@ namespace Client
         private void EnterRoom_ButtonDown(object sender, MouseButtonEventArgs e)
         {
             //选中房间？
-            if(RoomList.SelectedValue == null)
+            if (RoomList.SelectedValue == null)
             {
                 logger.Error("进入房间:未选中房间！");
+                //提示框显示
                 return;
             }
-            
+
+
             RoomInfo room = (RoomInfo)RoomList.SelectedValue;
-            
+
+            if (room.PlayerNum == room.RoomMaxPlayer)
+            {
+                logger.Debug("选中的房间人已满！");
+                //提示框显示
+
+                return;
+            }
+            if (room.RoomState == 1)
+            {
+                logger.Debug("选中的房间已经开始游戏！");
+                //提示框显示
+
+                return;
+            }
+
             //有密码？有则弹出密码框
-            if(room.HasPsw==1)
+            if (room.HasPsw == 1)
             {//弹出创建房间页面
                 ShowNavigationWindow("输入房间密码", "PswInput.xaml", 300, 200);
-                if(createRoom==null)
+                if (createRoom == null)
                 {
                     logger.Debug(String.Format("用户取消进入房间！"));
                     return;
                 }
                 createRoom.RoomId = room.RoomId;
             }
-            else{
+            else
+            {
                 createRoom = new RoomInfo(room.RoomId, "");
             }
 
             //发送消息
-            logger.Debug(String.Format("请求进入房间{0}!",room.RoomId));
+            logger.Debug(String.Format("请求进入房间{0}!", room.RoomId));
 
             QueryEnterRoom(room);
         }
@@ -577,14 +648,14 @@ namespace Client
             //弹出创建房间页面
             ShowNavigationWindow("创建房间", "CreateRoom.xaml", 600, 350);
 
-            if(createRoom==null)
+            if (createRoom == null)
             {
                 logger.Info("取消创建");
             }
             else
             {
                 //RoomInfo room = window.
-                logger.Debug(String.Format("创建房间:房间名：{0} 最大人数：{1} 密码：{2}",createRoom.RoomName,createRoom.RoomMaxPlayer,createRoom.RoomPsw));
+                logger.Debug(String.Format("创建房间:房间名：{0} 最大人数：{1} 密码：{2}", createRoom.RoomName, createRoom.RoomMaxPlayer, createRoom.RoomPsw));
                 QueryCreateRoom(createRoom);
             }
         }
@@ -598,6 +669,7 @@ namespace Client
             }
 
             ChatMsg msg = new ChatMsg(player.userId, DateTime.Now, SendMag.Text);
+            msg.Type = 1;   //大厅消息
 
             //发送出去
             logger.Debug("发送消息！");
@@ -610,5 +682,8 @@ namespace Client
             lobbyMsgs.Add(msg);
 
         }
+
+
+
     }
 }

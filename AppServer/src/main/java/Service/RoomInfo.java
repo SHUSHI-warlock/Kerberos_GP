@@ -1,12 +1,7 @@
 package Service;
 
 import Service.User.Player;
-import myutil.ByteTransUtil;
 import org.apache.log4j.Logger;
-
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RoomInfo {
     protected static Logger logger = Logger.getLogger(RoomInfo.class);
@@ -17,7 +12,7 @@ public class RoomInfo {
     private int RoomMaxPlayer;
     private int HasPsw;
     private Player[] players;
-    private int playerNum;
+    private int PlayerNum;
     private int RoomState;
 
     /*setter*/
@@ -50,7 +45,7 @@ public class RoomInfo {
         return RoomMaxPlayer;
     }
     public int getPlayerNum() {
-        return playerNum;
+        return PlayerNum;
     }
     public int getHasPsw(){return HasPsw;}
 
@@ -58,24 +53,24 @@ public class RoomInfo {
     public void addPlayer(Player p){
         if(players==null)
             players = new Player[7];
-        if(playerNum== RoomMaxPlayer) {
+        if(PlayerNum == RoomMaxPlayer) {
             logger.error("房间已满但是还在加人！");
             return;
         }
         players[p.pos]=p;
-        playerNum++;
+        PlayerNum++;
     }
     public void removePlayer(Player p){
-        if(players==null||playerNum==0)
+        if(players==null|| PlayerNum ==0)
             return;
         players[p.pos]=null;
-        playerNum--;
+        PlayerNum--;
     }
 
     public RoomInfo()
     {
         //players = new ArrayList<>();
-        playerNum = 0;
+        PlayerNum = 0;
     }
     //发送创建房间信息
     public RoomInfo(String name,String Psw,int maxPlayer)
@@ -89,7 +84,7 @@ public class RoomInfo {
             RoomPsw = Psw;
         }
         RoomMaxPlayer = maxPlayer;
-        playerNum = 0;
+        PlayerNum = 0;
     }
 
     //加入房间消息
@@ -104,13 +99,13 @@ public class RoomInfo {
         this.HasPsw = hasPsw;
         this.RoomMaxPlayer = maxPlayer;
         this.RoomId = id;
-        this.playerNum = players;
+        this.PlayerNum = players;
         this.RoomState = state;
     }
 
     public boolean isPlayerFull()
     {
-        return playerNum == RoomMaxPlayer;
+        return PlayerNum == RoomMaxPlayer;
     }
 
    }

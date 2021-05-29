@@ -24,7 +24,7 @@
                     <Run Foreground="Red" Text="{Binding UserId}"/>
                     <Run Foreground="Green" Text="{Binding Time, Converter={StaticResource timeCvt}}"/>
                     <LineBreak/>
-                    <Run Foreground="Black" Text="{Binding Msg}"/>
+                    <Run Foreground="Black"  Text="{Binding Msg}"/>
             </TextBlock>
                 
         </DataTemplate>
@@ -167,7 +167,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn x:Name="headerMaxPlayer" Header="最大人数" Width="60" >
+                        <GridViewColumn x:Name="headerMaxPlayer" Header="最大人数" Width="60">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding RoomMaxPlayer}" />

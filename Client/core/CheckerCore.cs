@@ -25,6 +25,8 @@ namespace Client.core
         private int playerNum;
         private int[,] board;
 
+        //当前步数
+        public int steps { get; set; }
         
         private List<CheckerPoint> nextStepList;    //这步可走的点
         private Stack<CheckerPoint> preRoad;        //走过的路
@@ -88,14 +90,9 @@ namespace Client.core
 
             //初始化其他
             curPlayer = 1;
-
+            steps = 0;
             ClearMove();
 
-
-#if TEST
-            curPlayer = 4;
-            
-#endif
         }
 
         /// <summary>
@@ -281,31 +278,44 @@ namespace Client.core
             
 
         }
+        /// <summary>
+        /// 自己走棋
+        /// </summary>
         public void SubmitMove()
         {
             //已经在了
             //move(StartPoint, preRoad.Peek());
+            preRoad.Clear();    //清除后，会跳过ClearMove中棋子移动操作
+            ClearMove();
+        }
+        /// <summary>
+        /// 其他用户走棋
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        public void ShowMove(int player, CheckerPoint s,CheckerPoint e)
+        {
+            ClearMove();
+            if(!canMove(s,e))
+            {///???这我是没想到的！
+                throw new Exception("这我是没想到的！");
+            }
 
             //UI
             CheckerPoint EndPoint = preRoad.Peek();
             //UIhelper.MovePostion(EndPoint, StartPoint);   //测试：将棋子放回原来位置
-                                                          //在其他人移动时，此时棋子就在起始点
-                                                          //自己是不会显示动画的
+            //在其他人移动时，此时棋子就在起始点
+            //自己是不会显示动画的
             Stack<CheckerPoint> path = new Stack<CheckerPoint>(preRoad.Count);
-            while(preRoad.Count!=0)
-            {
+            while (preRoad.Count != 0)
                 path.Push(preRoad.Pop());
-            }
-
+            
             UIhelper.ShowMovePath(path);                        //显示动画
 
-           
-
-            preRoad.Clear();    //清除后，会跳过ClearMove中棋子移动操作
-            ClearMove();
+            //实际执行
+            move(s, e);
+            UIhelper.MovePostion(s, e);
         }
-
-
 
         /**
          * 返回当前能走的路
@@ -503,6 +513,11 @@ namespace Client.core
             return true;
         }
 
+
+        public void setCurPlayer(int player)
+        {
+            curPlayer = player;
+        }
         /**
          * 获取当期回合移动的玩家
          * @return 玩家
@@ -513,18 +528,19 @@ namespace Client.core
         }
 
         /**
-         * 计算下一个回合移动的玩家
-         * @return 如果其他人都完成就返回自己（哪怕自己也完成了）
-         */
+        * 计算下一个回合移动的玩家
+        * @return 返回下一个该走的，如果所有人都走完了返回-1
+        */
         public int getNextPlayer()
         {
-            for (int i = curPlayer + 1; ; i++)
+            for (int i = curPlayer; ;)
             {
-                i = (i - 1) % playerNum + 1;
-                if (i == curPlayer)    //循环了，其他都走完了
-                    return curPlayer;
+                i = i % MaxPlayer + 1;
+              
                 if (!getFinished(i))
                     return i;
+                if (i == curPlayer)    //循环了，其他都走完了
+                    return -1;
             }
         }
 

@@ -2,6 +2,7 @@ package Server;
 
 import Service.ChatMsg;
 import Service.Constant;
+import Service.GameMsg;
 import Service.RoomInfo;
 import Service.User.Player;
 import Service.User.User;
@@ -89,6 +90,13 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 				break;
 			case 8://聊天消息
 				chat(player,gson.fromJson(message.bodyToString(),ChatMsg.class));
+				break;
+			case 9://用户移动
+				playerMove(player,gson.fromJson(message.bodyToString(),GameMsg.class));
+				break;
+			case 10://用户退出大厅
+				exitLobby(player);
+				break;
 			default:
 				//
 				break;
@@ -141,10 +149,10 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
 	/**
 	 * 进入房间请求
-	 * @param user
+	 * @param p
 	 * @param roomInfo
 	 */
-	public void enterRoom(Player user, RoomInfo roomInfo){
+	public void enterRoom(Player p, RoomInfo roomInfo){
 
 		NettyMessage response = new NettyMessage(2,4,0);
 
@@ -159,7 +167,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 				//房间人满了
 				response.setStateCode(2);
 			}
-			else if(room.getRoomInfo().getRoomState()==2)
+			else if(room.getRoomInfo().getRoomState()==1)
 			{
 				//房间已经开始了
 				response.setStateCode(3);
@@ -167,38 +175,44 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 			else{
 				//channelManager.send(user.getUserId(), response);
 				//上锁
-				user.userState = Constant.enter_room;
-				room.enterRoom(user);
-				logger.debug(String.format("用户%s进入房间%d成功",user.getUserId(),roomInfo.getRoomId()));
+				p.userState = Constant.enter_room;
+				room.enterRoom(p);
+				logger.debug(String.format("用户%s进入房间%d成功",p.getUserId(),roomInfo.getRoomId()));
 
 				return;
 			}
 		}
-		logger.debug(String.format("用户%s进入房间%d失败",user.getUserId(),roomInfo.getRoomId()));
+		logger.debug(String.format("用户%s进入房间%d失败",p.getUserId(),roomInfo.getRoomId()));
 
-		channelManager.send(user.getUserId(), response);
+		channelManager.send(p.getUserId(), response);
 
 	}
 
 	/**
 	 * 创建房间请求
-	 * @param user
+	 * @param p
 	 * @param roomInfo
 	 */
-	public void createRoom(Player user, RoomInfo roomInfo){
+	public void createRoom(Player p, RoomInfo roomInfo){
 		int i;
 		for ( i = 0; i < 9999; i++) {
 			if(!rooms.containsKey(i)){
+				//已设置psw,hasPsw,maxPlayer,playerNum
 				roomInfo.setRoomId(i);
+				roomInfo.setRoomState(0);
+
 				rooms.put(i,new CheckerRoom(channelManager,roomInfo));
 				break;
 			}
 		}
+		//回复创建结果
 		NettyMessage response = new NettyMessage(2,3,0);
-		channelManager.send(user.getUserId(), response);
+		channelManager.send(p.getUserId(), response);
+
 		try {
-			user.userState = Constant.enter_room;
-			rooms.get(i).enterRoom(user);
+			p.userState = Constant.enter_room;
+			//调用加入房间
+			rooms.get(i).enterRoom(p);
 		}
 		catch (Exception e)
 		{
@@ -207,26 +221,27 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		}
 	}
 
+	/**
+	 * 尝试删除房间 无人删除
+	 * @param roomId
+	 */
 	private void deleteRoom(int roomId)
 	{
 		logger.debug(String.format( "房间%d正在删除",roomId));
 		rooms.remove(roomId);
 	}
 
-
-	public void exitRoom(User user){
-		Player player = user instanceof Player ? ((Player) user) : null;
-		if(player==null||player.roomId==-1) {
+	public void exitRoom(Player p){
+		if(p==null||p.roomId==-1) {
 			//退出请求有误！
-			logger.error(String.format( "用户%s退出请求有误！",user.getUserId()));
+			logger.error(String.format( "用户%s退出请求有误！",p.getUserId()));
 			return;
 		}
 		//要先保存房间号
-		int roomId = player.roomId;
+		int roomId = p.roomId;
 		//用户退出
-		rooms.get(roomId).exitRoom(player);
-		player.userState = Constant.online;
-
+		rooms.get(roomId).exitRoom(p);
+		p.userState = Constant.online;
 
 		//检测房间是否为空
 		if(rooms.get(roomId).getRoomInfo().getPlayerNum() ==0)
@@ -235,27 +250,24 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 			//删除房间
 			deleteRoom(roomId);
 		}
-
 	}
 
-	public void unprepare(User user){
-		Player player = user instanceof Player ? ((Player) user) : null;
-		if(player==null||player.roomId==-1) {
+	public void unprepare(Player p){
+		if(p==null||p.roomId==-1) {
 			//退出请求有误！
-			logger.error(String.format( "用户%s取消准备请求有误！",user.getUserId()));
+			logger.error(String.format( "用户%s取消准备请求有误！",p.getUserId()));
 			return;
 		}
-		rooms.get(player.roomId).unPrepare(player);
+		rooms.get(p.roomId).unPrepare(p);
 	}
 
-	public void prepare(User user){
-		Player player = user instanceof Player ? ((Player) user) : null;
-		if(player==null||player.roomId==-1) {
+	public void prepare(Player p){
+		if(p==null||p.roomId==-1) {
 			//退出请求有误！
-			logger.error(String.format( "用户%s准备请求有误！",user.getUserId()));
+			logger.error(String.format( "用户%s准备请求有误！",p.getUserId()));
 			return;
 		}
-		rooms.get(player.roomId).prepare(player);
+		rooms.get(p.roomId).prepare(p);
 	}
 
 	/**
@@ -263,20 +275,38 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 * @param user
 	 * @param msg
 	 */
-	public void chat(User user, ChatMsg msg)
+	public void chat(Player user, ChatMsg msg)
 	{
 		NettyMessage message = new NettyMessage(2,5,0);
 		message.setMessageBody(gson.toJson(msg));
 		if(msg.getType()==1)
 		{//大厅聊天
-			logger.info(String.format("用户%s消息发送！",user.getUserId()));
+			logger.info(String.format("用户%s大厅消息发送！",user.getUserId()));
 			channelManager.sendOther(user.getUserId(),message);
+		}
+		else if(msg.getType()==2)
+		{//房间聊天
+			rooms.get(user.roomId).msgHandle(user.getUserId(),message);
 		}
 	}
 
+	public void playerMove(Player p, GameMsg msg)
+	{
+		if(msg.gameState==3)
+		{
+			rooms.get(p.roomId).playerMove(p,msg);
+		}
+		else{
+			logger.error("用户移动报文出错！");
+		}
+	}
+
+	public void exitLobby(Player p){
+
+	}
 
 
-    @Override
+	@Override
     public void channelUnregistered(ChannelHandlerContext ctx) {
 		String uid = channelManager.findUser(ctx.channel());
 

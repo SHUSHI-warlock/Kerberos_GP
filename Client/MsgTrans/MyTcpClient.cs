@@ -12,6 +12,7 @@ namespace Client.MsgTrans
 {
     public class MyTcpClient
     {
+
         private static Logger logger = Logger.GetLogger();
         private Socket _clientSocket;
 
@@ -59,7 +60,7 @@ namespace Client.MsgTrans
                 {
                     //OnErr(e.Message);
                     logger.Error(e.Message);
-
+                    logger.Error(e.StackTrace);
                 }
             }
             finally
@@ -81,8 +82,9 @@ namespace Client.MsgTrans
                 {
                     int length = _clientSocket.EndSend(asyncResult);
 
-                    logger.Debug(string.Format("发送报文Head:[P2P:{0} Type:{1} State:{2} Length:{3}]",
+                    logger.Debug(string.Format("发送报文 Head:[P2P:{0} Type:{1} State:{2} Length:{3}]",
                 msg.MessageP2P, msg.MessageType, msg.StateCode, msg.Length));
+                    logger.Debug(msg.bodyToString());
 
                     //OnSend(string.Format("客户端发送消息:{0}", msg));
                 }, null);
@@ -90,6 +92,7 @@ namespace Client.MsgTrans
             catch (Exception e)
             {
                 logger.Error(e.Message);
+                logger.Error(e.StackTrace);
                 //OnErr(e.Message);
             }
         }
@@ -115,6 +118,8 @@ namespace Client.MsgTrans
                     throw new Exception("服务器断开连接！");
                 }
 
+                logger.Debug(string.Format("收到服务器消息:P2P:{0},Type:{1},State:{2},Length:{3}", message.MessageP2P, message.MessageType, message.StateCode, message.Length));
+
                 if (message.Length != 0)
                 {
                     byte[] data = new byte[message.Length];
@@ -122,17 +127,18 @@ namespace Client.MsgTrans
                     //OnReceive(string.Format("收到服务器消息:长度：{1},{0}", Encoding.UTF8.GetString(data), length));
                     //logger.Debug(string.Format("收到服务器消息:长度：{1},{0}", Encoding.UTF8.GetString(data), length));
                     message.SetBody(data);
+                    logger.Debug(message.bodyToString());
+
                 }
                 //OnReceive.Invoke(message);
 
-                logger.Debug(string.Format("收到服务器消息:P2P:{0},Type:{1},State:{2},Length:{3}", message.MessageP2P, message.MessageType, message.StateCode, message.Length));
 
                 //Recive();
                 return message;
             }
             catch (Exception e)
             {
-                if ((e as SocketException).ErrorCode == 10054)
+                if((e is SocketException)&&(e as SocketException).ErrorCode==10054)
                 {
                     //OnServerDown("服务器已断线");
                     logger.Error("服务器已断线");
@@ -158,6 +164,7 @@ namespace Client.MsgTrans
                 logger.Error(e.Message);
             }
         }
+
 
     }
 }
