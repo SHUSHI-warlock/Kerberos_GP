@@ -124,13 +124,13 @@
                     <Border Background="Gainsboro" Grid.Row="1">
                         <ScrollViewer MinHeight="100" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                             <TextBlock x:Name="RoomNews"   TextWrapping="Wrap">
-                         
+
                             </TextBlock>
                         </ScrollViewer>
                     </Border>
                 </Grid>
-                
-                
+
+
 
                 <GridSplitter Grid.Row="2" Height="4" HorizontalAlignment="Stretch"></GridSplitter>
 
@@ -225,7 +225,7 @@
                         </Grid>
                     </Button>
 
-                    <Button Name="Button_continue" Grid.Column="1" Grid.Row="2" BorderThickness="0">
+                    <Button Name="Button_continue" Grid.Column="1" Grid.Row="2" BorderThickness="0" Click="Button_continue_Click">
                         <Button.Background>
                             <SolidColorBrush Color="White" Opacity="0.0"/>
                         </Button.Background>
@@ -252,8 +252,8 @@
                 <Grid.Background>
                     <SolidColorBrush Color="White" Opacity="0.5"/>
                 </Grid.Background>
-                    
-                    <Grid.RowDefinitions>
+
+                <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
@@ -266,7 +266,7 @@
                         <Image Source="/Resources/Image/777.png" />
 
                         <Ellipse x:Name="MaskImage" Visibility="Hidden" Canvas.Left="277.5" Canvas.Top="-6.5"  Height="40" Width="40" Stroke="#FFFF4B4B" StrokeThickness="5" />
-                        
+
 
                         <Border Name="Player_1" Visibility="Visible" Width="200" Height="120" Canvas.Left="0" Canvas.Top="-20" Background="#FFFFDEB1" CornerRadius="20"  >
                             <Grid  Margin="5,5,5,5">
@@ -407,11 +407,38 @@
                             </Grid>
                         </Border>
 
+
+                        <Grid  Width="160" Height="100"  Canvas.Left="750" Canvas.Top="-20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                            <Border  CornerRadius="20" Background="#FF5F6EBC" Height="60" Grid.Row="0" Padding="0,0,0,20">
+                                <TextBlock Foreground="White"  Text="倒计时" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border  Background="White" Grid.Row="1" >
+                                <TextBlock x:Name="DaoTime"  Text="10S" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid  Width="160" Height="100"  Canvas.Left="-260" Canvas.Top="-20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="60"/>
+                            </Grid.RowDefinitions>
+                            <Border  CornerRadius="20" Background="#FF5F6EBC" Height="60" Grid.Row="0" Padding="0,0,0,20">
+                                <TextBlock Foreground="White"  Text="轮数" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+                            </Border>
+                            <Border  Background="White" Grid.Row="1" >
+                                <TextBlock Name="LunTimes" Text="10" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+                            </Border>
+                        </Grid>
+
+
+
                     </Canvas>
 
                 </Grid>
-
-
 
 
             </Grid>

@@ -1,16 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Client.Utils.LogHelper
 {
     public class Logger
     {
+        private static string logFileName = "/a.txt";
+        private static string logpath;
+        private static Logger instance = new Logger();
+
+        //多线程写锁
+        static ReaderWriterLockSlim writeLock = new ReaderWriterLockSlim();
+
+        private Logger()
+        {
+            string basepath = System.IO.Directory.GetCurrentDirectory()+"/log";
+            if (!Directory.Exists(basepath))
+            {
+                Directory.CreateDirectory(basepath);
+            }
+            logpath = basepath + logFileName;
+            //重新写
+            //if (File.Exists(logpath))
+            //    File.Delete(logpath);
+
+            if(File.Exists(logpath))
+            {
+                logpath = basepath + "/b.txt";
+            }
+
+        }
+
         public static Logger GetLogger()
         {
-           return new Logger();
+           return instance;
         }
         
         /// <summary>
@@ -20,8 +48,17 @@ namespace Client.Utils.LogHelper
         /// <param name="Log">内容</param>
         public void WriteLog(LogType type,String Log)
         {
-            //TODO
-            Console.WriteLine("LogType={0} Log={1}\n", type.ToString(), Log);
+            string log = string.Format("Time={0} LogType={1} Log={2}\n",DateTime.Now, type.ToString(), Log);
+
+            //写日志
+            writeLock.EnterWriteLock();
+            
+            //控制台输出
+            //Console.WriteLine(log);
+            //写文件
+            File.AppendAllText(logpath, log);
+
+            writeLock.ExitWriteLock();
         }
 
         /// <summary>

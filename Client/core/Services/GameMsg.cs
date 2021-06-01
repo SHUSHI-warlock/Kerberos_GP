@@ -26,7 +26,7 @@ namespace Client.core.Services
         }
 
         /// <summary>
-        /// 游戏状态 0游戏开始 1游戏结束 2通知移动方 3移动结果
+        /// 游戏状态 0游戏开始 1游戏结束 2通知移动方 3移动结果 4玩家跳过
         /// </summary>
         public int gameState { get; set; }
         /// <summary>

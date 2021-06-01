@@ -1,0 +1,543 @@
+2021-05-30 22:34:45  [ main:0 ] - [ DEBUG ]  Using Log4J as the default logging framework
+2021-05-30 22:34:45  [ main:9 ] - [ DEBUG ]  Platform: Windows
+2021-05-30 22:34:45  [ main:16 ] - [ DEBUG ]  -Dio.netty.noUnsafe: false
+2021-05-30 22:34:45  [ main:17 ] - [ DEBUG ]  Java version: 14
+2021-05-30 22:34:45  [ main:19 ] - [ DEBUG ]  sun.misc.Unsafe.theUnsafe: available
+2021-05-30 22:34:45  [ main:20 ] - [ DEBUG ]  sun.misc.Unsafe.copyMemory: available
+2021-05-30 22:34:45  [ main:22 ] - [ DEBUG ]  java.nio.Buffer.address: available
+2021-05-30 22:34:45  [ main:25 ] - [ DEBUG ]  direct buffer constructor: available
+2021-05-30 22:34:45  [ main:26 ] - [ DEBUG ]  java.nio.Bits.unaligned: available, true
+2021-05-30 22:34:45  [ main:29 ] - [ DEBUG ]  jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @5649fd9b
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:376)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:647)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:556)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:312)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:303)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:208)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:79)
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:32)
+	at io.netty.util.AttributeKey$1.<init>(AttributeKey.java:27)
+	at io.netty.util.AttributeKey.<clinit>(AttributeKey.java:27)
+	at Server.NettyChannelManager.<clinit>(NettyChannelManager.java:22)
+	at Server.NettyServerHandler.<init>(NettyServerHandler.java:31)
+	at Server.AppServer.<init>(AppServer.java:39)
+	at Server.AppServer.main(AppServer.java:93)
+2021-05-30 22:34:45  [ main:44 ] - [ DEBUG ]  java.nio.DirectByteBuffer.<init>(long, int): available
+2021-05-30 22:34:45  [ main:44 ] - [ DEBUG ]  sun.misc.Unsafe: available
+2021-05-30 22:34:45  [ main:65 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-05-30 22:34:45  [ main:66 ] - [ DEBUG ]  -Dio.netty.tmpdir: C:\WINDOWS\TEMP (java.io.tmpdir)
+2021-05-30 22:34:45  [ main:66 ] - [ DEBUG ]  -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2021-05-30 22:34:45  [ main:68 ] - [ DEBUG ]  -Dio.netty.noPreferDirect: false
+2021-05-30 22:34:45  [ main:70 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-05-30 22:34:45  [ main:70 ] - [ DEBUG ]  -Dio.netty.maxDirectMemory: 2111832064 bytes
+2021-05-30 22:34:45  [ main:71 ] - [ DEBUG ]  -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2021-05-30 22:34:45  [ main:72 ] - [ DEBUG ]  java.nio.ByteBuffer.cleaner(): available
+2021-05-30 22:34:45  [ main:86 ] - [ DEBUG ]  -Dio.netty.eventLoopThreads: 16
+2021-05-30 22:34:45  [ main:152 ] - [ DEBUG ]  -Dio.netty.noKeySetOptimization: false
+2021-05-30 22:34:45  [ main:152 ] - [ DEBUG ]  -Dio.netty.selectorAutoRebuildThreshold: 512
+2021-05-30 22:34:45  [ main:167 ] - [ DEBUG ]  org.jctools-core.MpscChunkedArrayQueue: available
+2021-05-30 22:34:45  [ main:394 ] - [ DEBUG ]  -Dio.netty.processId: 1116 (auto-detected)
+2021-05-30 22:34:45  [ main:398 ] - [ DEBUG ]  -Djava.net.preferIPv4Stack: false
+2021-05-30 22:34:45  [ main:398 ] - [ DEBUG ]  -Djava.net.preferIPv6Addresses: false
+2021-05-30 22:34:45  [ main:431 ] - [ DEBUG ]  Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2021-05-30 22:34:45  [ main:433 ] - [ DEBUG ]  Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2021-05-30 22:34:45  [ main:487 ] - [ DEBUG ]  -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:08 (auto-detected)
+2021-05-30 22:34:45  [ main:501 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2021-05-30 22:34:45  [ main:502 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2021-05-30 22:34:45  [ main:517 ] - [ DEBUG ]  -Dio.netty.leakDetection.level: simple
+2021-05-30 22:34:45  [ main:518 ] - [ DEBUG ]  -Dio.netty.leakDetection.targetRecords: 4
+2021-05-30 22:34:45  [ main:589 ] - [ DEBUG ]  -Dio.netty.allocator.numHeapArenas: 16
+2021-05-30 22:34:45  [ main:589 ] - [ DEBUG ]  -Dio.netty.allocator.numDirectArenas: 16
+2021-05-30 22:34:45  [ main:589 ] - [ DEBUG ]  -Dio.netty.allocator.pageSize: 8192
+2021-05-30 22:34:45  [ main:589 ] - [ DEBUG ]  -Dio.netty.allocator.maxOrder: 11
+2021-05-30 22:34:45  [ main:589 ] - [ DEBUG ]  -Dio.netty.allocator.chunkSize: 16777216
+2021-05-30 22:34:45  [ main:590 ] - [ DEBUG ]  -Dio.netty.allocator.tinyCacheSize: 512
+2021-05-30 22:34:45  [ main:590 ] - [ DEBUG ]  -Dio.netty.allocator.smallCacheSize: 256
+2021-05-30 22:34:45  [ main:590 ] - [ DEBUG ]  -Dio.netty.allocator.normalCacheSize: 64
+2021-05-30 22:34:45  [ main:590 ] - [ DEBUG ]  -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2021-05-30 22:34:45  [ main:590 ] - [ DEBUG ]  -Dio.netty.allocator.cacheTrimInterval: 8192
+2021-05-30 22:34:45  [ main:590 ] - [ DEBUG ]  -Dio.netty.allocator.useCacheForAllThreads: true
+2021-05-30 22:34:45  [ main:605 ] - [ DEBUG ]  -Dio.netty.allocator.type: pooled
+2021-05-30 22:34:45  [ main:605 ] - [ DEBUG ]  -Dio.netty.threadLocalDirectBufferSize: 65536
+2021-05-30 22:34:45  [ main:605 ] - [ DEBUG ]  -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2021-05-30 22:34:45  [ nioEventLoopGroup-2-1:638 ] - [ DEBUG ]  [id: 0x40952bac] REGISTERED
+2021-05-30 22:34:45  [ nioEventLoopGroup-2-1:642 ] - [ DEBUG ]  [id: 0x40952bac] BIND: 0.0.0.0/0.0.0.0:8080
+2021-05-30 22:34:45  [ main:643 ] - [ INFO ]  server started sucessfully.
+2021-05-30 22:34:45  [ nioEventLoopGroup-2-1:646 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] ACTIVE
+2021-05-30 22:34:53  [ nioEventLoopGroup-2-1:8441 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ: [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210]
+2021-05-30 22:34:53  [ nioEventLoopGroup-2-1:8442 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ COMPLETE
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:8891 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] REGISTERED
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:8892 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] ACTIVE
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:8899 ] - [ DEBUG ]  -Dio.netty.recycler.maxCapacityPerThread: 32768
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:8900 ] - [ DEBUG ]  -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:8900 ] - [ DEBUG ]  -Dio.netty.recycler.linkCapacity: 16
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:8900 ] - [ DEBUG ]  -Dio.netty.recycler.ratio: 8
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9277 ] - [ DEBUG ]  -Dio.netty.buffer.bytebuf.checkAccessible: true
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9279 ] - [ DEBUG ]  Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@4caebe07
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9284 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ: 67B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 01 00 ff 00 00 00 3b 7b 22 70 6f 73 22 3a 2d |.......;{"pos":-|
+|00000010| 31 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f |1,"steps":0,"roo|
+|00000020| 6d 49 64 22 3a 2d 31 2c 22 75 73 65 72 49 64 22 |mId":-1,"userId"|
+|00000030| 3a 22 61 22 2c 22 75 73 65 72 53 74 61 74 65 22 |:"a","userState"|
+|00000040| 3a 30 7d                                        |:0}             |
++--------+-------------------------------------------------+----------------+
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9286 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:1 State:0 UnCode:-1 Length:59]
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9322 ] - [ INFO ]  用户a进入大厅 || 大厅总人数1
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9337 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] WRITE: Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9352 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] FLUSH
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9353 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:34:54  [ nioEventLoopGroup-3-1:9354 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ COMPLETE
+2021-05-30 22:35:02  [ nioEventLoopGroup-3-1:17642 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ: 122B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 03 00 ff 00 00 00 72 7b 22 70 6c 61 79 65 72 |.......r{"player|
+|00000010| 73 22 3a 6e 75 6c 6c 2c 22 52 6f 6f 6d 49 64 22 |s":null,"RoomId"|
+|00000020| 3a 30 2c 22 52 6f 6f 6d 4e 61 6d 65 22 3a 22 61 |:0,"RoomName":"a|
+|00000030| 64 22 2c 22 52 6f 6f 6d 50 73 77 22 3a 22 22 2c |d","RoomPsw":"",|
+|00000040| 22 48 61 73 50 73 77 22 3a 2d 31 2c 22 50 6c 61 |"HasPsw":-1,"Pla|
+|00000050| 79 65 72 4e 75 6d 22 3a 30 2c 22 52 6f 6f 6d 4d |yerNum":0,"RoomM|
+|00000060| 61 78 50 6c 61 79 65 72 22 3a 32 2c 22 52 6f 6f |axPlayer":2,"Roo|
+|00000070| 6d 53 74 61 74 65 22 3a 30 7d                   |mState":0}      |
++--------+-------------------------------------------------+----------------+
+2021-05-30 22:35:02  [ nioEventLoopGroup-3-1:17643 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:3 State:0 UnCode:-1 Length:114]
+2021-05-30 22:35:03  [ nioEventLoopGroup-3-1:17932 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] WRITE: Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:35:03  [ nioEventLoopGroup-3-1:17934 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] FLUSH
+2021-05-30 22:35:03  [ nioEventLoopGroup-3-1:17936 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:35:03  [ nioEventLoopGroup-3-1:17941 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] WRITE: Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=199][{"RoomId":0,"RoomName":"ad","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 22:35:03  [ nioEventLoopGroup-3-1:17941 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] FLUSH
+2021-05-30 22:35:03  [ nioEventLoopGroup-3-1:17942 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=199][{"RoomId":0,"RoomName":"ad","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 22:35:03  [ nioEventLoopGroup-3-1:17942 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ COMPLETE
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22781 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 05 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22781 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:5 State:0 UnCode:-1 Length:0]
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22782 ] - [ INFO ]  鐢ㄦ埛a閫�鍑烘埧闂�0
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22782 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] WRITE: Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":3}]
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22783 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] FLUSH
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22784 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":3}]
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22784 ] - [ INFO ]  房间0为空,准备删除
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22784 ] - [ DEBUG ]  房间0正在删除
+2021-05-30 22:35:08  [ nioEventLoopGroup-3-1:22785 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ COMPLETE
+2021-05-30 22:35:09  [ nioEventLoopGroup-3-1:24684 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 02 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-05-30 22:35:09  [ nioEventLoopGroup-3-1:24685 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:2 State:0 UnCode:-1 Length:0]
+2021-05-30 22:35:09  [ nioEventLoopGroup-3-1:24685 ] - [ DEBUG ]  用户a请求房间消息
+2021-05-30 22:35:09  [ nioEventLoopGroup-3-1:24707 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] WRITE: Msg[messageP2P=2,messageType=2,stateCode=0,UnEncode=-1,length=85][{"roomInfos":[],"users":[{"pos":1,"steps":0,"roomId":-1,"userId":"a","userState":1}]}]
+2021-05-30 22:35:09  [ nioEventLoopGroup-3-1:24707 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] FLUSH
+2021-05-30 22:35:09  [ nioEventLoopGroup-3-1:24709 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=2,stateCode=0,UnEncode=-1,length=85][{"roomInfos":[],"users":[{"pos":1,"steps":0,"roomId":-1,"userId":"a","userState":1}]}]
+2021-05-30 22:35:09  [ nioEventLoopGroup-3-1:24709 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ COMPLETE
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28493 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ: 121B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 03 00 ff 00 00 00 71 7b 22 70 6c 61 79 65 72 |.......q{"player|
+|00000010| 73 22 3a 6e 75 6c 6c 2c 22 52 6f 6f 6d 49 64 22 |s":null,"RoomId"|
+|00000020| 3a 30 2c 22 52 6f 6f 6d 4e 61 6d 65 22 3a 22 61 |:0,"RoomName":"a|
+|00000030| 22 2c 22 52 6f 6f 6d 50 73 77 22 3a 22 22 2c 22 |","RoomPsw":"","|
+|00000040| 48 61 73 50 73 77 22 3a 2d 31 2c 22 50 6c 61 79 |HasPsw":-1,"Play|
+|00000050| 65 72 4e 75 6d 22 3a 30 2c 22 52 6f 6f 6d 4d 61 |erNum":0,"RoomMa|
+|00000060| 78 50 6c 61 79 65 72 22 3a 36 2c 22 52 6f 6f 6d |xPlayer":6,"Room|
+|00000070| 53 74 61 74 65 22 3a 30 7d                      |State":0}       |
++--------+-------------------------------------------------+----------------+
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28494 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:3 State:0 UnCode:-1 Length:113]
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28495 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] WRITE: Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28495 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] FLUSH
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28496 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28498 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] WRITE: Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":0,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28498 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] FLUSH
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28499 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":0,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 22:35:13  [ nioEventLoopGroup-3-1:28500 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ COMPLETE
+2021-05-30 22:36:56  [ nioEventLoopGroup-3-1:131627 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 - R:/127.0.0.1:49210] READ COMPLETE
+2021-05-30 22:36:56  [ nioEventLoopGroup-3-1:131628 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 ! R:/127.0.0.1:49210] INACTIVE
+2021-05-30 22:36:56  [ nioEventLoopGroup-3-1:131652 ] - [ DEBUG ]  [id: 0x7263b1c9, L:/127.0.0.1:8080 ! R:/127.0.0.1:49210] UNREGISTERED
+2021-05-30 22:36:56  [ nioEventLoopGroup-3-1:131653 ] - [ INFO ]  用户a退出大厅 || 当前大厅总人数:0
+2021-05-30 22:52:16  [ nioEventLoopGroup-2-1:1051212 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ: [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173]
+2021-05-30 22:52:16  [ nioEventLoopGroup-2-1:1051217 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ COMPLETE
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051220 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] REGISTERED
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051220 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] ACTIVE
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051423 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] READ: 67B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 01 00 ff 00 00 00 3b 7b 22 70 6f 73 22 3a 2d |.......;{"pos":-|
+|00000010| 31 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f |1,"steps":0,"roo|
+|00000020| 6d 49 64 22 3a 2d 31 2c 22 75 73 65 72 49 64 22 |mId":-1,"userId"|
+|00000030| 3a 22 61 22 2c 22 75 73 65 72 53 74 61 74 65 22 |:"a","userState"|
+|00000040| 3a 30 7d                                        |:0}             |
++--------+-------------------------------------------------+----------------+
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051424 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:1 State:0 UnCode:-1 Length:59]
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051426 ] - [ INFO ]  用户a进入大厅 || 大厅总人数1
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051427 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] WRITE: Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051427 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] FLUSH
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051428 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:52:16  [ nioEventLoopGroup-3-2:1051428 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] READ COMPLETE
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056553 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] READ: 121B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 03 00 ff 00 00 00 71 7b 22 70 6c 61 79 65 72 |.......q{"player|
+|00000010| 73 22 3a 6e 75 6c 6c 2c 22 52 6f 6f 6d 49 64 22 |s":null,"RoomId"|
+|00000020| 3a 30 2c 22 52 6f 6f 6d 4e 61 6d 65 22 3a 22 61 |:0,"RoomName":"a|
+|00000030| 22 2c 22 52 6f 6f 6d 50 73 77 22 3a 22 22 2c 22 |","RoomPsw":"","|
+|00000040| 48 61 73 50 73 77 22 3a 2d 31 2c 22 50 6c 61 79 |HasPsw":-1,"Play|
+|00000050| 65 72 4e 75 6d 22 3a 30 2c 22 52 6f 6f 6d 4d 61 |erNum":0,"RoomMa|
+|00000060| 78 50 6c 61 79 65 72 22 3a 36 2c 22 52 6f 6f 6d |xPlayer":6,"Room|
+|00000070| 53 74 61 74 65 22 3a 30 7d                      |State":0}       |
++--------+-------------------------------------------------+----------------+
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056554 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:3 State:0 UnCode:-1 Length:113]
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056555 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] WRITE: Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056555 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] FLUSH
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056556 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056557 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] WRITE: Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":1,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":1,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056557 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] FLUSH
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056558 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":1,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":1,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 22:52:21  [ nioEventLoopGroup-3-2:1056558 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] READ COMPLETE
+2021-05-30 22:54:22  [ nioEventLoopGroup-3-2:1177146 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 - R:/127.0.0.1:55173] READ COMPLETE
+2021-05-30 22:54:22  [ nioEventLoopGroup-3-2:1177147 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 ! R:/127.0.0.1:55173] INACTIVE
+2021-05-30 22:54:22  [ nioEventLoopGroup-3-2:1177147 ] - [ DEBUG ]  [id: 0xb16b4764, L:/127.0.0.1:8080 ! R:/127.0.0.1:55173] UNREGISTERED
+2021-05-30 22:54:22  [ nioEventLoopGroup-3-2:1177148 ] - [ INFO ]  用户a退出大厅 || 当前大厅总人数:0
+2021-05-30 23:16:26  [ nioEventLoopGroup-2-1:2501708 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ: [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979]
+2021-05-30 23:16:26  [ nioEventLoopGroup-2-1:2501709 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ COMPLETE
+2021-05-30 23:16:26  [ nioEventLoopGroup-3-1:2501710 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] REGISTERED
+2021-05-30 23:16:26  [ nioEventLoopGroup-3-1:2501710 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] ACTIVE
+2021-05-30 23:16:27  [ nioEventLoopGroup-3-1:2501815 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ: 67B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 01 00 ff 00 00 00 3b 7b 22 70 6f 73 22 3a 2d |.......;{"pos":-|
+|00000010| 31 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f |1,"steps":0,"roo|
+|00000020| 6d 49 64 22 3a 2d 31 2c 22 75 73 65 72 49 64 22 |mId":-1,"userId"|
+|00000030| 3a 22 61 22 2c 22 75 73 65 72 53 74 61 74 65 22 |:"a","userState"|
+|00000040| 3a 30 7d                                        |:0}             |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:16:27  [ nioEventLoopGroup-3-1:2501816 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:1 State:0 UnCode:-1 Length:59]
+2021-05-30 23:16:27  [ nioEventLoopGroup-3-1:2501817 ] - [ INFO ]  用户a进入大厅 || 大厅总人数1
+2021-05-30 23:16:27  [ nioEventLoopGroup-3-1:2501817 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] WRITE: Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:16:27  [ nioEventLoopGroup-3-1:2501818 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] FLUSH
+2021-05-30 23:16:27  [ nioEventLoopGroup-3-1:2501818 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:16:27  [ nioEventLoopGroup-3-1:2501819 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ COMPLETE
+2021-05-30 23:16:28  [ nioEventLoopGroup-3-1:2503508 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 02 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:16:28  [ nioEventLoopGroup-3-1:2503508 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:2 State:0 UnCode:-1 Length:0]
+2021-05-30 23:16:28  [ nioEventLoopGroup-3-1:2503509 ] - [ DEBUG ]  用户a请求房间消息
+2021-05-30 23:16:28  [ nioEventLoopGroup-3-1:2503510 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] WRITE: Msg[messageP2P=2,messageType=2,stateCode=0,UnEncode=-1,length=255][{"roomInfos":[{"RoomId":0,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0},{"RoomId":1,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0}],"users":[{"pos":0,"steps":0,"roomId":0,"userId":"a","userState":1}]}]
+2021-05-30 23:16:28  [ nioEventLoopGroup-3-1:2503511 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] FLUSH
+2021-05-30 23:16:28  [ nioEventLoopGroup-3-1:2503512 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=2,stateCode=0,UnEncode=-1,length=255][{"roomInfos":[{"RoomId":0,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0},{"RoomId":1,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0}],"users":[{"pos":0,"steps":0,"roomId":0,"userId":"a","userState":1}]}]
+2021-05-30 23:16:28  [ nioEventLoopGroup-3-1:2503513 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ COMPLETE
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507084 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ: 121B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 03 00 ff 00 00 00 71 7b 22 70 6c 61 79 65 72 |.......q{"player|
+|00000010| 73 22 3a 6e 75 6c 6c 2c 22 52 6f 6f 6d 49 64 22 |s":null,"RoomId"|
+|00000020| 3a 30 2c 22 52 6f 6f 6d 4e 61 6d 65 22 3a 22 64 |:0,"RoomName":"d|
+|00000030| 22 2c 22 52 6f 6f 6d 50 73 77 22 3a 22 22 2c 22 |","RoomPsw":"","|
+|00000040| 48 61 73 50 73 77 22 3a 2d 31 2c 22 50 6c 61 79 |HasPsw":-1,"Play|
+|00000050| 65 72 4e 75 6d 22 3a 30 2c 22 52 6f 6f 6d 4d 61 |erNum":0,"RoomMa|
+|00000060| 78 50 6c 61 79 65 72 22 3a 36 2c 22 52 6f 6f 6d |xPlayer":6,"Room|
+|00000070| 53 74 61 74 65 22 3a 30 7d                      |State":0}       |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507085 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:3 State:0 UnCode:-1 Length:113]
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507086 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] WRITE: Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507086 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] FLUSH
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507087 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507088 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] WRITE: Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":2,"RoomName":"d","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507088 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] FLUSH
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507089 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":2,"RoomName":"d","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 23:16:32  [ nioEventLoopGroup-3-1:2507090 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ COMPLETE
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568941 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 05 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568942 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:5 State:0 UnCode:-1 Length:0]
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568942 ] - [ INFO ]  鐢ㄦ埛a閫�鍑烘埧闂�2
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568942 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] WRITE: Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":3}]
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568943 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] FLUSH
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568943 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":3}]
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568944 ] - [ INFO ]  房间2为空,准备删除
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568944 ] - [ DEBUG ]  房间2正在删除
+2021-05-30 23:17:34  [ nioEventLoopGroup-3-1:2568944 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ COMPLETE
+2021-05-30 23:17:38  [ nioEventLoopGroup-3-1:2572806 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 - R:/127.0.0.1:52979] READ COMPLETE
+2021-05-30 23:17:38  [ nioEventLoopGroup-3-1:2572807 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 ! R:/127.0.0.1:52979] INACTIVE
+2021-05-30 23:17:38  [ nioEventLoopGroup-3-1:2572807 ] - [ DEBUG ]  [id: 0xa7107d29, L:/127.0.0.1:8080 ! R:/127.0.0.1:52979] UNREGISTERED
+2021-05-30 23:17:38  [ nioEventLoopGroup-3-1:2572808 ] - [ INFO ]  用户a退出大厅 || 当前大厅总人数:0
+2021-05-30 23:19:54  [ nioEventLoopGroup-2-1:2709285 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ: [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131]
+2021-05-30 23:19:54  [ nioEventLoopGroup-2-1:2709285 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ COMPLETE
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709286 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] REGISTERED
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709286 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] ACTIVE
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709392 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ: 67B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 01 00 ff 00 00 00 3b 7b 22 70 6f 73 22 3a 2d |.......;{"pos":-|
+|00000010| 31 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f |1,"steps":0,"roo|
+|00000020| 6d 49 64 22 3a 2d 31 2c 22 75 73 65 72 49 64 22 |mId":-1,"userId"|
+|00000030| 3a 22 61 22 2c 22 75 73 65 72 53 74 61 74 65 22 |:"a","userState"|
+|00000040| 3a 30 7d                                        |:0}             |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709392 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:1 State:0 UnCode:-1 Length:59]
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709393 ] - [ INFO ]  用户a进入大厅 || 大厅总人数1
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709393 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] WRITE: Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709393 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] FLUSH
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709394 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:19:54  [ nioEventLoopGroup-3-2:2709394 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ COMPLETE
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713598 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ: 121B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 03 00 ff 00 00 00 71 7b 22 70 6c 61 79 65 72 |.......q{"player|
+|00000010| 73 22 3a 6e 75 6c 6c 2c 22 52 6f 6f 6d 49 64 22 |s":null,"RoomId"|
+|00000020| 3a 30 2c 22 52 6f 6f 6d 4e 61 6d 65 22 3a 22 64 |:0,"RoomName":"d|
+|00000030| 22 2c 22 52 6f 6f 6d 50 73 77 22 3a 22 22 2c 22 |","RoomPsw":"","|
+|00000040| 48 61 73 50 73 77 22 3a 2d 31 2c 22 50 6c 61 79 |HasPsw":-1,"Play|
+|00000050| 65 72 4e 75 6d 22 3a 30 2c 22 52 6f 6f 6d 4d 61 |erNum":0,"RoomMa|
+|00000060| 78 50 6c 61 79 65 72 22 3a 36 2c 22 52 6f 6f 6d |xPlayer":6,"Room|
+|00000070| 53 74 61 74 65 22 3a 30 7d                      |State":0}       |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713598 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:3 State:0 UnCode:-1 Length:113]
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713599 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] WRITE: Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713599 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] FLUSH
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713600 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713601 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] WRITE: Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":2,"RoomName":"d","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713601 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] FLUSH
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713602 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":2,"RoomName":"d","RoomPsw":"","RoomMaxPlayer":6,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 23:19:58  [ nioEventLoopGroup-3-2:2713602 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ COMPLETE
+2021-05-30 23:20:07  [ nioEventLoopGroup-3-2:2722375 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ: 65B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 06 00 ff 00 00 00 39 7b 22 70 6f 73 22 3a 31 |.......9{"pos":1|
+|00000010| 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f 6d |,"steps":0,"room|
+|00000020| 49 64 22 3a 32 2c 22 75 73 65 72 49 64 22 3a 22 |Id":2,"userId":"|
+|00000030| 61 22 2c 22 75 73 65 72 53 74 61 74 65 22 3a 35 |a","userState":5|
+|00000040| 7d                                              |}               |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:20:07  [ nioEventLoopGroup-3-2:2722376 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:6 State:0 UnCode:-1 Length:57]
+2021-05-30 23:20:07  [ nioEventLoopGroup-3-2:2722376 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ COMPLETE
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726180 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 05 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726294 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:5 State:0 UnCode:-1 Length:0]
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726295 ] - [ INFO ]  鐢ㄦ埛a閫�鍑烘埧闂�2
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726323 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] WRITE: Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":3}]
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726323 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] FLUSH
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726324 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":3}]
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726324 ] - [ INFO ]  房间2为空,准备删除
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726324 ] - [ DEBUG ]  房间2正在删除
+2021-05-30 23:20:11  [ nioEventLoopGroup-3-2:2726325 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ COMPLETE
+2021-05-30 23:20:23  [ nioEventLoopGroup-3-2:2738678 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 - R:/127.0.0.1:61131] READ COMPLETE
+2021-05-30 23:20:24  [ nioEventLoopGroup-3-2:2738816 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 ! R:/127.0.0.1:61131] INACTIVE
+2021-05-30 23:20:24  [ nioEventLoopGroup-3-2:2738816 ] - [ DEBUG ]  [id: 0x3f5bbc7f, L:/127.0.0.1:8080 ! R:/127.0.0.1:61131] UNREGISTERED
+2021-05-30 23:20:24  [ nioEventLoopGroup-3-2:2738816 ] - [ INFO ]  用户a退出大厅 || 当前大厅总人数:0
+2021-05-30 23:47:43  [ nioEventLoopGroup-2-1:4378563 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ: [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456]
+2021-05-30 23:47:43  [ nioEventLoopGroup-2-1:4378565 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ COMPLETE
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378565 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] REGISTERED
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378566 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] ACTIVE
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378685 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ: 67B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 01 00 ff 00 00 00 3b 7b 22 70 6f 73 22 3a 2d |.......;{"pos":-|
+|00000010| 31 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f |1,"steps":0,"roo|
+|00000020| 6d 49 64 22 3a 2d 31 2c 22 75 73 65 72 49 64 22 |mId":-1,"userId"|
+|00000030| 3a 22 61 22 2c 22 75 73 65 72 53 74 61 74 65 22 |:"a","userState"|
+|00000040| 3a 30 7d                                        |:0}             |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378685 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:1 State:0 UnCode:-1 Length:59]
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378686 ] - [ INFO ]  用户a进入大厅 || 大厅总人数1
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378754 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378754 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378755 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:47:43  [ nioEventLoopGroup-3-1:4378755 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ COMPLETE
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384565 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ: 121B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 03 00 ff 00 00 00 71 7b 22 70 6c 61 79 65 72 |.......q{"player|
+|00000010| 73 22 3a 6e 75 6c 6c 2c 22 52 6f 6f 6d 49 64 22 |s":null,"RoomId"|
+|00000020| 3a 30 2c 22 52 6f 6f 6d 4e 61 6d 65 22 3a 22 61 |:0,"RoomName":"a|
+|00000030| 22 2c 22 52 6f 6f 6d 50 73 77 22 3a 22 22 2c 22 |","RoomPsw":"","|
+|00000040| 48 61 73 50 73 77 22 3a 2d 31 2c 22 50 6c 61 79 |HasPsw":-1,"Play|
+|00000050| 65 72 4e 75 6d 22 3a 30 2c 22 52 6f 6f 6d 4d 61 |erNum":0,"RoomMa|
+|00000060| 78 50 6c 61 79 65 72 22 3a 32 2c 22 52 6f 6f 6d |xPlayer":2,"Room|
+|00000070| 53 74 61 74 65 22 3a 30 7d                      |State":0}       |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384566 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:3 State:0 UnCode:-1 Length:113]
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384566 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384567 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384567 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=3,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384568 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":2,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384568 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384569 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=198][{"RoomId":2,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}]
+2021-05-30 23:47:49  [ nioEventLoopGroup-3-1:4384569 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ COMPLETE
+2021-05-30 23:48:07  [ nioEventLoopGroup-2-1:4402143 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ: [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459]
+2021-05-30 23:48:07  [ nioEventLoopGroup-2-1:4402144 ] - [ DEBUG ]  [id: 0x40952bac, L:/[0:0:0:0:0:0:0:0]:8080] READ COMPLETE
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402454 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] REGISTERED
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402455 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] ACTIVE
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402456 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ: 67B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 01 00 ff 00 00 00 3b 7b 22 70 6f 73 22 3a 2d |.......;{"pos":-|
+|00000010| 31 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f |1,"steps":0,"roo|
+|00000020| 6d 49 64 22 3a 2d 31 2c 22 75 73 65 72 49 64 22 |mId":-1,"userId"|
+|00000030| 3a 22 62 22 2c 22 75 73 65 72 53 74 61 74 65 22 |:"b","userState"|
+|00000040| 3a 30 7d                                        |:0}             |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402456 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:1 State:0 UnCode:-1 Length:59]
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402456 ] - [ INFO ]  用户b进入大厅 || 大厅总人数2
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402457 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] WRITE: Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402457 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] FLUSH
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402457 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=1,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:48:07  [ nioEventLoopGroup-3-2:4402457 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ COMPLETE
+2021-05-30 23:48:10  [ nioEventLoopGroup-3-2:4405096 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 02 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:48:10  [ nioEventLoopGroup-3-2:4405219 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:2 State:0 UnCode:-1 Length:0]
+2021-05-30 23:48:10  [ nioEventLoopGroup-3-2:4405220 ] - [ DEBUG ]  用户b请求房间消息
+2021-05-30 23:48:10  [ nioEventLoopGroup-3-2:4405220 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] WRITE: Msg[messageP2P=2,messageType=2,stateCode=0,UnEncode=-1,length=399][{"roomInfos":[{"RoomId":0,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0},{"RoomId":1,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0},{"RoomId":2,"RoomName":"a","RoomMaxPlayer":2,"HasPsw":-1,"PlayerNum":1,"RoomState":0}],"users":[{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":6},{"pos":0,"steps":0,"roomId":0,"userId":"b","userState":1}]}]
+2021-05-30 23:48:10  [ nioEventLoopGroup-3-2:4405221 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] FLUSH
+2021-05-30 23:48:10  [ nioEventLoopGroup-3-2:4405221 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=2,stateCode=0,UnEncode=-1,length=399][{"roomInfos":[{"RoomId":0,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0},{"RoomId":1,"RoomName":"a","RoomMaxPlayer":6,"HasPsw":-1,"PlayerNum":1,"RoomState":0},{"RoomId":2,"RoomName":"a","RoomMaxPlayer":2,"HasPsw":-1,"PlayerNum":1,"RoomState":0}],"users":[{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":6},{"pos":0,"steps":0,"roomId":0,"userId":"b","userState":1}]}]
+2021-05-30 23:48:10  [ nioEventLoopGroup-3-2:4405221 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ COMPLETE
+2021-05-30 23:48:14  [ nioEventLoopGroup-3-2:4409355 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ: 123B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 04 00 ff 00 00 00 73 7b 22 70 6c 61 79 65 72 |.......s{"player|
+|00000010| 73 22 3a 6e 75 6c 6c 2c 22 52 6f 6f 6d 49 64 22 |s":null,"RoomId"|
+|00000020| 3a 32 2c 22 52 6f 6f 6d 4e 61 6d 65 22 3a 22 61 |:2,"RoomName":"a|
+|00000030| 22 2c 22 52 6f 6f 6d 50 73 77 22 3a 6e 75 6c 6c |","RoomPsw":null|
+|00000040| 2c 22 48 61 73 50 73 77 22 3a 2d 31 2c 22 50 6c |,"HasPsw":-1,"Pl|
+|00000050| 61 79 65 72 4e 75 6d 22 3a 31 2c 22 52 6f 6f 6d |ayerNum":1,"Room|
+|00000060| 4d 61 78 50 6c 61 79 65 72 22 3a 32 2c 22 52 6f |MaxPlayer":2,"Ro|
+|00000070| 6f 6d 53 74 61 74 65 22 3a 30 7d                |omState":0}     |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:48:14  [ nioEventLoopGroup-3-2:4409355 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:4 State:0 UnCode:-1 Length:115]
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-1:4410381 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":4,"steps":0,"roomId":2,"userId":"b","userState":2}]
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-2:4410381 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":4,"steps":0,"roomId":2,"userId":"b","userState":2}]
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-1:4410411 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-2:4410411 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] WRITE: Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=251][{"RoomId":2,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":6},null,null,{"pos":4,"steps":0,"roomId":2,"userId":"b","userState":2},null,null],"PlayerNum":2,"RoomState":0}]
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-2:4410411 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] FLUSH
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-2:4410412 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=4,stateCode=0,UnEncode=-1,length=251][{"RoomId":2,"RoomName":"a","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":6},null,null,{"pos":4,"steps":0,"roomId":2,"userId":"b","userState":2},null,null],"PlayerNum":2,"RoomState":0}]
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-2:4410412 ] - [ DEBUG ]  用户b进入房间2成功
+2021-05-30 23:48:15  [ nioEventLoopGroup-3-2:4410412 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ COMPLETE
+2021-05-30 23:48:18  [ nioEventLoopGroup-3-2:4413009 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ: 65B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 06 00 ff 00 00 00 39 7b 22 70 6f 73 22 3a 34 |.......9{"pos":4|
+|00000010| 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f 6d |,"steps":0,"room|
+|00000020| 49 64 22 3a 32 2c 22 75 73 65 72 49 64 22 3a 22 |Id":2,"userId":"|
+|00000030| 62 22 2c 22 75 73 65 72 53 74 61 74 65 22 3a 35 |b","userState":5|
+|00000040| 7d                                              |}               |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:48:18  [ nioEventLoopGroup-3-2:4413009 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:6 State:0 UnCode:-1 Length:57]
+2021-05-30 23:48:18  [ nioEventLoopGroup-3-2:4413010 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":4,"steps":0,"roomId":2,"userId":"b","userState":5}]
+2021-05-30 23:48:18  [ nioEventLoopGroup-3-1:4413010 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":4,"steps":0,"roomId":2,"userId":"b","userState":5}]
+2021-05-30 23:48:18  [ nioEventLoopGroup-3-2:4413010 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ COMPLETE
+2021-05-30 23:48:18  [ nioEventLoopGroup-3-1:4413341 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:48:34  [ nioEventLoopGroup-3-1:4429026 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ: 65B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 06 00 ff 00 00 00 39 7b 22 70 6f 73 22 3a 31 |.......9{"pos":1|
+|00000010| 2c 22 73 74 65 70 73 22 3a 30 2c 22 72 6f 6f 6d |,"steps":0,"room|
+|00000020| 49 64 22 3a 32 2c 22 75 73 65 72 49 64 22 3a 22 |Id":2,"userId":"|
+|00000030| 61 22 2c 22 75 73 65 72 53 74 61 74 65 22 3a 35 |a","userState":5|
+|00000040| 7d                                              |}               |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:48:34  [ nioEventLoopGroup-3-1:4429027 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:6 State:0 UnCode:-1 Length:57]
+2021-05-30 23:48:34  [ nioEventLoopGroup-3-1:4429028 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":5}]
+2021-05-30 23:48:34  [ nioEventLoopGroup-3-2:4429028 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] WRITE: Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":5}]
+2021-05-30 23:48:34  [ nioEventLoopGroup-3-2:4429569 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] FLUSH
+2021-05-30 23:48:35  [ nioEventLoopGroup-3-1:4430663 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ COMPLETE
+2021-05-30 23:48:35  [ Thread-1:4430664 ] - [ DEBUG ]  鎴块棿2寮�濮嬫父鎴忥紒
+2021-05-30 23:48:37  [ Thread-1:4431851 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":0,"pos":1}]
+2021-05-30 23:48:37  [ nioEventLoopGroup-3-1:4431851 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":0,"pos":1}]
+2021-05-30 23:48:37  [ nioEventLoopGroup-3-1:4431852 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:48:37  [ Thread-1:4431853 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":0,"pos":1}]
+2021-05-30 23:48:37  [ nioEventLoopGroup-3-2:4431853 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] WRITE: Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":0,"pos":1}]
+2021-05-30 23:48:37  [ nioEventLoopGroup-3-2:4431854 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] FLUSH
+2021-05-30 23:48:56  [ nioEventLoopGroup-3-1:4451585 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ: 67B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 09 00 ff 00 00 00 3b 7b 22 67 61 6d 65 53 74 |.......;{"gameSt|
+|00000010| 61 74 65 22 3a 33 2c 22 70 6f 73 22 3a 31 2c 22 |ate":3,"pos":1,"|
+|00000020| 73 22 3a 7b 22 78 22 3a 32 2c 22 79 22 3a 36 7d |s":{"x":2,"y":6}|
+|00000030| 2c 22 65 22 3a 7b 22 78 22 3a 34 2c 22 79 22 3a |,"e":{"x":4,"y":|
+|00000040| 37 7d 7d                                        |7}}             |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:48:56  [ nioEventLoopGroup-3-1:4451586 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:9 State:0 UnCode:-1 Length:59]
+2021-05-30 23:48:57  [ nioEventLoopGroup-3-1:4452207 ] - [ INFO ]  1鍙风帺瀹�a鎻愪氦绉诲姩鎴愬姛
+2021-05-30 23:48:57  [ nioEventLoopGroup-3-1:4452208 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=8,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:48:57  [ nioEventLoopGroup-3-1:4452208 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:48:57  [ nioEventLoopGroup-3-1:4452208 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=8,stateCode=0,UnEncode=-1,length=0][null]
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-1:4452973 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=59][{"gameState":3,"pos":1,"s":{"x":2,"y":6},"e":{"x":4,"y":7}}]
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-2:4452973 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] WRITE: Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=59][{"gameState":3,"pos":1,"s":{"x":2,"y":6},"e":{"x":4,"y":7}}]
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-1:4452973 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":2,"pos":4}]
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-1:4452974 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-2:4452974 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] FLUSH
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-1:4452975 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":2,"pos":4}]
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-2:4452975 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] WRITE: Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":2,"pos":4}]
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-1:4452975 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=7,stateCode=0,UnEncode=-1,length=23][{"gameState":2,"pos":4}]
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-2:4452975 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] FLUSH
+2021-05-30 23:48:58  [ nioEventLoopGroup-3-1:4452975 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ COMPLETE
+2021-05-30 23:49:05  [ nioEventLoopGroup-3-2:4460526 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] READ COMPLETE
+2021-05-30 23:49:05  [ nioEventLoopGroup-3-2:4460527 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] EXCEPTION: java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1108)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:345)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:126)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:645)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:580)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:497)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:459)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2021-05-30 23:49:05  [ nioEventLoopGroup-3-2:4460604 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 - R:/127.0.0.1:53459] CLOSE
+2021-05-30 23:49:05  [ nioEventLoopGroup-3-2:4460629 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 ! R:/127.0.0.1:53459] USER_EVENT: io.netty.channel.socket.ChannelInputShutdownReadComplete@46af24da
+2021-05-30 23:49:05  [ nioEventLoopGroup-3-2:4460657 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 ! R:/127.0.0.1:53459] INACTIVE
+2021-05-30 23:49:05  [ nioEventLoopGroup-3-2:4460658 ] - [ DEBUG ]  [id: 0x9d6c994c, L:/127.0.0.1:8080 ! R:/127.0.0.1:53459] UNREGISTERED
+2021-05-30 23:49:05  [ nioEventLoopGroup-3-2:4460659 ] - [ INFO ]  用户b退出大厅 || 当前大厅总人数:1
+2021-05-30 23:50:13  [ nioEventLoopGroup-3-1:4528466 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 01 05 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-05-30 23:50:13  [ nioEventLoopGroup-3-1:4528466 ] - [ INFO ]  接收到报文Head:[P2P:1 Type:5 State:0 UnCode:-1 Length:0]
+2021-05-30 23:50:13  [ nioEventLoopGroup-3-1:4528466 ] - [ INFO ]  鐢ㄦ埛a閫�鍑烘埧闂�2
+2021-05-30 23:50:13  [ nioEventLoopGroup-3-1:4528468 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] WRITE: Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":3}]
+2021-05-30 23:50:13  [ nioEventLoopGroup-3-1:4528468 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] FLUSH
+2021-05-30 23:50:13  [ nioEventLoopGroup-3-1:4528469 ] - [ DEBUG ]  发送报文：Msg[messageP2P=2,messageType=6,stateCode=0,UnEncode=-1,length=57][{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":3}]
+2021-05-30 23:50:13  [ nioEventLoopGroup-3-1:4528469 ] - [ DEBUG ]  [id: 0x7b82f81c, L:/127.0.0.1:8080 - R:/127.0.0.1:53456] READ COMPLETE

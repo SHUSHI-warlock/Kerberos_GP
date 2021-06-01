@@ -12,14 +12,12 @@ namespace Client.MsgTrans
 {
     public class MyTcpClient
     {
-
         private static Logger logger = Logger.GetLogger();
         private Socket _clientSocket;
 
         private string _server;
         private int _port;
 
-       
         public MyTcpClient(String ip, int port)
         {
             _server = ip;
@@ -118,7 +116,6 @@ namespace Client.MsgTrans
                     throw new Exception("服务器断开连接！");
                 }
 
-                logger.Debug(string.Format("收到服务器消息:P2P:{0},Type:{1},State:{2},Length:{3}", message.MessageP2P, message.MessageType, message.StateCode, message.Length));
 
                 if (message.Length != 0)
                 {
@@ -127,10 +124,12 @@ namespace Client.MsgTrans
                     //OnReceive(string.Format("收到服务器消息:长度：{1},{0}", Encoding.UTF8.GetString(data), length));
                     //logger.Debug(string.Format("收到服务器消息:长度：{1},{0}", Encoding.UTF8.GetString(data), length));
                     message.SetBody(data);
-                    logger.Debug(message.bodyToString());
+                    //logger.Debug(message.bodyToString());
 
                 }
                 //OnReceive.Invoke(message);
+
+                logger.Debug(string.Format("收到服务器消息:P2P:{0},Type:{1},State:{2},Length:{3} body: {4}", message.MessageP2P, message.MessageType, message.StateCode, message.Length,message.Length==0?"空": message.bodyToString()));
 
 
                 //Recive();
@@ -141,6 +140,7 @@ namespace Client.MsgTrans
                 if((e is SocketException)&&(e as SocketException).ErrorCode==10054)
                 {
                     //OnServerDown("服务器已断线");
+                   
                     logger.Error("服务器已断线");
                 }
                 else

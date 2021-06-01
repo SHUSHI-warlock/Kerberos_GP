@@ -14,9 +14,10 @@ namespace Client.core.Services
 
         public int Type {get; set;}
 
-        public ChatMsg() { }
-        public ChatMsg(string id,DateTime time,string msg)
+        public ChatMsg(){ }
+        public ChatMsg(int type,string id,DateTime time,string msg)
         {
+            Type = type;
             UserId = id;
             Time = time;
             Msg = msg;

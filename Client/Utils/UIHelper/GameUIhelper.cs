@@ -159,18 +159,18 @@ namespace Client.Utils.UIHelper
             
         }
 
-        public void MovePostion(CheckerPoint oldPoint, CheckerPoint NewPoint)
+        public void MovePostion(CheckerPoint oldPoint, CheckerPoint newPoint)
         {
             CheckerPoint checkerP = null;
-            if (boards.TryGetValue(oldPoint, out checkerP) && !boards.ContainsKey(NewPoint))
+            if (boards.TryGetValue(oldPoint, out checkerP) && !boards.ContainsKey(newPoint))
             {//存老无新
-                logger.Debug("移动棋子 " + oldPoint.ToString() + "-->" + NewPoint.ToString());
+                logger.Debug("移动棋子 " + oldPoint.ToString() + "-->" + newPoint.ToString());
                 boards.Remove(oldPoint);
-                checkers[checkerP.x, checkerP.y].MoveChecker(NewPoint);
-                boards.Add(NewPoint,checkerP);
+                checkers[checkerP.x, checkerP.y].MoveChecker(newPoint);
+                boards.Add(newPoint, checkerP);
             }
             else
-                logger.Error("MovePostion ：指定了错误的起点或终点！");
+                logger.Error(string.Format("MovePostion ：指定了错误的起点{0}或终点{1}！",oldPoint.ToString(), newPoint.ToString()));
         }
 
         public void ShowMovePath(Stack<CheckerPoint> path)

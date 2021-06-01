@@ -46,7 +46,7 @@ namespace Client
         /// <summary>
         /// 消息读取器的开关
         /// </summary>
-        //private volatile bool canStop = false;
+        private volatile bool canStop = false;
 
         private DispatcherTimer ShowTimer;  //时间刷新
         public Lobby(MyTcpClient client, User user)
@@ -92,7 +92,7 @@ namespace Client
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            init();
+            Init();
 
             messageShowWin.Show();
 
@@ -106,10 +106,8 @@ namespace Client
             ShowTimer.Interval = new TimeSpan(0, 0, 0, 1, 0);
             ShowTimer.Start();
 
-            //开一个读线程读取数据
-            Thread thread = new Thread(new ParameterizedThreadStart(ReciveHandle));
-            thread.IsBackground = true; //主线程退出时自动结束
-            thread.Start(client);
+            //开启读取线程
+            StartRead();
 
             //messageShowWin.SenderText.Text = "你大爷";
         }
@@ -117,7 +115,7 @@ namespace Client
         /// <summary>
         /// 测试用！
         /// </summary>
-        public void init()
+        public void Init()
         {
             //player = new Player("lzh");
 
@@ -145,11 +143,25 @@ namespace Client
             allRoomInfos[5].addPlayer(temp);
 
 
-            lobbyMsgs.Add(new ChatMsg("lzh", new DateTime(2021, 5, 20, 13, 36, 24), "喂喂喂！"));
-            lobbyMsgs.Add(new ChatMsg("lzh", new DateTime(2021, 5, 20, 13, 36, 24), "呦呦呦，这不是摇摆羊吗?几天不见这么拉了？"));
-            lobbyMsgs.Add(new ChatMsg("lzh", new DateTime(2021, 5, 20, 13, 36, 24), "喂喂喂！"));
+            lobbyMsgs.Add(new ChatMsg(1,"lzh", new DateTime(2021, 5, 20, 13, 36, 24), "喂喂喂！"));
+            lobbyMsgs.Add(new ChatMsg(1,"lzh", new DateTime(2021, 5, 20, 13, 36, 24), "呦呦呦，这不是摇摆羊吗?几天不见这么拉了？"));
+            lobbyMsgs.Add(new ChatMsg(1,"lzh", new DateTime(2021, 5, 20, 13, 36, 24), "喂喂喂！"));
 
-            showRoomInfo();
+            ShowRoomInfo();
+        }
+
+        public void StartRead()
+        {
+            //开一个读线程读取数据
+            Thread thread = new Thread(new ParameterizedThreadStart(ReciveHandle));
+            canStop = false;
+            thread.IsBackground = true; //主线程退出时自动结束
+            thread.Start(client);
+        }
+        
+        public void StopRead()
+        {
+            canStop = true;
         }
 
         /// <summary>
@@ -160,9 +172,14 @@ namespace Client
         {
             MyTcpClient tcpClient = Client as MyTcpClient;
 
-            while (true)
+            while (!canStop)
             {
                 Message message = tcpClient.Recive();
+                if(message==null)
+                {
+                    logger.Warn("message为空！");
+                    continue;
+                }
                 switch (message.MessageType)
                 {
                     case 2://服务器返回请求房间信息
@@ -205,8 +222,8 @@ namespace Client
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     allRoomInfos = lobbyMsg.roomInfos;
-                    showRoomInfo();
-                    showUserInfo(lobbyMsg.users);
+                    ShowRoomInfo();
+                    ShowUserInfo(lobbyMsg.users);
                 });
             }
             else
@@ -247,10 +264,24 @@ namespace Client
                 //提示框显示
                 RoomInfo room = JsonConvert.DeserializeObject<RoomInfo>(message.bodyToString());
 
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    EnterRoom(room);
-                });
+                ///新开线程执行进入房间操作
+                ///因为如果不开线程的话，GameRoom的ShowDialog会阻塞大厅线程进而阻塞调用大厅函数的本线程
+                ///导致进入房间后的所有消息（房间消息，游戏消息）都将堆积
+                ///然后退出后，大厅的每一次操作，其实读到的是之前大厅读取线程积累的房间消息
+
+                ///修复后
+                ///新开线程，调用进入房间函数
+                ///同时在本线程 StopRead() 等return后就会结束读取线程
+                ///最后再在EnterRoom退出房间，ShowDiaLog阻塞结束后调用StartRead()重新开一个线程进行大厅消息处理
+                Thread thread = new Thread(new ParameterizedThreadStart(EnterRoom));
+                thread.IsBackground = true;    //后台线程不会阻止程序终止
+                thread.Start(room);
+
+                StopRead();
+
+                logger.Debug("EnterRoomHandler 执行完毕！");
+                
+                return;
             }
             else if (message.StateCode == 1)
             {
@@ -359,7 +390,7 @@ namespace Client
         /// <summary>
         /// 刷新房间页面
         /// </summary>
-        private void showRoomInfo()
+        private void ShowRoomInfo()
         {
             roomInfos.Clear();
             int filterNum = 0;
@@ -417,7 +448,7 @@ namespace Client
         /// <summary>
         /// 刷新用户页面
         /// </summary>
-        private void showUserInfo(List<User> list)
+        private void ShowUserInfo(List<User> list)
         {
             users.Clear();
             foreach (User u in list)
@@ -429,8 +460,9 @@ namespace Client
         /// 进入房间
         /// </summary>
         /// <param name="room"></param>
-        private void EnterRoom(RoomInfo room)
+        private void EnterRoom(object o)
         {
+            RoomInfo room = o as RoomInfo; 
             bool flag = false;
             foreach (Player p in room.players)
             {
@@ -450,15 +482,24 @@ namespace Client
                 return;
             }
 
-            //
-            this.IsEnabled = false;
-            messageShowWin.Hide();
-            gameRoom = new GameRoom(client);
-            gameRoom.SetPlayer(player);
-            gameRoom.ShowRoom(room);
-            //gameRoom.ShowRoom(room,player);
-            messageShowWin.Show();
-            this.IsEnabled = true;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                //进入前
+                this.IsEnabled = false;
+                messageShowWin.Hide();
+                //StopRead();
+                gameRoom = new GameRoom(client);
+                gameRoom.SetPlayer(player);
+
+                //进入
+                gameRoom.ShowRoom(room);
+
+                //退出后
+                //gameRoom.ShowRoom(room,player);
+                messageShowWin.Show();
+                StartRead();
+                this.IsEnabled = true;
+            });
         }
 
 
@@ -470,7 +511,7 @@ namespace Client
         private void RoomList_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             //logger.Info(sender.GetType().ToString());
-            ListView list = (ListView)sender;
+            //ListView list = sender as ListView; 
 
             logger.Info("PreviousSize:" + e.PreviousSize.ToString());
             //logger.Info("NewSize:"+e.NewSize.ToString());
@@ -500,19 +541,19 @@ namespace Client
             logger.Info(String.Format("过滤条件:房间未满：{0} 房间未开始：{1} 房间无密码：{2} ",
                 (bool)IsFull.IsChecked ? "True" : "False", (bool)IsStart.IsChecked ? "True" : "False", (bool)HasPassword.IsChecked ? "True" : "False"));
 
-            showRoomInfo();
+            ShowRoomInfo();
         }
         private void KeyWords_TextChanged(object sender, TextChangedEventArgs e)
         {
             logger.Info("关键字过滤:" + ((TextBox)sender).Text);
-            showRoomInfo();
+            ShowRoomInfo();
         }
         private void MaxPlayer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MaxPlayer.Text = ((ComboBoxItem)MaxPlayer.SelectedItem).Content.ToString();
             logger.Info("最大人数过滤:" + MaxPlayer.Text);
 
-            showRoomInfo();
+            ShowRoomInfo();
         }
 
 
@@ -577,6 +618,7 @@ namespace Client
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Width = width;
             window.Height = height;
+            window.Title = title;
             window.ResizeMode = ResizeMode.NoResize;
             window.Source = new Uri(uri, UriKind.Relative);
             window.ShowsNavigationUI = false;
@@ -668,8 +710,8 @@ namespace Client
                 return;
             }
 
-            ChatMsg msg = new ChatMsg(player.userId, DateTime.Now, SendMag.Text);
-            msg.Type = 1;   //大厅消息
+            ChatMsg msg = new ChatMsg(1,player.userId, DateTime.Now, SendMag.Text);
+            //msg.Type = 1;   //大厅消息
 
             //发送出去
             logger.Debug("发送消息！");

@@ -1,0 +1,1792 @@
+Time=2021/6/1 11:44:50 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/1 11:44:50 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/1 11:44:50 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"b","userState":0}
+Time=2021/6/1 11:44:50 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/1 11:44:50 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/1 11:44:50 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/1 11:44:52 LogType=Debug Log=请求刷新!
+Time=2021/6/1 11:44:52 LogType=Debug Log=发送报文 Head:[P2P:1 Type:2 State:0 Length:0]
+Time=2021/6/1 11:44:52 LogType=Debug Log=
+Time=2021/6/1 11:44:52 LogType=Debug Log=收到服务器消息:P2P:2,Type:2,State:0,Length:230 body: {"roomInfos":[{"RoomId":0,"RoomName":"aqwe","RoomMaxPlayer":2,"HasPsw":-1,"PlayerNum":1,"RoomState":0}],"users":[{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5},{"pos":0,"steps":0,"roomId":0,"userId":"b","userState":1}]}
+Time=2021/6/1 11:44:52 LogType=Info Log=大厅信息已收到，准备刷新！
+Time=2021/6/1 11:45:30 LogType=Debug Log=请求进入房间0!
+Time=2021/6/1 11:45:30 LogType=Debug Log=发送报文 Head:[P2P:1 Type:4 State:0 Length:118]
+Time=2021/6/1 11:45:30 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"aqwe","RoomPsw":null,"HasPsw":-1,"PlayerNum":1,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/1 11:45:30 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:254 body: {"RoomId":0,"RoomName":"aqwe","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5},null,null,{"pos":4,"steps":0,"roomId":0,"userId":"b","userState":2},null,null],"PlayerNum":2,"RoomState":0}
+Time=2021/6/1 11:45:30 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/1 11:45:30 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/1 11:45:30 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/1 11:45:30 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/1 11:45:30 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/1 11:45:32 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/1 11:45:32 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/1 11:45:32 LogType=Debug Log={"pos":4,"steps":0,"roomId":0,"userId":"b","userState":5}
+Time=2021/6/1 11:45:32 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:23 body: {"gameState":0,"pos":1}
+Time=2021/6/1 11:45:32 LogType=Info Log=游戏开始！
+Time=2021/6/1 11:45:32 LogType=Info Log=状态转换！从Prepared到Start
+Time=2021/6/1 11:45:32 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:32 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:32 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:32 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:45:34 LogType=Info Log=点击界面：318.4,553.6 逻辑坐标:(13,6)
+Time=2021/6/1 11:45:34 LogType=Info Log=当前状态点击无效！
+Time=2021/6/1 11:45:35 LogType=Info Log=点击界面：264.8,137.6 逻辑坐标:(3,5)
+Time=2021/6/1 11:45:35 LogType=Info Log=当前状态点击无效！
+Time=2021/6/1 11:45:47 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":3,"y":5},"e":{"x":4,"y":6}}
+Time=2021/6/1 11:45:47 LogType=Info Log=接收到1号玩家a的移动结果：(3,5)-->(4,6)
+Time=2021/6/1 11:45:47 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:45:47 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:47 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:47 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:47 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:45:47 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:45:47 LogType=Info Log=CheckerCore : move  (3,5)-->(4,6)
+Time=2021/6/1 11:45:47 LogType=Debug Log=移动棋子 (3,5)-->(4,6)
+Time=2021/6/1 11:45:47 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:45:47 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:45:47 LogType=Info Log=状态转换！从Start到Move
+Time=2021/6/1 11:45:48 LogType=Info Log=点击界面：317.6,541.6 逻辑坐标:(13,6)
+Time=2021/6/1 11:45:48 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:45:48 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:45:48 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:45:48 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:48 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:48 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:48 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:48 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:45:48 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:48 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:45:48 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:45:48 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:45:49 LogType=Info Log=点击界面：291.2,506.4 逻辑坐标:(12,6)
+Time=2021/6/1 11:45:49 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:45:49 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:45:49 LogType=Info Log=CheckerCore : move  (13,6)-->(12,6)
+Time=2021/6/1 11:45:49 LogType=Debug Log=移动棋子 (13,6)-->(12,6)
+Time=2021/6/1 11:45:49 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:49 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:45:49 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:45:49 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:45:49 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:45:49 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:45:49 LogType=Info Log=点击界面：291.2,506.4 逻辑坐标:(12,6)
+Time=2021/6/1 11:45:49 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:45:49 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:45:49 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:61]
+Time=2021/6/1 11:45:49 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":13,"y":6},"e":{"x":12,"y":6}}
+Time=2021/6/1 11:45:49 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:45:49 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:45:49 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:45:49 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:49 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:49 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:49 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:45:49 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:45:49 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:45:49 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:45:52 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":2,"y":5},"e":{"x":6,"y":7}}
+Time=2021/6/1 11:45:52 LogType=Info Log=接收到1号玩家a的移动结果：(2,5)-->(6,7)
+Time=2021/6/1 11:45:52 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:45:52 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:52 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:52 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:52 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:45:52 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:45:52 LogType=Info Log=CheckerCore : move  (2,5)-->(6,7)
+Time=2021/6/1 11:45:52 LogType=Debug Log=移动棋子 (2,5)-->(6,7)
+Time=2021/6/1 11:45:52 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:45:52 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:45:52 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:45:53 LogType=Info Log=点击界面：341.6,587.2 逻辑坐标:(14,7)
+Time=2021/6/1 11:45:53 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:45:53 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:45:53 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:45:53 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:53 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:53 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:53 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:53 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:45:53 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:53 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:45:53 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:45:53 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:45:54 LogType=Info Log=点击界面：245.6,422.4 逻辑坐标:(10,5)
+Time=2021/6/1 11:45:54 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:45:54 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:45:54 LogType=Info Log=CheckerCore : move  (14,7)-->(10,5)
+Time=2021/6/1 11:45:54 LogType=Debug Log=移动棋子 (14,7)-->(10,5)
+Time=2021/6/1 11:45:54 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:54 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:45:54 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:45:54 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:45:54 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:45:54 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:45:54 LogType=Info Log=点击界面：245.6,422.4 逻辑坐标:(10,5)
+Time=2021/6/1 11:45:54 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:45:54 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:45:54 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:61]
+Time=2021/6/1 11:45:54 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":14,"y":7},"e":{"x":10,"y":5}}
+Time=2021/6/1 11:45:54 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:45:54 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:45:54 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:45:54 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:54 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:54 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:54 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:45:54 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:45:54 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:45:54 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:45:59 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":2,"y":7},"e":{"x":8,"y":6}}
+Time=2021/6/1 11:45:59 LogType=Info Log=接收到1号玩家a的移动结果：(2,7)-->(8,6)
+Time=2021/6/1 11:45:59 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:45:59 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:45:59 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:45:59 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:45:59 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:45:59 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:45:59 LogType=Info Log=CheckerCore : move  (2,7)-->(8,6)
+Time=2021/6/1 11:45:59 LogType=Debug Log=移动棋子 (2,7)-->(8,6)
+Time=2021/6/1 11:45:59 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:45:59 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:45:59 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:46:01 LogType=Info Log=点击界面：302.4,662.4 逻辑坐标:(16,6)
+Time=2021/6/1 11:46:01 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:01 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:46:01 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:01 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:01 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:01 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:01 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:01 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:01 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:01 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:01 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:01 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:46:01 LogType=Info Log=点击界面：340.8,568 逻辑坐标:无
+Time=2021/6/1 11:46:02 LogType=Info Log=点击界面：343.2,592.8 逻辑坐标:(14,7)
+Time=2021/6/1 11:46:02 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:02 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:02 LogType=Info Log=CheckerCore : move  (16,6)-->(14,7)
+Time=2021/6/1 11:46:02 LogType=Debug Log=移动棋子 (16,6)-->(14,7)
+Time=2021/6/1 11:46:02 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:02 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:02 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:02 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:02 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:02 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:46:03 LogType=Info Log=点击界面：381.6,511.2 逻辑坐标:(12,8)
+Time=2021/6/1 11:46:03 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:03 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:03 LogType=Info Log=CheckerCore : move  (14,7)-->(12,8)
+Time=2021/6/1 11:46:03 LogType=Debug Log=移动棋子 (14,7)-->(12,8)
+Time=2021/6/1 11:46:03 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:03 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:03 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:03 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:03 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:04 LogType=Info Log=点击界面：201.6,176.8 逻辑坐标:(4,4)
+Time=2021/6/1 11:46:04 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:04 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:04 LogType=Info Log=CheckerCore : move  (12,8)-->(4,4)
+Time=2021/6/1 11:46:04 LogType=Debug Log=移动棋子 (12,8)-->(4,4)
+Time=2021/6/1 11:46:04 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:04 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:04 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:04 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:04 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:06 LogType=Info Log=点击界面：257.6,103.2 逻辑坐标:(2,5)
+Time=2021/6/1 11:46:06 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:06 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:06 LogType=Info Log=CheckerCore : move  (4,4)-->(2,5)
+Time=2021/6/1 11:46:06 LogType=Debug Log=移动棋子 (4,4)-->(2,5)
+Time=2021/6/1 11:46:06 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:06 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:06 LogType=Info Log=点击界面：341.6,100 逻辑坐标:(2,7)
+Time=2021/6/1 11:46:06 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:06 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:06 LogType=Info Log=CheckerCore : move  (2,5)-->(2,7)
+Time=2021/6/1 11:46:06 LogType=Debug Log=移动棋子 (2,5)-->(2,7)
+Time=2021/6/1 11:46:06 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:06 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:06 LogType=Info Log=点击界面：341.6,100 逻辑坐标:(2,7)
+Time=2021/6/1 11:46:06 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:46:06 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:46:06 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:46:06 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":16,"y":6},"e":{"x":2,"y":7}}
+Time=2021/6/1 11:46:06 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:46:06 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:46:06 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:46:06 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:06 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:06 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowRoad 隐藏路径4!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowRoad 隐藏路径5!
+Time=2021/6/1 11:46:06 LogType=Info Log=ShowRoad 隐藏路径6!
+Time=2021/6/1 11:46:06 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:46:06 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:46:13 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":0,"y":6},"e":{"x":16,"y":6}}
+Time=2021/6/1 11:46:13 LogType=Info Log=接收到1号玩家a的移动结果：(0,6)-->(16,6)
+Time=2021/6/1 11:46:13 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:46:13 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:13 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:13 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:13 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:46:13 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:46:13 LogType=Info Log=CheckerCore : move  (0,6)-->(16,6)
+Time=2021/6/1 11:46:13 LogType=Debug Log=移动棋子 (0,6)-->(16,6)
+Time=2021/6/1 11:46:13 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:46:13 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:46:13 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:46:17 LogType=Info Log=点击界面：249.6,586.4 逻辑坐标:(14,5)
+Time=2021/6/1 11:46:17 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:17 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:46:17 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:17 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:17 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:17 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:17 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:17 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:17 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:17 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:17 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:17 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:46:18 LogType=Info Log=点击界面：204.8,509.6 逻辑坐标:(12,4)
+Time=2021/6/1 11:46:18 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:18 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:18 LogType=Info Log=CheckerCore : move  (14,5)-->(12,4)
+Time=2021/6/1 11:46:18 LogType=Debug Log=移动棋子 (14,5)-->(12,4)
+Time=2021/6/1 11:46:18 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:18 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:18 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:18 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:18 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:18 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:46:18 LogType=Info Log=点击界面：402.4,496 逻辑坐标:(12,8)
+Time=2021/6/1 11:46:18 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:18 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:18 LogType=Info Log=CheckerCore : move  (12,4)-->(12,8)
+Time=2021/6/1 11:46:18 LogType=Debug Log=移动棋子 (12,4)-->(12,8)
+Time=2021/6/1 11:46:18 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:18 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:18 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:18 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:18 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:19 LogType=Info Log=点击界面：216.8,182.4 逻辑坐标:(4,4)
+Time=2021/6/1 11:46:19 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:19 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:19 LogType=Info Log=CheckerCore : move  (12,8)-->(4,4)
+Time=2021/6/1 11:46:19 LogType=Debug Log=移动棋子 (12,8)-->(4,4)
+Time=2021/6/1 11:46:19 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:19 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:19 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:19 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:19 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:20 LogType=Info Log=点击界面：244,99.2 逻辑坐标:(2,5)
+Time=2021/6/1 11:46:20 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:20 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:20 LogType=Info Log=CheckerCore : move  (4,4)-->(2,5)
+Time=2021/6/1 11:46:20 LogType=Debug Log=移动棋子 (4,4)-->(2,5)
+Time=2021/6/1 11:46:20 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:20 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:20 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:20 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:20 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:20 LogType=Info Log=点击界面：289.6,25.6 逻辑坐标:(0,6)
+Time=2021/6/1 11:46:20 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:20 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:20 LogType=Info Log=CheckerCore : move  (2,5)-->(0,6)
+Time=2021/6/1 11:46:20 LogType=Debug Log=移动棋子 (2,5)-->(0,6)
+Time=2021/6/1 11:46:20 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:20 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:20 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:20 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:20 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:21 LogType=Info Log=点击界面：289.6,25.6 逻辑坐标:(0,6)
+Time=2021/6/1 11:46:21 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:46:21 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:46:21 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:46:21 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":14,"y":5},"e":{"x":0,"y":6}}
+Time=2021/6/1 11:46:21 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:46:21 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:46:21 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:46:21 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:21 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:21 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:21 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:46:21 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:46:21 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:46:21 LogType=Info Log=ShowRoad 隐藏路径4!
+Time=2021/6/1 11:46:21 LogType=Info Log=ShowRoad 隐藏路径5!
+Time=2021/6/1 11:46:21 LogType=Info Log=ShowRoad 隐藏路径6!
+Time=2021/6/1 11:46:21 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:46:21 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:46:30 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":3,"y":6},"e":{"x":5,"y":5}}
+Time=2021/6/1 11:46:30 LogType=Info Log=接收到1号玩家a的移动结果：(3,6)-->(5,5)
+Time=2021/6/1 11:46:30 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:46:30 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:30 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:30 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:30 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:46:30 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:46:30 LogType=Info Log=CheckerCore : move  (3,6)-->(5,5)
+Time=2021/6/1 11:46:30 LogType=Debug Log=移动棋子 (3,6)-->(5,5)
+Time=2021/6/1 11:46:30 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:46:30 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:46:30 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:46:32 LogType=Info Log=点击界面：267.2,631.2 逻辑坐标:(15,5)
+Time=2021/6/1 11:46:32 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:32 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:46:32 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:32 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:32 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:32 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:32 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:32 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:32 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:32 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:32 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:32 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:46:34 LogType=Info Log=点击界面：303.2,588.8 逻辑坐标:(14,6)
+Time=2021/6/1 11:46:34 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:34 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:46:34 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:34 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:34 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:34 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:34 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:46:34 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:34 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:34 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:34 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:34 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:34 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:46:37 LogType=Info Log=点击界面：358.4,545.6 逻辑坐标:(13,7)
+Time=2021/6/1 11:46:37 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:37 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:46:37 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:37 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:37 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:37 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:37 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:46:37 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:37 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:37 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:37 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:37 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:37 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:46:38 LogType=Info Log=点击界面：312,632 逻辑坐标:(15,6)
+Time=2021/6/1 11:46:38 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:38 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:46:38 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:38 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:38 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:38 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:38 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:46:38 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:38 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:38 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:38 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:38 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:38 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:46:39 LogType=Info Log=点击界面：408,481.6 逻辑坐标:无
+Time=2021/6/1 11:46:40 LogType=Info Log=点击界面：412.8,468.8 逻辑坐标:(11,8)
+Time=2021/6/1 11:46:40 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:40 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:40 LogType=Info Log=CheckerCore : move  (15,6)-->(11,8)
+Time=2021/6/1 11:46:40 LogType=Debug Log=移动棋子 (15,6)-->(11,8)
+Time=2021/6/1 11:46:40 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:40 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:40 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:40 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:40 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:40 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:46:40 LogType=Info Log=点击界面：412.8,468.8 逻辑坐标:(11,8)
+Time=2021/6/1 11:46:40 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:46:40 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:46:40 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:61]
+Time=2021/6/1 11:46:40 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":15,"y":6},"e":{"x":11,"y":8}}
+Time=2021/6/1 11:46:40 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:46:40 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:46:40 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:46:40 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:40 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:40 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:40 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:46:40 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:46:40 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:46:40 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:46:49 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":1,"y":6},"e":{"x":11,"y":7}}
+Time=2021/6/1 11:46:49 LogType=Info Log=接收到1号玩家a的移动结果：(1,6)-->(11,7)
+Time=2021/6/1 11:46:49 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:46:49 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:49 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:49 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:49 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:46:49 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:46:49 LogType=Info Log=CheckerCore : move  (1,6)-->(11,7)
+Time=2021/6/1 11:46:49 LogType=Debug Log=移动棋子 (1,6)-->(11,7)
+Time=2021/6/1 11:46:49 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:46:49 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:46:49 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:46:51 LogType=Info Log=点击界面：302.4,587.2 逻辑坐标:(14,6)
+Time=2021/6/1 11:46:51 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:51 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:46:51 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:51 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:51 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:51 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:51 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:51 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:51 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:51 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:51 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:51 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:46:54 LogType=Info Log=点击界面：436,334.4 逻辑坐标:(8,9)
+Time=2021/6/1 11:46:54 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:54 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:54 LogType=Info Log=CheckerCore : move  (14,6)-->(8,9)
+Time=2021/6/1 11:46:54 LogType=Debug Log=移动棋子 (14,6)-->(8,9)
+Time=2021/6/1 11:46:54 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:54 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:54 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:54 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:54 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:54 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:46:55 LogType=Info Log=右键操作：撤回
+Time=2021/6/1 11:46:55 LogType=Info Log=--- ReturnMove ---
+Time=2021/6/1 11:46:55 LogType=Info Log=CheckerCore : move  (8,9)-->(14,6)
+Time=2021/6/1 11:46:55 LogType=Info Log=RemoveRoad 删除走过路径!
+Time=2021/6/1 11:46:55 LogType=Info Log=HideCurRoad 影藏当前步路径!
+Time=2021/6/1 11:46:55 LogType=Debug Log=移动棋子 (8,9)-->(14,6)
+Time=2021/6/1 11:46:55 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:55 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:55 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:55 LogType=Info Log=状态转换！从Moving到Choose
+Time=2021/6/1 11:46:56 LogType=Info Log=点击界面：276.8,620.8 逻辑坐标:(15,5)
+Time=2021/6/1 11:46:56 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:46:56 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:46:56 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:46:56 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:46:56 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:56 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:56 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:46:56 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:56 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:56 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:46:56 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:56 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:56 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:46:57 LogType=Info Log=点击界面：315.2,548 逻辑坐标:(13,6)
+Time=2021/6/1 11:46:57 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:46:57 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:46:57 LogType=Info Log=CheckerCore : move  (15,5)-->(13,6)
+Time=2021/6/1 11:46:57 LogType=Debug Log=移动棋子 (15,5)-->(13,6)
+Time=2021/6/1 11:46:57 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:46:57 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:46:57 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:46:57 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:46:57 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:46:57 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:47:01 LogType=Info Log=点击界面：416,384.8 逻辑坐标:(9,8)
+Time=2021/6/1 11:47:01 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:01 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:01 LogType=Info Log=CheckerCore : move  (13,6)-->(9,8)
+Time=2021/6/1 11:47:01 LogType=Debug Log=移动棋子 (13,6)-->(9,8)
+Time=2021/6/1 11:47:01 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:01 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:01 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:01 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:01 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:01 LogType=Info Log=点击界面：416,384.8 逻辑坐标:(9,8)
+Time=2021/6/1 11:47:01 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:47:01 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:47:01 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:47:01 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":15,"y":5},"e":{"x":9,"y":8}}
+Time=2021/6/1 11:47:01 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:47:01 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:47:01 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:47:01 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:01 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:01 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:01 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:47:01 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:47:01 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:47:01 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:47:01 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:47:12 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":1,"y":5},"e":{"x":11,"y":4}}
+Time=2021/6/1 11:47:12 LogType=Info Log=接收到1号玩家a的移动结果：(1,5)-->(11,4)
+Time=2021/6/1 11:47:12 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:47:12 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:12 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:12 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:12 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:47:12 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:47:12 LogType=Info Log=CheckerCore : move  (1,5)-->(11,4)
+Time=2021/6/1 11:47:12 LogType=Debug Log=移动棋子 (1,5)-->(11,4)
+Time=2021/6/1 11:47:12 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:47:12 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:47:12 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:47:13 LogType=Info Log=点击界面：269.6,548 逻辑坐标:(13,5)
+Time=2021/6/1 11:47:13 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:47:14 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:47:14 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:47:14 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:14 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:14 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:14 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:14 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:14 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:14 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:14 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:14 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:47:16 LogType=Info Log=点击界面：226.4,544.8 逻辑坐标:(13,4)
+Time=2021/6/1 11:47:16 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:47:16 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:47:16 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:47:16 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:16 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:16 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:16 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:47:16 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:16 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:16 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:16 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:16 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:16 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:47:17 LogType=Info Log=点击界面：314.4,544.8 逻辑坐标:(13,6)
+Time=2021/6/1 11:47:17 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:17 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:17 LogType=Info Log=CheckerCore : move  (13,4)-->(13,6)
+Time=2021/6/1 11:47:17 LogType=Debug Log=移动棋子 (13,4)-->(13,6)
+Time=2021/6/1 11:47:17 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:17 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:17 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:17 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:17 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:17 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:47:18 LogType=Info Log=点击界面：280,465.6 逻辑坐标:(11,5)
+Time=2021/6/1 11:47:18 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:18 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:18 LogType=Info Log=CheckerCore : move  (13,6)-->(11,5)
+Time=2021/6/1 11:47:18 LogType=Debug Log=移动棋子 (13,6)-->(11,5)
+Time=2021/6/1 11:47:18 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:18 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:18 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:18 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:18 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:20 LogType=Info Log=点击界面：223.2,385.6 逻辑坐标:(9,4)
+Time=2021/6/1 11:47:20 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:20 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:20 LogType=Info Log=CheckerCore : move  (11,5)-->(9,4)
+Time=2021/6/1 11:47:20 LogType=Debug Log=移动棋子 (11,5)-->(9,4)
+Time=2021/6/1 11:47:20 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:20 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:20 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:20 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:20 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:21 LogType=Info Log=右键操作：撤回
+Time=2021/6/1 11:47:21 LogType=Info Log=--- ReturnMove ---
+Time=2021/6/1 11:47:21 LogType=Info Log=CheckerCore : move  (9,4)-->(11,5)
+Time=2021/6/1 11:47:21 LogType=Info Log=RemoveRoad 删除走过路径!
+Time=2021/6/1 11:47:21 LogType=Info Log=HideCurRoad 影藏当前步路径!
+Time=2021/6/1 11:47:21 LogType=Debug Log=移动棋子 (9,4)-->(11,5)
+Time=2021/6/1 11:47:21 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:21 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:21 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:21 LogType=Info Log=右键操作：撤回
+Time=2021/6/1 11:47:21 LogType=Info Log=--- ReturnMove ---
+Time=2021/6/1 11:47:21 LogType=Info Log=CheckerCore : move  (11,5)-->(13,6)
+Time=2021/6/1 11:47:21 LogType=Info Log=RemoveRoad 删除走过路径!
+Time=2021/6/1 11:47:21 LogType=Info Log=HideCurRoad 影藏当前步路径!
+Time=2021/6/1 11:47:21 LogType=Debug Log=移动棋子 (11,5)-->(13,6)
+Time=2021/6/1 11:47:21 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:21 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:21 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:21 LogType=Info Log=右键操作：撤回
+Time=2021/6/1 11:47:21 LogType=Info Log=--- ReturnMove ---
+Time=2021/6/1 11:47:21 LogType=Info Log=CheckerCore : move  (13,6)-->(13,4)
+Time=2021/6/1 11:47:21 LogType=Info Log=RemoveRoad 删除走过路径!
+Time=2021/6/1 11:47:21 LogType=Info Log=HideCurRoad 影藏当前步路径!
+Time=2021/6/1 11:47:21 LogType=Debug Log=移动棋子 (13,6)-->(13,4)
+Time=2021/6/1 11:47:21 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:21 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:21 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:21 LogType=Info Log=状态转换！从Moving到Choose
+Time=2021/6/1 11:47:22 LogType=Info Log=点击界面：356.8,549.6 逻辑坐标:(13,7)
+Time=2021/6/1 11:47:22 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:47:22 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:47:22 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:47:22 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:22 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:22 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:22 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:47:22 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:22 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:22 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:22 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:22 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:22 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:47:29 LogType=Info Log=点击界面：458.4,376 逻辑坐标:(9,9)
+Time=2021/6/1 11:47:29 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:29 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:29 LogType=Info Log=CheckerCore : move  (13,7)-->(9,9)
+Time=2021/6/1 11:47:29 LogType=Debug Log=移动棋子 (13,7)-->(9,9)
+Time=2021/6/1 11:47:29 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:29 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:29 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:29 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:29 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:29 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:47:29 LogType=Info Log=点击界面：364,378.4 逻辑坐标:(9,7)
+Time=2021/6/1 11:47:29 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:29 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:29 LogType=Info Log=CheckerCore : move  (9,9)-->(9,7)
+Time=2021/6/1 11:47:29 LogType=Debug Log=移动棋子 (9,9)-->(9,7)
+Time=2021/6/1 11:47:29 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:29 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:29 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:29 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:29 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:30 LogType=Info Log=点击界面：364,378.4 逻辑坐标:(9,7)
+Time=2021/6/1 11:47:30 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:47:30 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:47:30 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:47:30 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":13,"y":7},"e":{"x":9,"y":7}}
+Time=2021/6/1 11:47:30 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:47:30 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:47:30 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:47:30 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:30 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:30 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:30 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:47:30 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:47:30 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:47:30 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:47:30 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:47:42 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":3,"y":7},"e":{"x":7,"y":7}}
+Time=2021/6/1 11:47:42 LogType=Info Log=接收到1号玩家a的移动结果：(3,7)-->(7,7)
+Time=2021/6/1 11:47:42 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:47:42 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:42 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:42 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:42 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:47:42 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:47:42 LogType=Info Log=CheckerCore : move  (3,7)-->(7,7)
+Time=2021/6/1 11:47:42 LogType=Debug Log=移动棋子 (3,7)-->(7,7)
+Time=2021/6/1 11:47:42 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:47:42 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:47:42 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:47:44 LogType=Info Log=点击界面：283.2,540.8 逻辑坐标:(13,5)
+Time=2021/6/1 11:47:44 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:47:44 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:47:44 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:47:44 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:44 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:44 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:44 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:44 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:44 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:44 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:44 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:44 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:47:44 LogType=Info Log=点击界面：329.6,468.8 逻辑坐标:(11,6)
+Time=2021/6/1 11:47:44 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:44 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:44 LogType=Info Log=CheckerCore : move  (13,5)-->(11,6)
+Time=2021/6/1 11:47:44 LogType=Debug Log=移动棋子 (13,5)-->(11,6)
+Time=2021/6/1 11:47:44 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:44 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:44 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:44 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:44 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:44 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:47:45 LogType=Info Log=点击界面：420,296 逻辑坐标:(7,8)
+Time=2021/6/1 11:47:45 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:45 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:45 LogType=Info Log=CheckerCore : move  (11,6)-->(7,8)
+Time=2021/6/1 11:47:45 LogType=Debug Log=移动棋子 (11,6)-->(7,8)
+Time=2021/6/1 11:47:45 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:45 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:45 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:45 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:45 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:46 LogType=Info Log=点击界面：312.8,296.8 逻辑坐标:(7,6)
+Time=2021/6/1 11:47:46 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:46 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:46 LogType=Info Log=CheckerCore : move  (7,8)-->(7,6)
+Time=2021/6/1 11:47:46 LogType=Debug Log=移动棋子 (7,8)-->(7,6)
+Time=2021/6/1 11:47:46 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:46 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:46 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:46 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:46 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:47 LogType=Info Log=点击界面：362.4,223.2 逻辑坐标:(5,7)
+Time=2021/6/1 11:47:47 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:47 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:47 LogType=Info Log=CheckerCore : move  (7,6)-->(5,7)
+Time=2021/6/1 11:47:47 LogType=Debug Log=移动棋子 (7,6)-->(5,7)
+Time=2021/6/1 11:47:47 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:47 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:47 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:47 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:47 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:48 LogType=Info Log=点击界面：184,224 逻辑坐标:(5,3)
+Time=2021/6/1 11:47:48 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:48 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:48 LogType=Info Log=CheckerCore : move  (5,7)-->(5,3)
+Time=2021/6/1 11:47:48 LogType=Debug Log=移动棋子 (5,7)-->(5,3)
+Time=2021/6/1 11:47:48 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:48 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:48 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:48 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:48 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:49 LogType=Info Log=点击界面：269.6,64.8 逻辑坐标:(1,5)
+Time=2021/6/1 11:47:49 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:47:49 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:47:49 LogType=Info Log=CheckerCore : move  (5,3)-->(1,5)
+Time=2021/6/1 11:47:49 LogType=Debug Log=移动棋子 (5,3)-->(1,5)
+Time=2021/6/1 11:47:49 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:47:49 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:47:49 LogType=Info Log=点击界面：269.6,64.8 逻辑坐标:(1,5)
+Time=2021/6/1 11:47:49 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:47:49 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:47:49 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:47:49 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":13,"y":5},"e":{"x":1,"y":5}}
+Time=2021/6/1 11:47:49 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:47:49 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:47:49 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:47:49 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:49 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:49 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowRoad 隐藏路径4!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowRoad 隐藏路径5!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowRoad 隐藏路径6!
+Time=2021/6/1 11:47:49 LogType=Info Log=ShowRoad 隐藏路径7!
+Time=2021/6/1 11:47:49 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:47:49 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:47:58 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":4,"y":6},"e":{"x":14,"y":5}}
+Time=2021/6/1 11:47:58 LogType=Info Log=接收到1号玩家a的移动结果：(4,6)-->(14,5)
+Time=2021/6/1 11:47:58 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:47:58 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:47:58 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:47:58 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:47:58 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:47:58 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:47:58 LogType=Info Log=CheckerCore : move  (4,6)-->(14,5)
+Time=2021/6/1 11:47:58 LogType=Debug Log=移动棋子 (4,6)-->(14,5)
+Time=2021/6/1 11:47:58 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:47:58 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:47:58 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:48:00 LogType=Info Log=点击界面：296,587.2 逻辑坐标:(14,6)
+Time=2021/6/1 11:48:00 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:48:00 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:48:00 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:48:00 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:00 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:00 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:00 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:00 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:00 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:00 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:00 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:00 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:48:01 LogType=Info Log=点击界面：152,340.8 逻辑坐标:(8,3)
+Time=2021/6/1 11:48:01 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:01 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:01 LogType=Info Log=CheckerCore : move  (14,6)-->(8,3)
+Time=2021/6/1 11:48:01 LogType=Debug Log=移动棋子 (14,6)-->(8,3)
+Time=2021/6/1 11:48:01 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:01 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:01 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:01 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:01 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:01 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:48:02 LogType=Info Log=点击界面：152,340.8 逻辑坐标:(8,3)
+Time=2021/6/1 11:48:02 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:48:02 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:48:02 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:48:02 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":14,"y":6},"e":{"x":8,"y":3}}
+Time=2021/6/1 11:48:02 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:48:02 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:48:02 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:48:02 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:02 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:02 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:02 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:48:02 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:48:02 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:48:02 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:48:10 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":3,"y":4},"e":{"x":13,"y":5}}
+Time=2021/6/1 11:48:10 LogType=Info Log=接收到1号玩家a的移动结果：(3,4)-->(13,5)
+Time=2021/6/1 11:48:10 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:48:10 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:10 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:10 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:10 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:48:10 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:48:10 LogType=Info Log=CheckerCore : move  (3,4)-->(13,5)
+Time=2021/6/1 11:48:10 LogType=Debug Log=移动棋子 (3,4)-->(13,5)
+Time=2021/6/1 11:48:10 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:48:10 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:48:10 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:48:12 LogType=Info Log=点击界面：232,536 逻辑坐标:(13,4)
+Time=2021/6/1 11:48:12 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:48:12 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:48:12 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:48:12 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:12 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:12 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:12 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:12 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:12 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:12 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:12 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:12 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:48:13 LogType=Info Log=点击界面：322.4,543.2 逻辑坐标:(13,6)
+Time=2021/6/1 11:48:13 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:13 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:13 LogType=Info Log=CheckerCore : move  (13,4)-->(13,6)
+Time=2021/6/1 11:48:13 LogType=Debug Log=移动棋子 (13,4)-->(13,6)
+Time=2021/6/1 11:48:13 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:13 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:13 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:13 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:13 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:13 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:48:13 LogType=Info Log=点击界面：272,466.4 逻辑坐标:(11,5)
+Time=2021/6/1 11:48:13 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:13 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:13 LogType=Info Log=CheckerCore : move  (13,6)-->(11,5)
+Time=2021/6/1 11:48:13 LogType=Debug Log=移动棋子 (13,6)-->(11,5)
+Time=2021/6/1 11:48:13 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:13 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:13 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:13 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:13 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:15 LogType=Info Log=点击界面：233.6,372 逻辑坐标:(9,4)
+Time=2021/6/1 11:48:15 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:15 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:15 LogType=Info Log=CheckerCore : move  (11,5)-->(9,4)
+Time=2021/6/1 11:48:15 LogType=Debug Log=移动棋子 (11,5)-->(9,4)
+Time=2021/6/1 11:48:15 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:15 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:15 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:15 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:15 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:16 LogType=Info Log=右键操作：撤回
+Time=2021/6/1 11:48:16 LogType=Info Log=--- ReturnMove ---
+Time=2021/6/1 11:48:16 LogType=Info Log=CheckerCore : move  (9,4)-->(11,5)
+Time=2021/6/1 11:48:16 LogType=Info Log=RemoveRoad 删除走过路径!
+Time=2021/6/1 11:48:16 LogType=Info Log=HideCurRoad 影藏当前步路径!
+Time=2021/6/1 11:48:16 LogType=Debug Log=移动棋子 (9,4)-->(11,5)
+Time=2021/6/1 11:48:16 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:16 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:16 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:17 LogType=Info Log=右键操作：撤回
+Time=2021/6/1 11:48:17 LogType=Info Log=--- ReturnMove ---
+Time=2021/6/1 11:48:17 LogType=Info Log=CheckerCore : move  (11,5)-->(13,6)
+Time=2021/6/1 11:48:17 LogType=Info Log=RemoveRoad 删除走过路径!
+Time=2021/6/1 11:48:17 LogType=Info Log=HideCurRoad 影藏当前步路径!
+Time=2021/6/1 11:48:17 LogType=Debug Log=移动棋子 (11,5)-->(13,6)
+Time=2021/6/1 11:48:17 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:17 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:17 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:20 LogType=Info Log=点击界面：279.2,465.6 逻辑坐标:(11,5)
+Time=2021/6/1 11:48:20 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:20 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:20 LogType=Info Log=CheckerCore : move  (13,6)-->(11,5)
+Time=2021/6/1 11:48:20 LogType=Debug Log=移动棋子 (13,6)-->(11,5)
+Time=2021/6/1 11:48:20 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:20 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:20 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:20 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:20 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:23 LogType=Info Log=点击界面：233.6,385.6 逻辑坐标:(9,4)
+Time=2021/6/1 11:48:23 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:23 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:23 LogType=Info Log=CheckerCore : move  (11,5)-->(9,4)
+Time=2021/6/1 11:48:23 LogType=Debug Log=移动棋子 (11,5)-->(9,4)
+Time=2021/6/1 11:48:23 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:23 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:23 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:23 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:23 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:23 LogType=Info Log=点击界面：232.8,383.2 逻辑坐标:(9,4)
+Time=2021/6/1 11:48:23 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:48:23 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:48:23 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:48:23 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":13,"y":4},"e":{"x":9,"y":4}}
+Time=2021/6/1 11:48:23 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:48:23 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:48:23 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:48:23 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:23 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:23 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:23 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:48:23 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:48:23 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:48:23 LogType=Info Log=ShowRoad 隐藏路径4!
+Time=2021/6/1 11:48:23 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:48:23 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:48:26 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":2,"y":6},"e":{"x":3,"y":6}}
+Time=2021/6/1 11:48:26 LogType=Info Log=接收到1号玩家a的移动结果：(2,6)-->(3,6)
+Time=2021/6/1 11:48:26 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:48:26 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:26 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:26 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:26 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:48:26 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:48:26 LogType=Info Log=CheckerCore : move  (2,6)-->(3,6)
+Time=2021/6/1 11:48:26 LogType=Debug Log=移动棋子 (2,6)-->(3,6)
+Time=2021/6/1 11:48:26 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:48:26 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:48:26 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:48:28 LogType=Info Log=点击界面：291.2,504 逻辑坐标:(12,6)
+Time=2021/6/1 11:48:28 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:48:28 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:48:28 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:48:28 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:28 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:28 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:28 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:28 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:28 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:28 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:28 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:28 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:48:28 LogType=Info Log=点击界面：438.4,247.2 逻辑坐标:(6,9)
+Time=2021/6/1 11:48:28 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:28 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:28 LogType=Info Log=CheckerCore : move  (12,6)-->(6,9)
+Time=2021/6/1 11:48:28 LogType=Debug Log=移动棋子 (12,6)-->(6,9)
+Time=2021/6/1 11:48:28 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:28 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:28 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:28 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:28 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:28 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:48:29 LogType=Info Log=点击界面：247.2,259.2 逻辑坐标:(6,5)
+Time=2021/6/1 11:48:29 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:29 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:29 LogType=Info Log=CheckerCore : move  (6,9)-->(6,5)
+Time=2021/6/1 11:48:29 LogType=Debug Log=移动棋子 (6,9)-->(6,5)
+Time=2021/6/1 11:48:29 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:29 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:29 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:29 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:29 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:30 LogType=Info Log=点击界面：301.6,183.2 逻辑坐标:(4,6)
+Time=2021/6/1 11:48:30 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:30 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:30 LogType=Info Log=CheckerCore : move  (6,5)-->(4,6)
+Time=2021/6/1 11:48:30 LogType=Debug Log=移动棋子 (6,5)-->(4,6)
+Time=2021/6/1 11:48:30 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:30 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:30 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:30 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:30 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:30 LogType=Info Log=点击界面：301.6,183.2 逻辑坐标:(4,6)
+Time=2021/6/1 11:48:30 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:48:30 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:48:30 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:48:30 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":12,"y":6},"e":{"x":4,"y":6}}
+Time=2021/6/1 11:48:30 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:48:30 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:48:30 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:48:30 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:30 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:30 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:30 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:48:30 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:48:30 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:48:30 LogType=Info Log=ShowRoad 隐藏路径4!
+Time=2021/6/1 11:48:30 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:48:30 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:48:35 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":6,"y":7},"e":{"x":12,"y":8}}
+Time=2021/6/1 11:48:35 LogType=Info Log=接收到1号玩家a的移动结果：(6,7)-->(12,8)
+Time=2021/6/1 11:48:35 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:48:35 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:35 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:35 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:35 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:48:35 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:48:35 LogType=Info Log=CheckerCore : move  (6,7)-->(12,8)
+Time=2021/6/1 11:48:35 LogType=Debug Log=移动棋子 (6,7)-->(12,8)
+Time=2021/6/1 11:48:35 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:48:35 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:48:35 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:48:36 LogType=Info Log=点击界面：427.2,467.2 逻辑坐标:(11,8)
+Time=2021/6/1 11:48:36 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:48:36 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:48:36 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:48:36 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:36 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:36 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:36 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:36 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:36 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:36 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:36 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:36 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:48:37 LogType=Info Log=点击界面：314.4,294.4 逻辑坐标:(7,6)
+Time=2021/6/1 11:48:37 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:37 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:37 LogType=Info Log=CheckerCore : move  (11,8)-->(7,6)
+Time=2021/6/1 11:48:37 LogType=Debug Log=移动棋子 (11,8)-->(7,6)
+Time=2021/6/1 11:48:37 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:37 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:37 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:37 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:37 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:37 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:48:38 LogType=Info Log=点击界面：230.4,141.6 逻辑坐标:(3,4)
+Time=2021/6/1 11:48:38 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:38 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:38 LogType=Info Log=CheckerCore : move  (7,6)-->(3,4)
+Time=2021/6/1 11:48:38 LogType=Debug Log=移动棋子 (7,6)-->(3,4)
+Time=2021/6/1 11:48:38 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:38 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:38 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:38 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:38 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:38 LogType=Info Log=点击界面：230.4,141.6 逻辑坐标:(3,4)
+Time=2021/6/1 11:48:38 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:48:38 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:48:38 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:48:38 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":11,"y":8},"e":{"x":3,"y":4}}
+Time=2021/6/1 11:48:38 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:48:38 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:48:38 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:48:38 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:38 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:38 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:38 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:48:38 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:48:38 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:48:38 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:48:38 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:48:46 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":3,"y":6},"e":{"x":4,"y":7}}
+Time=2021/6/1 11:48:46 LogType=Info Log=接收到1号玩家a的移动结果：(3,6)-->(4,7)
+Time=2021/6/1 11:48:46 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:48:46 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:46 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:46 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:46 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:48:46 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:48:46 LogType=Info Log=CheckerCore : move  (3,6)-->(4,7)
+Time=2021/6/1 11:48:46 LogType=Debug Log=移动棋子 (3,6)-->(4,7)
+Time=2021/6/1 11:48:46 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:48:46 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:48:46 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:48:48 LogType=Info Log=点击界面：228.8,391.2 逻辑坐标:(9,4)
+Time=2021/6/1 11:48:48 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:48:48 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:48:48 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:48:48 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:48 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:48 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:48 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:48 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:48 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:48 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:48 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:48 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:48:50 LogType=Info Log=点击界面：263.2,456 逻辑坐标:无
+Time=2021/6/1 11:48:50 LogType=Info Log=点击界面：273.6,466.4 逻辑坐标:(11,5)
+Time=2021/6/1 11:48:50 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:50 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:50 LogType=Info Log=CheckerCore : move  (9,4)-->(11,5)
+Time=2021/6/1 11:48:50 LogType=Debug Log=移动棋子 (9,4)-->(11,5)
+Time=2021/6/1 11:48:50 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:50 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:50 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:50 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:50 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:50 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:48:52 LogType=Info Log=右键操作：撤回
+Time=2021/6/1 11:48:52 LogType=Info Log=--- ReturnMove ---
+Time=2021/6/1 11:48:52 LogType=Info Log=CheckerCore : move  (11,5)-->(9,4)
+Time=2021/6/1 11:48:52 LogType=Info Log=RemoveRoad 删除走过路径!
+Time=2021/6/1 11:48:52 LogType=Info Log=HideCurRoad 影藏当前步路径!
+Time=2021/6/1 11:48:52 LogType=Debug Log=移动棋子 (11,5)-->(9,4)
+Time=2021/6/1 11:48:52 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:52 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:52 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:52 LogType=Info Log=状态转换！从Moving到Choose
+Time=2021/6/1 11:48:53 LogType=Info Log=点击界面：160.8,339.2 逻辑坐标:(8,3)
+Time=2021/6/1 11:48:53 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:48:53 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:48:53 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:48:53 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:48:53 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:53 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:53 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:48:53 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:53 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:53 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:48:53 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:53 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:53 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:48:56 LogType=Info Log=点击界面：444,341.6 逻辑坐标:(8,9)
+Time=2021/6/1 11:48:56 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:56 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:56 LogType=Info Log=CheckerCore : move  (8,3)-->(8,9)
+Time=2021/6/1 11:48:56 LogType=Debug Log=移动棋子 (8,3)-->(8,9)
+Time=2021/6/1 11:48:56 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:56 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:56 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:56 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:56 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:56 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:48:57 LogType=Info Log=点击界面：383.2,431.2 逻辑坐标:(10,8)
+Time=2021/6/1 11:48:57 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:57 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:57 LogType=Info Log=CheckerCore : move  (8,9)-->(10,8)
+Time=2021/6/1 11:48:57 LogType=Debug Log=移动棋子 (8,9)-->(10,8)
+Time=2021/6/1 11:48:57 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:57 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:57 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:57 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:57 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:57 LogType=Info Log=点击界面：338.4,343.2 逻辑坐标:(8,7)
+Time=2021/6/1 11:48:57 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:57 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:57 LogType=Info Log=CheckerCore : move  (10,8)-->(8,7)
+Time=2021/6/1 11:48:57 LogType=Debug Log=移动棋子 (10,8)-->(8,7)
+Time=2021/6/1 11:48:57 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:57 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:57 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:57 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:57 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:58 LogType=Info Log=点击界面：392.8,279.2 逻辑坐标:无
+Time=2021/6/1 11:48:59 LogType=Info Log=点击界面：384.8,251.2 逻辑坐标:(6,8)
+Time=2021/6/1 11:48:59 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:59 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:59 LogType=Info Log=CheckerCore : move  (8,7)-->(6,8)
+Time=2021/6/1 11:48:59 LogType=Debug Log=移动棋子 (8,7)-->(6,8)
+Time=2021/6/1 11:48:59 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:59 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:59 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:59 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:59 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:48:59 LogType=Info Log=点击界面：293.6,102.4 逻辑坐标:(2,6)
+Time=2021/6/1 11:48:59 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:48:59 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:48:59 LogType=Info Log=CheckerCore : move  (6,8)-->(2,6)
+Time=2021/6/1 11:48:59 LogType=Debug Log=移动棋子 (6,8)-->(2,6)
+Time=2021/6/1 11:48:59 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:48:59 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:48:59 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:48:59 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:48:59 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:00 LogType=Info Log=点击界面：293.6,102.4 逻辑坐标:(2,6)
+Time=2021/6/1 11:49:00 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:49:00 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:49:00 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:49:00 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":8,"y":3},"e":{"x":2,"y":6}}
+Time=2021/6/1 11:49:00 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:49:00 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:49:00 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:49:00 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:00 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:00 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:00 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:49:00 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:49:00 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:49:00 LogType=Info Log=ShowRoad 隐藏路径4!
+Time=2021/6/1 11:49:00 LogType=Info Log=ShowRoad 隐藏路径5!
+Time=2021/6/1 11:49:00 LogType=Info Log=ShowRoad 隐藏路径6!
+Time=2021/6/1 11:49:00 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:49:00 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:49:13 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":4,"y":7},"e":{"x":14,"y":6}}
+Time=2021/6/1 11:49:13 LogType=Info Log=接收到1号玩家a的移动结果：(4,7)-->(14,6)
+Time=2021/6/1 11:49:13 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:49:13 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:13 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:13 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:13 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:49:13 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:49:13 LogType=Info Log=CheckerCore : move  (4,7)-->(14,6)
+Time=2021/6/1 11:49:13 LogType=Debug Log=移动棋子 (4,7)-->(14,6)
+Time=2021/6/1 11:49:13 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:49:13 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:49:13 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:49:18 LogType=Info Log=点击界面：371.2,381.6 逻辑坐标:(9,7)
+Time=2021/6/1 11:49:18 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:49:18 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:49:18 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:49:18 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:18 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:18 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:18 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:18 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:18 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:18 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:18 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:18 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:49:22 LogType=Info Log=点击界面：416,385.6 逻辑坐标:(9,8)
+Time=2021/6/1 11:49:22 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:49:22 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:49:22 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:49:22 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:22 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:22 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:22 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:49:22 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:22 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:22 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:22 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:22 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:22 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:49:24 LogType=Info Log=点击界面：321.6,220 逻辑坐标:(5,6)
+Time=2021/6/1 11:49:24 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:49:24 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:49:24 LogType=Info Log=CheckerCore : move  (9,8)-->(5,6)
+Time=2021/6/1 11:49:24 LogType=Debug Log=移动棋子 (9,8)-->(5,6)
+Time=2021/6/1 11:49:24 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:24 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:24 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:24 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:49:24 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:24 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:49:25 LogType=Info Log=点击界面：283.2,140.8 逻辑坐标:(3,5)
+Time=2021/6/1 11:49:25 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:49:25 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:49:25 LogType=Info Log=CheckerCore : move  (5,6)-->(3,5)
+Time=2021/6/1 11:49:25 LogType=Debug Log=移动棋子 (5,6)-->(3,5)
+Time=2021/6/1 11:49:25 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:25 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:25 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:25 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:49:25 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:25 LogType=Info Log=点击界面：320,61.6 逻辑坐标:(1,6)
+Time=2021/6/1 11:49:25 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:49:25 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:49:25 LogType=Info Log=CheckerCore : move  (3,5)-->(1,6)
+Time=2021/6/1 11:49:25 LogType=Debug Log=移动棋子 (3,5)-->(1,6)
+Time=2021/6/1 11:49:25 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:25 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:25 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:25 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:49:25 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:26 LogType=Info Log=点击界面：320,61.6 逻辑坐标:(1,6)
+Time=2021/6/1 11:49:26 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:49:26 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:49:26 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:49:26 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":9,"y":8},"e":{"x":1,"y":6}}
+Time=2021/6/1 11:49:26 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:49:26 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:49:26 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:49:26 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:26 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:26 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:26 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:49:26 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:49:26 LogType=Info Log=ShowRoad 隐藏路径3!
+Time=2021/6/1 11:49:26 LogType=Info Log=ShowRoad 隐藏路径4!
+Time=2021/6/1 11:49:26 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:49:26 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:49:31 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":5,"y":5},"e":{"x":5,"y":6}}
+Time=2021/6/1 11:49:31 LogType=Info Log=接收到1号玩家a的移动结果：(5,5)-->(5,6)
+Time=2021/6/1 11:49:31 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:49:31 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:31 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:31 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:31 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:49:31 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:49:31 LogType=Info Log=CheckerCore : move  (5,5)-->(5,6)
+Time=2021/6/1 11:49:31 LogType=Debug Log=移动棋子 (5,5)-->(5,6)
+Time=2021/6/1 11:49:31 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:49:31 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:49:31 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:49:33 LogType=Info Log=点击界面：252.8,419.2 逻辑坐标:(10,5)
+Time=2021/6/1 11:49:33 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:49:33 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:49:33 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:49:33 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:33 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:33 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:33 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:33 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:33 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:33 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:33 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:33 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:49:34 LogType=Info Log=点击界面：338.4,250.4 逻辑坐标:(6,7)
+Time=2021/6/1 11:49:34 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:49:34 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:49:34 LogType=Info Log=CheckerCore : move  (10,5)-->(6,7)
+Time=2021/6/1 11:49:34 LogType=Debug Log=移动棋子 (10,5)-->(6,7)
+Time=2021/6/1 11:49:34 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:34 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:34 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:34 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:49:34 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:34 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:49:34 LogType=Info Log=点击界面：338.4,250.4 逻辑坐标:(6,7)
+Time=2021/6/1 11:49:34 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:49:34 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:49:34 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:60]
+Time=2021/6/1 11:49:34 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":10,"y":5},"e":{"x":6,"y":7}}
+Time=2021/6/1 11:49:34 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:49:34 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:49:34 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:49:34 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:34 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:34 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:34 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:49:34 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:49:34 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:49:34 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:49:41 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":5,"y":6},"e":{"x":6,"y":6}}
+Time=2021/6/1 11:49:41 LogType=Info Log=接收到1号玩家a的移动结果：(5,6)-->(6,6)
+Time=2021/6/1 11:49:41 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:49:41 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:41 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:41 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:41 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:49:41 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:49:41 LogType=Info Log=CheckerCore : move  (5,6)-->(6,6)
+Time=2021/6/1 11:49:41 LogType=Debug Log=移动棋子 (5,6)-->(6,6)
+Time=2021/6/1 11:49:41 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:49:41 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:49:41 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:49:43 LogType=Info Log=点击界面：234.4,384 逻辑坐标:(9,4)
+Time=2021/6/1 11:49:43 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:49:43 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:49:43 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:49:43 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:43 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:43 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:43 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:43 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:43 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:43 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:43 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:43 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:49:44 LogType=Info Log=点击界面：359.2,142.4 逻辑坐标:(3,7)
+Time=2021/6/1 11:49:44 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:49:44 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:49:44 LogType=Info Log=CheckerCore : move  (9,4)-->(3,7)
+Time=2021/6/1 11:49:44 LogType=Debug Log=移动棋子 (9,4)-->(3,7)
+Time=2021/6/1 11:49:44 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:44 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:44 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:44 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:49:44 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:44 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:49:44 LogType=Info Log=点击界面：359.2,142.4 逻辑坐标:(3,7)
+Time=2021/6/1 11:49:44 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:49:44 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:49:44 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:49:44 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":9,"y":4},"e":{"x":3,"y":7}}
+Time=2021/6/1 11:49:44 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:49:44 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:49:44 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:49:44 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:44 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:44 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:44 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:49:44 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:49:44 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:49:44 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:49:51 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":7,"y":7},"e":{"x":13,"y":6}}
+Time=2021/6/1 11:49:51 LogType=Info Log=接收到1号玩家a的移动结果：(7,7)-->(13,6)
+Time=2021/6/1 11:49:51 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:49:51 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:51 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:51 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:51 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:49:51 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:49:51 LogType=Info Log=CheckerCore : move  (7,7)-->(13,6)
+Time=2021/6/1 11:49:51 LogType=Debug Log=移动棋子 (7,7)-->(13,6)
+Time=2021/6/1 11:49:51 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:49:51 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:49:51 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:49:53 LogType=Info Log=点击界面：226.4,131.2 逻辑坐标:(3,4)
+Time=2021/6/1 11:49:53 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:49:53 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:49:53 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:49:53 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:53 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:53 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:53 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:53 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:53 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:53 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:53 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:53 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:49:54 LogType=Info Log=点击界面：247.2,96.8 逻辑坐标:(2,5)
+Time=2021/6/1 11:49:54 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:49:54 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:49:54 LogType=Info Log=CheckerCore : move  (3,4)-->(2,5)
+Time=2021/6/1 11:49:54 LogType=Debug Log=移动棋子 (3,4)-->(2,5)
+Time=2021/6/1 11:49:54 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:54 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:49:54 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:49:54 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:49:54 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:49:54 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:49:54 LogType=Info Log=点击界面：247.2,96.8 逻辑坐标:(2,5)
+Time=2021/6/1 11:49:54 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:49:54 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:49:54 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:49:54 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":3,"y":4},"e":{"x":2,"y":5}}
+Time=2021/6/1 11:49:54 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:49:54 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:49:54 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:49:54 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:49:54 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:49:54 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:49:54 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:49:54 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:49:54 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:49:54 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:50:01 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":8,"y":6},"e":{"x":9,"y":5}}
+Time=2021/6/1 11:50:01 LogType=Info Log=接收到1号玩家a的移动结果：(8,6)-->(9,5)
+Time=2021/6/1 11:50:01 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:50:01 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:01 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:01 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:01 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:50:01 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:50:01 LogType=Info Log=CheckerCore : move  (8,6)-->(9,5)
+Time=2021/6/1 11:50:01 LogType=Debug Log=移动棋子 (8,6)-->(9,5)
+Time=2021/6/1 11:50:01 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:50:01 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:50:01 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:50:02 LogType=Info Log=点击界面：361.6,384 逻辑坐标:(9,7)
+Time=2021/6/1 11:50:02 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:50:02 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:50:02 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:50:02 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:02 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:02 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:02 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:02 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:02 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:02 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:02 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:02 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:50:03 LogType=Info Log=点击界面：220.8,137.6 逻辑坐标:(3,4)
+Time=2021/6/1 11:50:03 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:50:03 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:50:03 LogType=Info Log=CheckerCore : move  (9,7)-->(3,4)
+Time=2021/6/1 11:50:03 LogType=Debug Log=移动棋子 (9,7)-->(3,4)
+Time=2021/6/1 11:50:03 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:03 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:03 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:03 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:50:03 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:03 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:50:03 LogType=Info Log=点击界面：220.8,137.6 逻辑坐标:(3,4)
+Time=2021/6/1 11:50:03 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:50:03 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:50:03 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:50:03 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":9,"y":7},"e":{"x":3,"y":4}}
+Time=2021/6/1 11:50:03 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:50:03 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:50:03 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:50:03 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:03 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:03 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:03 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:50:03 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:50:03 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:50:03 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:50:07 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:59 body: {"gameState":3,"pos":1,"s":{"x":6,"y":6},"e":{"x":7,"y":6}}
+Time=2021/6/1 11:50:07 LogType=Info Log=接收到1号玩家a的移动结果：(6,6)-->(7,6)
+Time=2021/6/1 11:50:07 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:50:07 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:07 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:07 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:07 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:50:07 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:50:07 LogType=Info Log=CheckerCore : move  (6,6)-->(7,6)
+Time=2021/6/1 11:50:07 LogType=Debug Log=移动棋子 (6,6)-->(7,6)
+Time=2021/6/1 11:50:07 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:50:07 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:50:07 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:50:09 LogType=Info Log=点击界面：288.8,95.2 逻辑坐标:(2,6)
+Time=2021/6/1 11:50:09 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:50:09 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:50:09 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:50:09 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:09 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:09 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:09 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:09 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:09 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:09 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:09 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:09 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:50:10 LogType=Info Log=点击界面：316,131.2 逻辑坐标:(3,6)
+Time=2021/6/1 11:50:10 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:50:10 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:50:10 LogType=Info Log=CheckerCore : move  (2,6)-->(3,6)
+Time=2021/6/1 11:50:10 LogType=Debug Log=移动棋子 (2,6)-->(3,6)
+Time=2021/6/1 11:50:10 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:10 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:10 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:10 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:50:10 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:10 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:50:10 LogType=Info Log=点击界面：316,131.2 逻辑坐标:(3,6)
+Time=2021/6/1 11:50:10 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:50:10 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:50:10 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:50:10 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":2,"y":6},"e":{"x":3,"y":6}}
+Time=2021/6/1 11:50:10 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:50:10 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:50:10 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:50:10 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:10 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:10 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:10 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:50:10 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:50:10 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:50:10 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:50:27 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":14,"y":6},"e":{"x":14,"y":7}}
+Time=2021/6/1 11:50:27 LogType=Info Log=接收到1号玩家a的移动结果：(14,6)-->(14,7)
+Time=2021/6/1 11:50:27 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:50:27 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:27 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:27 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:27 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:50:27 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:50:27 LogType=Info Log=CheckerCore : move  (14,6)-->(14,7)
+Time=2021/6/1 11:50:27 LogType=Debug Log=移动棋子 (14,6)-->(14,7)
+Time=2021/6/1 11:50:27 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:50:27 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:50:27 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:50:29 LogType=Info Log=点击界面：339.2,260.8 逻辑坐标:(6,7)
+Time=2021/6/1 11:50:29 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:50:29 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:50:29 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:50:29 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:29 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:29 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:29 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:29 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:29 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:29 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:29 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:29 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:50:29 LogType=Info Log=右键操作：取消选择
+Time=2021/6/1 11:50:29 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:29 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:29 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:29 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:50:29 LogType=Error Log=状态错误！从Choose到Move
+Time=2021/6/1 11:50:30 LogType=Info Log=点击界面：254.4,102.4 逻辑坐标:(2,5)
+Time=2021/6/1 11:50:30 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:50:30 LogType=Info Log=左键操作：更换起点
+Time=2021/6/1 11:50:30 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:50:30 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:30 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:30 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:30 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:30 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:30 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:30 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:30 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:30 LogType=Info Log=状态转换！从Choose到Choose
+Time=2021/6/1 11:50:31 LogType=Info Log=点击界面：291.2,100 逻辑坐标:(2,6)
+Time=2021/6/1 11:50:31 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:50:31 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:50:31 LogType=Info Log=CheckerCore : move  (2,5)-->(2,6)
+Time=2021/6/1 11:50:31 LogType=Debug Log=移动棋子 (2,5)-->(2,6)
+Time=2021/6/1 11:50:31 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:31 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:31 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:31 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:50:31 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:31 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:50:31 LogType=Info Log=点击界面：291.2,100 逻辑坐标:(2,6)
+Time=2021/6/1 11:50:31 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:50:31 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:50:31 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:50:31 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":2,"y":5},"e":{"x":2,"y":6}}
+Time=2021/6/1 11:50:31 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:50:31 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:50:31 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:50:31 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:31 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:31 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:31 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:50:31 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:50:31 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:50:31 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:50:34 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":11,"y":4},"e":{"x":15,"y":6}}
+Time=2021/6/1 11:50:34 LogType=Info Log=接收到1号玩家a的移动结果：(11,4)-->(15,6)
+Time=2021/6/1 11:50:34 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:50:34 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:34 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:34 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:34 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:50:34 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:50:34 LogType=Info Log=CheckerCore : move  (11,4)-->(15,6)
+Time=2021/6/1 11:50:34 LogType=Debug Log=移动棋子 (11,4)-->(15,6)
+Time=2021/6/1 11:50:34 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:50:34 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:50:34 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:50:36 LogType=Info Log=点击界面：340,248 逻辑坐标:(6,7)
+Time=2021/6/1 11:50:36 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:50:36 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:50:36 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:50:36 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:36 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:36 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:36 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:36 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:36 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:36 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:36 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:36 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:50:37 LogType=Info Log=点击界面：248.8,90.4 逻辑坐标:(2,5)
+Time=2021/6/1 11:50:37 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:50:37 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:50:37 LogType=Info Log=CheckerCore : move  (6,7)-->(2,5)
+Time=2021/6/1 11:50:37 LogType=Debug Log=移动棋子 (6,7)-->(2,5)
+Time=2021/6/1 11:50:37 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:37 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:37 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:37 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:50:37 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:37 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:50:37 LogType=Info Log=点击界面：248.8,90.4 逻辑坐标:(2,5)
+Time=2021/6/1 11:50:37 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:50:37 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:50:37 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:50:37 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":6,"y":7},"e":{"x":2,"y":5}}
+Time=2021/6/1 11:50:37 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:50:37 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:50:37 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:50:37 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:37 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:37 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:37 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:50:37 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:50:37 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:50:37 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:50:41 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":7,"y":6},"e":{"x":11,"y":4}}
+Time=2021/6/1 11:50:41 LogType=Info Log=接收到1号玩家a的移动结果：(7,6)-->(11,4)
+Time=2021/6/1 11:50:41 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:50:41 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:41 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:41 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:41 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:50:41 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:50:41 LogType=Info Log=CheckerCore : move  (7,6)-->(11,4)
+Time=2021/6/1 11:50:41 LogType=Debug Log=移动棋子 (7,6)-->(11,4)
+Time=2021/6/1 11:50:41 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:50:41 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:50:41 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:50:43 LogType=Info Log=点击界面：300,184.8 逻辑坐标:(4,6)
+Time=2021/6/1 11:50:43 LogType=Info Log=选中自己棋子
+Time=2021/6/1 11:50:43 LogType=Info Log=左键操作：选择起点
+Time=2021/6/1 11:50:43 LogType=Info Log=--- SetStartPoint ---
+Time=2021/6/1 11:50:43 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:43 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:43 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:43 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:43 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:43 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:43 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:43 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:43 LogType=Info Log=状态转换！从Move到Choose
+Time=2021/6/1 11:50:43 LogType=Info Log=点击界面：274.4,134.4 逻辑坐标:(3,5)
+Time=2021/6/1 11:50:43 LogType=Info Log=左键操作：确定下一步
+Time=2021/6/1 11:50:43 LogType=Info Log=--- MoveNext ---
+Time=2021/6/1 11:50:43 LogType=Info Log=CheckerCore : move  (4,6)-->(3,5)
+Time=2021/6/1 11:50:43 LogType=Debug Log=移动棋子 (4,6)-->(3,5)
+Time=2021/6/1 11:50:43 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:43 LogType=Info Log=ShowMark 显示选中标记!
+Time=2021/6/1 11:50:43 LogType=Info Log=AddRoad 添加走过路径!
+Time=2021/6/1 11:50:43 LogType=Info Log=ShowLastRoad 显示上一步路径!
+Time=2021/6/1 11:50:43 LogType=Info Log=ShowNextStep 显示当前可走的位置!
+Time=2021/6/1 11:50:43 LogType=Info Log=状态转换！从Choose到Moving
+Time=2021/6/1 11:50:44 LogType=Info Log=点击界面：274.4,134.4 逻辑坐标:(3,5)
+Time=2021/6/1 11:50:44 LogType=Info Log=左键操作：确定终点
+Time=2021/6/1 11:50:44 LogType=Info Log=状态转换！从Moving到Submit
+Time=2021/6/1 11:50:44 LogType=Debug Log=发送报文 Head:[P2P:1 Type:9 State:0 Length:59]
+Time=2021/6/1 11:50:44 LogType=Debug Log={"gameState":3,"pos":4,"s":{"x":4,"y":6},"e":{"x":3,"y":5}}
+Time=2021/6/1 11:50:44 LogType=Debug Log=收到服务器消息:P2P:2,Type:8,State:0,Length:0 body: 空
+Time=2021/6/1 11:50:44 LogType=Info Log=返回：提交的移动有效
+Time=2021/6/1 11:50:44 LogType=Info Log=--- SubmitMove ---
+Time=2021/6/1 11:50:44 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:44 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:44 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:44 LogType=Info Log=ShowRoad 隐藏路径1!
+Time=2021/6/1 11:50:44 LogType=Info Log=ShowRoad 隐藏路径2!
+Time=2021/6/1 11:50:44 LogType=Debug Log=下一个移动的玩家是1号
+Time=2021/6/1 11:50:44 LogType=Info Log=当前移动的是1号玩家a
+Time=2021/6/1 11:50:48 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:60 body: {"gameState":3,"pos":1,"s":{"x":9,"y":5},"e":{"x":10,"y":5}}
+Time=2021/6/1 11:50:48 LogType=Info Log=接收到1号玩家a的移动结果：(9,5)-->(10,5)
+Time=2021/6/1 11:50:48 LogType=Info Log=--- ShowMove ---
+Time=2021/6/1 11:50:48 LogType=Info Log=--- ClearMove ---
+Time=2021/6/1 11:50:48 LogType=Info Log=HideMark 隐藏选中标记!
+Time=2021/6/1 11:50:48 LogType=Info Log=ClearRoads 清除路径!
+Time=2021/6/1 11:50:48 LogType=Info Log=--- canMove ---
+Time=2021/6/1 11:50:48 LogType=Debug Log=ShowMovePath 显示移动动画!
+Time=2021/6/1 11:50:48 LogType=Info Log=CheckerCore : move  (9,5)-->(10,5)
+Time=2021/6/1 11:50:48 LogType=Debug Log=移动棋子 (9,5)-->(10,5)
+Time=2021/6/1 11:50:48 LogType=Debug Log=下一个移动的玩家是4号
+Time=2021/6/1 11:50:48 LogType=Info Log=当前移动的是4号玩家b
+Time=2021/6/1 11:50:48 LogType=Info Log=状态转换！从Waiting到Move
+Time=2021/6/1 11:50:51 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":10,"y":5},"e":{"x":12,"y":4}}
+Time=2021/6/1 11:50:51 LogType=Error Log=当前不属于1号玩家的移动回合！
+Time=2021/6/1 11:50:52 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":11,"y":4},"e":{"x":12,"y":5}}
+Time=2021/6/1 11:50:52 LogType=Error Log=当前不属于1号玩家的移动回合！
+Time=2021/6/1 11:50:59 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":11,"y":7},"e":{"x":15,"y":5}}
+Time=2021/6/1 11:50:59 LogType=Error Log=当前不属于1号玩家的移动回合！
+Time=2021/6/1 11:51:01 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":12,"y":8},"e":{"x":13,"y":7}}
+Time=2021/6/1 11:51:01 LogType=Error Log=当前不属于1号玩家的移动回合！
+Time=2021/6/1 11:51:02 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":12,"y":4},"e":{"x":13,"y":4}}
+Time=2021/6/1 11:51:02 LogType=Error Log=当前不属于1号玩家的移动回合！
+Time=2021/6/1 11:51:05 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:61 body: {"gameState":3,"pos":1,"s":{"x":12,"y":5},"e":{"x":14,"y":6}}
+Time=2021/6/1 11:51:05 LogType=Error Log=当前不属于1号玩家的移动回合！
+Time=2021/6/1 11:51:05 LogType=Debug Log=收到服务器消息:P2P:2,Type:7,State:0,Length:24 body: {"gameState":1,"pos":-1}
+Time=2021/6/1 11:51:05 LogType=Info Log=游戏结束！
+Time=2021/6/1 11:51:05 LogType=Error Log=状态错误！从Move到Ending
+Time=2021/6/1 11:51:05 LogType=Fatal Log=未将对象引用设置到对象的实例。
+Time=2021/6/1 11:51:05 LogType=Fatal Log=   在 Client.GameRoom.ShowGameOver() 位置 E:\study\MyCode\作业与上机\物联网安全\Code\第四阶段\Client\GameRoom.xaml.cs:行号 740
+   在 Client.GameRoom.<>c__DisplayClass28_0.<GameMsgHandler>b__1() 位置 E:\study\MyCode\作业与上机\物联网安全\Code\第四阶段\Client\GameRoom.xaml.cs:行号 292
+   在 System.Windows.Threading.DispatcherOperation.InvokeDelegateCore()
+   在 System.Windows.Threading.DispatcherOperation.InvokeImpl()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Windows.Threading.DispatcherOperation.Wait(TimeSpan timeout)
+   在 System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherOperation operation, CancellationToken cancellationToken, TimeSpan timeout)
+   在 System.Windows.Threading.Dispatcher.Invoke(Action callback, DispatcherPriority priority, CancellationToken cancellationToken, TimeSpan timeout)
+   在 System.Windows.Threading.Dispatcher.Invoke(Action callback)
+   在 Client.GameRoom.GameMsgHandler(Message message) 位置 E:\study\MyCode\作业与上机\物联网安全\Code\第四阶段\Client\GameRoom.xaml.cs:行号 289
+   在 Client.GameRoom.ReciveHandle(Object Client) 位置 E:\study\MyCode\作业与上机\物联网安全\Code\第四阶段\Client\GameRoom.xaml.cs:行号 207
+Time=2021/6/1 12:04:28 LogType=Debug Log=玩家 申请 退出房间！
+Time=2021/6/1 12:04:28 LogType=Error Log=无法访问已释放的对象。
+对象名:“System.Net.Sockets.Socket”。
+Time=2021/6/1 12:04:28 LogType=Error Log=   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, SocketError& errorCode, AsyncCallback callback, Object state)
+   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   在 Client.MsgTrans.MyTcpClient.Send(Message msg) 位置 E:\study\MyCode\作业与上机\物联网安全\Code\第四阶段\Client\MsgTrans\MyTcpClient.cs:行号 79
+Time=2021/6/1 12:04:30 LogType=Error Log=无法访问已释放的对象。
+对象名:“System.Net.Sockets.Socket”。
+Time=2021/6/1 12:04:30 LogType=Error Log=   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, SocketError& errorCode, AsyncCallback callback, Object state)
+   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   在 Client.MsgTrans.MyTcpClient.Send(Message msg) 位置 E:\study\MyCode\作业与上机\物联网安全\Code\第四阶段\Client\MsgTrans\MyTcpClient.cs:行号 79
+Time=2021/6/1 12:04:30 LogType=Debug Log=退出大厅!

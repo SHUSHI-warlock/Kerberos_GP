@@ -78,16 +78,18 @@ public class CheckerRoom implements Room {
 
     @Override
     public void exitRoom(Player p) {
+        logger.info(String.format("用户%s退出房间%d",p.getUserId(),roomInfo.getRoomId()));
+
         p.userState = Constant.exit_rome;
+        //向他自己也发送
+        NettyMessage playerStateMessage = new NettyMessage(2,6,0);
+        playerStateMessage.setMessageBody(gson.toJson(p));
+        sendAll(playerStateMessage);
 
         roomInfo.removePlayer(p);
         playerPos[p.pos]=false;
         p.roomId = -1;
-
-        NettyMessage playerStateMessage = new NettyMessage(2,6,0);
-        playerStateMessage.setMessageBody(gson.toJson(p));
-
-        sendAll(playerStateMessage);
+        p.userState = Constant.online;
     }
 
     @Override
@@ -149,21 +151,28 @@ public class CheckerRoom implements Room {
         return false;
     }
 
+    /**
+     * 玩家提交移动
+     * @param p
+     * @param msg
+     */
     public void playerMove(Player p,GameMsg msg)
     {
         NettyMessage backMessage = new NettyMessage(2,8,0);
+        logger.info(String.format("%d号玩家提交移动结果！",msg.pos));
 
         int res = game.playerMove(msg);
         if(res==0) {
             logger.info(String.format("%d号玩家%s提交移动成功",msg.pos,p.getUserId()));
             send2Player(p.getUserId(),backMessage);
             //广播给其他玩家
-            NettyMessage boardcastMsg = new NettyMessage(2,7,0);
-            boardcastMsg.setMessageBody(gson.toJson(msg));
-            sendOthers(p.getUserId(),boardcastMsg);
+            NettyMessage broadcastMsg = new NettyMessage(2,7,0);
+            broadcastMsg.setMessageBody(gson.toJson(msg));
+            sendOthers(p.getUserId(),broadcastMsg);
 
             //判断游戏是否结束
             if(game.isGameOver()){
+                logger.info(String.format("房间游戏结束！"));
                 NettyMessage bMsg = new NettyMessage(2,7,0);
                 GameMsg gameMsg = new GameMsg(1,-1);
                 bMsg.setMessageBody(gson.toJson(gameMsg));
@@ -173,11 +182,12 @@ public class CheckerRoom implements Room {
             }
             else {//计算下一个移动玩家
                 int nextPos = game.nextMove();
-
-                NettyMessage bMsg = new NettyMessage(2,7,0);
-                GameMsg gameMsg = new GameMsg(2,nextPos);
-                bMsg.setMessageBody(gson.toJson(gameMsg));
-                sendAll(bMsg);
+                logger.info(String.format("下一个移动的玩家为%d号玩家！",nextPos));
+                ///不通知下一个玩家
+//                NettyMessage bMsg = new NettyMessage(2,7,0);
+//                GameMsg gameMsg = new GameMsg(2,nextPos);
+//                bMsg.setMessageBody(gson.toJson(gameMsg));
+//                sendAll(bMsg);
             }
         }
         else if(res==1) {
@@ -190,6 +200,25 @@ public class CheckerRoom implements Room {
             backMessage.setStateCode(2);
             send2Player(p.getUserId(),backMessage);
         }
+    }
+
+    /**
+     * 玩家跳过回合
+     * @param p
+     */
+    public void playerSkip(Player p,GameMsg msg) {
+        logger.info(String.format("%d号玩家跳过了移动回合！",msg.pos));
+        //广播给其他玩家
+        NettyMessage broadcastMsg = new NettyMessage(2,7,0);
+        broadcastMsg.setMessageBody(gson.toJson(msg));
+        sendOthers(p.getUserId(), broadcastMsg);
+
+        int nextPos = game.nextMove();
+        logger.info(String.format("下一个移动的玩家为%d号玩家！",nextPos));
+//        NettyMessage bMsg = new NettyMessage(2,7,0);
+//        GameMsg gameMsg = new GameMsg(2,nextPos);
+//        bMsg.setMessageBody(gson.toJson(gameMsg));
+//        sendAll(bMsg);
     }
 
     private void send2Player(String id, NettyMessage message){
@@ -209,5 +238,6 @@ public class CheckerRoom implements Room {
                 nettyChannelManager.send(p.getUserId(),message);
         }
     }
+
 
 }

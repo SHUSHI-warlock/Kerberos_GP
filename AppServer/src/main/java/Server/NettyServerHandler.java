@@ -55,6 +55,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
 		if(message.getMessageP2P()!=1)
 		{
+			logger.warn(String.format("收到预期外的发送方报文"));
 			//丢弃报文
 			return;
 		}
@@ -62,6 +63,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		if(message.getMessageType()==1)//用户登录大厅
 		{
 			User user = gson.fromJson(message.bodyToString(),User.class);
+			logger.debug(String.format("用户%s请求登录大厅",user.getUserId()));
 			enterLobby(ctx.channel(), user);
 			return;
 		}
@@ -71,30 +73,39 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		switch (message.getMessageType())
 		{
 			case 2://用户请求房间列表
+				logger.debug(String.format( "用户%s请求房间消息",player.getUserId()));
 				roomInfos(player);
 				break;
 			case 3://用户创建房间
+				logger.debug(String.format( "用户%s请求创建房间",player.getUserId()));
 				createRoom(player,gson.fromJson(message.bodyToString(),RoomInfo.class));
 				break;
 			case 4://用户进入房间
 				enterRoom(player,gson.fromJson(message.bodyToString(),RoomInfo.class));
+				logger.debug(String.format( "用户%s请求进入房间",player.getUserId()));
 				break;
 			case 5://用户退出房间
+				logger.debug(String.format( "用户%s请求退出房间",player.getUserId()));
 				exitRoom(player);
 				break;
 			case 6://用户准备
+				logger.debug(String.format( "用户%s请求准备",player.getUserId()));
 				prepare(player);
 				break;
 			case 7://用户取消准备
+				logger.debug(String.format( "用户%s请求取消准备",player.getUserId()));
 				unprepare(player);
 				break;
 			case 8://聊天消息
+				logger.debug(String.format( "用户%s发送聊天消息",player.getUserId()));
 				chat(player,gson.fromJson(message.bodyToString(),ChatMsg.class));
 				break;
 			case 9://用户移动
+				logger.debug(String.format( "用户%s提交移动结果",player.getUserId()));
 				playerMove(player,gson.fromJson(message.bodyToString(),GameMsg.class));
 				break;
 			case 10://用户退出大厅
+				logger.debug(String.format( "用户%s请求退出房间",player.getUserId()));
 				exitLobby(player);
 				break;
 			default:
@@ -127,7 +138,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 * @param user
 	 */
 	public void roomInfos(User user){
-		logger.debug(String.format( "用户%s请求房间消息",user.getUserId()));
 		NettyMessage roomInfoMessage = new NettyMessage(2,2,0);
 
 		//json转list
@@ -246,7 +256,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		//检测房间是否为空
 		if(rooms.get(roomId).getRoomInfo().getPlayerNum() ==0)
 		{
-			logger.info(String.format( "房间%d为空",roomId));
+			logger.info(String.format( "房间%d为空,准备删除",roomId));
 			//删除房间
 			deleteRoom(roomId);
 		}
@@ -296,6 +306,11 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		{
 			rooms.get(p.roomId).playerMove(p,msg);
 		}
+		else if(msg.gameState==4)
+		{
+			rooms.get(p.roomId).playerSkip(p,msg);
+
+		}
 		else{
 			logger.error("用户移动报文出错！");
 		}
@@ -304,7 +319,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	public void exitLobby(Player p){
 
 	}
-
 
 	@Override
     public void channelUnregistered(ChannelHandlerContext ctx) {
