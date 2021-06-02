@@ -1790,3 +1790,457 @@ Time=2021/6/1 12:04:30 LogType=Error Log=   在 System.Net.Sockets.Socket.BeginS
    在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
    在 Client.MsgTrans.MyTcpClient.Send(Message msg) 位置 E:\study\MyCode\作业与上机\物联网安全\Code\第四阶段\Client\MsgTrans\MyTcpClient.cs:行号 79
 Time=2021/6/1 12:04:30 LogType=Debug Log=退出大厅!
+Time=2021/6/2 9:37:39 LogType=Error Log=由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+Time=2021/6/2 9:37:40 LogType=Error Log=   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   在 Client.MsgTrans.MyTcpClient.Send(Message msg) 位置 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\MsgTrans\MyTcpClient.cs:行号 79
+Time=2021/6/2 9:38:40 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 9:38:40 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 9:38:40 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 9:38:40 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 9:38:40 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 9:38:41 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 9:38:58 LogType=Debug Log=创建房间:房间名：aqwe 最大人数：2 密码：
+Time=2021/6/2 9:38:58 LogType=Debug Log=发送报文 Head:[P2P:1 Type:3 State:0 Length:116]
+Time=2021/6/2 9:38:58 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"aqwe","RoomPsw":"","HasPsw":-1,"PlayerNum":0,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 9:38:58 LogType=Debug Log=收到服务器消息:P2P:2,Type:3,State:0,Length:0 body: 空
+Time=2021/6/2 9:38:58 LogType=Debug Log=创建房间成功！
+Time=2021/6/2 9:38:58 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:201 body: {"RoomId":0,"RoomName":"aqwe","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}
+Time=2021/6/2 9:38:58 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/2 9:38:58 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/2 9:38:58 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/2 9:38:58 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/2 9:38:58 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/2 9:39:02 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 9:39:02 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 9:39:02 LogType=Debug Log={"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5}
+Time=2021/6/2 9:39:24 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 9:39:24 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 9:39:24 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"b","userState":0}
+Time=2021/6/2 9:39:24 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 9:39:24 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 9:39:24 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 9:39:26 LogType=Debug Log=请求刷新!
+Time=2021/6/2 9:39:26 LogType=Debug Log=发送报文 Head:[P2P:1 Type:2 State:0 Length:0]
+Time=2021/6/2 9:39:26 LogType=Debug Log=
+Time=2021/6/2 9:39:27 LogType=Debug Log=收到服务器消息:P2P:2,Type:2,State:0,Length:230 body: {"roomInfos":[{"RoomId":0,"RoomName":"aqwe","RoomMaxPlayer":2,"HasPsw":-1,"PlayerNum":1,"RoomState":0}],"users":[{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5},{"pos":0,"steps":0,"roomId":0,"userId":"b","userState":1}]}
+Time=2021/6/2 9:39:27 LogType=Info Log=大厅信息已收到，准备刷新！
+Time=2021/6/2 9:39:29 LogType=Debug Log=请求进入房间0!
+Time=2021/6/2 9:39:29 LogType=Debug Log=发送报文 Head:[P2P:1 Type:4 State:0 Length:118]
+Time=2021/6/2 9:39:29 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"aqwe","RoomPsw":null,"HasPsw":-1,"PlayerNum":1,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 9:39:29 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":4,"steps":0,"roomId":0,"userId":"b","userState":2}
+Time=2021/6/2 9:39:29 LogType=Debug Log=收到玩家状态改变报文！
+Time=2021/6/2 9:39:29 LogType=Debug Log=玩家b进入房间！
+Time=2021/6/2 9:40:00 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 9:40:00 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 9:40:00 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"b","userState":0}
+Time=2021/6/2 9:40:00 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 9:40:00 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 9:40:00 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 9:40:03 LogType=Debug Log=请求刷新!
+Time=2021/6/2 9:40:03 LogType=Debug Log=发送报文 Head:[P2P:1 Type:2 State:0 Length:0]
+Time=2021/6/2 9:40:03 LogType=Debug Log=
+Time=2021/6/2 9:40:03 LogType=Debug Log=收到服务器消息:P2P:2,Type:2,State:0,Length:230 body: {"roomInfos":[{"RoomId":0,"RoomName":"aqwe","RoomMaxPlayer":2,"HasPsw":-1,"PlayerNum":2,"RoomState":0}],"users":[{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5},{"pos":0,"steps":0,"roomId":0,"userId":"b","userState":1}]}
+Time=2021/6/2 9:40:03 LogType=Info Log=大厅信息已收到，准备刷新！
+Time=2021/6/2 9:40:05 LogType=Debug Log=选中的房间人已满！
+Time=2021/6/2 9:40:06 LogType=Debug Log=选中的房间人已满！
+Time=2021/6/2 9:40:09 LogType=Debug Log=选中的房间人已满！
+Time=2021/6/2 9:40:15 LogType=Info Log=状态转换！从Prepared到UnPrepared
+Time=2021/6/2 9:40:15 LogType=Debug Log=发送报文 Head:[P2P:1 Type:7 State:0 Length:57]
+Time=2021/6/2 9:40:15 LogType=Debug Log={"pos":1,"steps":0,"roomId":0,"userId":"a","userState":6}
+Time=2021/6/2 9:40:15 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":1,"steps":0,"roomId":0,"userId":"a","userState":6}
+Time=2021/6/2 9:40:15 LogType=Debug Log=玩家 申请 退出房间！
+Time=2021/6/2 9:40:15 LogType=Debug Log=发送报文 Head:[P2P:1 Type:5 State:0 Length:0]
+Time=2021/6/2 9:40:15 LogType=Debug Log=
+Time=2021/6/2 9:40:15 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":1,"steps":0,"roomId":0,"userId":"a","userState":3}
+Time=2021/6/2 9:40:15 LogType=Debug Log=玩家 准许 退出房间！
+Time=2021/6/2 9:40:15 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":1,"steps":0,"roomId":0,"userId":"a","userState":3}
+Time=2021/6/2 9:40:26 LogType=Debug Log=退出大厅!
+Time=2021/6/2 10:48:20 LogType=Error Log=由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+Time=2021/6/2 10:48:20 LogType=Error Log=   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   在 Client.MsgTrans.MyTcpClient.Send(Message msg) 位置 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\MsgTrans\MyTcpClient.cs:行号 79
+Time=2021/6/2 10:48:53 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 10:48:53 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 10:48:53 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 10:48:54 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 10:48:54 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 10:48:54 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 10:49:24 LogType=Debug Log=创建房间:房间名：qwe 最大人数：2 密码：123
+Time=2021/6/2 10:49:24 LogType=Debug Log=发送报文 Head:[P2P:1 Type:3 State:0 Length:117]
+Time=2021/6/2 10:49:24 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"qwe","RoomPsw":"123","HasPsw":1,"PlayerNum":0,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 10:49:25 LogType=Debug Log=收到服务器消息:P2P:2,Type:3,State:0,Length:0 body: 空
+Time=2021/6/2 10:49:25 LogType=Debug Log=创建房间成功！
+Time=2021/6/2 10:49:25 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:202 body: {"RoomId":0,"RoomName":"qwe","RoomPsw":"123","RoomMaxPlayer":2,"HasPsw":1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}
+Time=2021/6/2 10:49:25 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/2 10:49:25 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/2 10:49:25 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/2 10:49:25 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/2 10:49:25 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/2 10:49:46 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 10:49:46 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 10:49:46 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"b","userState":0}
+Time=2021/6/2 10:49:46 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 10:49:46 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 10:49:46 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 10:49:57 LogType=Debug Log=请求刷新!
+Time=2021/6/2 10:49:57 LogType=Debug Log=发送报文 Head:[P2P:1 Type:2 State:0 Length:0]
+Time=2021/6/2 10:49:57 LogType=Debug Log=
+Time=2021/6/2 10:49:57 LogType=Debug Log=收到服务器消息:P2P:2,Type:2,State:0,Length:228 body: {"roomInfos":[{"RoomId":0,"RoomName":"qwe","RoomMaxPlayer":2,"HasPsw":1,"PlayerNum":1,"RoomState":0}],"users":[{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":6},{"pos":0,"steps":0,"roomId":0,"userId":"b","userState":1}]}
+Time=2021/6/2 10:49:57 LogType=Info Log=大厅信息已收到，准备刷新！
+Time=2021/6/2 10:50:20 LogType=Debug Log=请求进入房间0!
+Time=2021/6/2 10:50:20 LogType=Debug Log=发送报文 Head:[P2P:1 Type:4 State:0 Length:116]
+Time=2021/6/2 10:50:20 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"qwe","RoomPsw":null,"HasPsw":1,"PlayerNum":1,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 10:50:20 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":4,"steps":0,"roomId":0,"userId":"b","userState":2}
+Time=2021/6/2 10:50:20 LogType=Debug Log=收到玩家状态改变报文！
+Time=2021/6/2 10:50:20 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:255 body: {"RoomId":0,"RoomName":"qwe","RoomPsw":"123","RoomMaxPlayer":2,"HasPsw":1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":6},null,null,{"pos":4,"steps":0,"roomId":0,"userId":"b","userState":2},null,null],"PlayerNum":2,"RoomState":0}
+Time=2021/6/2 10:50:20 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/2 10:50:20 LogType=Debug Log=玩家b进入房间！
+Time=2021/6/2 10:50:20 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/2 10:50:20 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/2 10:50:20 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/2 10:50:20 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/2 10:50:55 LogType=Debug Log=玩家 申请 退出房间！
+Time=2021/6/2 10:50:55 LogType=Debug Log=发送报文 Head:[P2P:1 Type:5 State:0 Length:0]
+Time=2021/6/2 10:50:55 LogType=Debug Log=
+Time=2021/6/2 10:50:55 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":4,"steps":0,"roomId":0,"userId":"b","userState":3}
+Time=2021/6/2 10:50:55 LogType=Debug Log=收到玩家状态改变报文！
+Time=2021/6/2 10:50:55 LogType=Debug Log=玩家b离开房间！
+Time=2021/6/2 10:50:55 LogType=Error Log=BindPlayer:玩家信息错误！
+Time=2021/6/2 11:19:10 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 11:19:10 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 11:19:10 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 11:19:10 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 11:19:10 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 11:19:10 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 11:19:20 LogType=Debug Log=创建房间:房间名：aqe 最大人数：2 密码：
+Time=2021/6/2 11:19:20 LogType=Debug Log=发送报文 Head:[P2P:1 Type:3 State:0 Length:115]
+Time=2021/6/2 11:19:20 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"aqe","RoomPsw":"","HasPsw":-1,"PlayerNum":0,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 11:19:20 LogType=Debug Log=收到服务器消息:P2P:2,Type:3,State:0,Length:0 body: 空
+Time=2021/6/2 11:19:20 LogType=Debug Log=创建房间成功！
+Time=2021/6/2 11:19:20 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:200 body: {"RoomId":1,"RoomName":"aqe","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":1,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}
+Time=2021/6/2 11:19:20 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/2 11:19:20 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/2 11:19:20 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/2 11:19:20 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/2 11:19:20 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/2 11:19:25 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 11:19:25 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 11:19:25 LogType=Debug Log={"pos":1,"steps":0,"roomId":1,"userId":"a","userState":5}
+Time=2021/6/2 11:19:29 LogType=Debug Log=玩家 申请 退出房间！
+Time=2021/6/2 11:19:29 LogType=Debug Log=发送报文 Head:[P2P:1 Type:5 State:0 Length:0]
+Time=2021/6/2 11:19:29 LogType=Debug Log=
+Time=2021/6/2 11:19:29 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":1,"steps":0,"roomId":1,"userId":"a","userState":3}
+Time=2021/6/2 11:19:29 LogType=Debug Log=玩家 准许 退出房间！
+Time=2021/6/2 11:25:46 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 11:25:46 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 11:25:46 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 11:25:47 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 11:25:47 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 11:25:47 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 11:25:50 LogType=Debug Log=创建房间:房间名：awe 最大人数：2 密码：
+Time=2021/6/2 11:25:50 LogType=Debug Log=发送报文 Head:[P2P:1 Type:3 State:0 Length:115]
+Time=2021/6/2 11:25:50 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"awe","RoomPsw":"","HasPsw":-1,"PlayerNum":0,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 11:25:50 LogType=Debug Log=收到服务器消息:P2P:2,Type:3,State:0,Length:0 body: 空
+Time=2021/6/2 11:25:50 LogType=Debug Log=创建房间成功！
+Time=2021/6/2 11:25:50 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:200 body: {"RoomId":1,"RoomName":"awe","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":1,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}
+Time=2021/6/2 11:25:50 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/2 11:25:50 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/2 11:25:50 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/2 11:25:50 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/2 11:25:50 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/2 11:25:52 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 11:25:52 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 11:25:52 LogType=Debug Log={"pos":1,"steps":0,"roomId":1,"userId":"a","userState":5}
+Time=2021/6/2 11:25:55 LogType=Info Log=状态转换！从Prepared到UnPrepared
+Time=2021/6/2 11:25:55 LogType=Debug Log=发送报文 Head:[P2P:1 Type:7 State:0 Length:57]
+Time=2021/6/2 11:25:55 LogType=Debug Log={"pos":1,"steps":0,"roomId":1,"userId":"a","userState":6}
+Time=2021/6/2 11:26:29 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 11:26:29 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 11:26:29 LogType=Debug Log={"pos":1,"steps":0,"roomId":1,"userId":"a","userState":5}
+Time=2021/6/2 11:26:31 LogType=Info Log=状态转换！从Prepared到UnPrepared
+Time=2021/6/2 11:26:31 LogType=Debug Log=发送报文 Head:[P2P:1 Type:7 State:0 Length:57]
+Time=2021/6/2 11:26:31 LogType=Debug Log={"pos":1,"steps":0,"roomId":1,"userId":"a","userState":6}
+Time=2021/6/2 11:27:27 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 11:27:27 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 11:27:27 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 11:27:27 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 11:27:27 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 11:27:27 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 11:27:34 LogType=Debug Log=创建房间:房间名：qe 最大人数：2 密码：
+Time=2021/6/2 11:27:34 LogType=Debug Log=发送报文 Head:[P2P:1 Type:3 State:0 Length:114]
+Time=2021/6/2 11:27:34 LogType=Debug Log=收到服务器消息:P2P:2,Type:3,State:0,Length:0 body: 空
+Time=2021/6/2 11:27:34 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"qe","RoomPsw":"","HasPsw":-1,"PlayerNum":0,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 11:27:34 LogType=Debug Log=创建房间成功！
+Time=2021/6/2 11:27:34 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:199 body: {"RoomId":2,"RoomName":"qe","RoomPsw":"","RoomMaxPlayer":2,"HasPsw":-1,"players":[null,{"pos":1,"steps":0,"roomId":2,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}
+Time=2021/6/2 11:27:34 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/2 11:27:34 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/2 11:27:34 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/2 11:27:34 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/2 11:27:34 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/2 11:27:36 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 11:27:36 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 11:27:36 LogType=Debug Log={"pos":1,"steps":0,"roomId":2,"userId":"a","userState":5}
+Time=2021/6/2 11:29:22 LogType=Info Log=状态转换！从Prepared到UnPrepared
+Time=2021/6/2 11:29:22 LogType=Debug Log=发送报文 Head:[P2P:1 Type:7 State:0 Length:57]
+Time=2021/6/2 11:29:22 LogType=Debug Log={"pos":1,"steps":0,"roomId":2,"userId":"a","userState":6}
+Time=2021/6/2 11:29:23 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 11:29:23 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 11:29:23 LogType=Debug Log={"pos":1,"steps":0,"roomId":2,"userId":"a","userState":5}
+Time=2021/6/2 15:15:21 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 15:15:22 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 15:15:22 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 15:15:23 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 15:15:23 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 15:15:23 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 15:15:35 LogType=Debug Log=创建房间:房间名：wqe 最大人数：2 密码：123
+Time=2021/6/2 15:15:35 LogType=Debug Log=发送报文 Head:[P2P:1 Type:3 State:0 Length:117]
+Time=2021/6/2 15:15:35 LogType=Debug Log={"players":null,"RoomId":0,"RoomName":"wqe","RoomPsw":"123","HasPsw":1,"PlayerNum":0,"RoomMaxPlayer":2,"RoomState":0}
+Time=2021/6/2 15:15:35 LogType=Debug Log=收到服务器消息:P2P:2,Type:3,State:0,Length:0 body: 空
+Time=2021/6/2 15:15:35 LogType=Debug Log=创建房间成功！
+Time=2021/6/2 15:15:35 LogType=Debug Log=收到服务器消息:P2P:2,Type:4,State:0,Length:202 body: {"RoomId":0,"RoomName":"wqe","RoomPsw":"123","RoomMaxPlayer":2,"HasPsw":1,"players":[null,{"pos":1,"steps":0,"roomId":0,"userId":"a","userState":2},null,null,null,null,null],"PlayerNum":1,"RoomState":0}
+Time=2021/6/2 15:15:35 LogType=Debug Log=加入房间成功，即将进入房间！
+Time=2021/6/2 15:15:35 LogType=Debug Log=EnterRoomHandler 执行完毕！
+Time=2021/6/2 15:15:36 LogType=Info Log=状态转换！从Exit到Enter
+Time=2021/6/2 15:15:36 LogType=Debug Log=房间加载完毕！即将显示！
+Time=2021/6/2 15:15:36 LogType=Info Log=状态转换！从Enter到UnPrepared
+Time=2021/6/2 15:15:39 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 15:15:39 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 15:15:39 LogType=Debug Log={"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5}
+Time=2021/6/2 15:15:40 LogType=Info Log=状态转换！从Prepared到UnPrepared
+Time=2021/6/2 15:15:40 LogType=Debug Log=发送报文 Head:[P2P:1 Type:7 State:0 Length:57]
+Time=2021/6/2 15:15:40 LogType=Debug Log={"pos":1,"steps":0,"roomId":0,"userId":"a","userState":6}
+Time=2021/6/2 15:15:41 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 15:15:41 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 15:15:41 LogType=Debug Log={"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5}
+Time=2021/6/2 15:15:43 LogType=Info Log=状态转换！从Prepared到UnPrepared
+Time=2021/6/2 15:15:43 LogType=Debug Log=发送报文 Head:[P2P:1 Type:7 State:0 Length:57]
+Time=2021/6/2 15:15:43 LogType=Debug Log={"pos":1,"steps":0,"roomId":0,"userId":"a","userState":6}
+Time=2021/6/2 15:15:54 LogType=Info Log=状态转换！从UnPrepared到Prepared
+Time=2021/6/2 15:15:54 LogType=Debug Log=发送报文 Head:[P2P:1 Type:6 State:0 Length:57]
+Time=2021/6/2 15:15:54 LogType=Debug Log={"pos":1,"steps":0,"roomId":0,"userId":"a","userState":5}
+Time=2021/6/2 15:15:58 LogType=Debug Log=玩家 申请 退出房间！
+Time=2021/6/2 15:15:58 LogType=Debug Log=发送报文 Head:[P2P:1 Type:5 State:0 Length:0]
+Time=2021/6/2 15:15:58 LogType=Debug Log=
+Time=2021/6/2 15:15:58 LogType=Debug Log=收到服务器消息:P2P:2,Type:6,State:0,Length:57 body: {"pos":1,"steps":0,"roomId":0,"userId":"a","userState":3}
+Time=2021/6/2 15:15:58 LogType=Debug Log=玩家 准许 退出房间！
+Time=2021/6/2 15:19:43 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 15:19:43 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 15:19:43 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 15:19:43 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 15:19:43 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 15:19:43 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 15:19:51 LogType=Info Log=过滤条件:房间未满：True 房间未开始：False 房间无密码：False 
+Time=2021/6/2 15:19:51 LogType=Info Log=过滤条件:房间未满：False 房间未开始：False 房间无密码：False 
+Time=2021/6/2 15:19:52 LogType=Info Log=过滤条件:房间未满：False 房间未开始：True 房间无密码：False 
+Time=2021/6/2 15:19:52 LogType=Info Log=过滤条件:房间未满：False 房间未开始：False 房间无密码：False 
+Time=2021/6/2 15:19:53 LogType=Info Log=过滤条件:房间未满：False 房间未开始：False 房间无密码：True 
+Time=2021/6/2 15:19:54 LogType=Info Log=过滤条件:房间未满：False 房间未开始：False 房间无密码：False 
+Time=2021/6/2 15:19:54 LogType=Info Log=过滤条件:房间未满：False 房间未开始：False 房间无密码：True 
+Time=2021/6/2 15:19:54 LogType=Info Log=过滤条件:房间未满：False 房间未开始：False 房间无密码：False 
+Time=2021/6/2 15:19:58 LogType=Info Log=最大人数过滤:all
+Time=2021/6/2 15:19:59 LogType=Info Log=最大人数过滤:2
+Time=2021/6/2 15:20:00 LogType=Info Log=最大人数过滤:4
+Time=2021/6/2 15:20:04 LogType=Info Log=最大人数过滤:6
+Time=2021/6/2 15:20:07 LogType=Info Log=最大人数过滤:all
+Time=2021/6/2 15:20:09 LogType=Info Log=关键字过滤:a
+Time=2021/6/2 15:20:10 LogType=Info Log=关键字过滤:
+Time=2021/6/2 15:20:10 LogType=Info Log=关键字过滤:1
+Time=2021/6/2 15:20:11 LogType=Info Log=关键字过滤:
+Time=2021/6/2 15:20:12 LogType=Info Log=关键字过滤:2
+Time=2021/6/2 15:20:13 LogType=Info Log=关键字过滤:
+Time=2021/6/2 15:20:14 LogType=Info Log=关键字过滤:2
+Time=2021/6/2 15:20:14 LogType=Info Log=关键字过滤:
+Time=2021/6/2 15:20:29 LogType=Debug Log=发送消息！
+Time=2021/6/2 15:20:29 LogType=Debug Log=发送报文 Head:[P2P:1 Type:8 State:0 Length:81]
+Time=2021/6/2 15:20:29 LogType=Debug Log={"UserId":"a","Time":"2021-06-02T15:20:29.4327974+08:00","Msg":"qwewqe","Type":1}
+Time=2021/6/2 15:20:52 LogType=Info Log=PreviousSize:745.6,502.4
+Time=2021/6/2 15:20:52 LogType=Info Log=PreviousSize:795.2,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:820.8,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:844.8,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:852.8,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:860.8,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:908,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:907.2,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:861.6,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:700.8,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:640,502.4
+Time=2021/6/2 15:20:53 LogType=Info Log=PreviousSize:583.2,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:562.4,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:592,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:720,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:740,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:756,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:756.8,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:715.2,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:632.8,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:616,502.4
+Time=2021/6/2 15:20:54 LogType=Info Log=PreviousSize:616.8,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:704,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:820,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:852.8,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:873.6,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:821.6,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:603.2,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:557.6,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:583.2,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:679.2,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:752.8,502.4
+Time=2021/6/2 15:20:55 LogType=Info Log=PreviousSize:824,502.4
+Time=2021/6/2 15:20:56 LogType=Info Log=PreviousSize:824.8,502.4
+Time=2021/6/2 15:20:56 LogType=Info Log=PreviousSize:824,502.4
+Time=2021/6/2 15:20:56 LogType=Info Log=PreviousSize:725.6,502.4
+Time=2021/6/2 15:20:59 LogType=Info Log=PreviousSize:619.2,502.4
+Time=2021/6/2 15:20:59 LogType=Info Log=PreviousSize:619.2,503.2
+Time=2021/6/2 15:21:00 LogType=Info Log=PreviousSize:614.4,499.2
+Time=2021/6/2 15:21:00 LogType=Info Log=PreviousSize:564.8,410.4
+Time=2021/6/2 15:21:00 LogType=Info Log=PreviousSize:521.6,357.6
+Time=2021/6/2 15:21:00 LogType=Info Log=PreviousSize:474.4,357.6
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:460.8,357.6
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:462.4,357.6
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:491.2,357.6
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:536,357.6
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:581.6,387.2
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:610.4,410.4
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:644.8,439.2
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:700,480.8
+Time=2021/6/2 15:21:01 LogType=Info Log=PreviousSize:746.4,500.8
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:764,508
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:752.8,486.4
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:643.2,373.6
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:534.4,357.6
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:528,357.6
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:540.8,358.4
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:604.8,428
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:663.2,468
+Time=2021/6/2 15:21:02 LogType=Info Log=PreviousSize:683.2,480
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:678.4,467.2
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:555.2,357.6
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:507.2,357.6
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:508,357.6
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:539.2,357.6
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:605.6,397.6
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:650.4,420.8
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:655.2,423.2
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:656,425.6
+Time=2021/6/2 15:21:03 LogType=Info Log=PreviousSize:660.8,430.4
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:663.2,440.8
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:635.2,460
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:608.8,466.4
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:567.2,474.4
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:518.4,480.8
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:492,451.2
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:572.8,371.2
+Time=2021/6/2 15:21:04 LogType=Info Log=PreviousSize:632,376.8
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:664,488.8
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:594.4,525.6
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:510.4,471.2
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:546.4,396.8
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:592,440
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:596.8,532
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:557.6,523.2
+Time=2021/6/2 15:21:05 LogType=Info Log=PreviousSize:588.8,440.8
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:640,544.8
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:640,550.4
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:652,532.8
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:668.8,528
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:688,544
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:684,560
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:756,488.8
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:768.8,512.8
+Time=2021/6/2 15:21:06 LogType=Info Log=PreviousSize:768.8,514.4
+Time=2021/6/2 15:21:07 LogType=Info Log=PreviousSize:763.2,592.8
+Time=2021/6/2 15:21:07 LogType=Info Log=PreviousSize:767.2,517.6
+Time=2021/6/2 15:21:07 LogType=Info Log=PreviousSize:797.6,558.4
+Time=2021/6/2 15:21:07 LogType=Info Log=PreviousSize:737.6,586.4
+Time=2021/6/2 15:21:07 LogType=Info Log=PreviousSize:632,508.8
+Time=2021/6/2 15:21:07 LogType=Info Log=PreviousSize:633.6,506.4
+Time=2021/6/2 15:21:07 LogType=Info Log=PreviousSize:536,540.8
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:489.6,517.6
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,506.4
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,499.2
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,468.8
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,447.2
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,475.2
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,507.2
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,512
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,471.2
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:460.8,438.4
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:512,446.4
+Time=2021/6/2 15:21:08 LogType=Info Log=PreviousSize:537.6,492
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:497.6,496
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:578.4,456.8
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:618.4,500
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:596,523.2
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:632,505.6
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:712.8,526.4
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:615.2,542.4
+Time=2021/6/2 15:21:09 LogType=Info Log=PreviousSize:610.4,488
+Time=2021/6/2 15:21:10 LogType=Info Log=PreviousSize:684,516.8
+Time=2021/6/2 15:21:10 LogType=Info Log=PreviousSize:667.2,531.2
+Time=2021/6/2 15:21:10 LogType=Info Log=PreviousSize:697.6,520
+Time=2021/6/2 15:21:10 LogType=Info Log=PreviousSize:827.2,521.6
+Time=2021/6/2 15:21:10 LogType=Info Log=PreviousSize:867.2,524.8
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:895.2,524.8
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:894.4,524.8
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:867.2,524.8
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:682.4,524.8
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:518.4,508
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:460.8,500.8
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:521.6,500
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:703.2,500
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:863.2,500
+Time=2021/6/2 15:21:11 LogType=Info Log=PreviousSize:922.4,508.8
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:942.4,513.6
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:680,490.4
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:460.8,467.2
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:460.8,466.4
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:468,466.4
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:562.4,466.4
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:712.8,466.4
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:812.8,477.6
+Time=2021/6/2 15:21:12 LogType=Info Log=PreviousSize:840,485.6
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:844.8,497.6
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:836,528.8
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:824,547.2
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:747.2,539.2
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:688.8,528
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:628,513.6
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:614.4,492
+Time=2021/6/2 15:21:13 LogType=Info Log=PreviousSize:620.8,459.2
+Time=2021/6/2 15:21:14 LogType=Info Log=PreviousSize:666.4,454.4
+Time=2021/6/2 15:21:14 LogType=Info Log=PreviousSize:701.6,476
+Time=2021/6/2 15:21:14 LogType=Info Log=PreviousSize:708.8,501.6
+Time=2021/6/2 15:21:14 LogType=Info Log=PreviousSize:671.2,508
+Time=2021/6/2 15:21:31 LogType=Info Log=PreviousSize:668,506.4
+Time=2021/6/2 15:21:33 LogType=Info Log=PreviousSize:1336,620.8
+Time=2021/6/2 15:21:34 LogType=Info Log=PreviousSize:668,506.4
+Time=2021/6/2 15:21:34 LogType=Info Log=PreviousSize:667.2,506.4
+Time=2021/6/2 15:21:34 LogType=Info Log=PreviousSize:691.2,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:723.2,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:732.8,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:745.6,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:758.4,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:770.4,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:769.6,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:752,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:732.8,506.4
+Time=2021/6/2 15:21:35 LogType=Info Log=PreviousSize:721.6,506.4
+Time=2021/6/2 15:21:36 LogType=Info Log=PreviousSize:712,506.4
+Time=2021/6/2 15:21:36 LogType=Info Log=PreviousSize:711.2,506.4
+Time=2021/6/2 15:21:36 LogType=Info Log=PreviousSize:710.4,506.4
+Time=2021/6/2 15:21:36 LogType=Info Log=PreviousSize:709.6,506.4
+Time=2021/6/2 15:21:38 LogType=Info Log=PreviousSize:708.8,506.4
+Time=2021/6/2 15:21:39 LogType=Info Log=PreviousSize:709.6,506.4
+Time=2021/6/2 15:21:39 LogType=Info Log=PreviousSize:708.8,506.4
+Time=2021/6/2 15:21:39 LogType=Info Log=PreviousSize:707.2,506.4
+Time=2021/6/2 15:21:39 LogType=Info Log=PreviousSize:701.6,506.4
+Time=2021/6/2 15:21:39 LogType=Info Log=PreviousSize:700,506.4
+Time=2021/6/2 15:22:50 LogType=Debug Log=发送报文 Head:[P2P:1 Type:10 State:0 Length:0]
+Time=2021/6/2 15:22:50 LogType=Debug Log=
+Time=2021/6/2 15:24:44 LogType=Debug Log=已连接——127.0.0.1:8080
+Time=2021/6/2 15:24:44 LogType=Debug Log=发送报文 Head:[P2P:1 Type:1 State:0 Length:59]
+Time=2021/6/2 15:24:44 LogType=Debug Log={"pos":-1,"steps":0,"roomId":-1,"userId":"a","userState":0}
+Time=2021/6/2 15:24:44 LogType=Debug Log=收到服务器消息:P2P:2,Type:1,State:0,Length:0 body: 空
+Time=2021/6/2 15:24:44 LogType=Debug Log=登录成功！进入大厅！
+Time=2021/6/2 15:24:44 LogType=Info Log=PreviousSize:0,0
+Time=2021/6/2 15:25:21 LogType=Info Log=PreviousSize:745.6,502.4
+Time=2021/6/2 15:25:23 LogType=Info Log=PreviousSize:1336,620.8

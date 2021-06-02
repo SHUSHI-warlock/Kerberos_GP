@@ -1,4 +1,5 @@
-﻿using Client.Utils.LogHelper;
+﻿using Client.Utils.DesUtil;
+using Client.Utils.LogHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,28 @@ namespace Client.MsgTrans
 {
     public class MyTcpClient
     {
+        private static MessageShow msgShowWin = MessageShow.GetInstance();
+
         private static Logger logger = Logger.GetLogger();
         private Socket _clientSocket;
 
         private string _server;
         private int _port;
 
-        public MyTcpClient(String ip, int port)
+        private bool desOpen;
+        public DESUtils des;
+
+        public MyTcpClient(string ip, int port)
         {
             _server = ip;
             _port = port;
+            desOpen = false;
+        }
+
+        public void DesOpen(DESUtils desUtil)
+        {
+            desOpen = true;
+            des = desUtil;
         }
 
         public void Connect()
@@ -73,6 +86,22 @@ namespace Client.MsgTrans
 
             //msg += "\r\n";
 
+            if(desOpen)
+            {
+                string M, C;
+                M = msg.bodyToString();
+
+                msg.SetBody(des.Encryption(msg.GetBody()));
+
+                C = msg.bodyToString();
+
+                msgShowWin.ShowMsg(msg, Controls.EncryptionType.Des, des.GetKey().ToString(), M, C);
+            }
+            else
+            {
+                msgShowWin.ShowMsg(msg, Controls.EncryptionType.Plain, "", msg.bodyToString(), "");
+            }
+
             byte[] data = msg.composeFull();
             try
             {
@@ -98,9 +127,9 @@ namespace Client.MsgTrans
         public Message Recive()
         {
             byte[] head = new byte[8];
-            _clientSocket.Receive(head, Message.HEAD_LEN, SocketFlags.None);
             try
             {
+                _clientSocket.Receive(head, Message.HEAD_LEN, SocketFlags.None);
                 //_clientSocket.BeginReceive(head, 0, head.Length, SocketFlags.None,
                 //asyncResult =>
                 //{
@@ -116,7 +145,6 @@ namespace Client.MsgTrans
                     throw new Exception("服务器断开连接！");
                 }
 
-
                 if (message.Length != 0)
                 {
                     byte[] data = new byte[message.Length];
@@ -129,8 +157,23 @@ namespace Client.MsgTrans
                 }
                 //OnReceive.Invoke(message);
 
-                logger.Debug(string.Format("收到服务器消息:P2P:{0},Type:{1},State:{2},Length:{3} body: {4}", message.MessageP2P, message.MessageType, message.StateCode, message.Length,message.Length==0?"空": message.bodyToString()));
+                if (desOpen)
+                {
+                    string M, C;
+                    C = message.bodyToString();
 
+                    message.SetBody(des.Decryption(message.GetBody()));
+
+                    M = message.bodyToString();
+
+                    msgShowWin.ShowMsg(message, Controls.EncryptionType.Des, des.GetKey().ToString(), M, C);
+                }
+                else
+                {
+                    msgShowWin.ShowMsg(message, Controls.EncryptionType.Plain, "", message.bodyToString(), "");
+                }
+
+                logger.Debug(string.Format("收到服务器消息:P2P:{0},Type:{1},State:{2},Length:{3} body: {4}", message.MessageP2P, message.MessageType, message.StateCode, message.Length,message.Length==0?"空": message.bodyToString()));
 
                 //Recive();
                 return message;
@@ -164,7 +207,5 @@ namespace Client.MsgTrans
                 logger.Error(e.Message);
             }
         }
-
-
     }
 }

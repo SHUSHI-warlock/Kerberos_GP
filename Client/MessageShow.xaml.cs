@@ -17,6 +17,10 @@ using System.Windows.Shapes;
 
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using Client.Utils.RSAUtil;
+using Client.Utils.DesUtil;
+using Client.Controls;
+
 namespace Client
 {
     /// <summary>
@@ -28,7 +32,7 @@ namespace Client
 
         private static MessageShow instance;
 
-        private static BindingList<Message> messagesList;
+        private static BindingList<MsgRecord> messagesList;
 
 
 
@@ -37,12 +41,15 @@ namespace Client
         private MessageShow()
         {
             InitializeComponent();
-            messagesList = new BindingList<Message>();
+            messagesList = new BindingList<MsgRecord>();
             MsgList.ItemsSource = messagesList;
 
             Test();
         }
-
+        /// <summary>
+        /// 获得窗口实例
+        /// </summary>
+        /// <returns></returns>
         public static MessageShow GetInstance()
         {
             if (instance == null)
@@ -52,14 +59,15 @@ namespace Client
 
         public void Test()
         {
-            messagesList.Add(new Message(0, 0, 0));
-            messagesList.Add(new Message(1, 1, 0));
-            messagesList.Add(new Message(2, 0, 0));
-            messagesList.Add(new Message(1, 0, 0));
-            messagesList.Add(new Message(2, 0, 0));
-            messagesList.Add(new Message(0, 1, 1));
+           
 
         }
+
+        public void ShowMsg(Message msg,EncryptionType type,string key,string m,string c)
+        {
+            messagesList.Add(new MsgRecord(msg,type,key,m,c));
+        }
+
 
         /// <summary>
         /// 禁止运行期间关闭

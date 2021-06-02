@@ -351,7 +351,7 @@ namespace Client
         /// </summary>
         public void QueryLobbyInfo()
         {
-            Message message = new Message(1, 2, 0);
+            Message message = new Message(4, 2, 0);
             client.Send(message);
         }
         /// <summary>
@@ -360,7 +360,7 @@ namespace Client
         /// <param name="room"></param>
         public void QueryCreateRoom(RoomInfo room)
         {
-            Message message = new Message(1, 3, 0);
+            Message message = new Message(4, 3, 0);
             message.SetBody(room);
             client.Send(message);
         }
@@ -370,7 +370,7 @@ namespace Client
         /// <param name="room"></param>
         public void QueryEnterRoom(RoomInfo room)
         {
-            Message message = new Message(1, 4, 0);
+            Message message = new Message(4, 4, 0);
             message.SetBody(room);
             client.Send(message);
         }
@@ -380,7 +380,7 @@ namespace Client
         /// <param name="msg"></param>
         public void SendChatMsg(ChatMsg msg)
         {
-            Message message = new Message(1, 8, 0);
+            Message message = new Message(4, 8, 0);
             message.SetBody(msg);
             client.Send(message);
         }
@@ -566,7 +566,7 @@ namespace Client
             //TODO 退出时发送报文
             player.userState = UserState.offline;
             //PlayerStateChanged(_player);
-            Message message = new Message(1, 10, 0);
+            Message message = new Message(4, 10, 0);
             client.Send(message);
 
             client.Close();
@@ -630,7 +630,7 @@ namespace Client
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void EnterRoom_ButtonDown(object sender, MouseButtonEventArgs e)
+        private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
             //选中房间？
             if (RoomList.SelectedValue == null)
@@ -685,7 +685,7 @@ namespace Client
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CteateRoom_ButtonDown(object sender, MouseButtonEventArgs e)
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
             //弹出创建房间页面
             ShowNavigationWindow("创建房间", "CreateRoom.xaml", 600, 350);
@@ -725,7 +725,7 @@ namespace Client
 
         }
 
-
-
+        
+        
     }
 }

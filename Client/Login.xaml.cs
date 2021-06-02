@@ -59,7 +59,7 @@ namespace Client
             client.Connect();
 
             user = new Player(id);
-            Message message = new Message(1,1,0);
+            Message message = new Message(4,1,0);
             message.SetBody(user);
 
             client.Send(message);
@@ -80,7 +80,7 @@ namespace Client
             }
             
             
-            if (msg.MessageP2P==2&&msg.MessageType==1&&msg.StateCode==0)
+            if (msg.MessageP2P==5&&msg.MessageType==1&&msg.StateCode==0)
             {
                 //验证成功！
                 //client.OnReceive -= ServerAuth;
@@ -177,6 +177,12 @@ namespace Client
         {
             //messageShowWin.Close();
             Environment.Exit(0);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).IsEnabled = false;
+            Console.WriteLine("按钮已禁止");
         }
     }
 }

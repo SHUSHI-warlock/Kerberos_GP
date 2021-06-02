@@ -466,14 +466,14 @@ namespace Client
 
         public void SendChatMsg(ChatMsg msg)
         {
-            Message message = new Message(1, 8, 0);
+            Message message = new Message(4, 8, 0);
             message.SetBody(msg);
             client.Send(message);
         }
         //玩家移动提交
         public void SubmitPlayerMove(CheckerPoint s, CheckerPoint e)
         {
-            Message message = new Message(1, 9, 0);
+            Message message = new Message(4, 9, 0);
             GameMsg msg = new GameMsg(3, _player.pos, s, e);
             message.SetBody(msg);
             client.Send(message);
@@ -482,7 +482,7 @@ namespace Client
         ///跳过回合
         public void SubmitPlayerSkip()
         {
-            Message message = new Message(1, 9, 0);
+            Message message = new Message(4, 9, 0);
             GameMsg msg = new GameMsg(4, _player.pos);
             message.SetBody(msg);
             client.Send(message);
@@ -528,8 +528,7 @@ namespace Client
         }
         private void ShowDaoTime(int time)
         {
-            //获得年月日获得时分秒
-            this.DaoTime.Text = time.ToString();
+            this.DaoTime.Text = time.ToString()+"S";
         }
         public void StartTimer()
         {
@@ -550,7 +549,7 @@ namespace Client
         /// </summary>
         public void ShowLunTime(int time)
         {
-            LunTimes.Text = time.ToString();
+            LunTimes.Text = string.Format("第{0}轮",time);
         }
 
         private void BindRoomInfo()
@@ -757,7 +756,6 @@ namespace Client
             ChangedState(GameState.Waiting);
         }
 
-
         /// <summary>
         /// 聊天发送按钮
         /// </summary>
@@ -798,7 +796,7 @@ namespace Client
             {
                 ChangedState(GameState.UnPrepared);
 
-                Message message = new Message(1, 7, 0);
+                Message message = new Message(4, 7, 0);
                 message.SetBody(_player);
                 client.Send(message);
 
@@ -809,7 +807,7 @@ namespace Client
             {
                 ChangedState(GameState.Prepared);
 
-                Message message = new Message(1, 6, 0);
+                Message message = new Message(4, 6, 0);
                 message.SetBody(_player);
                 client.Send(message);
 
@@ -842,7 +840,7 @@ namespace Client
                 logger.Debug("玩家 申请 退出房间！");
                 //TODO 退出时发送报文
                 _player.userState = UserState.exit_room;
-                Message message = new Message(1, 5, 0);
+                Message message = new Message(4, 5, 0);
                 client.Send(message);
             }
             else

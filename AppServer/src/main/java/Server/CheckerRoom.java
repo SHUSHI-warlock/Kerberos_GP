@@ -62,13 +62,13 @@ public class CheckerRoom implements Room {
         roomInfo.addPlayer(p);
 
         // TODO: 2021/5/13 通知其他玩家有人进入房间
-        NettyMessage playerStateMessage = new NettyMessage(2,6,0);
+        NettyMessage playerStateMessage = new NettyMessage(5,6,0);
         playerStateMessage.setMessageBody(gson.toJson(p));
 
         sendOthers(p.getUserId(),playerStateMessage);
 
         // TODO: 2021/5/13 返回房间详细信息+用户信息
-        NettyMessage roomMessage = new NettyMessage(2,4,0 );
+        NettyMessage roomMessage = new NettyMessage(5,4,0 );
         roomMessage.setMessageBody(gson.toJson(roomInfo));
 
         send2Player(p.getUserId(),roomMessage);
@@ -82,7 +82,7 @@ public class CheckerRoom implements Room {
 
         p.userState = Constant.exit_rome;
         //向他自己也发送
-        NettyMessage playerStateMessage = new NettyMessage(2,6,0);
+        NettyMessage playerStateMessage = new NettyMessage(5,6,0);
         playerStateMessage.setMessageBody(gson.toJson(p));
         sendAll(playerStateMessage);
 
@@ -97,7 +97,7 @@ public class CheckerRoom implements Room {
         if(p.userState == Constant.unprepared)
         {
             p.userState = Constant.prepared;
-            NettyMessage playerStateMessage = new NettyMessage(2,6,0);
+            NettyMessage playerStateMessage = new NettyMessage(5,6,0);
             playerStateMessage.setMessageBody(gson.toJson(p));
             sendOthers(p.getUserId(),playerStateMessage);
         }
@@ -112,7 +112,7 @@ public class CheckerRoom implements Room {
                     game.startGame(roomInfo.getPlayerNum());
                     int curr = game.getCurPlayer();
 
-                    NettyMessage gameMessage = new NettyMessage(2,7,0);
+                    NettyMessage gameMessage = new NettyMessage(5,7,0);
                     //游戏开始时发送第一个移动玩家
                     GameMsg gameMsg = new GameMsg(0,curr);
                     gameMessage.setMessageBody(gson.toJson(gameMsg));
@@ -127,7 +127,7 @@ public class CheckerRoom implements Room {
         if(p.userState == Constant.prepared)
         {
             p.userState = Constant.unprepared;
-            NettyMessage playerStateMessage = new NettyMessage(2,6,0);
+            NettyMessage playerStateMessage = new NettyMessage(5,6,0);
             playerStateMessage.setMessageBody(gson.toJson(p));
             sendOthers(p.getUserId(),playerStateMessage);
         }
@@ -158,7 +158,7 @@ public class CheckerRoom implements Room {
      */
     public void playerMove(Player p,GameMsg msg)
     {
-        NettyMessage backMessage = new NettyMessage(2,8,0);
+        NettyMessage backMessage = new NettyMessage(5,8,0);
         logger.info(String.format("%d号玩家提交移动结果！",msg.pos));
 
         int res = game.playerMove(msg);
@@ -166,14 +166,14 @@ public class CheckerRoom implements Room {
             logger.info(String.format("%d号玩家%s提交移动成功",msg.pos,p.getUserId()));
             send2Player(p.getUserId(),backMessage);
             //广播给其他玩家
-            NettyMessage broadcastMsg = new NettyMessage(2,7,0);
+            NettyMessage broadcastMsg = new NettyMessage(5,7,0);
             broadcastMsg.setMessageBody(gson.toJson(msg));
             sendOthers(p.getUserId(),broadcastMsg);
 
             //判断游戏是否结束
             if(game.isGameOver()){
                 logger.info(String.format("房间游戏结束！"));
-                NettyMessage bMsg = new NettyMessage(2,7,0);
+                NettyMessage bMsg = new NettyMessage(5,7,0);
                 GameMsg gameMsg = new GameMsg(1,-1);
                 bMsg.setMessageBody(gson.toJson(gameMsg));
                 sendAll(bMsg);
@@ -184,7 +184,7 @@ public class CheckerRoom implements Room {
                 int nextPos = game.nextMove();
                 logger.info(String.format("下一个移动的玩家为%d号玩家！",nextPos));
                 ///不通知下一个玩家
-//                NettyMessage bMsg = new NettyMessage(2,7,0);
+//                NettyMessage bMsg = new NettyMessage(5,7,0);
 //                GameMsg gameMsg = new GameMsg(2,nextPos);
 //                bMsg.setMessageBody(gson.toJson(gameMsg));
 //                sendAll(bMsg);
@@ -209,13 +209,13 @@ public class CheckerRoom implements Room {
     public void playerSkip(Player p,GameMsg msg) {
         logger.info(String.format("%d号玩家跳过了移动回合！",msg.pos));
         //广播给其他玩家
-        NettyMessage broadcastMsg = new NettyMessage(2,7,0);
+        NettyMessage broadcastMsg = new NettyMessage(5,7,0);
         broadcastMsg.setMessageBody(gson.toJson(msg));
         sendOthers(p.getUserId(), broadcastMsg);
 
         int nextPos = game.nextMove();
         logger.info(String.format("下一个移动的玩家为%d号玩家！",nextPos));
-//        NettyMessage bMsg = new NettyMessage(2,7,0);
+//        NettyMessage bMsg = new NettyMessage(5,7,0);
 //        GameMsg gameMsg = new GameMsg(2,nextPos);
 //        bMsg.setMessageBody(gson.toJson(gameMsg));
 //        sendAll(bMsg);

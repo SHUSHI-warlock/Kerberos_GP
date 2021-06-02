@@ -267,7 +267,7 @@ namespace Client.core.Services
          * @param msg
          * @param way
          */
-        public void praseRoomInfo(byte[] msg, int way)
+        public void parseRoomInfo(byte[] msg, int way)
         {
             /**
             if (way == 1 && msg.length == 20)

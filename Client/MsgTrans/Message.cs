@@ -80,6 +80,11 @@ namespace Client.MsgTrans
             this.Length = this.messageBody.Length;
         }
 
+        public byte[] GetBody()
+        {
+            return messageBody;
+        }
+
         /// <summary>
         /// 解析报文头 
         /// </summary>

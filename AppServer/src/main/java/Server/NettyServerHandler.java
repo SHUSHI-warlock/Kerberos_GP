@@ -53,7 +53,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		logger.info(String.format("接收到报文Head:[P2P:%d Type:%d State:%d UnCode:%d Length:%d]",
 				message.getMessageP2P(),message.getMessageType(),message.getStateCode(),message.getUnEncode(),message.getLength()));
 
-		if(message.getMessageP2P()!=1)
+		if(message.getMessageP2P()!=4)
 		{
 			logger.warn(String.format("收到预期外的发送方报文"));
 			//丢弃报文
@@ -130,7 +130,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
 		logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
 
-		channelManager.send(user.getUserId(), new NettyMessage(2,1,0));
+		channelManager.send(user.getUserId(), new NettyMessage(5,1,0));
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 * @param user
 	 */
 	public void roomInfos(User user){
-		NettyMessage roomInfoMessage = new NettyMessage(2,2,0);
+		NettyMessage roomInfoMessage = new NettyMessage(5,2,0);
 
 		//json转list
 		//List<RoomInfo> list= gson.fromJson(msg, new TypeToken<List<RoomInfo>>() {}.getType());
@@ -164,7 +164,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 */
 	public void enterRoom(Player p, RoomInfo roomInfo){
 
-		NettyMessage response = new NettyMessage(2,4,0);
+		NettyMessage response = new NettyMessage(5,4,0);
 
 		CheckerRoom room = null;
 		if(!rooms.containsKey(roomInfo.getRoomId())){
@@ -216,7 +216,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 			}
 		}
 		//回复创建结果
-		NettyMessage response = new NettyMessage(2,3,0);
+		NettyMessage response = new NettyMessage(5,3,0);
 		channelManager.send(p.getUserId(), response);
 
 		try {
@@ -287,7 +287,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 */
 	public void chat(Player user, ChatMsg msg)
 	{
-		NettyMessage message = new NettyMessage(2,5,0);
+		NettyMessage message = new NettyMessage(5,5,0);
 		message.setMessageBody(gson.toJson(msg));
 		if(msg.getType()==1)
 		{//大厅聊天

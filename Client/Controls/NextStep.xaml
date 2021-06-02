@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Client.Utils.UIHelper.NextStep"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client.Utils.UIHelper"
+             mc:Ignorable="d" 
+             d:DesignHeight="32" d:DesignWidth="32">
+    <Grid>
+        <Ellipse Fill="#FFF4F4F5"  Height="32" Width="32" Stroke="red" StrokeThickness="1"/>
+        <Rectangle Fill="Red"  Height="32" Width="3"/>
+        <Rectangle Fill="Red"  Height="3" Width="32"/>
+
+
+    </Grid>
+</UserControl>

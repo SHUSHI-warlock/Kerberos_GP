@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\MsgRecord.cs" />
     <Compile Include="Converter\GameCvt\PostionY_Converter.cs" />
     <Compile Include="Converter\GameCvt\PostionX_Converter.cs" />
     <Compile Include="Converter\LobbyCvt\HasPswConverter.cs" />
@@ -83,21 +84,30 @@
     <Compile Include="MsgTrans\ClientKey.cs" />
     <Compile Include="MsgTrans\LobbyMsg.cs" />
     <Compile Include="MsgTrans\Message.cs" />
+    <Compile Include="MsgTrans\MessageCodec.cs" />
     <Compile Include="MsgTrans\MessageConstain.cs" />
     <Compile Include="MsgTrans\MyTcpClient.cs" />
     <Compile Include="PswInput.xaml.cs">
       <DependentUpon>PswInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\ByteTansUtil.cs" />
+    <Compile Include="Utils\DesUtil\BitSequence.cs" />
+    <Compile Include="Utils\ByteConverter.cs" />
+    <Compile Include="Utils\DesUtil\DesKey.cs" />
+    <Compile Include="Utils\DesUtil\DESUtils.cs" />
     <Compile Include="Utils\LogHelper\Logger.cs" />
-    <Compile Include="Utils\UIHelper\Checker.xaml.cs">
+    <Compile Include="Controls\Checker.xaml.cs">
       <DependentUpon>Checker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\RSAUtil\KeyPair.cs" />
+    <Compile Include="Utils\RSAUtil\PrivateKey.cs" />
+    <Compile Include="Utils\RSAUtil\PublicKey.cs" />
+    <Compile Include="Utils\RSAUtil\RSAUtils.cs" />
     <Compile Include="Utils\UIHelper\GameUIhelper.cs" />
-    <Compile Include="Utils\UIHelper\NextStep.xaml.cs">
+    <Compile Include="Controls\NextStep.xaml.cs">
       <DependentUpon>NextStep.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utils\UIHelper\RoadLabel.xaml.cs">
+    <Compile Include="Controls\RoadLabel.xaml.cs">
       <DependentUpon>RoadLabel.xaml</DependentUpon>
     </Compile>
     <Page Include="CreateRoom.xaml">
@@ -150,15 +160,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utils\UIHelper\Checker.xaml">
+    <Page Include="Controls\Checker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utils\UIHelper\NextStep.xaml">
+    <Page Include="Controls\NextStep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utils\UIHelper\RoadLabel.xaml">
+    <Page Include="Controls\RoadLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -310,8 +324,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Image\Icon\" />
-    <Folder Include="Utils\DesUtil\" />
-    <Folder Include="Utils\RSAUtil\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Image\gameImage\时间.png" />

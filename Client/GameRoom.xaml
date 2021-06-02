@@ -47,7 +47,35 @@
 
         </DataTemplate>
 
+        <Style x:Key="MyButton" BasedOn="{x:Null}" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" SnapsToDevicePixels="True"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="23"
+                                >
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Trigger.Setters>
+                                    <Setter TargetName="Bd" Property="Background" Value="#FF979797"/>
+                                    <Setter TargetName="Bd" Property="BorderBrush" Value="#5F979797"/>
 
+                                </Trigger.Setters>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="5"/>
+           
+        </Style>
 
     </Window.Resources>
 
@@ -169,26 +197,22 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="房间操作" Grid.Column="1" Grid.ColumnSpan="3" Foreground="White" FontSize="16"/>
-                    <Button Name="Button_prepare" Grid.Row="1" Grid.Column="1" Click="Button_prepare_Click" BorderThickness="0">
-                        <Button.Background>
-                            <SolidColorBrush Color="White" Opacity="0.0"/>
-                        </Button.Background>
-                        <Grid>
-                            <Image Source="{StaticResource buttonImage}"></Image>
-                            <TextBlock x:Name="prepare_Text" Text="准备" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
-                        </Grid>
+                    
+                    <Button  Name="Button_prepare"  Grid.Row="1" Grid.Column="1" Click="Button_prepare_Click"  Style="{DynamicResource MyButton}" 
+                        BorderBrush="#331C95D5"
+                        Background="#FF1C95D5"
+                             Height="60"
+                        >
+                        <TextBlock x:Name="prepare_Text" Text="准备" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
                     </Button>
 
-                    <Button Name="Button_exit" Grid.Row="1" Grid.Column="3" Click="Button_exit_Click" BorderThickness="0">
-                        <Button.Background>
-                            <SolidColorBrush Color="White" Opacity="0.0"/>
-                        </Button.Background>
-                        <Grid>
-                            <Image Source="{StaticResource redbuttonImage}"></Image>
-                            <TextBlock Text="退出房间" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
-                        </Grid>
+                    <Button  Name="Button_exit"  Grid.Row="1" Grid.Column="3" Click="Button_exit_Click"  Style="{DynamicResource MyButton}" 
+                        BorderBrush="#33DB311A"
+                        Background="#FFDB311A"
+                             Height="60"
+                        >   
+                        退出房间
                     </Button>
-
                 </Grid>
                 <!--游戏操作-->
                 <Grid x:Name="gameControl" Visibility="Hidden" Grid.Row="5" >
@@ -205,45 +229,44 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="游戏操作" Foreground="White" FontSize="16" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"></TextBlock>
-                    <Button Name="Button_return" Grid.Row="1" Grid.Column="1" BorderThickness="0" Click="Button_return_Click">
-                        <Button.Background>
-                            <SolidColorBrush Color="White" Opacity="0.0"/>
-                        </Button.Background>
-                        <Grid>
-                            <Image Source="{StaticResource buttonImage}"></Image>
-                            <TextBlock Text="上一步" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
-                        </Grid>
+                    
+
+                    <Button  Name="Button_return" Grid.Row="1" Grid.Column="1"  Click="Button_return_Click"  Style="{DynamicResource MyButton}" 
+                        BorderBrush="#5F1C95D5"
+                        Background="#FF1C95D5"
+                             Height="45"
+                             Width="100"
+                        >
+                        上一步
                     </Button>
 
-                    <Button Name="Button_cancel" Grid.Row="1" Grid.Column="3" BorderThickness="0" Click="Button_cancel_Click" >
-                        <Button.Background>
-                            <SolidColorBrush Color="White" Opacity="0.0"/>
-                        </Button.Background>
-                        <Grid>
-                            <Image Source="{StaticResource buttonImage}"></Image>
-                            <TextBlock Text="取消选择" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
-                        </Grid>
+                    <Button  Name="Button_cancel" Grid.Row="1" Grid.Column="3" Click="Button_cancel_Click"  Style="{DynamicResource MyButton}" 
+                        BorderBrush="#5F1C95D5"
+                        Background="#FF1C95D5"
+                           Height="45"
+                             Width="100"
+                        >
+                        取消选择
                     </Button>
 
-                    <Button Name="Button_continue" Grid.Column="1" Grid.Row="2" BorderThickness="0" Click="Button_continue_Click">
-                        <Button.Background>
-                            <SolidColorBrush Color="White" Opacity="0.0"/>
-                        </Button.Background>
-                        <Grid>
-                            <Image Source="{StaticResource buttonImage}"></Image>
-                            <TextBlock Text="跳过" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
-                        </Grid>
+                    <Button  Name="Button_continue" Grid.Column="1" Grid.Row="2"  Click="Button_continue_Click"  Style="{DynamicResource MyButton}" 
+                        BorderBrush="#5F1C95D5"
+                        Background="#FF1C95D5"
+                             Height="45"
+                             Width="100"
+                        >
+                        跳过
                     </Button>
 
-                    <Button Name="Button_submit" Grid.Column="3" Grid.Row="2" BorderThickness="0" Click="Button_submit_Click">
-                        <Button.Background>
-                            <SolidColorBrush Color="White" Opacity="0.0"/>
-                        </Button.Background>
-                        <Grid>
-                            <Image Source="{StaticResource submitbuttonImage}" Opacity="0.8"></Image>
-                            <TextBlock Text="确认" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" ></TextBlock>
-                        </Grid>
+                    <Button  Name="Button_submit" Grid.Column="3" Grid.Row="2" Click="Button_submit_Click"  Style="{DynamicResource MyButton}" 
+                        BorderBrush="#5F1AFB29"
+                        Background="#FF1AFB29"
+                             Height="45"
+                             Width="100"
+                        >
+                        确认
                     </Button>
+                    
                 </Grid>
             </Grid>
 

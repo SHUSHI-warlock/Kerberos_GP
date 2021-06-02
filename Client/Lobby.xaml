@@ -28,6 +28,29 @@
             </TextBlock>
                 
         </DataTemplate>
+
+
+        <Style x:Key="MyButton" BasedOn="{x:Null}" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" SnapsToDevicePixels="True"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="17"
+                                >
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="5"/>
+        </Style>
     </Window.Resources>
 
     <Grid >
@@ -299,21 +322,26 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="当前房间数:" Foreground="White" FontSize="16" Grid.Column="1"></Label>
                     <Label Name="RoomNum" Content="" Grid.Column="2" Foreground="White" FontSize="16" ></Label>
-                    <Label Grid.Column="4">
-                        <Canvas>
-                            <Image Width="100" Source="{StaticResource buttonImage}" ></Image>
-                            <TextBlock Canvas.Left="19" Canvas.Top="10" Foreground="White" FontSize="16" MouseLeftButtonDown="EnterRoom_ButtonDown">加入房间</TextBlock>
-                        </Canvas>
+                   
 
-                    </Label>
+                    <Button x:Name="EnterButton"  Grid.Column="4" Click="EnterButton_Click" 
+                        Style="{DynamicResource MyButton}"
+                        BorderBrush="#5F269FDE"
+                        Background="#FF269FDE"
+                        >   
+                        加入房间
+                    </Button>
 
-                    <Label Grid.Column="6">
-                        <Canvas>
-                            <Image Width="100" Source="{StaticResource buttonImage}"></Image>
-                            <TextBlock Canvas.Left="19" Canvas.Top="10" Foreground="White" FontSize="16" MouseLeftButtonDown="CteateRoom_ButtonDown">创建房间</TextBlock>
-                        </Canvas>
+                    <Button x:Name="CreateButton"  Grid.Column="6" Click="CreateButton_Click" 
+                        Style="{DynamicResource MyButton}"
+                        BorderBrush="#5F269FDE"
+                        Background="#FF269FDE"
+                        
+                        >
+                        创建房间
+                    </Button>
 
-                    </Label>
+                    
                 </Grid>
             </Grid>
         </Grid>

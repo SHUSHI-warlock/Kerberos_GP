@@ -24,7 +24,9 @@ public class NettyMessageDecoder extends ByteToMessageDecoder {
 		if (in.readableBytes() < NettyMessage.HEAD_LEN) {
 			return;
 		}
-		
+
+
+
 		in.markReaderIndex();
 		byte messageP2P = in.readByte();
 		byte messageType = in.readByte();
