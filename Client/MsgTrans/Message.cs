@@ -122,7 +122,7 @@ namespace Client.MsgTrans
         /// <returns></returns>
         public String bodyToString()
         {
-            String body = null;
+            String body = "";
             if (this.messageBody != null && this.messageBody.Length > 0)
             {
                 body = Encoding.UTF8.GetString(messageBody);

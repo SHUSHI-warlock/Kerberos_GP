@@ -12,6 +12,7 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+import myutil.DESUtil.DesKey;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	protected static Logger logger = Logger.getLogger(NettyServerHandler.class);
 	private static Gson gson = new Gson();
 	AtomicInteger num=new AtomicInteger(0);
-    private NettyChannelManager channelManager=new NettyChannelManager();
+    private NettyChannelManager channelManager= NettyChannelManager.getInstance();
     //房间管理类
     //NettyRoomChannelManager roomManager=new NettyRoomChannelManager();
 
@@ -60,11 +61,15 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 			return;
 		}
 
-		if(message.getMessageType()==1)//用户登录大厅
+		if(message.getMessageType()==0)//用户认证
 		{
-			User user = gson.fromJson(message.bodyToString(),User.class);
-			logger.debug(String.format("用户%s请求登录大厅",user.getUserId()));
-			enterLobby(ctx.channel(), user);
+			// TODO: 2021/6/2 添加登录验证
+			User user = gson.fromJson(message.bodyToString(), User.class);
+			logger.debug(String.format("用户%s请求登录大厅", user.getUserId()));
+
+			//测试：假定秘钥唯一
+			DesKey key = new DesKey(new byte[]{1, 1, 1, 1, 1, 1, 1, 1});
+			enterLobby(ctx.channel(), user, key);
 			return;
 		}
 
@@ -123,14 +128,14 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 * @param channel
 	 * @param user
 	 */
-    public void enterLobby(Channel channel, User user){
-		channelManager.addUser(channel, user.getUserId());
+	public void enterLobby(Channel channel, User user, DesKey key){
+		channelManager.addUser(channel, user.getUserId(),key);
 		user.userState = Constant.online;
 		players.put(user.getUserId(),new Player(user));
 
 		logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
 
-		channelManager.send(user.getUserId(), new NettyMessage(5,1,0));
+		channelManager.send(user.getUserId(), new NettyMessage(5,0,0));
 	}
 
 	/**

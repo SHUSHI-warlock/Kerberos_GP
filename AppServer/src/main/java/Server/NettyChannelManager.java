@@ -3,6 +3,8 @@ package Server;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelId;
 import io.netty.util.AttributeKey;
+import myutil.DESUtil.DESUtils;
+import myutil.DESUtil.DesKey;
 import org.apache.log4j.Logger;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,6 +18,8 @@ import java.util.concurrent.ConcurrentMap;
 public class NettyChannelManager {
     protected static Logger logger = Logger.getLogger(NettyChannelManager.class);
 
+    private static NettyChannelManager instance = new NettyChannelManager();
+
     /**
      * 表示 Channel 对应的用户
      */
@@ -23,17 +27,27 @@ public class NettyChannelManager {
     /**
      * Channel 映射
      */
-    private ConcurrentMap<ChannelId, Channel> channels = new ConcurrentHashMap<ChannelId, Channel>();
-    
+    private ConcurrentMap<ChannelId, Channel> channels ;
+
     /**
      * 用户与 Channel 的映射。
      *
      * 通过它，可以获取用户对应的 Channel。这样，我们可以向指定用户发送消息。
      */
-    
-    
-    //大厅		
-    private ConcurrentMap<String, Channel> userChannels = new ConcurrentHashMap<String, Channel>();
+
+    //大厅
+    private ConcurrentMap<String, Channel> userChannels;
+    private ConcurrentMap<String, DESUtils> userKeys;
+
+    private NettyChannelManager(){
+        channels = new ConcurrentHashMap<ChannelId, Channel>();
+        userChannels = new ConcurrentHashMap<String, Channel>();
+        userKeys = new ConcurrentHashMap<String,DESUtils>();
+    }
+
+    public static NettyChannelManager getInstance(){
+        return instance;
+    }
 
     /**
      * 添加 Channel
@@ -51,7 +65,7 @@ public class NettyChannelManager {
      * @param channel Channel
      * @param user 用户
      */
-    public void addUser(Channel channel, String user) {
+    public void addUser(Channel channel, String user,DesKey key) {
         Channel existChannel = channels.get(channel.id());
         if (existChannel == null) {
             return;
@@ -60,6 +74,7 @@ public class NettyChannelManager {
         channel.attr(CHANNEL_ATTR_KEY_USER).set(user);
         // 添加到 userChannels
         userChannels.put(user, channel);
+        userKeys.put(user,new DESUtils(key));
         System.out.println(channel);
     }
 
@@ -71,8 +86,10 @@ public class NettyChannelManager {
     public void remove(Channel channel) {
         // 移除 channels
         channels.remove(channel.id());
+
         // 移除 userChannels
         if (channel.hasAttr(CHANNEL_ATTR_KEY_USER)) {
+            userKeys.remove(channel.attr(CHANNEL_ATTR_KEY_USER).get());
             userChannels.remove(channel.attr(CHANNEL_ATTR_KEY_USER).get());
         }
     }
@@ -80,6 +97,11 @@ public class NettyChannelManager {
     public String findUser(Channel channel)
     {
         return channel.attr(CHANNEL_ATTR_KEY_USER).get();
+    }
+
+    public DESUtils getUserDes(String userid)
+    {
+        return userKeys.get(userid);
     }
 
     /**

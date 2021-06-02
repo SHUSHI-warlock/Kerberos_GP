@@ -22,7 +22,7 @@ namespace Client.MsgTrans
         private int _port;
 
         private bool desOpen;
-        public DESUtils des;
+        private DESUtils des;
 
         public MyTcpClient(string ip, int port)
         {
@@ -86,15 +86,18 @@ namespace Client.MsgTrans
 
             //msg += "\r\n";
 
-            if(desOpen)
-            {
+            if(desOpen){
+                
                 string M, C;
                 M = msg.bodyToString();
-
-                msg.SetBody(des.Encryption(msg.GetBody()));
-
-                C = msg.bodyToString();
-
+                if (msg.Length == 0)
+                    C = "";
+                else
+                {
+                    msg.SetBody(des.Encryption(msg.GetBody()));
+                    C = msg.bodyToString();
+                }
+              
                 msgShowWin.ShowMsg(msg, Controls.EncryptionType.Des, des.GetKey().ToString(), M, C);
             }
             else
@@ -161,11 +164,13 @@ namespace Client.MsgTrans
                 {
                     string M, C;
                     C = message.bodyToString();
-
-                    message.SetBody(des.Decryption(message.GetBody()));
-
-                    M = message.bodyToString();
-
+                    if (message.Length != 0)
+                    {
+                        message.SetBody(des.Decryption(message.GetBody()));
+                        M = message.bodyToString();
+                    }
+                    else
+                        M = "";
                     msgShowWin.ShowMsg(message, Controls.EncryptionType.Des, des.GetKey().ToString(), M, C);
                 }
                 else

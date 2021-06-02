@@ -14,7 +14,6 @@
             <ImageSource x:Key="bg1">Resources/Image/111.png</ImageSource>
             <ImageSource x:Key="login_id">Resources\Image\登录-用户.png</ImageSource>
             <ImageSource x:Key="login_psw">Resources\Image\登录-密码.png</ImageSource>
-          
         </ResourceDictionary>
     </Window.Resources>
 

@@ -22,7 +22,7 @@ public class CheckerLobby extends Thread implements Lobby {
     }
 
     public CheckerLobby(){
-        ncm = new NettyChannelManager();
+        ncm = NettyChannelManager.getInstance();
         players = new ArrayList<>();
         rooms = new ArrayList<>();
     }

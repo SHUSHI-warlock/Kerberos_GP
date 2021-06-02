@@ -1,8 +1,10 @@
 package Server;
 
+import Service.User.User;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import myutil.DESUtil.DesKey;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -17,15 +19,14 @@ import java.util.List;
 public class NettyMessageDecoder extends ByteToMessageDecoder {
 
 	private static Logger logger = Logger.getLogger(NettyMessageDecoder.class);
-	
+	private NettyChannelManager channelManager= NettyChannelManager.getInstance();
+
 	@Override
 	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
 		// 不够报文头长度,返回
 		if (in.readableBytes() < NettyMessage.HEAD_LEN) {
 			return;
 		}
-
-
 
 		in.markReaderIndex();
 		byte messageP2P = in.readByte();
@@ -46,12 +47,28 @@ public class NettyMessageDecoder extends ByteToMessageDecoder {
 			return;
 		}
 
-		//判断tpye是否要在这里解密
-
 		NettyMessage message = new NettyMessage(messageP2P, messageType,stateCode,unEncode, length);
 		byte[] bodyArray = new byte[length];
 		in.readBytes(bodyArray);
-		message.setMessageBody(bodyArray);
+
+		//用户不在线
+		try {
+			String userid = channelManager.findUser(ctx.channel());
+			if (userid == null)//用户认证
+			{
+				logger.info("收到未记录的连接消息");
+				message.setMessageBody(bodyArray);
+			} else {
+				logger.info("服务器收到一条消息");
+				message.setMessageBody(channelManager.getUserDes(userid).Decryption(bodyArray));
+			}
+		}
+		catch (Exception e)
+		{
+			logger.error("尝试加解密出错！");
+			e.printStackTrace();
+		}
+
 		out.add(message);
 	}
 }

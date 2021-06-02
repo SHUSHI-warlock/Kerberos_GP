@@ -1,5 +1,6 @@
 ﻿using Client.core.Services;
 using Client.MsgTrans;
+using Client.Utils.DesUtil;
 using Client.Utils.LogHelper;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace Client
             client.Connect();
 
             user = new Player(id);
-            Message message = new Message(4,1,0);
+            Message message = new Message(4,0,0);
             message.SetBody(user);
 
             client.Send(message);
@@ -80,13 +81,25 @@ namespace Client
             }
             
             
-            if (msg.MessageP2P==5&&msg.MessageType==1&&msg.StateCode==0)
+            if (msg.MessageP2P==5&&msg.MessageType==0)
             {
-                //验证成功！
-                //client.OnReceive -= ServerAuth;
+                if (msg.StateCode == 0)
+                {
+                    //验证成功！
+                    //client.OnReceive -= ServerAuth;
+                    ///后续消息加密传输
+                    ///假设全为1
+                    DESUtils des = new DESUtils(new DesKey(new byte[] { 1, 1, 1, 1, 1, 1, 1, 1 }));
+                    client.DesOpen(des);
 
-                EnterLobby();
-                //
+                    EnterLobby();
+                    //
+                }
+                else if(msg.StateCode==1)
+                {
+                    logger.Debug("用户已在其他地方登录！");
+                    client.Close();
+                }
             }
             else
             {

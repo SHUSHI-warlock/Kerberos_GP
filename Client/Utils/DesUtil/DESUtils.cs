@@ -317,7 +317,17 @@ namespace Client.Utils.DesUtil
                 }
             }
 
-            return res;
+            int tailZero = 0;
+            for (int i = 1; i <= 8; i++)
+            {
+                if (res[res.Length - i] == 0)
+                    tailZero++;
+                else break;
+            }
+
+            byte[] trueRes = new byte[res.Length - tailZero];
+            Array.Copy(res, 0, trueRes, 0, res.Length - tailZero);
+            return trueRes;
         }
         
         public DesKey GetKey()

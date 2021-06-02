@@ -59,13 +59,16 @@ namespace Client
 
         public void Test()
         {
-           
+
 
         }
 
-        public void ShowMsg(Message msg,EncryptionType type,string key,string m,string c)
+        public void ShowMsg(Message msg, EncryptionType type, string key, string m, string c)
         {
-            messagesList.Add(new MsgRecord(msg,type,key,m,c));
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                messagesList.Add(new MsgRecord(msg, type, key, m, c));
+            });
         }
 
 
@@ -76,6 +79,110 @@ namespace Client
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        /// <summary>
+        /// 选中
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MsgList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //选中房间？
+            if (MsgList.SelectedValue == null)
+            {
+                logger.Info("查看消息:未选中消息！");
+                //提示框显示
+                return;
+            }
+
+
+            MsgRecord record = (MsgRecord)MsgList.SelectedValue;
+            BindAMsg(record);
+        }
+
+
+        /// <summary>
+        /// 显示一条记录
+        /// </summary>
+        /// <param name="record"></param>
+        private void BindAMsg(MsgRecord record)
+        {
+            ReceiverText.Text = ParseReceiver(record.MessageP2P);
+            SenderText.Text = ParseSender(record.MessageP2P);
+            //报文类型需要根据具体的来定
+            
+            //报文状态需要根据具体的来定
+
+            switch (record.Type)
+            {
+                case EncryptionType.Plain://明文
+                    EncryptionText.Text = "明文";
+                    KeyText.Text = "无";
+
+                    break;
+                case EncryptionType.Des:
+                    EncryptionText.Text = "DES";
+                    KeyText.Text = record.Key;
+                    break;
+                case EncryptionType.Rsa_pk:
+                    EncryptionText.Text = "RSA加密";
+                    KeyText.Text = record.Key;
+
+                    break;
+                case EncryptionType.Rsa_sk:
+                    EncryptionText.Text = "RSA解密";
+                    KeyText.Text = record.Key;
+
+                    break;
+            }
+            if (record.C != "")
+                CipherText.Text = record.C;
+            else
+                CipherText.Text = "无";
+
+            if (record.M != "")
+                PlainText.Text = record.M;
+            else
+                PlainText.Text = "无";
+        }
+
+
+        public static string ParseSender(int p2p)
+        {
+            switch ((P2PType)p2p)
+            {
+                case P2PType.CtoAS:
+                case P2PType.CtoTGS:
+                case P2PType.CtoS:
+                    return "客户端";
+                case P2PType.AStoC:
+                    return "AS服务器";
+                case P2PType.TGStoC:
+                    return "TGS服务器";
+                case P2PType.StoC:
+                    return "应用服务器";
+                default:
+                    return "未知";
+            }
+        }
+        public static string ParseReceiver(int p2p)
+        {
+            switch ((P2PType)p2p)
+            {
+                case P2PType.CtoAS:
+                    return "AS服务器";
+                case P2PType.CtoTGS:
+                    return "TGS服务器";
+                case P2PType.CtoS:
+                    return "应用服务器";
+                case P2PType.AStoC:
+                case P2PType.TGStoC:
+                case P2PType.StoC:
+                    return "客户端";
+                default:
+                    return "未知";
+            }
         }
     }
 }

@@ -84,7 +84,6 @@
     <Compile Include="MsgTrans\ClientKey.cs" />
     <Compile Include="MsgTrans\LobbyMsg.cs" />
     <Compile Include="MsgTrans\Message.cs" />
-    <Compile Include="MsgTrans\MessageCodec.cs" />
     <Compile Include="MsgTrans\MessageConstain.cs" />
     <Compile Include="MsgTrans\MyTcpClient.cs" />
     <Compile Include="PswInput.xaml.cs">

@@ -16,21 +16,7 @@ namespace Client.Converter.MessageCvt
         /// </summary>
         public object Convert(object value, Type TargetType, object parameter, CultureInfo culture)
         {
-            switch((P2PType)value)
-            {
-                case P2PType.CtoAS:
-                    return "AS服务器";
-                case P2PType.CtoTGS:
-                    return "TGS服务器";
-                case P2PType.CtoS:
-                    return "应用服务器";
-                case P2PType.AStoC:
-                case P2PType.TGStoC:
-                case P2PType.StoC:
-                    return "客户端";
-                default:
-                    return "未知";
-            }
+            return MessageShow.ParseReceiver((int)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -80,7 +80,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Content="消息捕获列表" Grid.Row="0"></Label>
-            <ListView Name="MsgList" Grid.Row="1" Grid.RowSpan="2" >
+            <ListView Name="MsgList" Grid.Row="1" Grid.RowSpan="2" SelectionChanged="MsgList_SelectionChanged" >
                 <ListView.View>
                     <GridView x:Name="MsgGridView" AllowsColumnReorder="False" >
                         <GridViewColumn x:Name="headerIndex" Header="序号" Width="45">
@@ -149,24 +149,24 @@
                     <Label VerticalAlignment="Center" Content="通信双方："/>
                     <TextBlock x:Name="SenderText" VerticalAlignment="Center">客户端</TextBlock>
                     <Image Height="30" Source="{StaticResource rightImage}"></Image>
-                    <TextBlock VerticalAlignment="Center">AS服务器</TextBlock>
+                    <TextBlock Name="ReceiverText" VerticalAlignment="Center">AS服务器</TextBlock>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5,0,5,0">
                     <Image Height="30" Source="{StaticResource msgImage}"></Image>
                     <Label VerticalAlignment="Center" Content="报文类型："/>
-                    <TextBlock VerticalAlignment="Center">客户端登录AS</TextBlock>
+                    <TextBlock x:Name="MsgTypeText" VerticalAlignment="Center">客户端登录AS</TextBlock>
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Column="3" Margin="5,0,5,0">
                     <Image Height="30" Source="{StaticResource stateImage}"></Image>
                     <Label VerticalAlignment="Center" Content="报文状态："/>
-                    <TextBlock VerticalAlignment="Center">正常</TextBlock>
+                    <TextBlock x:Name="MsgStateText" VerticalAlignment="Center">正常</TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Column="4" Margin="5,0,5,0">
                     <Image Height="30" Source="{StaticResource keyImage}"></Image>
                     <Label VerticalAlignment="Center" Content="加密类型："/>
-                    <TextBlock VerticalAlignment="Center">Des</TextBlock>
+                    <TextBlock x:Name="EncryptionText" VerticalAlignment="Center">Des</TextBlock>
                 </StackPanel>
             </StackPanel>
            
@@ -184,7 +184,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="加密前或解密后的明文"/>
-                <TextBlock Grid.Row="1"  Background="#FF6DEE6D">asdafgasfasfasdgasdg</TextBlock>
+                <TextBlock x:Name="PlainText" Grid.Row="1" TextWrapping="Wrap" FontSize="16" Background="#FF6DEE6D">asdafgasfasfasdgasdg</TextBlock>
             </Grid>
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
@@ -192,7 +192,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="加密后或解密前的密文"/>
-                <TextBlock Grid.Row="1" Background="#FFFC6D6D">asdafgasfasfasdgasdg</TextBlock>
+                <TextBlock x:Name="CipherText" Grid.Row="1" FontSize="16" TextWrapping="Wrap" Background="#FFFC6D6D">asdafgasfasfasdgasdg</TextBlock>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -200,7 +200,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label HorizontalAlignment="Left" Content="秘钥："  Grid.Row="0"/>
-                <TextBlock Grid.Row="2" >asdafgasfasfasdgasdg</TextBlock>
+                <TextBlock x:Name="KeyText" Grid.Row="2" TextWrapping="Wrap" FontSize="16">asdafgasfasfasdgasdg</TextBlock>
             </Grid>
         </Grid>
     </Grid>
