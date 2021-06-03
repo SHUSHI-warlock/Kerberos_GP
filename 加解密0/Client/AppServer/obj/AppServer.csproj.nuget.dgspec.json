@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\source\\repos\\AppServer\\AppServer.csproj": {}
+    "F:\\kb\\Kerberos_GP\\加解密0\\Client\\AppServer\\AppServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\source\\repos\\AppServer\\AppServer.csproj": {
+    "F:\\kb\\Kerberos_GP\\加解密0\\Client\\AppServer\\AppServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\AppServer\\AppServer.csproj",
+        "projectUniqueName": "F:\\kb\\Kerberos_GP\\加解密0\\Client\\AppServer\\AppServer.csproj",
         "projectName": "AppServer",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\AppServer\\AppServer.csproj",
+        "projectPath": "F:\\kb\\Kerberos_GP\\加解密0\\Client\\AppServer\\AppServer.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\AppServer\\obj\\",
+        "outputPath": "F:\\kb\\Kerberos_GP\\加解密0\\Client\\AppServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
