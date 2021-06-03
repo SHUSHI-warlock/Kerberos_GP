@@ -78,6 +78,11 @@
     <Compile Include="CreateRoom.xaml.cs">
       <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ker\AuthenticationMessage.cs" />
+    <Compile Include="Ker\Authenticator.cs" />
+    <Compile Include="Ker\byteManage.cs" />
+    <Compile Include="Ker\MyClient.cs" />
+    <Compile Include="Ker\Ticket.cs" />
     <Compile Include="MessageShow.xaml.cs">
       <DependentUpon>MessageShow.xaml</DependentUpon>
     </Compile>

@@ -37,17 +37,19 @@ namespace Client.MsgTrans
             des = desUtil;
         }
 
-        public void Connect()
+        public bool Connect()
         {
             try
             {
                 IPEndPoint ip = new IPEndPoint(IPAddress.Parse(_server), _port);
                 _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 _clientSocket.BeginConnect(ip, new AsyncCallback(ConnectCallBack), _clientSocket);
+                return true;
             }
             catch (Exception e)
             {
-                throw e;
+                logger.Error(e.StackTrace);
+                return false;
             }
         }
 

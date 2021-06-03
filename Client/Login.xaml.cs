@@ -34,7 +34,12 @@ namespace Client
 
         private MyTcpClient client;
 
-        private User user;
+        private static String ASServer_Ip = System.Configuration.ConfigurationManager.AppSettings["ASIp"];
+        private static int ASServer_Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["ASPort"]);
+        private static String TGSServer_Ip = System.Configuration.ConfigurationManager.AppSettings["TGSIp"];
+        private static int TGSServer_Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["TGSPort"]);
+        private static String Server_Ip = System.Configuration.ConfigurationManager.AppSettings["ServerIp"];
+        private static int Server_Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["ServerPort"]);
 
         public Login()
         {
@@ -49,51 +54,43 @@ namespace Client
         {
             Logining = true;
             MyClient mclient = new MyClient();
-            //连接AS
-            String ASServer_Ip = System.Configuration.ConfigurationManager.AppSettings["ASIp"];
-            int ASServer_Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["ASPort"]);
-            String TGSServer_Ip = System.Configuration.ConfigurationManager.AppSettings["TGSIp"];
-            int TGSServer_Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["TGSPort"]);
-            String Server_Ip = System.Configuration.ConfigurationManager.AppSettings["ServerIp"];
-            int Server_Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["ServerPort"]);
 
+            //连接AS
             client = new MyTcpClient(ASServer_Ip, ASServer_Port);
 
-            client.Connect();
+            if (!client.Connect())
+            {
+                logger.Info("连接AS失败！");
+                //加弹窗
+                return;
+            }
 
             mclient.id = id;
             mclient.password = pa;
             //this.client.generateKey();
             Console.WriteLine(pa);
-            mclient.generateKey(pa);
+
+            //生成秘钥
+
+            //mclient.generateKey(pa);
+            ///测试
+            mclient.asKey = new DesKey(new byte[] { 1, 1, 1, 1, 1, 1, 1, 1 });
+
             mclient.IDtgs = "1";
 
-            string s = string.Empty;
-            byte[] kee = mclient.asKey.getKeyBytes();
-            Console.WriteLine(String.Join(",", ByteConverter.UbyteToSbyte(kee)));
-            sbyte[] keee = ByteConverter.UbyteToSbyte(kee);
-            /*
-            foreach (sbyte bb in keee)
-            {
-                s += bb.ToString();
-                s += ",";
-            }
-            s = s.TrimEnd(',');
-            Console.WriteLine(s);
-            */
-
-            //Console.WriteLine(Encoding.Default.GetString(mclient.asKey.getKeyBytes()));
-
+            //生成发送给AS的信息
             String mes = mclient.ASconfirm(id, "1");
             byte[] ba = Encoding.Default.GetBytes(mes);
             Console.WriteLine(mes);
+            //生成消息报文
             Message message1 = new Message(0, 0, 0);
             message1.SetBody(ba);
-            //Console.WriteLine(message1.MessageP2P +"," +message1.MessageType + ","+ message1.StateCode);
 
             client.Send(message1);
 
+            //等待AS回复
             int sta = enterAS(client.Recive(), mclient);
+
             if (sta == 1)
             {
                 MessageBox.Show("登陆失败");
@@ -105,7 +102,12 @@ namespace Client
 
                 client = new MyTcpClient(TGSServer_Ip, TGSServer_Port);
 
-                client.Connect();
+                if (!client.Connect())
+                {
+                    logger.Info("连接TGS失败！");
+                    //加弹窗
+                    return;
+                }
 
                 mclient.IDv = "1";
                 String ADc = "127.0.0.1";
@@ -134,8 +136,12 @@ namespace Client
                     //连接服务器
                     client = new MyTcpClient(Server_Ip, Server_Port);
 
-                    client.Connect();
-
+                    if (!client.Connect())
+                    {
+                        logger.Info("连接Server失败！");
+                        //加弹窗
+                        return;
+                    }
                     Message messageV = new Message(4, 0, 0);
                     messageV.SetBody(mclient.Vconfirm(mclient.vTicket, mclient.id, ADc, mclient.vKey));
 
@@ -171,8 +177,8 @@ namespace Client
             if (message.StateCode != 0)
             {
                 //出错！
-                logger.Info(String.Format("登录应用服务器失败！ 状态码：%d", message.StateCode));
-                MessageBox.Show(String.Format("登录应用服务器失败！ 状态码：%d", message.StateCode));
+                logger.Info(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
+                MessageBox.Show(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
                 switch (message.StateCode)
                 {
                     case 1:
@@ -220,7 +226,7 @@ namespace Client
         {
             if (message.StateCode != 0)
             {
-                logger.Info(String.Format("登录应用服务器失败！ 状态码：%d", message.StateCode));
+                logger.Info(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
                 switch (message.StateCode)
                 {
                     case 1:
@@ -271,7 +277,7 @@ namespace Client
         {
             if (message.StateCode != 0)
             {
-                logger.Info(String.Format("登录应用服务器失败！ 状态码：%d", message.StateCode));
+                logger.Info(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
                 switch (message.StateCode)
                 {
                     case 1:

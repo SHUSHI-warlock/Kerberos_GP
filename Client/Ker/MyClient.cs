@@ -1,5 +1,4 @@
-﻿using AppServer;
-using Client.Utils.DesUtil;
+﻿using Client.Utils.DesUtil;
 using Client.Utils.RSAUtil;
 using System;
 using System.Collections.Generic;

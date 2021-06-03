@@ -12,8 +12,10 @@ import com.google.gson.Gson;
 import io.netty.channel.*;
 
 import myutil.DESUtil.DesKey;
+import myutil.PropUtil;
 import org.apache.log4j.Logger;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -27,6 +29,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	protected static Logger logger = Logger.getLogger(NettyServerHandler.class);
 	private static Gson gson = new Gson();
+	private static PropUtil pp = PropUtil.getInstance();
+
 	AtomicInteger num=new AtomicInteger(0);
     private NettyChannelManager channelManager= NettyChannelManager.getInstance();
     //房间管理类
@@ -43,6 +47,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
 	public NettyServerHandler(){
 		TGSKeyV = new DesKey();
+		TGSKeyV.GenKey(pp.getValueByKey("TGS_VKey").getBytes(StandardCharsets.UTF_8));
 		server = new SERVER();
 	}
 

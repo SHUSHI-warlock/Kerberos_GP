@@ -57,10 +57,8 @@ public class TGS {
     }
 
     public void generateVkey(){ //用于进行客户端和服务器之间的秘钥
-        DesKey key=new DesKey();
-        key.GenKey();
         Kcv=new DesKey();
-        Kcv=key;
+        Kcv.GenKey();
     }
 
     public void verify(AuthenticationMessage fromClient){
@@ -110,11 +108,10 @@ public class TGS {
     }
 
     public byte[] generateTicket(){
-        Ticket ticket=new Ticket(sKey,IDc,ADc,IDv,TS,Lifetime);
+        Ticket ticket=new Ticket(Kcv,IDc,ADc,IDv,TS,Lifetime);
         byte[] tic=ticket.ticketEncrypt(TGSKeyV, ticket.Key);
         return tic;
     }
-
 
     public byte[] generateBack(String IDv,byte[] ticket,DesKey sKey,String TS,DesKey Kcv){
         String mid=IDv+TS;

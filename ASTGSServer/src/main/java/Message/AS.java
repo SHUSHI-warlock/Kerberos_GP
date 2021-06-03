@@ -4,6 +4,7 @@ import encryptUtils.DESUtils;
 import encryptUtils.DesKey;
 import encryptUtils.KeyPair;
 import JDBC.JDBCFacade;
+import myutil.PropUtil;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
@@ -28,12 +29,17 @@ public class AS {
     public int Lifetime=2; //TGS票据有效期
     public String ADc; //客户端的网络地址
 
-    public int status=0; //状态码
+    public int status=1; //状态码
 
     public KeyPair keyPair;
 
     ArrayList<String> tgs=new ArrayList<>();
     JDBCFacade jdbc=new JDBCFacade();
+
+    private static PropUtil pp = PropUtil.getInstance();
+    private static String SqlName = pp.getValueByKey("SQLUsername");
+    private static String SqlPsw = pp.getValueByKey("SQLPsw");
+
 
     public AS(){
         this.IDc="";
@@ -72,6 +78,7 @@ public class AS {
 
 
     public void verify(AuthenticationMessage fromClient){
+        status = 1;
         this.IDc=fromClient.IDc;
         this.TGSid=fromClient.IDtgs;
         //检查时间戳
@@ -109,28 +116,22 @@ public class AS {
 
         //进入数据库查找对应的信息
         try{
-            jdbc.open("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/as","root","lijiahui123");
+            jdbc.open("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/as",
+                    SqlName,SqlPsw);
             ResultSet rs =  jdbc.executeQuery("select * from message");
-            String ID="wrong";
+            boolean flag = false;
+            String ID="";
             while (rs.next()){
                 ID=rs.getString("ID");
                 if(ID.equals(IDc)){
-                    //cKey=new DesKey();
                     byte[] passKey=rs.getBytes("Key");
                     String a=new String(passKey);
-                    //String a=new String(passKey);
-                    //System.out.println(Arrays.toString(passKey));
-                    //System.out.println(passKey);
-                    //byte[] key=passKey.getBytes();
                     cKey=new DesKey(passKey);
-                    //System.out.println(Arrays.toString(cKey.getKeyBytes()));
+                    flag = true;
                     break;
                 }
-                else {
-                    continue;
-                }
             }
-            if(!ID.equals(IDc)){
+            if(!flag||!ID.equals(IDc)){
                 status=1;
             }
             else {
@@ -139,6 +140,7 @@ public class AS {
         }
         catch (Exception e){
             e.printStackTrace();
+            status=1;
         }
     }
 

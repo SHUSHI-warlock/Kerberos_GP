@@ -6,7 +6,7 @@ public class JDBCUtils {
 
     private static final String connectionURL = "jdbc:mysql://localhost:3306/as?useUnicode=true&characterEncoding=UTF8&useSSL=false";
     private static final String username = "root";
-    private static final String password = "lijiahui123";
+    private static final String password = "000000";
 
     //创建数据库的连接
     public static Connection getConnection() {

@@ -28,4 +28,11 @@ public class mysqlInsert {
         }
     }
 
+    public static void main(String[] args) {
+        try {
+            mysqlInsert.insert("123",new byte[]{1,1,1,1,1,1,1,1});
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

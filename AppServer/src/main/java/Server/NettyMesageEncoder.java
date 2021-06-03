@@ -21,12 +21,10 @@ public class NettyMesageEncoder extends MessageToByteEncoder<NettyMessage> {
                         getUserDes(channelManager.
                         findUser(channelHandlerContext.channel())).
                         Encryption(nettyMessage.getMessageBody()));
+
                 logger.info(String.format("加密后报文长度：%d",nettyMessage.getLength()));
             }
-            out.writeBytes(nettyMessage.composeFull());
         }
-        else {//只有头部
-            out.writeBytes(nettyMessage.getMessageHead());
-        }
+        out.writeBytes(nettyMessage.composeFull());
     }
 }

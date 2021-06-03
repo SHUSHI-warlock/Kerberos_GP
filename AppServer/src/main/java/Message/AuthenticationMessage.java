@@ -168,9 +168,10 @@ public class AuthenticationMessage {
     public void CVMEssage(byte[] message,DesKey TGSKeyV){ //服务器接收到客户端消息
         byte[] tic=subBytes(message,0,64);
         this.ticket1=tic;
-        Ticket ticket=new Ticket();
+
+        this.ticket = new Ticket();
         ticket.ticketDecrypt(tic,TGSKeyV);
-        this.ticket=ticket;
+
         this.Key=ticket.Key;
         this.IDc=ticket.IDc.trim();
         this.ADc=ticket.ADc;
@@ -178,10 +179,8 @@ public class AuthenticationMessage {
         this.TS=ticket.TS;
         this.Lifetime=ticket.Lifetime;
         byte[] au=subBytes(message,64,48);
-        String Au=new String(au);
-        Authenticator AU=new Authenticator();
-        AU.Decrypt(au,this.Key);
-        this.authenticator=AU;
+        this.authenticator=new Authenticator();
+        authenticator.Decrypt(au,this.Key);
     }
     public void VCMessage(byte[] message,DesKey Kcv){
         DESUtils des=new DESUtils(Kcv);
