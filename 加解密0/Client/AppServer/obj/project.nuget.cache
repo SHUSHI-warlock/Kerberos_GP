@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "15CO7xuyLzuwAHboaLkllMuYuBJBJF/zgPnr9zyncZoc9AxvxthQ6bM0Rtcz8dpF9kPYkFzLPtmpm40dprnKIQ==",
+  "dgSpecHash": "keBXHB4sMfD6X8r4F/DezCyr6OOUjSPmdnnTqPpbYnpOXNhZBwHmbXQeHUCFjiZDc/j2nG9Ut9L3es1vrCa5gQ==",
   "success": true,
-  "projectFilePath": "E:\\study\\MyCode\\作业与上机\\物联网安全\\Kerberos_GP\\加解密0\\Client\\AppServer\\AppServer.csproj",
+  "projectFilePath": "F:\\kb\\Kerberos_GP\\加解密0\\Client\\AppServer\\AppServer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

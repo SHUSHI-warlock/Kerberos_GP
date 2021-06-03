@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+//using System.Numerics;
 using System.Text;
 
 namespace AppServer
@@ -35,7 +36,7 @@ namespace AppServer
          */
         public static byte[] Encryption(PublicKey pk, byte[] M)
         {
-            BigInteger m = new BigInteger(M,true,true);//改为大端字节顺序写入，采用无符号编码，匹配java
+            BigInteger m = new BigInteger(M);//改为大端字节顺序写入，采用无符号编码，匹配java
             BigInteger c = BigInteger.ModPow(m, pk.getE(), pk.getN());
             return c.ToByteArray(true,true);
         }
