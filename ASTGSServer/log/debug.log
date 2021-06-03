@@ -3293,3 +3293,9 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 2021-06-03 20:02:06  [ nioEventLoopGroup-3-2:441041 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
 2021-06-03 20:02:06  [ nioEventLoopGroup-3-2:441043 ] - [ INFO ]  用户123开始进行验证
 2021-06-03 20:02:06  [ nioEventLoopGroup-3-2:441045 ] - [ INFO ]  用户123验证成功
+2021-06-03 20:04:11  [ nioEventLoopGroup-3-10:1720449 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-03 20:04:11  [ nioEventLoopGroup-3-10:1720449 ] - [ INFO ]  用户123开始进行验证
+2021-06-03 20:04:11  [ nioEventLoopGroup-3-10:1720468 ] - [ INFO ]  用户123验证成功
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-3:567091 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-3:567091 ] - [ INFO ]  用户123开始进行验证
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-3:567091 ] - [ INFO ]  用户123验证成功

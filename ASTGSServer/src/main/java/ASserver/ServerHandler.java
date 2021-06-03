@@ -11,6 +11,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import messages.Message;
 import messages.NettyMessage;
+import myutil.PropUtil;
 import org.apache.log4j.Logger;
 import JDBC.JDBCFacade;
 
@@ -29,6 +30,12 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
     private static Gson gson = new Gson();
     //接受client发送的消息
 
+    private static PropUtil pp = PropUtil.getInstance();
+    private static String SqlName = pp.getValueByKey("SQLUsername");
+    private static String SqlPsw = pp.getValueByKey("SQLPsw");
+
+    private DESUtils des;
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("接收到客户端消息");
@@ -37,6 +44,8 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
         //NettyMessage message=new NettyMessage((String)msg);
         logger.info(String.format("接收到报文Head:[P2P:%d Type:%d State:%d UnCode:%d Length:%d]",
                 message.getMessageP2P(),message.getMessageType(),message.getStateCode(),message.getUnEncode(),message.getLength()));
+
+
 
         if(message.getMessageP2P()!=0){
             System.out.println("错误消息，抛弃");
@@ -50,12 +59,13 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
                 break;
             case 1://用户请求注册
             {
-                String me= gson.toJson(as.keyPair.getPk());
+                NettyMessage mes=new NettyMessage(1,1,0);
+                mes.setMessageBody(gson.toJson(as.keyPair.getPk()));
+                //String me= gson.toJson(as.keyPair.getPk());
                 //System.out.println(me);
                 //Message mes=new Message(1,1,0,-1);
-                NettyMessage mes=new NettyMessage(1,1,0);
                 //mes.setMsg(me);
-                mes.setMessageBody(me);
+                //mes.setMessageBody(me);
                 ctx.writeAndFlush(mes);
                 System.out.println("发回公钥");
                 break;
@@ -65,15 +75,14 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
                 //MessageInfo mes=gson.fromJson(message.getMsg(),MessageInfo.class);
                 //byte[] ke=mes.getMessage();
                 //byte[] k= RSAUtils.Decryption(as.keyPair.getSk(),ke);
-                String s=message.bodyToString();
-                byte[] k=s.getBytes();
+                byte[] k=message.getMessageBody();
 
-
-                DesKey key=new DesKey(k);
-                as.signKey=new DesKey();
-                as.signKey=key;
+                //DesKey key=new DesKey(k);
+                //解密
+                as.signKey=new DesKey(RSAUtils.Decryption(as.keyPair.getSk(), k));
+                //as.signKey=key;
                 String ba="connection formed";
-                DESUtils des=new DESUtils(as.signKey);
+                des=new DESUtils(as.signKey);
                 byte[] b=des.Encryption(ba.getBytes());
                 //MessageInfo back=new MessageInfo(1,2,0,-1);
                 //back.setMessage(b);
@@ -87,9 +96,9 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
             {
                 //MessageInfo mes=gson.fromJson(message.getMsg(),MessageInfo.class);
                 //byte[] me=mes.getMessage();
-                String s=message.bodyToString();
-                byte[] me=s.getBytes();
-                DESUtils des=new DESUtils(as.signKey);
+                //String s=message.bodyToString();
+                byte[] me=message.getMessageBody();
+
                 byte[] MESSAGE=des.Decryption(me);
                 byte[] id=subBytes(MESSAGE,0,20);
                 String i=new String(id);
@@ -101,12 +110,12 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
                 ke.GenKey(pas.getBytes());
 
                 JDBCFacade jdbc=new JDBCFacade();
-                jdbc.open("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/as","root","lijiahui123");
+                jdbc.open("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/as",SqlName,SqlPsw);
                 ResultSet rs =  jdbc.executeQuery("select * from message");
                 int state=0;
                 while (rs.next()) {
                     String ID = rs.getString("ID");
-                    if(ID.equals(id)){
+                    if(ID.equals(i)){
                         state=1;
                         break;
                     }
@@ -129,6 +138,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
             }
             case 4://用户取消注册
                 //cancel(user,message.getMsg());
+                logger.info("客户端取消注册");
                 break;
             default:
                 //

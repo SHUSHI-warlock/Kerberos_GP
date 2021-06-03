@@ -4,6 +4,8 @@ using Client.MsgTrans;
 using Client.Utils;
 using Client.Utils.DesUtil;
 using Client.Utils.LogHelper;
+using Client.Utils.RSAUtil;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,9 @@ namespace Client
         private static MessageShow messageShowWin = MessageShow.GetInstance();
 
         private bool Logining;
+        private bool Registing;
+
+        private DESUtils registDes;
 
         private MyTcpClient client;
 
@@ -318,6 +323,48 @@ namespace Client
                 return 1;
             }
         }
+        
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="pa"></param>
+        public bool TryRegist(string id,string pa)
+        {
+            Message message = new Message(0, 3, 0);
+
+            if (id.Length < 20)
+            {
+                StringBuilder sb = new StringBuilder(id);
+                for (int i = id.Length; i < 20; i++)
+                    sb.Append(" ");
+                id = sb.ToString();
+            }
+            if (pa.Length < 20)
+            {
+                StringBuilder sb = new StringBuilder(pa);
+                for (int i = pa.Length; i < 20; i++)
+                    sb.Append(" ");
+                pa = sb.ToString();
+            }
+
+            message.SetBody(byteManage.concat(Encoding.UTF8.GetBytes(id), Encoding.UTF8.GetBytes(pa)));
+
+            client.Send(message);
+
+            Message res = client.Recive();
+
+            if(res.StateCode==0)
+            {
+                logger.Info("注册成功！");
+                return true;
+            }
+            else
+            {//注册失败！
+                logger.Error("注册失败！");
+                return false;
+            }
+        }
 
         /// <summary>
         /// 进入大厅
@@ -345,9 +392,56 @@ namespace Client
         /// <param name="e"></param>
         private void Regist_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            logger.Info("进入注册界面！");
-            loginPage.Visibility = Visibility.Hidden;
-            registPage.Visibility = Visibility.Visible;
+            client = new MyTcpClient(ASServer_Ip, ASServer_Port);
+            if (!client.Connect())
+            {
+                logger.Info("AS连接失败！");
+                return;
+            }
+            //请求建立连接
+            Message message = new Message(0, 1, 0);
+
+            client.Send(message);
+
+            Message res = client.Recive();
+
+            PublicKey pk = JsonConvert.DeserializeObject<PublicKey>(res.bodyToString());
+            if(pk==null)
+            {
+                logger.Info("AS建立连接失败！");
+                return;
+            }
+
+            //第二次握手
+            DesKey desKey = new DesKey();
+            desKey.GenKey();
+            registDes = new DESUtils(desKey);
+
+            Message message2 = new Message(0, 2, 0);
+
+            message2.SetBody( RSAUtils.Encryption(pk, desKey.getKeyBytes()));
+
+            client.Send(message2);
+
+            Message res2 = client.Recive();
+            //解密服务器返回消息
+            string msg = Encoding.UTF8.GetString(registDes.Decryption( res2.GetBody()));
+
+            if(msg.Equals("connection formed"))
+            {
+                logger.Info("进入注册界面！");
+                loginPage.Visibility = Visibility.Hidden;
+                registPage.Visibility = Visibility.Visible;
+                registId.Text = "";
+                registPassword.Password = "";
+                rePassword.Password = "";
+            }
+            else
+            {
+                logger.Info("服务器连接2建立失败！");
+                MessageBox.Show("服务器连接2建立失败！");
+                client.Close();
+            }
         }
 
         /// <summary>
@@ -357,9 +451,15 @@ namespace Client
         /// <param name="e"></param>
         private void returnBtn_Click(object sender, RoutedEventArgs e)
         {
+            Message message = new Message(0, 4, 0);
+            client.Send(message);
+            client.Close();
+
             logger.Info("返回登录界面！");
             registPage.Visibility = Visibility.Hidden;
             loginPage.Visibility = Visibility.Visible;
+            Registing = false;
+
         }
 
         /// <summary>
@@ -369,7 +469,40 @@ namespace Client
         /// <param name="e"></param>
         private void registBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("注册成功！");
+            if (!Registing)
+            {
+                if (registId.Text == "" || registPassword.Password == "")
+                {
+                    logger.Info("账号密码不能为空！");
+                    return;
+                }
+                if(!registPassword.Password.Equals(rePassword.Password))
+                {
+                    logger.Info("前后两次密码输入不一致！");
+                    return;
+                }
+            
+                if(TryRegist(registId.Text,registPassword.Password))
+                {
+                    MessageBox.Show("注册成功！");
+
+                    client.Close();
+
+                    logger.Info("返回登录界面！");
+                    registPage.Visibility = Visibility.Hidden;
+                    loginPage.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    registId.Text = "";
+                    registPassword.Password = "";
+                    rePassword.Password = "";
+                    MessageBox.Show("注册失败：用户已存在！");
+                }
+            }
+
+            Registing = false;
+
         }
 
         /// <summary>
