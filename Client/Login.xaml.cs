@@ -82,8 +82,6 @@ namespace Client
             Console.WriteLine(s);
             */
 
-
-
             //Console.WriteLine(Encoding.Default.GetString(mclient.asKey.getKeyBytes()));
 
             String mes = mclient.ASconfirm(id, "1");
@@ -95,8 +93,7 @@ namespace Client
 
             client.Send(message1);
 
-            int sta = 0;
-            enterAS(client.Recive(), mclient, sta);
+            int sta = enterAS(client.Recive(), mclient);
             if (sta == 1)
             {
                 MessageBox.Show("登陆失败");
@@ -105,6 +102,7 @@ namespace Client
             else if (sta == 0)
             {
                 client.Close();
+
                 client = new MyTcpClient(TGSServer_Ip, TGSServer_Port);
 
                 client.Connect();
@@ -123,14 +121,14 @@ namespace Client
                 Message message2 = new Message(2, 0, 0);
                 message2.SetBody(mess);
                 client.Send(message2);
-                sta = 0;
-                enterTGS(client.Recive(), mclient, sta);
-                if (sta == 1)
+                
+                int stb = enterTGS(client.Recive(), mclient);
+                if (stb == 1)
                 {
                     MessageBox.Show("登陆失败");
                     userPassword.Clear();
                 }
-                else if (sta == 0)
+                else if (stb == 0)
                 {
                     client.Close();
                     //连接服务器
@@ -156,22 +154,20 @@ namespace Client
                         //DESUtils des = new DESUtils(new DesKey(new byte[] { 1, 1, 1, 1, 1, 1, 1, 1 }));
                         client.DesOpen(new DESUtils(mclient.vKey));
 
-
-
                         EnterLobby(new User(id));
                     }
                     else
                     {
                         logger.Debug("TryLogin:服务器验证失败！");
-                        client.Close();
                     }
                 }
             }
+
+            client.Close();
         }
 
-        public void enterAS(Message message, MyClient mclient, int sta)
+        public int enterAS(Message message, MyClient mclient)
         {
-            sta = 0;
             if (message.StateCode != 0)
             {
                 //出错！
@@ -194,13 +190,12 @@ namespace Client
                 }
                 //重新回到登录
                 //loginInput(ctx);
-                return;
+                return 1;
             }
 
             //String mes=message.bodyToString();
             byte[] mess = message.GetBody();
 
-            sbyte[] messa = ByteConverter.UbyteToSbyte(mess);
             //System.out.println(Arrays.toString(mess));
             AuthenticationMessage au = new AuthenticationMessage();
             //Console.WriteLine("a");
@@ -211,18 +206,18 @@ namespace Client
             {
                 logger.Info("用户AS验证成功!");
                 MessageBox.Show("用户AS验证成功!");
+                return 0;
             }
             else
             {
-                sta = 1;
                 logger.Info("验证失败");
                 MessageBox.Show("验证失败！");
+                return 1;
             }
         }
 
-        public void enterTGS(Message message, MyClient mclient, int sta)
+        public int enterTGS(Message message, MyClient mclient)
         {
-            sta = 0;
             if (message.StateCode != 0)
             {
                 logger.Info(String.Format("登录应用服务器失败！ 状态码：%d", message.StateCode));
@@ -249,7 +244,8 @@ namespace Client
                 }
                 //重新回到登录
                 //loginInput(ctx);
-                return;
+                return 1;
+
             }
             //String mes = message.bodyToString();
             byte[] mess = message.GetBody();
@@ -261,12 +257,13 @@ namespace Client
             {
                 logger.Info("用户TGS验证成功!");
                 MessageBox.Show("用户TGS验证成功!");
+                return 0;
             }
             else
             {
-                sta = 1;
                 logger.Info("验证失败");
                 MessageBox.Show("验证失败！");
+                return 1;
             }
         }
 
@@ -316,50 +313,10 @@ namespace Client
             }
         }
 
-        //服务器验证登录
-        public void ServerAuth(Message msg)
-        {
-            Logining = false;
-            if (msg==null)
-            {
-                logger.Debug("登录失败！");
-                client.Close();
-                return;
-            }
-            
-            
-            if (msg.MessageP2P==5&&msg.MessageType==0)
-            {
-                if (msg.StateCode == 0)
-                {
-                    //验证成功！
-                    //client.OnReceive -= ServerAuth;
-                    ///后续消息加密传输
-                    ///假设全为1
-                    DESUtils des = new DESUtils(new DesKey(new byte[] { 1, 1, 1, 1, 1, 1, 1, 1 }));
-                    client.DesOpen(des);
-
-                    EnterLobby();
-                    //
-                }
-                else if(msg.StateCode==1)
-                {
-                    logger.Debug("用户已在其他地方登录！");
-                    client.Close();
-                }
-            }
-            else
-            {
-                logger.Debug("登录失败！");
-
-                client.Close();
-            }
-        }
-
         /// <summary>
         /// 进入大厅
         /// </summary>
-        public void EnterLobby()
+        public void EnterLobby(User user)
         {
             //进入大厅界面
             logger.Debug("登录成功！进入大厅！");

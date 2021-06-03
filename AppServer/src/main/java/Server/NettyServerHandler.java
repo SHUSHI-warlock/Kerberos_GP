@@ -140,7 +140,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	public void enterLobby(Channel channel, User user, DesKey key){
 		}
 
-
 	public void enterLobby(ChannelHandlerContext ctx,NettyMessage message){
 		byte[] mes=message.getMessageBody();
 		AuthenticationMessage fromClient=new AuthenticationMessage();
