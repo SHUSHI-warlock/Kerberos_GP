@@ -1,6 +1,7 @@
 package Server;
 
 import Message.AuthenticationMessage;
+import Message.SERVER;
 import Service.ChatMsg;
 import Service.Constant;
 import Service.GameMsg;
@@ -8,10 +9,7 @@ import Service.RoomInfo;
 import Service.User.Player;
 import Service.User.User;
 import com.google.gson.Gson;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.*;
 
 import myutil.DESUtil.DesKey;
 import org.apache.log4j.Logger;
@@ -41,10 +39,11 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
 
 	private DesKey TGSKeyV;
+	private SERVER server;
 
 	public NettyServerHandler(){
 		TGSKeyV = new DesKey();
-
+		server = new SERVER();
 	}
 
 	@Override
@@ -73,12 +72,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		if(message.getMessageType()==0)//用户认证
 		{
 			// TODO: 2021/6/2 添加登录验证
-			User user = gson.fromJson(message.bodyToString(), User.class);
-			logger.debug(String.format("用户%s请求登录大厅", user.getUserId()));
-
-			//测试：假定秘钥唯一
-			DesKey key = new DesKey(new byte[]{1, 1, 1, 1, 1, 1, 1, 1});
-			enterLobby(ctx.channel(), user, key);
+			enterLobby(ctx,message);
 			return;
 		}
 
@@ -129,17 +123,14 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
     //    ctx.channel().writeAndFlush("i am server !");
 
-//        ctx.writeAndFlush("i am server !").addListener(ChannelFutureListener.CLOSE);
+	//  ctx.writeAndFlush("i am server !").addListener(ChannelFutureListener.CLOSE);
     }
 
 	/**
 	 * 进入大厅请求
-	 * @param channel
-	 * @param user
+	 * @param ctx
+	 * @param message
 	 */
-	public void enterLobby(Channel channel, User user, DesKey key){
-		}
-
 	public void enterLobby(ChannelHandlerContext ctx,NettyMessage message){
 		byte[] mes=message.getMessageBody();
 		AuthenticationMessage fromClient=new AuthenticationMessage();
@@ -149,12 +140,12 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		logger.info(String.format("用户%s开始进行验证",fromClient.IDc));
 		server.verify(fromClient);
 
-		server.ADc="127.0.0.1";
-		if(server.ADc.length()<16){
-			for(int i=server.ADc.length();i<16;i++){
-				server.ADc+=" ";
-			}
-		}
+//		server.ADc="127.0.0.1";
+//		if(server.ADc.length()<16){
+//			for(int i=server.ADc.length();i<16;i++){
+//				server.ADc+=" ";
+//			}
+//		}
 
 		if(server.status==0){
 			logger.info(String.format("用户%s验证成功", fromClient.IDc));
@@ -165,18 +156,16 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 			ctx.writeAndFlush(back);
 
 			//
-			channelManager.addUser(channel, user.getUserId(),key);
+			User user = new User(fromClient.IDc);
+			channelManager.addUser(ctx.channel(), fromClient.IDc, fromClient.Key);
 			user.userState = Constant.online;
 			players.put(user.getUserId(),new Player(user));
 
 			logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
-
-
-
 		}
 		else{
 			//System.out.println(tgs.status);
-			NettyMessage back=new NettyMessage(3,0,server.status);
+			NettyMessage back=new NettyMessage(5,0,server.status);
 			ctx.writeAndFlush(back);
 			logger.info(String.format("用户%s验证失败",fromClient.IDc));
 		}

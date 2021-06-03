@@ -98,8 +98,5 @@ public class Ticket {
         //System.out.println(l);
         int L=Integer.parseInt(l);
         this.Lifetime=L;
-
     }
-
-
 }
