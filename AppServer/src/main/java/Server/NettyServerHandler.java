@@ -1,5 +1,6 @@
 package Server;
 
+import Message.AuthenticationMessage;
 import Service.ChatMsg;
 import Service.Constant;
 import Service.GameMsg;
@@ -37,6 +38,14 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	private ConcurrentHashMap<Integer,CheckerRoom> rooms = new ConcurrentHashMap<Integer, CheckerRoom>();
 	//玩家列表
 	private ConcurrentHashMap<String, Player>players = new ConcurrentHashMap<>();
+
+
+	private DesKey TGSKeyV;
+
+	public NettyServerHandler(){
+		TGSKeyV = new DesKey();
+
+	}
 
 	@Override
     public void channelActive(ChannelHandlerContext ctx) {
@@ -129,14 +138,52 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 * @param user
 	 */
 	public void enterLobby(Channel channel, User user, DesKey key){
-		channelManager.addUser(channel, user.getUserId(),key);
-		user.userState = Constant.online;
-		players.put(user.getUserId(),new Player(user));
+		}
 
-		logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
 
-		channelManager.send(user.getUserId(), new NettyMessage(5,0,0));
+	public void enterLobby(ChannelHandlerContext ctx,NettyMessage message){
+		byte[] mes=message.getMessageBody();
+		AuthenticationMessage fromClient=new AuthenticationMessage();
+		fromClient.CVMEssage(mes,TGSKeyV);
+
+		server.ticket=fromClient.ticket;
+		logger.info(String.format("用户%s开始进行验证",fromClient.IDc));
+		server.verify(fromClient);
+
+		server.ADc="127.0.0.1";
+		if(server.ADc.length()<16){
+			for(int i=server.ADc.length();i<16;i++){
+				server.ADc+=" ";
+			}
+		}
+
+		if(server.status==0){
+			logger.info(String.format("用户%s验证成功", fromClient.IDc));
+			byte[] mess=server.generateBack(fromClient.TS, server.Kcv);
+			NettyMessage back=new NettyMessage(5,0,0);
+			back.setMessageBody(mess);
+			System.out.println("正在发送消息");
+			ctx.writeAndFlush(back);
+
+			//
+			channelManager.addUser(channel, user.getUserId(),key);
+			user.userState = Constant.online;
+			players.put(user.getUserId(),new Player(user));
+
+			logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
+
+
+
+		}
+		else{
+			//System.out.println(tgs.status);
+			NettyMessage back=new NettyMessage(3,0,server.status);
+			ctx.writeAndFlush(back);
+			logger.info(String.format("用户%s验证失败",fromClient.IDc));
+		}
+
 	}
+
 
 	/**
 	 * 返回房间信息请求

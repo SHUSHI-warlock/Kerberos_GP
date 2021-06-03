@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/ASserver/RpcDecoder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ASserver/RpcEncoder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ASserver/RpcRequest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ASserver/RpcResponse.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ASserver/ServerHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ASserver/server.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ASserver/serverMain.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/DeEncoder/NettyMessageDecoder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JDBC/JDBCFacade.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JDBC/JDBCUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JDBC/mysqlInsert.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/AS.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/AuthenticationMessage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/Authenticator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/Message.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/MessageInfo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/SERVER.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/TGS.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/Ticket.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/byteManage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Message/client.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TGSserver/ServerHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TGSserver/serverMain.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TGSserver/serverTGS.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/encryptUtils/BitSequence.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/encryptUtils/DESUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/encryptUtils/DesKey.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/encryptUtils/KeyPair.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/encryptUtils/PrivateKey.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/encryptUtils/PublicKey.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/encryptUtils/RSAUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/messages/Message.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/messages/NettyMessage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/messages/User.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/myutil/ByteTransUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="GBK" />
+  </component>
+</project>
