@@ -2295,3 +2295,138 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 2021-06-03 20:02:35  [ nioEventLoopGroup-3-1:36403 ] - [ DEBUG ]  用户123发送聊天消息
 2021-06-03 20:02:35  [ nioEventLoopGroup-3-1:36412 ] - [ INFO ]  鐢ㄦ埛123鎴块棿娑堟伅鍙戦�侊紒
 2021-06-03 20:02:35  [ nioEventLoopGroup-3-1:36413 ] - [ DEBUG ]  [id: 0x3e566950, L:/127.0.0.1:8080 - R:/127.0.0.1:51257] READ COMPLETE
+2021-06-03 20:04:01  [ main:0 ] - [ DEBUG ]  Using Log4J as the default logging framework
+2021-06-03 20:04:01  [ main:5 ] - [ DEBUG ]  Platform: Windows
+2021-06-03 20:04:01  [ main:9 ] - [ DEBUG ]  -Dio.netty.noUnsafe: false
+2021-06-03 20:04:01  [ main:10 ] - [ DEBUG ]  Java version: 14
+2021-06-03 20:04:01  [ main:11 ] - [ DEBUG ]  sun.misc.Unsafe.theUnsafe: available
+2021-06-03 20:04:01  [ main:11 ] - [ DEBUG ]  sun.misc.Unsafe.copyMemory: available
+2021-06-03 20:04:01  [ main:12 ] - [ DEBUG ]  java.nio.Buffer.address: available
+2021-06-03 20:04:01  [ main:13 ] - [ DEBUG ]  direct buffer constructor: available
+2021-06-03 20:04:01  [ main:14 ] - [ DEBUG ]  java.nio.Bits.unaligned: available, true
+2021-06-03 20:04:01  [ main:16 ] - [ DEBUG ]  jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @5649fd9b
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:376)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:647)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:556)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:312)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:303)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:208)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:79)
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:32)
+	at io.netty.util.AttributeKey$1.<init>(AttributeKey.java:27)
+	at io.netty.util.AttributeKey.<clinit>(AttributeKey.java:27)
+	at Server.NettyChannelManager.<clinit>(NettyChannelManager.java:26)
+	at Server.NettyServerHandler.<init>(NettyServerHandler.java:35)
+	at Server.AppServer.<init>(AppServer.java:39)
+	at Server.AppServer.main(AppServer.java:93)
+2021-06-03 20:04:01  [ main:18 ] - [ DEBUG ]  java.nio.DirectByteBuffer.<init>(long, int): available
+2021-06-03 20:04:01  [ main:18 ] - [ DEBUG ]  sun.misc.Unsafe: available
+2021-06-03 20:04:01  [ main:40 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-03 20:04:01  [ main:41 ] - [ DEBUG ]  -Dio.netty.tmpdir: C:\WINDOWS\TEMP (java.io.tmpdir)
+2021-06-03 20:04:01  [ main:41 ] - [ DEBUG ]  -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2021-06-03 20:04:01  [ main:42 ] - [ DEBUG ]  -Dio.netty.noPreferDirect: false
+2021-06-03 20:04:01  [ main:45 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-03 20:04:01  [ main:45 ] - [ DEBUG ]  -Dio.netty.maxDirectMemory: 2111832064 bytes
+2021-06-03 20:04:01  [ main:45 ] - [ DEBUG ]  -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2021-06-03 20:04:01  [ main:46 ] - [ DEBUG ]  java.nio.ByteBuffer.cleaner(): available
+2021-06-03 20:04:01  [ main:54 ] - [ DEBUG ]  -Dio.netty.eventLoopThreads: 16
+2021-06-03 20:04:01  [ main:78 ] - [ DEBUG ]  -Dio.netty.noKeySetOptimization: false
+2021-06-03 20:04:01  [ main:78 ] - [ DEBUG ]  -Dio.netty.selectorAutoRebuildThreshold: 512
+2021-06-03 20:04:01  [ main:88 ] - [ DEBUG ]  org.jctools-core.MpscChunkedArrayQueue: available
+2021-06-03 20:04:01  [ main:182 ] - [ DEBUG ]  -Dio.netty.processId: 4056 (auto-detected)
+2021-06-03 20:04:01  [ main:184 ] - [ DEBUG ]  -Djava.net.preferIPv4Stack: false
+2021-06-03 20:04:01  [ main:184 ] - [ DEBUG ]  -Djava.net.preferIPv6Addresses: false
+2021-06-03 20:04:01  [ main:208 ] - [ DEBUG ]  Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2021-06-03 20:04:01  [ main:209 ] - [ DEBUG ]  Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2021-06-03 20:04:01  [ main:286 ] - [ DEBUG ]  -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:08 (auto-detected)
+2021-06-03 20:04:01  [ main:292 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2021-06-03 20:04:01  [ main:292 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2021-06-03 20:04:01  [ main:304 ] - [ DEBUG ]  -Dio.netty.leakDetection.level: simple
+2021-06-03 20:04:01  [ main:305 ] - [ DEBUG ]  -Dio.netty.leakDetection.targetRecords: 4
+2021-06-03 20:04:01  [ main:324 ] - [ DEBUG ]  -Dio.netty.allocator.numHeapArenas: 16
+2021-06-03 20:04:01  [ main:325 ] - [ DEBUG ]  -Dio.netty.allocator.numDirectArenas: 16
+2021-06-03 20:04:01  [ main:325 ] - [ DEBUG ]  -Dio.netty.allocator.pageSize: 8192
+2021-06-03 20:04:01  [ main:325 ] - [ DEBUG ]  -Dio.netty.allocator.maxOrder: 11
+2021-06-03 20:04:01  [ main:325 ] - [ DEBUG ]  -Dio.netty.allocator.chunkSize: 16777216
+2021-06-03 20:04:01  [ main:325 ] - [ DEBUG ]  -Dio.netty.allocator.tinyCacheSize: 512
+2021-06-03 20:04:01  [ main:326 ] - [ DEBUG ]  -Dio.netty.allocator.smallCacheSize: 256
+2021-06-03 20:04:01  [ main:326 ] - [ DEBUG ]  -Dio.netty.allocator.normalCacheSize: 64
+2021-06-03 20:04:01  [ main:326 ] - [ DEBUG ]  -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2021-06-03 20:04:01  [ main:326 ] - [ DEBUG ]  -Dio.netty.allocator.cacheTrimInterval: 8192
+2021-06-03 20:04:01  [ main:326 ] - [ DEBUG ]  -Dio.netty.allocator.useCacheForAllThreads: true
+2021-06-03 20:04:01  [ main:336 ] - [ DEBUG ]  -Dio.netty.allocator.type: pooled
+2021-06-03 20:04:01  [ main:337 ] - [ DEBUG ]  -Dio.netty.threadLocalDirectBufferSize: 65536
+2021-06-03 20:04:01  [ main:337 ] - [ DEBUG ]  -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2021-06-03 20:04:01  [ nioEventLoopGroup-2-1:360 ] - [ DEBUG ]  [id: 0x2f567b40] REGISTERED
+2021-06-03 20:04:01  [ nioEventLoopGroup-2-1:362 ] - [ DEBUG ]  [id: 0x2f567b40] BIND: 0.0.0.0/0.0.0.0:8080
+2021-06-03 20:04:01  [ main:363 ] - [ INFO ]  server started sucessfully.
+2021-06-03 20:04:01  [ nioEventLoopGroup-2-1:364 ] - [ DEBUG ]  [id: 0x2f567b40, L:/[0:0:0:0:0:0:0:0]:8080] ACTIVE
+2021-06-03 20:04:12  [ nioEventLoopGroup-2-1:11549 ] - [ DEBUG ]  [id: 0x2f567b40, L:/[0:0:0:0:0:0:0:0]:8080] READ: [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301]
+2021-06-03 20:04:12  [ nioEventLoopGroup-2-1:11550 ] - [ DEBUG ]  [id: 0x2f567b40, L:/[0:0:0:0:0:0:0:0]:8080] READ COMPLETE
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11558 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] REGISTERED
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11558 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] ACTIVE
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11564 ] - [ DEBUG ]  -Dio.netty.recycler.maxCapacityPerThread: 32768
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11564 ] - [ DEBUG ]  -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11564 ] - [ DEBUG ]  -Dio.netty.recycler.linkCapacity: 16
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11564 ] - [ DEBUG ]  -Dio.netty.recycler.ratio: 8
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11571 ] - [ DEBUG ]  -Dio.netty.buffer.bytebuf.checkAccessible: true
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11572 ] - [ DEBUG ]  Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@648b7f91
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11575 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] READ: 120B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 04 00 00 ff 00 00 00 70 d5 9b d4 d0 93 ea a1 4d |.......p.......M|
+|00000010| 7b 46 d6 37 f3 2c 74 b3 0c 2b 5c 1f 5a 6d b0 67 |{F.7.,t..+\.Zm.g|
+|00000020| fc 00 54 0f 78 ae c9 56 22 18 70 cf f3 aa df 9d |..T.x..V".p.....|
+|00000030| fa 0f 3a 0d cb e6 11 20 50 69 a0 b9 38 be 88 03 |..:.... Pi..8...|
+|00000040| dc bd b5 20 18 c4 99 d3 7e ee 3f 62 20 7f d9 e1 |... ....~.?b ...|
+|00000050| 37 3d 89 b1 13 93 6b c0 54 a7 e3 81 b6 8e 51 ed |7=....k.T.....Q.|
+|00000060| 44 40 8f c3 5a d9 bf da 4e 94 5f 30 b6 c5 ba 23 |D@..Z...N._0...#|
+|00000070| bc f3 20 db 06 27 8e ef                         |.. ..'..        |
++--------+-------------------------------------------------+----------------+
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11578 ] - [ INFO ]  收到未记录的连接消息
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11579 ] - [ INFO ]  接收到报文Head:[P2P:4 Type:0 State:0 UnCode:-1 Length:112]
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11583 ] - [ INFO ]  用户123开始进行验证
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11584 ] - [ INFO ]  用户123验证成功
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11586 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] WRITE: Msg[messageP2P=5,messageType=0,stateCode=0,UnEncode=-1,length=16][K�	rH�������'�2�]
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11588 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] FLUSH
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11591 ] - [ INFO ]  用户123进入大厅 || 大厅总人数1
+2021-06-03 20:04:12  [ nioEventLoopGroup-3-1:11591 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] READ COMPLETE
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13967 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] READ: 8B
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 04 02 00 ff 00 00 00 00                         |........        |
++--------+-------------------------------------------------+----------------+
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13967 ] - [ INFO ]  服务器收到一条消息
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13968 ] - [ ERROR ]  尝试加解密出错！
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13971 ] - [ INFO ]  接收到报文Head:[P2P:4 Type:2 State:0 UnCode:-1 Length:0]
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13972 ] - [ DEBUG ]  用户123请求房间消息
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13984 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] WRITE: Msg[messageP2P=5,messageType=2,stateCode=0,UnEncode=-1,length=86][{"roomInfos":[],"users":[{"pos":0,"steps":0,"roomId":0,"userId":"123","userState":1}]}]
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13985 ] - [ INFO ]  鍔犲瘑鍚庢姤鏂囬暱搴︼細88
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13985 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] FLUSH
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13985 ] - [ DEBUG ]  发送报文：Msg[messageP2P=5,messageType=2,stateCode=0,UnEncode=-1,length=88][!:���y��*�FE�HZ`@�u��/�fG�~zc�k�3Y�.�Y~-�]��Ӳ�|L�t�nfi�;�E�NU�S�ˢD�$�HRi%��3]
+2021-06-03 20:04:15  [ nioEventLoopGroup-3-1:13986 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] READ COMPLETE
+2021-06-03 20:07:01  [ nioEventLoopGroup-3-1:180504 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] READ COMPLETE
+2021-06-03 20:07:01  [ nioEventLoopGroup-3-1:180505 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] EXCEPTION: java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1108)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:345)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:126)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:645)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:580)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:497)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:459)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2021-06-03 20:07:01  [ nioEventLoopGroup-3-1:180506 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 - R:/127.0.0.1:51301] CLOSE
+2021-06-03 20:07:01  [ nioEventLoopGroup-3-1:180600 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 ! R:/127.0.0.1:51301] USER_EVENT: io.netty.channel.socket.ChannelInputShutdownReadComplete@540bd29f
+2021-06-03 20:07:01  [ nioEventLoopGroup-3-1:180608 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 ! R:/127.0.0.1:51301] INACTIVE
+2021-06-03 20:07:01  [ nioEventLoopGroup-3-1:180612 ] - [ DEBUG ]  [id: 0x8e285fcf, L:/127.0.0.1:8080 ! R:/127.0.0.1:51301] UNREGISTERED
+2021-06-03 20:07:01  [ nioEventLoopGroup-3-1:180612 ] - [ INFO ]  用户123退出大厅 || 当前大厅总人数:0
