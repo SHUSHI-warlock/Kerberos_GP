@@ -14,12 +14,17 @@ namespace AppServer
             keyPair.GenKey(1024);
 
             // byte[] m = { 98, -77, 94, 2, -39, 73, -45, 91 };
-            byte[] m = { 9, 49, 9, 2, 39, 73, 45, 91 };
-            Console.WriteLine("明文：" + string.Join(",", m));
-            byte[] c = RSAUtils.Encryption(keyPair.getPk(), m);
-            Console.WriteLine("密文：" + string.Join(",", c));
-            byte[] mm = RSAUtils.Decryption(keyPair.getSk(), c);
-            Console.WriteLine("解密后结果:" + string.Join(",", mm));
+
+            DesKey desKey = new DesKey();
+            desKey.GenKey();
+
+            byte[] key = RSAUtils.Encryption(keyPair.getPk(), desKey.getKeyBytes());
+
+            byte[] key2 = RSAUtils.Decryption(keyPair.getSk(), key);
+
+            DesKey newDeskey = new DesKey(key2);
+
+
         }
 
         /**

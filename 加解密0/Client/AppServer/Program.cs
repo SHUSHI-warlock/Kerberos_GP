@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Numerics;
+using System.Text;
 
 namespace AppServer
 {
@@ -6,6 +8,31 @@ namespace AppServer
     {
         static void Main(string[] args)
         {
+
+            //BigInteger big = new BigInteger();
+            BigInteger big = new BigInteger(-10534354);
+            byte[] temp =  big.ToByteArray();
+            
+
+
+            KeyPair keyPair = new KeyPair();
+            keyPair.GenKey(1024);
+
+            // byte[] m = { 98, -77, 94, 2, -39, 73, -45, 91 };
+
+            DesKey desKey = new DesKey();
+            desKey.GenKey();
+
+            byte[] key = RSAUtils.Encryption(keyPair.getPk(), desKey.getKeyBytes());
+
+            byte[] key2 = RSAUtils.Decryption(keyPair.getSk(), key);
+
+            DesKey newDeskey = new DesKey(key2);
+
+
+
+
+
             //输入秘钥
             DesKey a = new DesKey();
             a.GenKey();

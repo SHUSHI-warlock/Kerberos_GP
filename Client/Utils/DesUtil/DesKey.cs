@@ -30,7 +30,8 @@ namespace Client.Utils.DesUtil
             Random rnd = new Random(DateTime.Now.Millisecond);
             byte[] a = new byte[8];
             rnd.NextBytes(a);
-
+            if (a[0] > 126)
+                a[0] = 23;
             this.key = new BitSequence(a);
         }
 

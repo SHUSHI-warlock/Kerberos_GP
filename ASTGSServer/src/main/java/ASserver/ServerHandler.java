@@ -77,15 +77,21 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
                 //byte[] k= RSAUtils.Decryption(as.keyPair.getSk(),ke);
                 byte[] k=message.getMessageBody();
 
-                //DesKey key=new DesKey(k);
-                //解密
-                as.signKey=new DesKey(RSAUtils.Decryption(as.keyPair.getSk(), k));
+                ///测试代码：
+                //byte[] k1 = RSAUtils.Encryption(as.keyPair.getPk(), new byte[]{1,-44,1,-99,1,-82,1,14});
+
+                byte[] temp = RSAUtils.Decryption(as.keyPair.getSk(), k);
+
+                //byte[] temp2 = RSAUtils.Decryption(as.keyPair.getSk(), k1);
+
+                as.signKey=new DesKey(temp);
+
                 //as.signKey=key;
+                //回复这条消息代表准备就绪
                 String ba="connection formed";
                 des=new DESUtils(as.signKey);
                 byte[] b=des.Encryption(ba.getBytes());
-                //MessageInfo back=new MessageInfo(1,2,0,-1);
-                //back.setMessage(b);
+
                 NettyMessage back=new NettyMessage(1,2,0);
                 back.setMessageBody(b);
                 ctx.writeAndFlush(back);

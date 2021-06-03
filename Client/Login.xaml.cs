@@ -413,13 +413,17 @@ namespace Client
             }
 
             //第二次握手
+            //DesKey desKey = new DesKey(new byte[]{ 221, 212, 1, 157, 1, 174, 1, 14 });
             DesKey desKey = new DesKey();
             desKey.GenKey();
+            
             registDes = new DESUtils(desKey);
 
             Message message2 = new Message(0, 2, 0);
 
-            message2.SetBody( RSAUtils.Encryption(pk, desKey.getKeyBytes()));
+
+            byte[] temp = desKey.getKeyBytes();
+            message2.SetBody(RSAUtils.Encryption(pk, temp));
 
             client.Send(message2);
 
@@ -474,11 +478,15 @@ namespace Client
                 if (registId.Text == "" || registPassword.Password == "")
                 {
                     logger.Info("账号密码不能为空！");
+                    MessageBox.Show("账号密码不能为空！");
+
                     return;
                 }
                 if(!registPassword.Password.Equals(rePassword.Password))
                 {
                     logger.Info("前后两次密码输入不一致！");
+                    MessageBox.Show("前后两次密码输入不一致！");
+
                     return;
                 }
             

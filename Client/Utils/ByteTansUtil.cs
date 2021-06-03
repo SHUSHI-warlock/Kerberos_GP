@@ -14,6 +14,18 @@ namespace Client.Utils
 	 */
 	public class ByteTransUtil
 	{
+
+		public static byte[] ReverseBytes(byte[] input)
+        {
+			int max = input.Length;
+			byte[] output = new byte[max];
+			for(int i=0;i<max;i++)
+            {
+				output[max - i - 1] = input[i];
+            }
+			return output;
+        }
+
 		/**
 		 * 将整数转换为字节数组，BIG-ENDIAN格式，即高位数字在高地址、低位数字在低地址。
 		 * 0xff二进制[00000000][00000000][00000000][11111111]，数字与0xff进行与(&)

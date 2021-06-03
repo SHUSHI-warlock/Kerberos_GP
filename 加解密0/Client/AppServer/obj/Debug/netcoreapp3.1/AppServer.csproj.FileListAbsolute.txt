@@ -11,3 +11,16 @@ C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\AppServer.
 C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\AppServer.dll
 C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\AppServer.pdb
 C:\Users\Administrator\source\repos\AppServer\obj\Debug\netcoreapp3.1\AppServer.genruntimeconfig.cache
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\bin\Debug\netcoreapp3.1\AppServer.exe
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\bin\Debug\netcoreapp3.1\AppServer.deps.json
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\bin\Debug\netcoreapp3.1\AppServer.runtimeconfig.json
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\bin\Debug\netcoreapp3.1\AppServer.runtimeconfig.dev.json
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\bin\Debug\netcoreapp3.1\AppServer.dll
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\bin\Debug\netcoreapp3.1\AppServer.pdb
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\obj\Debug\netcoreapp3.1\AppServer.csprojAssemblyReference.cache
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\obj\Debug\netcoreapp3.1\AppServer.AssemblyInfoInputs.cache
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\obj\Debug\netcoreapp3.1\AppServer.AssemblyInfo.cs
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\obj\Debug\netcoreapp3.1\AppServer.csproj.CoreCompileInputs.cache
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\obj\Debug\netcoreapp3.1\AppServer.dll
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\obj\Debug\netcoreapp3.1\AppServer.pdb
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\加解密0\Client\AppServer\obj\Debug\netcoreapp3.1\AppServer.genruntimeconfig.cache

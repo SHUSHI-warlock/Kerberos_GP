@@ -30,16 +30,16 @@ namespace Client.Utils.RSAUtil
          */
         public static byte[] Encryption(PublicKey pk, byte[] M)
         {
-            BigInteger m = new BigInteger(M);//改为大端字节顺序写入，采用无符号编码，匹配java
+            BigInteger m = new BigInteger(ByteTransUtil.ReverseBytes(M));//改为大端字节顺序写入，采用无符号编码，匹配java
             BigInteger c = BigInteger.ModPow(m, pk.getE(), pk.getN());
-            return c.ToByteArray();
+            return ByteTransUtil.ReverseBytes(c.ToByteArray());
         }
 
         public static byte[] Decryption(PrivateKey sk, byte[] C)
         {
-            BigInteger c = new BigInteger(C);//改为大端字节顺序写入，采用无符号编码，匹配java
+            BigInteger c = new BigInteger(ByteTransUtil.ReverseBytes(C));//改为大端字节顺序写入，采用无符号编码，匹配java
             BigInteger m = BigInteger.ModPow(c, sk.getD(), sk.getN());
-            return m.ToByteArray();
+            return ByteTransUtil.ReverseBytes(m.ToByteArray());
         }
 
     }

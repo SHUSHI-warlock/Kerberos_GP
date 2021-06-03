@@ -110,7 +110,7 @@
                 </Grid>
 
             </Grid>
-            <Grid x:Name="registPage" Visibility="Visible" Width="300" Height="240" Canvas.Left="419" Canvas.Top="102" Opacity="0.8">
+            <Grid x:Name="registPage" Visibility="Hidden" Width="300" Height="240" Canvas.Left="419" Canvas.Top="102" Opacity="0.8">
                 <Border Background="White" CornerRadius="20" BorderThickness="0" />
                 <Grid >
                     <Grid.RowDefinitions>
