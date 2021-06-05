@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         xmlns:cvt="clr-namespace:Client.Converter.LobbyCvt"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
         mc:Ignorable="d"
         Title="GameRoom" Height="1280" Width="1920" Loaded="Window_Loaded" >
 
@@ -326,6 +327,7 @@
                                     <ColumnDefinition Width="60"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                               
                                 <Label Content="ID:" Grid.Column="1"></Label>
                                 <Label Content="状态:" Grid.Row="1" Grid.Column="1"></Label>
                                 <Label Content="棋子:" Grid.Row="2" Grid.Column="1"></Label>

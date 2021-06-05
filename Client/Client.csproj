@@ -34,10 +34,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>tubiao.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="netstandard" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Panuon.UI.Silver, Version=1.1.3.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Panuon.UI.Silver.1.1.3.4\lib\net45\Panuon.UI.Silver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -343,6 +349,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Image\bg\bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tubiao.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

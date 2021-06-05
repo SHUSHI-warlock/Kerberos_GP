@@ -140,3 +140,5 @@ E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\Cli
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\Client.csproj.CopyComplete
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\Client.exe
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\Client.pdb
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\bin\Debug\Panuon.UI.Silver.dll
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\App.baml

@@ -2,6 +2,7 @@
 using Client.MsgTrans;
 using Client.Utils.LogHelper;
 using Newtonsoft.Json;
+using Panuon.UI.Silver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -225,6 +226,8 @@ namespace Client
                     ShowRoomInfo();
                     ShowUserInfo(lobbyMsg.users);
                 });
+                //通知
+                Notice.Show(string.Format("刷新成功！\n当前：房间数：{0} 大厅人数：{1}",roomInfos.Count,users.Count),"通知",5);
             }
             else
             {

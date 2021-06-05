@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
   xmlns:local="clr-namespace:Client"
         
         mc:Ignorable="d"
@@ -20,7 +21,7 @@
     <Grid>
         <Image Opacity="0.9" Source="{StaticResource bg}"></Image>
         <Canvas>
-            <Grid  x:Name="loginPage" Width="300" Height="240" Canvas.Left="419" Canvas.Top="102" Opacity="0.8">
+            <Grid   x:Name="loginPage" Width="300" Height="240" Canvas.Left="419" Canvas.Top="102" Opacity="0.8">
                 <Border Background="White" CornerRadius="20" BorderThickness="0" />
                 <Grid >
                     <Grid.RowDefinitions>
@@ -41,70 +42,33 @@
 
                     <TextBlock Text="Login" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
 
-                    <Grid Grid.Row="3" Margin="40,0,40,0">
-                        <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#c1d0dc"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Height="25" Source="{StaticResource login_id}" Grid.Column="1" />
-                            <TextBox x:Name="userId" Grid.Column="2" VerticalContentAlignment="Center" BorderThickness="0" BorderBrush="{x:Null}">
-                                <TextBox.Resources>
-                                    <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
-                                        <VisualBrush.Visual>
-                                            <TextBlock FontStyle="Italic" Text="用户名"/>
-                                        </VisualBrush.Visual>
-                                    </VisualBrush>
+                    <TextBox Grid.Row="3"  x:Name="userId" Width="200"
+                    pu:TextBoxHelper.Watermark="账号"
+                    pu:TextBoxHelper.Icon="&#xf11c;"
+                    pu:TextBoxHelper.FocusedBorderBrush="#00FFCE"
+                    pu:TextBoxHelper.FocusedShadowColor="#00FFCE"
+                    pu:TextBoxHelper.CornerRadius="15"
+                    pu:TextBoxHelper.IsClearButtonVisible="True" />
 
-                                </TextBox.Resources>
-                                <TextBox.Style>
-                                    <Style TargetType="TextBox">
-                                        <Setter Property="Background" Value="{x:Null}"/>
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="{x:Null}" >
-                                                <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="">
-                                                <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="5" Margin="40,0,40,0">
-                        <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#c1d0dc"/>
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Height="25" Source="{StaticResource login_psw}" Grid.Column="1"/>
-                            <PasswordBox x:Name="userPassword" Background="{x:Null}" VerticalContentAlignment="Center"  BorderBrush="{x:Null}" BorderThickness="0"  Grid.Column="2">
-
-                            </PasswordBox>
-                        </Grid>
-                    </Grid>
-
-                    <Button x:Name="loginBtn" Content="登录"  Grid.Row="7" Width="220" Height="30" Foreground="White" FontSize="15" Click="loginBtn_Click">
-                        <Button.Template >
-                            <ControlTemplate TargetType="{x:Type Button}" >
-                                <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="1" CornerRadius="7,7,7,7">
-                                    <Border.Background>#3CB371</Border.Background>
-                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                    <PasswordBox x:Name="userPassword" Grid.Row="5"
+                        Width="200"
+                        pu:PasswordBoxHelper.Watermark="密码"
+                        pu:PasswordBoxHelper.Icon="&#xf023;"
+                        pu:PasswordBoxHelper.FocusedBorderBrush="#00FFCE"
+                        pu:PasswordBoxHelper.FocusedShadowColor="#00FFCE"
+                        pu:PasswordBoxHelper.CornerRadius="15"
+                        pu:PasswordBoxHelper.IsShowPwdButtonVisible="True" />
 
                     
+                    <!--ClickStyle：下沉 IsWaiting是否在等待-->
+                    <Button  x:Name="loginBtn" Width="200" Height="30" Grid.Row="7" Click="loginBtn_Click"
+                        Content="Login" FontSize="15"
+                        pu:ButtonHelper.ClickStyle="Sink"
+                        pu:ButtonHelper.IsWaiting="False"    
+                        FontFamily="{StaticResource FontAwesome}"
+                        Background="#3CB371"
+                        pu:ButtonHelper.HoverBrush="#3CB371"
+                        pu:ButtonHelper.CornerRadius="15" />
                     
                     <TextBlock TextDecorations="Underline" Text="没有账号？点击注册" HorizontalAlignment="Center" Grid.Row="9" MouseDown="Regist_MouseDown"/>
                 </Grid>
@@ -130,105 +94,60 @@
 
                     <TextBlock Text="Regist" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
 
-                    <Grid Grid.Row="3" Margin="40,0,40,0">
-                        <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#c1d0dc"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Height="25" Source="{StaticResource login_id}" Grid.Column="1" />
-                            <TextBox x:Name="registId" Grid.Column="2" VerticalContentAlignment="Center" BorderThickness="0" BorderBrush="{x:Null}">
-                                <TextBox.Resources>
-                                    <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
-                                        <VisualBrush.Visual>
-                                            <TextBlock FontStyle="Italic" Text="用户名"/>
-                                        </VisualBrush.Visual>
-                                    </VisualBrush>
+                    <TextBox Grid.Row="3"  x:Name="registId" Width="200"
+                    pu:TextBoxHelper.Watermark="账号"
+                    pu:TextBoxHelper.Icon="&#xf11c;"
+                    pu:TextBoxHelper.FocusedBorderBrush="#00FFCE"
+                    pu:TextBoxHelper.FocusedShadowColor="#00FFCE"
+                    pu:TextBoxHelper.CornerRadius="15"
+                    pu:TextBoxHelper.IsClearButtonVisible="True" />
 
-                                </TextBox.Resources>
-                                <TextBox.Style>
-                                    <Style TargetType="TextBox">
-                                        <Setter Property="Background" Value="{x:Null}"/>
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="{x:Null}" >
-                                                <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="">
-                                                <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="5" Margin="40,0,40,0">
-                        <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#c1d0dc"/>
+                    <PasswordBox x:Name="registPassword" Grid.Row="5"
+                        Width="200"
+                        pu:PasswordBoxHelper.Watermark="密码"
+                        pu:PasswordBoxHelper.Icon="&#xf023;"
+                        pu:PasswordBoxHelper.FocusedBorderBrush="#00FFCE"
+                        pu:PasswordBoxHelper.FocusedShadowColor="#00FFCE"
+                        pu:PasswordBoxHelper.CornerRadius="15"
+                        pu:PasswordBoxHelper.IsShowPwdButtonVisible="True" />
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Height="25" Source="{StaticResource login_psw}" Grid.Column="1"/>
-                            <PasswordBox x:Name="registPassword" Background="{x:Null}" VerticalContentAlignment="Center"  BorderBrush="{x:Null}" BorderThickness="0"  Grid.Column="2">
-
-                            </PasswordBox>
-                        </Grid>
-                    </Grid>
-
-                    <Grid Grid.Row="7" Margin="40,0,40,0">
-                        <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#c1d0dc"/>
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Height="25" Source="{StaticResource login_psw}" Grid.Column="1"/>
-                            <PasswordBox x:Name="rePassword" Background="{x:Null}" VerticalContentAlignment="Center"  BorderBrush="{x:Null}" BorderThickness="0"  Grid.Column="2">
-
-                            </PasswordBox>
-                        </Grid>
-                    </Grid>
-
+                    <PasswordBox x:Name="rePassword" Grid.Row="7"
+                        Width="200"
+                        pu:PasswordBoxHelper.Watermark="重复密码"
+                        pu:PasswordBoxHelper.Icon="&#xf023;"
+                        pu:PasswordBoxHelper.FocusedBorderBrush="#00FFCE"
+                        pu:PasswordBoxHelper.FocusedShadowColor="#00FFCE"
+                        pu:PasswordBoxHelper.CornerRadius="15"
+                        pu:PasswordBoxHelper.IsShowPwdButtonVisible="True" />
 
                     <Grid Grid.Row="9">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="registBtn" Content="注册" Grid.Column="1"  Height="30" Foreground="White" FontSize="15" Click="registBtn_Click">
-                            <Button.Template>
-                                <ControlTemplate TargetType="{x:Type Button}" >
-                                    <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="1" CornerRadius="7,7,7,7">
-                                        <Border.Background>#3CB371</Border.Background>
-                                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                        <Button x:Name="returnBtn" Content="取消" Grid.Column="3"  Height="30" Foreground="White" FontSize="15" Click="returnBtn_Click">
-                            <Button.Template>
-                                <ControlTemplate TargetType="{x:Type Button}" >
-                                    <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="1" CornerRadius="7,7,7,7">
-                                        <Border.Background>#FF4500</Border.Background>
-                                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                 
+                        <Button  x:Name="registBtn" Grid.Column="1" Height="30" Grid.Row="7" Click="registBtn_Click"
+                        Content="注册" FontSize="15"
+                        pu:ButtonHelper.ClickStyle="Sink"
+                        pu:ButtonHelper.IsWaiting="False"    
+                        FontFamily="{StaticResource FontAwesome}"
+                        Background="#3CB371"
+                        pu:ButtonHelper.HoverBrush="#3CB371"
+                        pu:ButtonHelper.CornerRadius="7" />
 
+                        <Button  x:Name="returnBtn" Grid.Column="3" Height="30" Grid.Row="7" Click="returnBtn_Click"
+                        Content="取消" FontSize="15"
+                        pu:ButtonHelper.ClickStyle="Sink"
+                        pu:ButtonHelper.IsWaiting="False"    
+                        FontFamily="{StaticResource FontAwesome}"
+                        Background="#FF4500"
+                        pu:ButtonHelper.HoverBrush="#FF4500"
+                        pu:ButtonHelper.CornerRadius="7" />
+
+                     
                     </Grid>
 
                     

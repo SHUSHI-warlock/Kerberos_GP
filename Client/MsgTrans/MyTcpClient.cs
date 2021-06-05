@@ -43,14 +43,25 @@ namespace Client.MsgTrans
             {
                 IPEndPoint ip = new IPEndPoint(IPAddress.Parse(_server), _port);
                 _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                _clientSocket.BeginConnect(ip, new AsyncCallback(ConnectCallBack), _clientSocket);
+                //_clientSocket.BeginConnect(ip, new AsyncCallback(ConnectCallBack), _clientSocket);
+                _clientSocket.Connect(ip);
                 return true;
             }
-            catch (Exception e)
+            catch (SocketException e)
             {
-                logger.Error(e.StackTrace);
-                return false;
+                if (e.ErrorCode == 10061)
+                {
+                    logger.Error("服务器程序未运行或服务器端口未开放");
+                    //OnErr("服务器程序未运行或服务器端口未开放");
+                }
+                else
+                {
+                    //OnErr(e.Message);
+                    logger.Error(e.Message);
+                    logger.Error(e.StackTrace);
+                }
             }
+            return false;
         }
 
         private void ConnectCallBack(IAsyncResult iar)

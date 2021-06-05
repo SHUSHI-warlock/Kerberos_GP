@@ -6,11 +6,14 @@ using Client.Utils.DesUtil;
 using Client.Utils.LogHelper;
 using Client.Utils.RSAUtil;
 using Newtonsoft.Json;
+using Panuon.UI.Silver;
+using Panuon.UI.Silver.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -57,7 +60,8 @@ namespace Client
         /// </summary>
         public void TryLogin(String id, String pa)
         {
-            Logining = true;
+            string authMsg="";//接收认证返回消息
+
             MyClient mclient = new MyClient();
 
             //连接AS
@@ -67,6 +71,8 @@ namespace Client
             {
                 logger.Info("连接AS失败！");
                 //加弹窗
+                Notice.Show("连接AS服务器失败！\n请检查AS服务器地址配置是否设置正确！", "异常", 3, MessageBoxIcon.Error);
+
                 return;
             }
 
@@ -94,14 +100,19 @@ namespace Client
             client.Send(message1);
 
             //等待AS回复
-            int sta = enterAS(client.Recive(), mclient);
+            bool sta = enterAS(client.Recive(), mclient,out authMsg);
 
-            if (sta == 1)
+            if (!sta)
             {
-                MessageBox.Show("登陆失败");
+                MessageBoxX.Show(string.Format("登陆失败!\n导致原因：{0}", authMsg), "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "是",
+                });
                 userPassword.Clear();
             }
-            else if (sta == 0)
+            else
             {
                 client.Close();
 
@@ -109,8 +120,9 @@ namespace Client
 
                 if (!client.Connect())
                 {
-                    logger.Info("连接TGS失败！");
+                    logger.Error("连接TGS失败！");
                     //加弹窗
+                    Notice.Show("连接TGS服务器失败！\n请检查TGS服务器地址配置是否设置正确！", "异常", 3,MessageBoxIcon.Error);
                     return;
                 }
 
@@ -129,13 +141,19 @@ namespace Client
                 message2.SetBody(mess);
                 client.Send(message2);
                 
-                int stb = enterTGS(client.Recive(), mclient);
-                if (stb == 1)
+                bool stb = enterTGS(client.Recive(), mclient,out authMsg);
+                if (!stb)
                 {
-                    MessageBox.Show("登陆失败");
+                    //MessageBox.Show("登陆失败");
+                    MessageBoxX.Show(string.Format("登陆失败!\n导致原因：{0}", authMsg), "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                    {
+                        MessageBoxIcon = MessageBoxIcon.Warning,
+                        ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                        OKButton = "是",
+                    });
                     userPassword.Clear();
                 }
-                else if (stb == 0)
+                else
                 {
                     client.Close();
                     //连接服务器
@@ -143,8 +161,9 @@ namespace Client
 
                     if (!client.Connect())
                     {
-                        logger.Info("连接Server失败！");
+                        logger.Error("连接Server失败！");
                         //加弹窗
+                        Notice.Show("连接游戏服务器失败！\n请检查游戏服务器地址配置是否设置正确！", "异常", 3, MessageBoxIcon.Error);
                         return;
                     }
                     Message messageV = new Message(4, 0, 0);
@@ -154,9 +173,9 @@ namespace Client
                     //开启接收
 
                     //服务器认证
-                    int stc = enterV(client.Recive(), mclient);
+                    bool stc = enterV(client.Recive(), mclient,out authMsg);
 
-                    if (stc == 0)
+                    if (stc)
                     {
                         //验证成功！
                         //client.OnReceive -= ServerAuth;
@@ -164,11 +183,21 @@ namespace Client
                         ///假设全为1
                         //DESUtils des = new DESUtils(new DesKey(new byte[] { 1, 1, 1, 1, 1, 1, 1, 1 }));
                         client.DesOpen(new DESUtils(mclient.vKey));
-
+                        MessageBoxX.Show("登录成功！","", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                        {
+                            OKButton = "Nice!",
+                            MessageBoxStyle = MessageBoxStyle.Modern
+                        }) ;
                         EnterLobby(new User(id));
                     }
                     else
                     {
+                        MessageBoxX.Show(string.Format("登陆失败!\n导致原因：{0}", authMsg), "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                        {
+                            MessageBoxIcon = MessageBoxIcon.Warning,
+                            ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                            OKButton = "是",
+                        });
                         logger.Debug("TryLogin:服务器验证失败！");
                     }
                 }
@@ -177,31 +206,42 @@ namespace Client
             client.Close();
         }
 
-        public int enterAS(Message message, MyClient mclient)
+        /// <summary>
+        /// 认证函数
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="mclient"></param>
+        /// <param name="authMsg"></param>
+        /// <returns></returns>
+        public bool enterAS(Message message, MyClient mclient,out string authMsg)
         {
+            authMsg = "";
             if (message.StateCode != 0)
             {
                 //出错！
                 logger.Info(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
-                MessageBox.Show(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
+                //MessageBox.Show(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
                 switch (message.StateCode)
                 {
                     case 1:
                         //Console.WriteLine("IDc不在数据库中");
-                        MessageBox.Show("IDc不在数据库中");
+                        authMsg = "IDc不在数据库中";
+                        //MessageBox.Show("IDc不在数据库中");
                         break;
                     case 2:
                         //Console.WriteLine("IDtgs不存在");
-                        MessageBox.Show("IDtgs不存在");
+                        authMsg = "IDtgs不存在";
+                        //MessageBox.Show("IDtgs不存在");
                         break;
                     case 3:
                         //Console.WriteLine("时钟不同步");
-                        MessageBox.Show("时钟不同步");
+                        authMsg = "时钟不同步";
+                        //MessageBox.Show("时钟不同步");
                         break;
                 }
                 //重新回到登录
                 //loginInput(ctx);
-                return 1;
+                return false;
             }
 
             //String mes=message.bodyToString();
@@ -216,19 +256,21 @@ namespace Client
             if (mclient.VerifyAS(au))
             {
                 logger.Info("用户AS验证成功!");
-                MessageBox.Show("用户AS验证成功!");
-                return 0;
+                //MessageBox.Show("用户AS验证成功!");
+                return true;
             }
             else
             {
-                logger.Info("验证失败");
-                MessageBox.Show("验证失败！");
-                return 1;
+                logger.Info("AS验证失败");
+                //MessageBox.Show("验证失败！");
+                authMsg = "AS验证失败!";
+                return false;
             }
         }
 
-        public int enterTGS(Message message, MyClient mclient)
+        public bool enterTGS(Message message, MyClient mclient, out string authMsg)
         {
+            authMsg = "";
             if (message.StateCode != 0)
             {
                 logger.Info(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
@@ -236,26 +278,31 @@ namespace Client
                 {
                     case 1:
                         //Console.WriteLine("IDv不存在");
-                        MessageBox.Show("IDv不存在");
+                        //MessageBox.Show("IDv不存在");
+                        authMsg = "IDv不存在";
                         break;
                     case 2:
                         //Console.WriteLine("票据错误");
-                        MessageBox.Show("票据错误");
+                        //MessageBox.Show("票据错误");
+                        authMsg = "票据错误";
+
                         break;
                     case 3:
                         //Console.WriteLine("票据过期");
-                        MessageBox.Show("票据过期");
+                        //MessageBox.Show("票据过期");
+                        authMsg = "票据过期";
                         break;
                     case 4:
                         //Console.WriteLine("身份验证失败");
-                        MessageBox.Show("身份验证失败");
+                        //MessageBox.Show("身份验证失败");
+                        authMsg = "身份验证失败";
                         break;
                     default:
                         break;
                 }
                 //重新回到登录
                 //loginInput(ctx);
-                return 1;
+                return false;
 
             }
             //String mes = message.bodyToString();
@@ -267,19 +314,22 @@ namespace Client
             if (mclient.VerifyTGS(au))
             {
                 logger.Info("用户TGS验证成功!");
-                MessageBox.Show("用户TGS验证成功!");
-                return 0;
+                //MessageBox.Show("用户TGS验证成功!");
+                return true;
             }
             else
             {
-                logger.Info("验证失败");
-                MessageBox.Show("验证失败！");
-                return 1;
+                logger.Info("TGS验证失败");
+                //MessageBox.Show("验证失败！");
+                authMsg = "TGS验证失败!";
+                return false;
             }
         }
 
-        public int enterV(Message message, MyClient mclient)
+        public bool enterV(Message message, MyClient mclient, out string authMsg)
         {
+            authMsg = "";
+
             if (message.StateCode != 0)
             {
                 logger.Info(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
@@ -287,24 +337,28 @@ namespace Client
                 {
                     case 1:
                         logger.Debug("V返回:票据错误");
-                        MessageBox.Show("票据错误");
+                        //MessageBox.Show("票据错误");
+                        authMsg = "票据错误";
                         break;
                     case 2:
                         logger.Debug("V返回:票据过期");
-                        MessageBox.Show("票据过期");
+                        //MessageBox.Show("票据过期");
+                        authMsg = "票据过期";
                         break;
                     case 3:
                         logger.Debug("V返回:身份验证失败");
-                        MessageBox.Show("身份验证失败");
+                        //MessageBox.Show("身份验证失败");
+                        authMsg = "身份验证失败";
                         break;
                     case 4:
                         logger.Debug("V返回:用户已在其他地方登录");
-                        MessageBox.Show("用户已在其他地方登录");
+                        //MessageBox.Show("用户已在其他地方登录");
+                        authMsg = "用户已在其他地方登录";
                         break;
                     default:
                         break;
                 }
-                return 1;
+                return false;
             }
             byte[] ts = message.GetBody();
             AuthenticationMessage au = new AuthenticationMessage();
@@ -313,14 +367,17 @@ namespace Client
             if (au.TS.Equals(mclient.VTime))
             {//时间相同
                 logger.Debug("V返回:服务器认证成功");
-                MessageBox.Show("服务器认证成功");
-                return 0;
+                //MessageBox.Show("服务器认证成功");
+
+                return true;
             }
             else
             {//服务器认证失败
                 logger.Debug("V返回:认证服务器失败");
-                MessageBox.Show("认证服务器失败");
-                return 1;
+                //MessageBox.Show("认证服务器失败");
+                authMsg = "认证服务器失败";
+
+                return false;
             }
         }
         
@@ -357,11 +414,23 @@ namespace Client
             if(res.StateCode==0)
             {
                 logger.Info("注册成功！");
+                MessageBoxX.Show("注册成功！", "", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    OKButton = "OK",
+                    MessageBoxStyle = MessageBoxStyle.Modern
+                });
                 return true;
             }
             else
             {//注册失败！
                 logger.Error("注册失败！");
+                MessageBoxX.Show("注册失败！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    MessageBoxStyle = MessageBoxStyle.Modern,
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "OK",
+                });
                 return false;
             }
         }
@@ -396,6 +465,8 @@ namespace Client
             if (!client.Connect())
             {
                 logger.Info("AS连接失败！");
+                Notice.Show("连接AS服务器失败！\n请检查AS服务器地址配置是否设置正确！", "异常", 3, MessageBoxIcon.Error);
+
                 return;
             }
             //请求建立连接
@@ -409,6 +480,12 @@ namespace Client
             if(pk==null)
             {
                 logger.Info("AS建立连接失败！");
+                MessageBoxX.Show("登陆失败!\nAS建立连接失败！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "是",
+                });
                 return;
             }
 
@@ -420,7 +497,6 @@ namespace Client
             registDes = new DESUtils(desKey);
 
             Message message2 = new Message(0, 2, 0);
-
 
             byte[] temp = desKey.getKeyBytes();
             message2.SetBody(RSAUtils.Encryption(pk, temp));
@@ -443,7 +519,12 @@ namespace Client
             else
             {
                 logger.Info("服务器连接2建立失败！");
-                MessageBox.Show("服务器连接2建立失败！");
+                MessageBoxX.Show("登陆失败!\nAS建立连接2失败！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "是",
+                });
                 client.Close();
             }
         }
@@ -478,21 +559,31 @@ namespace Client
                 if (registId.Text == "" || registPassword.Password == "")
                 {
                     logger.Info("账号密码不能为空！");
-                    MessageBox.Show("账号密码不能为空！");
-
+                    //MessageBox.Show("账号密码不能为空！");
+                    MessageBoxX.Show("账号密码不能为空，懂？！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                    {
+                        MessageBoxIcon = MessageBoxIcon.Warning,
+                        ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                        OKButton = "懂了",
+                    });
                     return;
                 }
                 if(!registPassword.Password.Equals(rePassword.Password))
                 {
                     logger.Info("前后两次密码输入不一致！");
-                    MessageBox.Show("前后两次密码输入不一致！");
-
+                    MessageBoxX.Show("前后两次密码输入不一致，懂？！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                    {
+                        MessageBoxIcon = MessageBoxIcon.Warning,
+                        ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                        OKButton = "懂了",
+                    });
                     return;
                 }
-            
-                if(TryRegist(registId.Text,registPassword.Password))
+                Registing = true;
+
+                if (TryRegist(registId.Text,registPassword.Password))
                 {
-                    MessageBox.Show("注册成功！");
+                    //MessageBox.Show("注册成功！");
 
                     client.Close();
 
@@ -506,11 +597,16 @@ namespace Client
                     registPassword.Password = "";
                     rePassword.Password = "";
                     MessageBox.Show("注册失败：用户已存在！");
+                    MessageBoxX.Show("注册失败：用户已存在！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                    {
+                        MessageBoxStyle = MessageBoxStyle.Modern,
+                        MessageBoxIcon = MessageBoxIcon.Warning,
+                        ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                        OKButton = "是",
+                    });
                 }
             }
-
             Registing = false;
-
         }
 
         /// <summary>
@@ -520,16 +616,27 @@ namespace Client
         /// <param name="e"></param>
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
+
             if (!Logining)
             {
                 if (userId.Text == "" || userPassword.Password == "")
+                {
+                    MessageBoxX.Show("账号密码不能为空，懂？！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                    {
+                        MessageBoxIcon = MessageBoxIcon.Warning,
+                        ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                        OKButton = "懂了",
+                    });
+
                     return;
+                }
+                Logining = true;
                 TryLogin(userId.Text, userPassword.Password);
+                //Thread.Sleep(3000);
+                Logining = false;
             }
 
             //MessageBox.Show("登录成功！");
-
-
         }
 
         /// <summary>
@@ -543,10 +650,6 @@ namespace Client
             Environment.Exit(0);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            (sender as Button).IsEnabled = false;
-            Console.WriteLine("按钮已禁止");
-        }
+        
     }
 }
