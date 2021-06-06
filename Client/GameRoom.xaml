@@ -39,13 +39,13 @@
 
 
         <DataTemplate x:Key="msgTemplate">
-            <TextBlock TextWrapping="WrapWithOverflow" Width="190">
-                    <Run Foreground="Red" Text="{Binding UserId}"/>
-                    <Run Foreground="Green" Text="{Binding Time, Converter={StaticResource timeCvt}}"/>
+            
+            <TextBlock Style="{x:Null}" TextWrapping="Wrap"  Height="auto">
+                    <Run  Foreground="Red" Text="{Binding UserId}"/>
+                    <Run  Foreground="Green" Text="{Binding Time, Converter={StaticResource timeCvt}}"/>
                     <LineBreak/>
-                    <Run Foreground="Black" Text="{Binding Msg}"/>
+                    <Run  Foreground="Black"  Text="{Binding Msg}"/>
             </TextBlock>
-
         </DataTemplate>
 
         <Style x:Key="MyButton" BasedOn="{x:Null}" TargetType="Button">

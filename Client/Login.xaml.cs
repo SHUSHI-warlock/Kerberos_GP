@@ -1,4 +1,5 @@
-﻿using Client.core.Services;
+﻿using AppServer;
+using Client.core.Services;
 using Client.Ker;
 using Client.MsgTrans;
 using Client.Utils;
@@ -79,20 +80,20 @@ namespace Client
             mclient.id = id;
             mclient.password = pa;
             //this.client.generateKey();
-            Console.WriteLine(pa);
+            //Console.WriteLine(pa);
 
             //生成秘钥
 
-            //mclient.generateKey(pa);
+            mclient.generateKey(pa);
             ///测试
-            mclient.asKey = new DesKey(new byte[] { 1, 1, 1, 1, 1, 1, 1, 1 });
+            //mclient.asKey = new DesKey(new byte[] { 1, 1, 1, 1, 1, 1, 1, 1 });
 
             mclient.IDtgs = "1";
 
             //生成发送给AS的信息
             String mes = mclient.ASconfirm(id, "1");
             byte[] ba = Encoding.Default.GetBytes(mes);
-            Console.WriteLine(mes);
+            //Console.WriteLine(mes);
             //生成消息报文
             Message message1 = new Message(0, 0, 0);
             message1.SetBody(ba);
@@ -189,6 +190,7 @@ namespace Client
                             MessageBoxStyle = MessageBoxStyle.Modern
                         }) ;
                         EnterLobby(new User(id));
+                   
                     }
                     else
                     {
@@ -270,7 +272,14 @@ namespace Client
 
         public bool enterTGS(Message message, MyClient mclient, out string authMsg)
         {
+            
             authMsg = "";
+            if(message==null)
+            {
+                authMsg = "TGS服务器连接失败";
+                return false;
+            }   
+            
             if (message.StateCode != 0)
             {
                 logger.Info(String.Format("登录应用服务器失败！ 状态码：{0}", message.StateCode));
@@ -404,12 +413,18 @@ namespace Client
                     sb.Append(" ");
                 pa = sb.ToString();
             }
-
+            
             message.SetBody(byteManage.concat(Encoding.UTF8.GetBytes(id), Encoding.UTF8.GetBytes(pa)));
+
+
+           
 
             client.Send(message);
 
             Message res = client.Recive();
+
+            if (res == null)
+                return false;
 
             if(res.StateCode==0)
             {
@@ -503,11 +518,17 @@ namespace Client
 
             client.Send(message2);
 
-            Message res2 = client.Recive();
-            //解密服务器返回消息
-            string msg = Encoding.UTF8.GetString(registDes.Decryption( res2.GetBody()));
 
-            if(msg.Equals("connection formed"))
+            ///打开加解密
+            client.DesOpen(registDes);
+
+            Message res2 = client.Recive();
+
+            //解密服务器返回消息
+            //string msg = Encoding.UTF8.GetString(registDes.Decryption( res2.GetBody()));
+            string msg = Encoding.UTF8.GetString(res2.GetBody());
+
+            if (msg.Equals("connection formed"))
             {
                 logger.Info("进入注册界面！");
                 loginPage.Visibility = Visibility.Hidden;

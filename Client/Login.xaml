@@ -9,8 +9,11 @@
         mc:Ignorable="d"
         Title="Login" Width="800" Height="480" ResizeMode="NoResize" Closed="Window_Closed">
     <Window.Resources>
+
         <ResourceDictionary>
-           
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Control.xaml" />
+            </ResourceDictionary.MergedDictionaries>
             <ImageSource x:Key="bg">Resources/Image/bg/bilibili.png</ImageSource>
             <ImageSource x:Key="bg1">Resources/Image/111.png</ImageSource>
             <ImageSource x:Key="login_id">Resources\Image\登录-用户.png</ImageSource>
@@ -37,9 +40,6 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
 
-                   
-
-
                     <TextBlock Text="Login" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
 
                     <TextBox Grid.Row="3"  x:Name="userId" Width="200"
@@ -59,7 +59,6 @@
                         pu:PasswordBoxHelper.CornerRadius="15"
                         pu:PasswordBoxHelper.IsShowPwdButtonVisible="True" />
 
-                    
                     <!--ClickStyle：下沉 IsWaiting是否在等待-->
                     <Button  x:Name="loginBtn" Width="200" Height="30" Grid.Row="7" Click="loginBtn_Click"
                         Content="Login" FontSize="15"

@@ -30,9 +30,6 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
     private static Gson gson = new Gson();
     //接受client发送的消息
 
-    private static PropUtil pp = PropUtil.getInstance();
-    private static String SqlName = pp.getValueByKey("SQLUsername");
-    private static String SqlPsw = pp.getValueByKey("SQLPsw");
 
     private DESUtils des;
 
@@ -72,30 +69,37 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
             }
             case 2://用户建立连接
             {
-                //MessageInfo mes=gson.fromJson(message.getMsg(),MessageInfo.class);
-                //byte[] ke=mes.getMessage();
-                //byte[] k= RSAUtils.Decryption(as.keyPair.getSk(),ke);
-                byte[] k=message.getMessageBody();
+                try {
 
-                ///测试代码：
-                //byte[] k1 = RSAUtils.Encryption(as.keyPair.getPk(), new byte[]{1,-44,1,-99,1,-82,1,14});
 
-                byte[] temp = RSAUtils.Decryption(as.keyPair.getSk(), k);
+                    //MessageInfo mes=gson.fromJson(message.getMsg(),MessageInfo.class);
+                    //byte[] ke=mes.getMessage();
+                    //byte[] k= RSAUtils.Decryption(as.keyPair.getSk(),ke);
+                    byte[] k = message.getMessageBody();
 
-                //byte[] temp2 = RSAUtils.Decryption(as.keyPair.getSk(), k1);
+                    ///测试代码：
+                    //byte[] k1 = RSAUtils.Encryption(as.keyPair.getPk(), new byte[]{1,-44,1,-99,1,-82,1,14});
 
-                as.signKey=new DesKey(temp);
+                    byte[] temp = RSAUtils.Decryption(as.keyPair.getSk(), k);
 
-                //as.signKey=key;
-                //回复这条消息代表准备就绪
-                String ba="connection formed";
-                des=new DESUtils(as.signKey);
-                byte[] b=des.Encryption(ba.getBytes());
+                    //byte[] temp2 = RSAUtils.Decryption(as.keyPair.getSk(), k1);
 
-                NettyMessage back=new NettyMessage(1,2,0);
-                back.setMessageBody(b);
-                ctx.writeAndFlush(back);
-                System.out.println("发回建立连接信息");
+                    as.signKey = new DesKey(temp);
+
+                    //as.signKey=key;
+                    //回复这条消息代表准备就绪
+                    String ba = "connection formed";
+                    des = new DESUtils(as.signKey);
+                    byte[] b = des.Encryption(ba.getBytes());
+
+                    NettyMessage back = new NettyMessage(1, 2, 0);
+                    back.setMessageBody(b);
+                    ctx.writeAndFlush(back);
+                    System.out.println("发回建立连接信息");
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
                 break;
             }
             case 3://用户注册信息
@@ -116,7 +120,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
                 ke.GenKey(pas.getBytes());
 
                 JDBCFacade jdbc=new JDBCFacade();
-                jdbc.open("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/as",SqlName,SqlPsw);
+                jdbc.open();
                 ResultSet rs =  jdbc.executeQuery("select * from message");
                 int state=0;
                 while (rs.next()) {
@@ -200,39 +204,16 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
                     as.IDc+=" ";
                 }
             }
-            /*
-            System.out.println(as.sKey.getKeyBytes().length);
-            System.out.println(as.IDc.length());
-            System.out.println(as.ADc.length());
-            System.out.println(as.TGSid.length());
-            System.out.println(as.TS.length());
-            System.out.println(String.valueOf(as.Lifetime).length());
 
-             */
             byte[] ticket=as.generateTicket();
-            //System.out.println(ticket.length);
+
             System.out.println(Arrays.toString(ticket));
-            //System.out.println(as.TGSid);
-            //System.out.println(Arrays.toString(as.sKey.getKeyBytes()));
-            //System.out.println(Arrays.toString(as.cKey.getKeyBytes()));
-            DesKey k=new DesKey();
-            String pa="123";
-            k.GenKey(pa.getBytes());
-            //System.out.println(Arrays.toString(as.TGSkeyAS.getKeyBytes()));
-            //System.out.println("key:"+Arrays.toString(pa.getBytes()));
-            //as.cKey=k;
-            //System.out.println(Arrays.toString(k.getKeyBytes()));
-            //System.out.println(Arrays.toString(as.cKey.getKeyBytes()));
+
             byte[] mess=as.generateBack(as.TGSid,ticket,as.sKey,ts,as.cKey);
-            //System.out.println(mess.length);
-            //System.out.println(Arrays.toString(mess));
-            //MessageInfo back=new MessageInfo(1,0,0,-1);
-            //back.setMessage(mess);
             NettyMessage back=new NettyMessage(1,0,0);
             back.setMessageBody(mess);
             System.out.println("正在发送消息");
             channel.writeAndFlush(back);
-
         }
         else{
             NettyMessage back=new NettyMessage(1,0,as.status);

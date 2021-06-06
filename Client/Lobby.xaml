@@ -19,12 +19,12 @@
         <ImageSource x:Key="buttonImage">Resources\Image\按钮 (11).png</ImageSource>
         <ImageSource x:Key="exitImage">Resources/Image/退出 (7).png</ImageSource>
 
-        <DataTemplate x:Key="msgTemplate">
-            <TextBlock TextWrapping="WrapWithOverflow" Width="190">
-                    <Run Foreground="Red" Text="{Binding UserId}"/>
-                    <Run Foreground="Green" Text="{Binding Time, Converter={StaticResource timeCvt}}"/>
+        <DataTemplate x:Key="msgTemplate" >
+            <TextBlock Style="{x:Null}" TextWrapping="Wrap"  Height="auto">
+                    <Run  Foreground="Red" Text="{Binding UserId}"/>
+                    <Run  Foreground="Green" Text="{Binding Time, Converter={StaticResource timeCvt}}"/>
                     <LineBreak/>
-                    <Run Foreground="Black"  Text="{Binding Msg}"/>
+                    <Run  Foreground="Black"  Text="{Binding Msg}"/>
             </TextBlock>
                 
         </DataTemplate>
@@ -139,7 +139,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Content="大厅聊天" Foreground="White" FontSize="16" Grid.Row="0"></Label>
-                <ListBox Grid.Row="1" Name="LobbyChat" Width="auto" ItemTemplate="{StaticResource msgTemplate}"
+                <ListBox Style="{x:Null}" Grid.Row="1" Name="LobbyChat" Width="auto" ItemTemplate="{StaticResource msgTemplate}"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 </ListBox>
                 <Grid Grid.Row="2">
@@ -148,7 +148,7 @@
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="SendMag"  Grid.Column="0"></TextBox>
-                    <Button Grid.Column="1" Content="发送" Click="SendMag_ButtonDown"></Button>
+                    <Button  Grid.Column="1" Content="发送" Click="SendMag_ButtonDown"></Button>
                 </Grid>
             </Grid>
 

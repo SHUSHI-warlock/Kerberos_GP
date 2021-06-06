@@ -2,15 +2,19 @@ package Message;
 
 
 
+import Server.NettyServerHandler;
 import myutil.DESUtil.DESUtils;
 import myutil.DESUtil.DesKey;
 
 import java.nio.charset.StandardCharsets;
+import java.util.logging.Logger;
 
 import static Message.byteManage.concat;
 import static Message.byteManage.subBytes;
 
 public class Ticket {
+    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Ticket.class);
+
     //public String Key; //客户端和TGS之间的加密秘钥（客户端和服务器V之间的加密秘钥）
     public DesKey Key;
     public String IDc; //客户端ID
@@ -66,7 +70,7 @@ public class Ticket {
         return result;
     }
 
-    public void ticketDecrypt(byte[] message, DesKey sKey){
+    public boolean ticketDecrypt(byte[] message, DesKey sKey){
         //调用DES解密函数对字符串先进行解密
         DESUtils des=new DESUtils(sKey);
         byte[] Message=des.Decryption(message);
@@ -96,7 +100,15 @@ public class Ticket {
         byte[] li=subBytes(Message,57,1);
         String l=new String(li);
         //System.out.println(l);
-        int L=Integer.parseInt(l);
-        this.Lifetime=L;
+        try {
+            int L = Integer.parseInt(l);
+            this.Lifetime=L;
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            logger.error("服务器Ticket解密失败");
+            return false;
+        }
     }
 }

@@ -48,8 +48,8 @@ public class CheckerCore {
                 setRegion(false,new CheckerPoint(7,1), 4, 6);
                 finished[3]=false;finished[6]=false;
             case 4:
-                setRegion(true,new CheckerPoint(9,1), 4, 2);
-                setRegion(false,new CheckerPoint(7,10), 4, 5);
+                setRegion(true,new CheckerPoint(9,1), 4, 5);
+                setRegion(false,new CheckerPoint(7,10), 4, 2);
                 finished[2]=false;finished[5]=false;
             case 2:
                 setRegion(true,new CheckerPoint(0,6), 4, 1);

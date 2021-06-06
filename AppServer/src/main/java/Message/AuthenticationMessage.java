@@ -1,12 +1,17 @@
 package Message;
 
 
+import Server.NettyServerHandler;
 import myutil.DESUtil.DESUtils;
 import myutil.DESUtil.DesKey;
+
+import java.util.logging.Logger;
 
 import static Message.byteManage.subBytes;
 
 public class AuthenticationMessage {
+    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(AuthenticationMessage.class);
+
     public String IDc; //客户端ID
     public String ADc; //客户端网络地址
     public String IDtgs; //TGS服务器ID
@@ -165,22 +170,29 @@ public class AuthenticationMessage {
     }
 
 
-    public void CVMEssage(byte[] message,DesKey TGSKeyV){ //服务器接收到客户端消息
+    public boolean CVMEssage(byte[] message,DesKey TGSKeyV){ //服务器接收到客户端消息
         byte[] tic=subBytes(message,0,64);
         this.ticket1=tic;
 
         this.ticket = new Ticket();
-        ticket.ticketDecrypt(tic,TGSKeyV);
+
+        if(!ticket.ticketDecrypt(tic,TGSKeyV))
+        {
+            return false;
+        }
 
         this.Key=ticket.Key;
         this.IDc=ticket.IDc.trim();
         this.ADc=ticket.ADc;
         this.IDv=ticket.ID;
-        this.TS=ticket.TS;
+
         this.Lifetime=ticket.Lifetime;
         byte[] au=subBytes(message,64,48);
         this.authenticator=new Authenticator();
         authenticator.Decrypt(au,this.Key);
+        //解出来的是认证的时间
+        this.TS=authenticator.TS;
+        return true;
     }
     public void VCMessage(byte[] message,DesKey Kcv){
         DESUtils des=new DESUtils(Kcv);

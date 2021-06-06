@@ -26,13 +26,13 @@ namespace Client.Utils.LogHelper
             }
             logpath = basepath + logFileName;
             //重新写
-            //if (File.Exists(logpath))
-            //    File.Delete(logpath);
+            if (File.Exists(logpath))
+                File.Delete(logpath);
 
-            if(File.Exists(logpath))
-            {
-                logpath = basepath + "/b.txt";
-            }
+            //if(File.Exists(logpath))
+            //{
+            //    logpath = basepath + "/b.txt";
+            //}
 
         }
 

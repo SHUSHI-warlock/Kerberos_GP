@@ -60,7 +60,8 @@ public class NettyMessageDecoder extends ByteToMessageDecoder {
 				message.setMessageBody(bodyArray);
 			} else {
 				logger.info("服务器收到一条消息");
-				message.setMessageBody(channelManager.getUserDes(userid).Decryption(bodyArray));
+				if(message.getLength()!=0)
+					message.setMessageBody(channelManager.getUserDes(userid).Decryption(bodyArray));
 			}
 		}
 		catch (Exception e)

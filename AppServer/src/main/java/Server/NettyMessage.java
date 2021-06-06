@@ -101,6 +101,21 @@ public class NettyMessage implements Serializable {
 		this.length = this.messageBody.length;
 	}
 
+	public NettyMessage(NettyMessage msg)
+	{
+		this.messageP2P = msg.messageP2P;
+		this.messageType = msg.messageType;
+		this.stateCode = msg.stateCode;
+		this.length =msg.length;
+		this.unEncode = msg.unEncode;
+		if(length!=0) {
+			this.messageBody = new byte[length];
+			System.arraycopy(msg.messageBody,0,messageBody,0,length);
+		}
+		parseHead();
+	}
+
+
 	/**
 	 * 用接收到的报文初始化
 	 *
@@ -240,5 +255,10 @@ public class NettyMessage implements Serializable {
 		return data;
 	}
 
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }
 

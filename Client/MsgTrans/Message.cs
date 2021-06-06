@@ -71,6 +71,7 @@ namespace Client.MsgTrans
         public void SetBody(byte[] body)
         {
             messageBody = body;
+            this.Length = body.Length;
         }
 
         public void SetBody(Object o)

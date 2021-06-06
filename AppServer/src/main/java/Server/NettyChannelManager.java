@@ -141,15 +141,18 @@ public class NettyChannelManager {
      * @param invocation 消息体
      */
     public void sendAll(NettyMessage invocation) {
+        logger.debug(String.format("发送报文：%s", invocation));
+
         try {
             for (Channel channel : channels.values()) {
                 if (!channel.isActive()) {
                     return;
                 }
                 // 发送消息
-                channel.pipeline().writeAndFlush(invocation);
+                NettyMessage msg = new NettyMessage(invocation);
+
+                channel.pipeline().writeAndFlush(msg);
             }
-            logger.debug(String.format("发送报文：%s", invocation));
         }
         catch (Exception e){
             e.printStackTrace();
@@ -164,18 +167,21 @@ public class NettyChannelManager {
      */
     public void sendOther(String user,NettyMessage invocation)
     {
+        logger.debug(String.format("发送报文：%s", invocation));
         try {
             for (Channel channel : channels.values()) {
                 if (!channel.isActive()) {
                     return;
                 }
                 if(user.equals(findUser(channel))) {
-                    return;
+                    logger.info("自己不发");
+                    continue;
                 }
                 // 发送消息
-                channel.pipeline().writeAndFlush(invocation);
+                NettyMessage msg = new NettyMessage(invocation);
+                channel.pipeline().writeAndFlush(msg);
             }
-            logger.debug(String.format("发送报文：%s", invocation));
+
         }
         catch (Exception e){
             e.printStackTrace();

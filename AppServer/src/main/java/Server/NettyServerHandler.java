@@ -77,7 +77,14 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		if(message.getMessageType()==0)//用户认证
 		{
 			// TODO: 2021/6/2 添加登录验证
-			enterLobby(ctx,message);
+			logger.info("即将进行认证");
+			try {
+				enterLobby(ctx, message);
+			}catch(Exception e)
+			{
+				logger.info("认证过程出错");
+				e.printStackTrace();
+			}
 			return;
 		}
 
@@ -137,9 +144,15 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	 * @param message
 	 */
 	public void enterLobby(ChannelHandlerContext ctx,NettyMessage message){
+
 		byte[] mes=message.getMessageBody();
 		AuthenticationMessage fromClient=new AuthenticationMessage();
-		fromClient.CVMEssage(mes,TGSKeyV);
+		if(!fromClient.CVMEssage(mes,TGSKeyV)){
+			NettyMessage back=new NettyMessage(5,0,3);
+			ctx.writeAndFlush(back);
+			logger.info(String.format("票据解密失败"));
+			return;
+		}
 
 		server.ticket=fromClient.ticket;
 		logger.info(String.format("用户%s开始进行验证",fromClient.IDc));

@@ -78,7 +78,7 @@ public class SERVER {
         }
 
         cal.setTime(date);
-        cal.add(Calendar.SECOND,1);
+        cal.add(Calendar.MINUTE,1);
         String result=sd.format(cal.getTime());
         if(result.length()<12){
             for(int i=result.length();i<12;i++){

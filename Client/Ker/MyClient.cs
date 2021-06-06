@@ -1,4 +1,5 @@
-﻿using Client.Utils.DesUtil;
+﻿using AppServer;
+using Client.Utils.DesUtil;
 using Client.Utils.RSAUtil;
 using System;
 using System.Collections.Generic;
@@ -143,9 +144,9 @@ namespace Client.Ker
 
         public byte[] Vconfirm(byte[] Vticket, String IDc, String ADc, DesKey vKey)
         {
-            String ts = byteManage.generateTime();
+            String ts = byteManage.generateTime(out VTime);
 
-            VTime = DateTime.Now.AddSeconds(1).ToString("HH:mm:ss");
+            //VTime = DateTime.Now.AddMinutes(1).ToString("HH:mm:ss");
 
             Vauthenticator = new Authenticator(IDc, ADc, ts);
             byte[] au = Vauthenticator.Encrypt(vKey);

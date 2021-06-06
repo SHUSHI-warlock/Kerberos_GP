@@ -225,10 +225,11 @@ namespace Client
                     allRoomInfos = lobbyMsg.roomInfos;
                     ShowRoomInfo();
                     ShowUserInfo(lobbyMsg.users);
+                    //通知
+                    Notice.Show(string.Format("刷新成功！\n当前：房间数：{0} 大厅人数：{1}", roomInfos.Count, users.Count), "通知", 5);
+
                 });
-                //通知
-                Notice.Show(string.Format("刷新成功！\n当前：房间数：{0} 大厅人数：{1}",roomInfos.Count,users.Count),"通知",5);
-            }
+}
             else
             {
                 logger.Error(string.Format("接收大厅信息出错！ 状态码:{0}", message.StateCode));
@@ -571,9 +572,6 @@ namespace Client
             //PlayerStateChanged(_player);
             Message message = new Message(4, 10, 0);
             client.Send(message);
-
-            client.Close();
-            
 
             logger.Debug("退出大厅!");
             messageShowWin.Hide();

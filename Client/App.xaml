@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:Client"
              Startup="Application_Startup" >
     <Application.Resources>
-        <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Control.xaml" />
     </Application.Resources>
 </Application>

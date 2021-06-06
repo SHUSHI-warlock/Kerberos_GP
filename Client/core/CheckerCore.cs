@@ -370,6 +370,7 @@ namespace Client.core
                     ClearMove();
                     if (!canMove(s, e))
                     {///???这我是没想到的！
+                        printBoard();
                         throw new Exception("这我是没想到的！");
                     }
                     //UI

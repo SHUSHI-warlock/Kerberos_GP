@@ -6,6 +6,4 @@ public class serverMain {
         //Æô¶¯server·şÎñ
         new serverTGS().bind(2333);
     }
-
-
 }

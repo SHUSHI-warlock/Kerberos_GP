@@ -105,11 +105,10 @@ public class ServerHandler extends ChannelInboundHandlerAdapter{
                     tgs.IDc+=" ";
                 }
             }
-            System.out.println("a");
+
             byte[] ticket=tgs.generateTicket();
-            System.out.println("A");
+
             byte[] mess=tgs.generateBack(tgs.IDv,ticket,tgs.sKey,ts,tgs.Kcv);
-            System.out.println("b");
             //MessageInfo back=new MessageInfo(3,0,0,-1);
             //back.setMessage(mess);
             NettyMessage back=new NettyMessage(3,0,0);

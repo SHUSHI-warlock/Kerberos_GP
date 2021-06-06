@@ -1,18 +1,22 @@
 package JDBC;
 
+import myutil.PropUtil;
+
 import java.sql.*;
 
 public class JDBCUtils {
 
-    private static final String connectionURL = "jdbc:mysql://localhost:3306/as?useUnicode=true&characterEncoding=UTF8&useSSL=false";
-    private static final String username = "root";
-    private static final String password = "000000";
+    private static final PropUtil pp = PropUtil.getInstance();
+    private static final String SqlDriver = "com.mysql.cj.jdbc.Driver";
+    private static final String SqlUrl = "jdbc:mysql://localhost:3306/as?allowPublicKeyRetrieval=true";
+    private static final String SqlName = pp.getValueByKey("SQLUsername");
+    private static final String SqlPsw = pp.getValueByKey("SQLPsw");
 
     //创建数据库的连接
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return   DriverManager.getConnection(connectionURL,username,password);
+            Class.forName(SqlDriver);
+            return   DriverManager.getConnection(SqlUrl,SqlName,SqlPsw);
         } catch (Exception e) {
 
             e.printStackTrace();

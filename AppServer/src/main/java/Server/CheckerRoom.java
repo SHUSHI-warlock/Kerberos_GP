@@ -81,15 +81,18 @@ public class CheckerRoom implements Room {
         logger.info(String.format("用户%s退出房间%d",p.getUserId(),roomInfo.getRoomId()));
 
         p.userState = Constant.exit_rome;
-        //向他自己也发送
-        NettyMessage playerStateMessage = new NettyMessage(5,6,0);
-        playerStateMessage.setMessageBody(gson.toJson(p));
-        sendAll(playerStateMessage);
 
         roomInfo.removePlayer(p);
         playerPos[p.pos]=false;
         p.roomId = -1;
         p.userState = Constant.online;
+
+        //向其他人发送
+        NettyMessage playerStateMessage = new NettyMessage(5,6,0);
+        playerStateMessage.setMessageBody(gson.toJson(p));
+        sendAll(playerStateMessage);
+
+
     }
 
     @Override
@@ -104,8 +107,8 @@ public class CheckerRoom implements Room {
         //判断是否开始了
         if(CanStart())
         {
-            new Thread( new Runnable() {
-                public void run(){
+            //new Thread( new Runnable() {
+           //     public void run(){
                     logger.debug(String.format("房间%d开始游戏！",roomInfo.getRoomId()));
                     roomInfo.setRoomState(1);
 
@@ -117,8 +120,8 @@ public class CheckerRoom implements Room {
                     GameMsg gameMsg = new GameMsg(0,curr);
                     gameMessage.setMessageBody(gson.toJson(gameMsg));
                     sendAll(gameMessage);
-                    }
-            }).start();
+            //        }
+            //}).start();
         }
     }
 
@@ -226,16 +229,21 @@ public class CheckerRoom implements Room {
     }
 
     private void sendAll(NettyMessage message){
-        for(Player p : roomInfo.getPlayers()){
-            if(p!=null)
-                nettyChannelManager.send(p.getUserId(),message);
+
+        for(Player p : roomInfo.getPlayers()) {
+            if (p != null) {
+                NettyMessage msg = new NettyMessage(message);
+                nettyChannelManager.send(p.getUserId(), msg);
+            }
         }
     }
 
-    private void sendOthers(String id,NettyMessage message){
-        for(Player p : roomInfo.getPlayers()){
-            if(p!=null&&!p.getUserId().equals(id))
-                nettyChannelManager.send(p.getUserId(),message);
+    private void sendOthers(String id,NettyMessage message) {
+        for (Player p : roomInfo.getPlayers()) {
+            if (p != null && !p.getUserId().equals(id)) {
+                NettyMessage msg = new NettyMessage(message);
+                nettyChannelManager.send(p.getUserId(), msg);
+            }
         }
     }
 

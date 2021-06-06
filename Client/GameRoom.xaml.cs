@@ -197,9 +197,9 @@ namespace Client
                     Message message = tcpClient.Recive();
                     switch (message.MessageType)
                     {
-                        //case 5:
-                        //    MsgHandler(message);
-                        //    break;
+                        case 5:
+                            MsgHandler(message);
+                            break;
                         case 6:
                             PlayerStateHandler(message);
                             break;
@@ -328,17 +328,19 @@ namespace Client
                     //判断是否完成了游戏
                     if(gameCore.isFinished(msg.pos))
                     {
-                        roomInfo.players[gameCore.getCurPlayer()].userState = UserState.complete;
+                        roomInfo.players[msg.pos].userState = UserState.complete;
+                        roomInfo.players[msg.pos].steps = Steps;
                         BindPlayer(roomInfo.players[gameCore.getCurPlayer()]);
                         AddRoomNews(Brushes.Gold, string.Format("{0}号玩家已经完成！", msg.pos));
                     }
 
                     //设置下一个人
                     int next = gameCore.getNextPlayer();
-                    logger.Debug(string.Format("下一个移动的玩家是{0}号", next));
                     if (next != -1)
+                    {
+                        logger.Debug(string.Format("下一个移动的玩家是{0}号", next));
                         SetNextMovePlayer(next);
-
+                    }
                     isShowing = false;
 
                 });
@@ -382,14 +384,27 @@ namespace Client
 
                     gameCore.SubmitMove();
                     ChangedState(GameState.Waiting);
-                    //显示
-                    AddRoomNews(Brushes.Green, string.Format("玩家移动有效！"));
 
+                    if (gameCore.isFinished(gameCore.getCurPlayer()))
+                    {
+                        roomInfo.players[gameCore.getCurPlayer()].userState = UserState.complete;
+                        roomInfo.players[gameCore.getCurPlayer()].steps = Steps;
+                        BindPlayer(roomInfo.players[gameCore.getCurPlayer()]);
+                        AddRoomNews(Brushes.Gold, string.Format("{0}号玩家已经完成！", gameCore.getCurPlayer()));
+                    }
+                    else
+                    {
+                        //显示
+                        AddRoomNews(Brushes.Green, string.Format("玩家移动有效！"));
+                    }
                     //计算下一个玩家
                     int next = gameCore.getNextPlayer();
-                    logger.Debug(string.Format("下一个移动的玩家是{0}号", next));
                     if (next != -1)
+                    {
                         SetNextMovePlayer(next);
+                        logger.Debug(string.Format("下一个移动的玩家是{0}号", next));
+
+                    }
                 });
             }
             else if (message.StateCode == 1)
@@ -420,7 +435,42 @@ namespace Client
                     ChangedState(GameState.Waiting);
                     //显示
                     AddRoomNews(Brushes.Red, string.Format("玩家移动超时！"));
+                    //计算下一个玩家
+                    int next = gameCore.getNextPlayer();
+                    if (next != -1)
+                    {
+                        SetNextMovePlayer(next);
+                        logger.Debug(string.Format("下一个移动的玩家是{0}号", next));
+
+                    }
                 });
+            }
+        }
+
+        public void MsgHandler(Message message)
+        {
+            if (message.StateCode == 0)
+            {//接收消息成功
+                ChatMsg msg = JsonConvert.DeserializeObject<ChatMsg>(message.bodyToString());
+
+                if (msg.Type == 2)
+                {
+                    logger.Debug("收到一条房间消息！");
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        //请求
+                        roomMsgs.Add(msg);
+                    });
+                }
+                else
+                {
+                    logger.Error("消息类型错误！");
+                }
+
+            }
+            else
+            {
+                logger.Error("报文状态错误！");
             }
         }
 
@@ -520,7 +570,16 @@ namespace Client
         public void ShowDaoTimer(object sender, EventArgs e)
         {
             if (DaoTimes == 0)
+            {
+                if (_player.pos == gameCore.getCurPlayer()){
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        PlayerSkip();
+                    });
+                }
                 timer.Stop();
+
+            }
 
             ShowDaoTime(DaoTimes);
             DaoTimes--;
@@ -734,12 +793,17 @@ namespace Client
             //显示成绩结果
             StringBuilder sb = new StringBuilder();
             sb.Append("对局结果：\n");
-            for (int i = 1; i <= roomInfo.PlayerNum; i++)
+            for (int i = 1; i <= 6; i++)
             {
-                if(roomInfo.players[i]!=null)   
-                    sb.Append(string.Format("{0,20}|{1,4}", roomInfo.players[i].userId, roomInfo.players[i].steps));
+                if (roomInfo.players[i] != null)
+                {
+                    sb.Append(string.Format("{0,20}|{1,4}\n", roomInfo.players[i].userId, roomInfo.players[i].steps));
+                    roomInfo.players[i].userState = UserState.unprepared;
+                }
             }
             AddRoomNews(Brushes.Black, sb.ToString());
+
+            
 
             ChangedState(GameState.UnPrepared);
         }
@@ -754,6 +818,7 @@ namespace Client
             SubmitPlayerSkip();
             gameCore.ClearMove();
             ChangedState(GameState.Waiting);
+
         }
 
         /// <summary>
@@ -1391,7 +1456,6 @@ namespace Client
                     case GameState.Ending:
                         {
                             //进入新状态要做的事
-                            _player.userState = UserState.complete;
                             Button_submit.IsEnabled = false;
                             Button_continue.IsEnabled = false;
                             Button_cancel.IsEnabled = false;

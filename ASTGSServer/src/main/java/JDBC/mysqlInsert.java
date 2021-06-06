@@ -1,5 +1,7 @@
 package JDBC;
 
+import encryptUtils.DesKey;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,8 +31,11 @@ public class mysqlInsert {
     }
 
     public static void main(String[] args) {
+        DesKey key=new DesKey();
+        String a="123";
+        key.GenKey(a.getBytes());
         try {
-            mysqlInsert.insert("123",new byte[]{1,1,1,1,1,1,1,1});
+            mysqlInsert.insert("123",key.getKeyBytes());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
