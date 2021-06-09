@@ -14,7 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Panuon.UI.Silver;
+using Panuon.UI.Silver.Core;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using Client.Utils.RSAUtil;
@@ -34,6 +35,9 @@ namespace Client
 
         private static BindingList<MsgRecord> messagesList;
 
+        //接收开关
+        private volatile bool canStop = false;
+
         //private 
 
         private MessageShow()
@@ -41,8 +45,8 @@ namespace Client
             InitializeComponent();
             messagesList = new BindingList<MsgRecord>();
             MsgList.ItemsSource = messagesList;
-
-            Test();
+            canStop = false;
+            //Test();
         }
         /// <summary>
         /// 获得窗口实例
@@ -55,17 +59,23 @@ namespace Client
             return instance;
         }
 
-        public void Test()
+        /// <summary>
+        /// 自己测试用
+        /// </summary>
+        private void Test()
         {
 
         }
 
         public void ShowMsg(Message msg, EncryptionType type, string key, string m, string c)
         {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messagesList.Add(new MsgRecord(msg, type, key, m, c));
-            });
+            if (!canStop)
+            {//未停止时都接收
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    messagesList.Add(new MsgRecord(msg, type, key, m, c));
+                });
+            }
         }
 
 
@@ -292,5 +302,78 @@ namespace Client
             }
         }
 
+
+        /// <summary>
+        /// 继续按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void continueButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(canStop)
+            {
+                logger.Info("开始抓包！");
+                canStop = true;
+                currText.Text = "运行中";
+                currText.Foreground = Colors.SpringGreen.ToBrush();
+                MessageBoxX.Show("开始抓包！", "", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    OKButton = "好！",
+                    MessageBoxStyle = MessageBoxStyle.Modern
+                });
+            }
+            else
+                logger.Info("已经在抓包了！");
+        }
+        /// <summary>
+        /// 清空按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBoxX.Show("是否重新抓包？", "", Application.Current.MainWindow, MessageBoxButton.YesNo, new MessageBoxXConfigurations()
+            {
+                MessageBoxStyle = MessageBoxStyle.Standard,
+                MessageBoxIcon = MessageBoxIcon.Question
+
+            }) == MessageBoxResult.Yes)
+            {
+                
+                canStop = true;
+                
+                logger.Info("清空抓包记录！");
+                messagesList.Clear();
+
+                canStop = false;
+                currText.Text = "运行中";
+                currText.Foreground = Colors.SpringGreen.ToBrush();
+            }
+        }
+        /// <summary>
+        /// 停止按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!canStop)
+            {
+                if(MessageBoxX.Show("是否停止抓包？", "", Application.Current.MainWindow, MessageBoxButton.YesNo, new MessageBoxXConfigurations()
+                {
+                    MessageBoxStyle = MessageBoxStyle.Standard,
+                    MessageBoxIcon = MessageBoxIcon.Question
+                   
+                }) == MessageBoxResult.Yes)
+                {
+                    logger.Info("停止抓包！");
+                    canStop = true;
+                    currText.Text = "已停止";
+                    currText.Foreground = Colors.Red.ToBrush();
+                }
+            }
+            else
+                logger.Info("已经停止抓包了！");
+        }
     }
 }

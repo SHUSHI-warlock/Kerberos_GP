@@ -254,3 +254,27 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 2021-06-09 23:02:09  [ nioEventLoopGroup-3-3:580807 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
 2021-06-09 23:02:09  [ nioEventLoopGroup-3-3:580808 ] - [ INFO ]  用户lzh开始进行验证
 2021-06-09 23:02:09  [ nioEventLoopGroup-3-3:580809 ] - [ INFO ]  用户lzh验证成功
+2021-06-09 23:23:10  [ nioEventLoopGroup-3-14:4892227 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:1 State:0 UnCode:-1 Length:0]
+2021-06-09 23:23:10  [ nioEventLoopGroup-3-14:4892358 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:2 State:0 UnCode:-1 Length:129]
+2021-06-09 23:24:11  [ nioEventLoopGroup-3-14:4953169 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:4 State:0 UnCode:-1 Length:0]
+2021-06-09 23:24:11  [ nioEventLoopGroup-3-14:4953169 ] - [ INFO ]  客户端取消注册
+2021-06-09 23:24:15  [ nioEventLoopGroup-3-15:4957502 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-09 23:24:15  [ nioEventLoopGroup-3-15:4957502 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-09 23:24:16  [ nioEventLoopGroup-3-15:4958043 ] - [ INFO ]  用户lzh验证成功
+2021-06-09 23:24:16  [ nioEventLoopGroup-3-4:1907688 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-09 23:24:16  [ nioEventLoopGroup-3-4:1907688 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-09 23:24:16  [ nioEventLoopGroup-3-4:1907689 ] - [ INFO ]  用户lzh验证成功
+2021-06-09 23:49:08  [ nioEventLoopGroup-3-16:6450231 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:1 State:0 UnCode:-1 Length:0]
+2021-06-09 23:49:08  [ nioEventLoopGroup-3-16:6450362 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:2 State:0 UnCode:-1 Length:129]
+2021-06-09 23:49:31  [ nioEventLoopGroup-3-16:6473537 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:4 State:0 UnCode:-1 Length:0]
+2021-06-09 23:49:31  [ nioEventLoopGroup-3-16:6473537 ] - [ INFO ]  客户端取消注册
+2021-06-09 23:57:33  [ nioEventLoopGroup-3-1:6955353 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:1 State:0 UnCode:-1 Length:0]
+2021-06-09 23:57:33  [ nioEventLoopGroup-3-1:6955477 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:2 State:0 UnCode:-1 Length:128]
+2021-06-09 23:57:39  [ nioEventLoopGroup-3-1:6961609 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:4 State:0 UnCode:-1 Length:0]
+2021-06-09 23:57:39  [ nioEventLoopGroup-3-1:6961609 ] - [ INFO ]  客户端取消注册
+2021-06-09 23:57:45  [ nioEventLoopGroup-3-2:6967973 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-09 23:57:45  [ nioEventLoopGroup-3-2:6967974 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-09 23:57:47  [ nioEventLoopGroup-3-2:6969579 ] - [ INFO ]  用户lzh验证成功
+2021-06-09 23:57:47  [ nioEventLoopGroup-3-5:3919218 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-09 23:57:47  [ nioEventLoopGroup-3-5:3919219 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-09 23:57:47  [ nioEventLoopGroup-3-5:3919219 ] - [ INFO ]  用户lzh验证成功

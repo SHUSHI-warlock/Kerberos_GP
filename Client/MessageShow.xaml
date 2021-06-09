@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         xmlns:cvt="clr-namespace:Client.Converter.MessageCvt"
-        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
 
         mc:Ignorable="d"
         Title="WireEagle" Height="550" Width="800" MinHeight="450" MinWidth="800">
     <Window.Resources>
+        <ResourceDictionary>
+        
         <DrawingImage x:Key="pauseImage">
             <DrawingImage.Drawing>
                 <DrawingGroup ClipGeometry="M0,0 V1024 H1024 V0 H0 Z">
@@ -48,12 +49,12 @@
         <ImageSource x:Key="rightImage">Resources/Image/右箭头.png</ImageSource>
 
 
-
+        </ResourceDictionary>
     </Window.Resources>
 
     <Grid Margin="5,5,5,5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*" MinHeight="150"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="200" MinHeight="150"/>
@@ -62,15 +63,40 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="60"/>
-                
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="1"  Source="{StaticResource pauseImage}"/>
-            <Image Grid.Column="2" Source="{StaticResource continueImage}"/>
-            <Image Grid.Column="3" Source="{StaticResource restartImage}"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
 
+            </Grid.ColumnDefinitions>
+            <Button x:Name="pauseButton" Grid.Column="1" Background="White" Click="pauseButton_Click"
+                    BorderThickness="0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30"  Source="{StaticResource pauseImage}"/>
+                    <Label Content="暂停" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="continueButton" Grid.Column="2" Background="White" Click="continueButton_Click" 
+                    BorderThickness="0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30"   Source="{StaticResource continueImage}"/>
+                    <Label Content="继续" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="clearButton" Grid.Column="3" Background="White" Click="clearButton_Click"
+                    BorderThickness="0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="30"   Source="{StaticResource restartImage}"/>
+                    <Label Content="重来" FontSize="16"/>
+                </StackPanel>
+            </Button>
+
+            <StackPanel Grid.Column="4" Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                <Label Content="当前状态："></Label>
+                <TextBlock x:Name="currText" Foreground="SpringGreen" VerticalAlignment="Center" FontSize="14">运行中</TextBlock>
+            </StackPanel>
+         
             
         </Grid>
         
@@ -189,7 +215,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="加密前或解密后的明文"/>
-                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                         <TextBlock x:Name="PlainText"  TextWrapping="Wrap" FontSize="16" Background="#FF6DEE6D">
                    
                         </TextBlock>
@@ -202,7 +228,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="加密后或解密前的密文"/>
-                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                         <TextBlock x:Name="CipherText"  FontSize="16" TextWrapping="Wrap" Background="#FFFC6D6D"></TextBlock>
                     </ScrollViewer>
                 </Grid>
@@ -212,7 +238,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label HorizontalAlignment="Left" Content="秘钥："  Grid.Row="0"/>
-                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                         <TextBlock x:Name="KeyText"  TextWrapping="Wrap" FontSize="16"></TextBlock>
                     </ScrollViewer>
                 </Grid>
