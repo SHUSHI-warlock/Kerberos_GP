@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\lenovo\Desktop\Kerberos_GP-main\Kerberos_GP-main\Client\obj\Debug\
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\
 Client
 none
 false
 DEBUG;TRACE
-C:\Users\lenovo\Desktop\Kerberos_GP-main\Kerberos_GP-main\Client\App.xaml
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\App.xaml
 11-1242554283
 
-581689329486
-18371435036
+551182301210
+181434843838
 CreateRoom.xaml;GameRoom.xaml;Lobby.xaml;Login.xaml;MainWindow.xaml;MessageShow.xaml;PswInput.xaml;Controls\Checker.xaml;Controls\NextStep.xaml;Controls\RoadLabel.xaml;Style\Dictionary.xaml;
 
-False
+True
 

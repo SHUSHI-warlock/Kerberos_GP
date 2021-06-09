@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         xmlns:cvt="clr-namespace:Client.Converter.MessageCvt"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+
         mc:Ignorable="d"
-        Title="WireEagle" Height="450" Width="800">
+        Title="WireEagle" Height="550" Width="800" MinHeight="450" MinWidth="800">
     <Window.Resources>
         <DrawingImage x:Key="pauseImage">
             <DrawingImage.Drawing>
@@ -52,10 +54,9 @@
     <Grid Margin="5,5,5,5">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="*" MinHeight="150"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="200" MinHeight="150"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -135,73 +136,91 @@
             -->
         </Grid>
 
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="*"/>
-
-                <ColumnDefinition Width="10"/>
-            
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
-                    <Image Height="30" Source="{StaticResource p2pImage}"></Image>
-                    <Label VerticalAlignment="Center" Content="通信双方："/>
-                    <TextBlock x:Name="SenderText" VerticalAlignment="Center">客户端</TextBlock>
-                    <Image Height="30" Source="{StaticResource rightImage}"></Image>
-                    <TextBlock Name="ReceiverText" VerticalAlignment="Center">AS服务器</TextBlock>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5,0,5,0">
-                    <Image Height="30" Source="{StaticResource msgImage}"></Image>
-                    <Label VerticalAlignment="Center" Content="报文类型："/>
-                    <TextBlock x:Name="MsgTypeText" VerticalAlignment="Center">客户端登录AS</TextBlock>
-
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Column="3" Margin="5,0,5,0">
-                    <Image Height="30" Source="{StaticResource stateImage}"></Image>
-                    <Label VerticalAlignment="Center" Content="报文状态："/>
-                    <TextBlock x:Name="MsgStateText" VerticalAlignment="Center">正常</TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Column="4" Margin="5,0,5,0">
-                    <Image Height="30" Source="{StaticResource keyImage}"></Image>
-                    <Label VerticalAlignment="Center" Content="加密类型："/>
-                    <TextBlock x:Name="EncryptionText" VerticalAlignment="Center">Des</TextBlock>
-                </StackPanel>
-            </StackPanel>
-           
-        </Grid>
+        <GridSplitter Height="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"></GridSplitter>
         
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="加密前或解密后的明文"/>
-                <TextBlock x:Name="PlainText" Grid.Row="1" TextWrapping="Wrap" FontSize="16" Background="#FF6DEE6D">asdafgasfasfasdgasdg</TextBlock>
+        <DockPanel  Grid.Row="3">
+            <Grid DockPanel.Dock="Top" Height="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                        <Image Height="30" Source="{StaticResource p2pImage}"></Image>
+                        <Label VerticalAlignment="Center" Content="通信双方："/>
+                        <TextBlock x:Name="SenderText" VerticalAlignment="Center">客户端</TextBlock>
+                        <Image Height="30" Source="{StaticResource rightImage}"></Image>
+                        <TextBlock Name="ReceiverText" VerticalAlignment="Center">AS服务器</TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="5,0,5,0">
+                        <Image Height="30" Source="{StaticResource msgImage}"></Image>
+                        <Label VerticalAlignment="Center" Content="报文类型："/>
+                        <TextBlock x:Name="MsgTypeText" VerticalAlignment="Center">客户端登录AS</TextBlock>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Column="3" Margin="5,0,5,0">
+                        <Image Height="30" Source="{StaticResource stateImage}"></Image>
+                        <Label VerticalAlignment="Center" Content="报文状态："/>
+                        <TextBlock x:Name="MsgStateText" VerticalAlignment="Center">正常</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Column="4" Margin="5,0,5,0">
+                        <Image Height="30" Source="{StaticResource keyImage}"></Image>
+                        <Label VerticalAlignment="Center" Content="加密类型："/>
+                        <TextBlock x:Name="EncryptionText" VerticalAlignment="Center">Des</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+
             </Grid>
-            <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="加密后或解密前的密文"/>
-                <TextBlock x:Name="CipherText" Grid.Row="1" FontSize="16" TextWrapping="Wrap" Background="#FFFC6D6D">asdafgasfasfasdgasdg</TextBlock>
+
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*" MinWidth="200"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="加密前或解密后的明文"/>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="PlainText"  TextWrapping="Wrap" FontSize="16" Background="#FF6DEE6D">
+                   
+                        </TextBlock>
+                    </ScrollViewer>
+
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="加密后或解密前的密文"/>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="CipherText"  FontSize="16" TextWrapping="Wrap" Background="#FFFC6D6D"></TextBlock>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label HorizontalAlignment="Left" Content="秘钥："  Grid.Row="0"/>
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="KeyText"  TextWrapping="Wrap" FontSize="16"></TextBlock>
+                    </ScrollViewer>
+                </Grid>
             </Grid>
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label HorizontalAlignment="Left" Content="秘钥："  Grid.Row="0"/>
-                <TextBlock x:Name="KeyText" Grid.Row="2" TextWrapping="Wrap" FontSize="16">asdafgasfasfasdgasdg</TextBlock>
-            </Grid>
-        </Grid>
+
+            
+        </DockPanel>
+        
+        
     </Grid>
 </Window>

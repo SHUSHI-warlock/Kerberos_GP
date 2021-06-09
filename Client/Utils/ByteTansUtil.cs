@@ -158,6 +158,27 @@ namespace Client.Utils
 			num = num | temp;
 			return num;
 		}
+
+		public static string bytesTostring(byte[] bytes)
+        {
+			if (bytes == null || bytes.Length == 0)
+				return "[null]";
+            else
+            {
+				StringBuilder sb = new StringBuilder();
+				sb.Append('[');
+				for(int i=0;i<bytes.Length;i++)
+                {
+					if (i != 0) {
+						sb.Append(',');
+						sb.Append(' ');
+					}
+					sb.Append(bytes[i]);
+                }
+				sb.Append(']');
+				return sb.ToString();
+			}
+		}
 	}
 
 }

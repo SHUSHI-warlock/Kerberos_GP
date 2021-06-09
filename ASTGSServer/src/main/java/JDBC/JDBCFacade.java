@@ -28,8 +28,7 @@ public class JDBCFacade {
     public void open() {
         open(SqlDriver,SqlUrl,SqlName,SqlPsw);
     }
-
-
+    
     public int executeUpdate(String sql) {
         try {
             return statement.executeUpdate(sql);

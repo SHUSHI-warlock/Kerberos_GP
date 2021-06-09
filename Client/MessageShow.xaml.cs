@@ -24,7 +24,7 @@ using Client.Controls;
 namespace Client
 {
     /// <summary>
-    /// MessageShow.xaml 的交互逻辑
+    /// 
     /// </summary>
     public partial class MessageShow : Window
     {
@@ -33,8 +33,6 @@ namespace Client
         private static MessageShow instance;
 
         private static BindingList<MsgRecord> messagesList;
-
-
 
         //private 
 
@@ -59,7 +57,6 @@ namespace Client
 
         public void Test()
         {
-
 
         }
 
@@ -96,30 +93,62 @@ namespace Client
                 return;
             }
 
-
             MsgRecord record = (MsgRecord)MsgList.SelectedValue;
             BindAMsg(record);
         }
 
-
         /// <summary>
         /// 显示一条记录
+        ///
         /// </summary>
         /// <param name="record"></param>
         private void BindAMsg(MsgRecord record)
         {
-            ReceiverText.Text = ParseReceiver(record.MessageP2P);
-            SenderText.Text = ParseSender(record.MessageP2P);
-            //报文类型需要根据具体的来定
-            
-            //报文状态需要根据具体的来定
+            string Tsender, Treceiver, Ttype, Tstate;
+            Tsender = "未知";
+            Treceiver = "未知";
+            Ttype = "未知";
+            Tstate = "正常";
 
+            Tsender = ParseSender(record.MessageP2P);
+            Treceiver = ParseReceiver(record.MessageP2P);
+
+
+            //报文类型/状态需要根据具体的来定
+            switch ((P2PType)record.MessageP2P)
+            {
+                case P2PType.CtoS:
+                    Ttype = CtoSType(record.MessageType);
+                    break;
+                case P2PType.StoC:
+                    Ttype = StoCType(record.MessageType);
+                    break;
+                case P2PType.CtoAS:
+                    Ttype = CtoASType(record.MessageType);
+                    break;
+                case P2PType.AStoC:
+                    Ttype = AStoCType(record.MessageType);
+                    break;
+                case P2PType.CtoTGS:
+                    Ttype = CtoTGSType(record.MessageType);
+                    break;
+                case P2PType.TGStoC:
+                    Ttype = TGStoCType(record.MessageType);
+                    break;
+                default:
+                    break;
+            }
+
+            if(record.StateCode!=0)
+            {
+                Tstate = "异常";
+            }
+            
             switch (record.Type)
             {
                 case EncryptionType.Plain://明文
                     EncryptionText.Text = "明文";
                     KeyText.Text = "无";
-
                     break;
                 case EncryptionType.Des:
                     EncryptionText.Text = "DES";
@@ -136,17 +165,23 @@ namespace Client
 
                     break;
             }
+            
             if (record.C != "")
                 CipherText.Text = record.C;
             else
                 CipherText.Text = "无";
-
             if (record.M != "")
                 PlainText.Text = record.M;
             else
                 PlainText.Text = "无";
-        }
 
+            //显示
+            ReceiverText.Text = Treceiver;
+            SenderText.Text =  Tsender;
+            MsgStateText.Text = Tstate;
+            MsgTypeText.Text = Ttype;
+
+        }
 
         public static string ParseSender(int p2p)
         {
@@ -166,6 +201,7 @@ namespace Client
                     return "未知";
             }
         }
+
         public static string ParseReceiver(int p2p)
         {
             switch ((P2PType)p2p)
@@ -184,5 +220,77 @@ namespace Client
                     return "未知";
             }
         }
+
+        public string CtoASType(int type)
+        {
+            switch (type)
+            {
+                case 0: return "请求验证";
+                case 1:return "请求注册";
+                case 2:return "建立连接";
+                case 3: return "发送注册数据";
+                case 4:return "取消注册";
+                default: return "未知";
+            }
+        }
+        public string AStoCType(int type)
+        {
+            switch (type)
+            {
+                case 0: return "返回验证结果";
+                case 1: return "回复注册请求";
+                case 2: return "建立连接";
+                case 3: return "返回注册结果";
+                default: return "未知";
+            }
+        }
+        public string CtoTGSType(int type)
+        {
+            if(type==0)
+                return "请求验证";
+            else
+                return "未知";
+        }
+        public string TGStoCType(int type)
+        {
+            if (type == 0)
+                return "返回验证结果";
+            else
+                return "未知";
+        }
+        public string CtoSType(int type)
+        {
+            switch (type)
+            {
+                case 0: return "请求登录";
+                case 2: return "请求房间信息";
+                case 3: return "创建房间";
+                case 4: return "进入房间";
+                case 5: return "退出房间";
+                case 6: return "游戏准备";
+                case 7: return "取消准备";
+                case 8: return "聊天消息";
+                case 9: return "移动提交";
+                case 10: return "退出大厅";
+                default: return "未知";
+            }
+        }
+        public string StoCType(int type)
+        {
+            switch (type)
+            {
+                case 0: return "返回验证结果";
+                case 2: return "返回房间信息";
+                case 3: return "返回创建结果";
+                case 4: return "返回加入结果";
+                case 5: return "接收聊天消息";
+                case 6: return "玩家状态通知";
+                case 7: return "游戏消息通知";
+                case 8: return "返回移动结果";
+               
+                default: return "未知";
+            }
+        }
+
     }
 }

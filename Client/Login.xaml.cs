@@ -1,4 +1,5 @@
 ﻿using AppServer;
+using Client.Controls;
 using Client.core.Services;
 using Client.Ker;
 using Client.MsgTrans;
@@ -99,9 +100,21 @@ namespace Client
             message1.SetBody(ba);
 
             client.Send(message1);
+            //添加messageShow显示
+            messageShowWin.ShowMsg(message1, Controls.EncryptionType.Plain, "", message1.bodyToString(), "");
+
+            Message res1 = client.Recive();
+            if (res1 == null)
+            {
+                ///加提示？
+                return;
+            }
+            //可以让 mclient 或 authMsg添加ToString函数，作为明文
+            messageShowWin.ShowMsg(res1, Controls.EncryptionType.Des, mclient.asKey.ToString(), "AS返回内容--明文待处理", res1.bodyToString());
+
 
             //等待AS回复
-            bool sta = enterAS(client.Recive(), mclient,out authMsg);
+            bool sta = enterAS(res1, mclient,out authMsg);
 
             if (!sta)
             {
@@ -140,9 +153,20 @@ namespace Client
                 byte[] mess = mclient.TGSconfirm(mclient.IDv, mclient.tgsTicket, mclient.id, ADc, mclient.tgsKey);
                 Message message2 = new Message(2, 0, 0);
                 message2.SetBody(mess);
-                client.Send(message2);
                 
-                bool stb = enterTGS(client.Recive(), mclient,out authMsg);
+                client.Send(message2);
+                messageShowWin.ShowMsg(message2, Controls.EncryptionType.Plain, "", message2.bodyToString(), "请求TGS验证--密文内容已处理");
+
+                Message res2 = client.Recive();
+                if (res2 == null)
+                {
+                    ///加提示？
+                    return;
+                }
+                messageShowWin.ShowMsg(res2, Controls.EncryptionType.Des, mclient.tgsKey.ToString(), "TGS返回内容--明文待处理", res2.bodyToString());
+                
+
+                bool stb = enterTGS(res2, mclient,out authMsg);
                 if (!stb)
                 {
                     //MessageBox.Show("登陆失败");
@@ -170,11 +194,20 @@ namespace Client
                     Message messageV = new Message(4, 0, 0);
                     messageV.SetBody(mclient.Vconfirm(mclient.vTicket, mclient.id, ADc, mclient.vKey));
 
+
                     client.Send(messageV);
+                    messageShowWin.ShowMsg(messageV, Controls.EncryptionType.Plain, "", messageV.bodyToString(), "请求服务器验证--密文内容已处理");
                     //开启接收
+                    Message res3 = client.Recive();
+                    if (res3 == null)
+                    {
+                        ///加提示？
+                        return;
+                    }
+                    messageShowWin.ShowMsg(res3, Controls.EncryptionType.Des, mclient.vKey.ToString(), "服务器返回内容--明文待处理", res3.bodyToString());
 
                     //服务器认证
-                    bool stc = enterV(client.Recive(), mclient,out authMsg);
+                    bool stc = enterV(res3, mclient,out authMsg);
 
                     if (stc)
                     {
@@ -190,7 +223,6 @@ namespace Client
                             MessageBoxStyle = MessageBoxStyle.Modern
                         }) ;
                         EnterLobby(new User(id));
-                   
                     }
                     else
                     {
@@ -390,6 +422,11 @@ namespace Client
             }
         }
         
+        
+
+
+
+
         /// <summary>
         /// 注册
         /// </summary>
@@ -417,9 +454,8 @@ namespace Client
             message.SetBody(byteManage.concat(Encoding.UTF8.GetBytes(id), Encoding.UTF8.GetBytes(pa)));
 
 
-           
-
             client.Send(message);
+            //messageShowWin.ShowMsg(message, Controls.EncryptionType.Des, registDes.GetKey().ToString(),  message.bodyToString(), "");
 
             Message res = client.Recive();
 
@@ -488,8 +524,11 @@ namespace Client
             Message message = new Message(0, 1, 0);
 
             client.Send(message);
+            messageShowWin.ShowMsg(message, Controls.EncryptionType.Plain, "", message.bodyToString(), "");
 
             Message res = client.Recive();
+            messageShowWin.ShowMsg(res, Controls.EncryptionType.Plain, "", res.bodyToString(), "");
+
 
             PublicKey pk = JsonConvert.DeserializeObject<PublicKey>(res.bodyToString());
             if(pk==null)
@@ -517,7 +556,7 @@ namespace Client
             message2.SetBody(RSAUtils.Encryption(pk, temp));
 
             client.Send(message2);
-
+            messageShowWin.ShowMsg(message, Controls.EncryptionType.Rsa_pk, pk.ToString(),ByteTransUtil.bytesTostring(temp), message.bodyToString());
 
             ///打开加解密
             client.DesOpen(registDes);

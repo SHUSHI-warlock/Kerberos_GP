@@ -107,7 +107,6 @@ E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\bin\Debug\Cli
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\bin\Debug\Client.pdb
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\bin\Debug\Newtonsoft.Json.dll
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\bin\Debug\Newtonsoft.Json.xml
-E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\Client.csprojAssemblyReference.cache
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\Style\Dictionary.baml
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\CreateRoom.g.cs
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\GameRoom.g.cs
@@ -220,3 +219,4 @@ E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP-main\Kerberos_GP-mai
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP-main\Kerberos_GP-main\Client\obj\Debug\Client.exe
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP-main\Kerberos_GP-main\Client\obj\Debug\Client.pdb
 E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP-main\Kerberos_GP-main\Client\obj\Debug\Client.csprojAssemblyReference.cache
+E:\study\MyCode\作业与上机\物联网安全\Kerberos_GP\Client\obj\Debug\Client.csprojAssemblyReference.cache

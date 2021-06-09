@@ -111,26 +111,21 @@ namespace Client.MsgTrans
                     C = msg.bodyToString();
                 }
               
-                msgShowWin.ShowMsg(msg, Controls.EncryptionType.Des, des.GetKey().ToString(), M, C);
+                msgShowWin.ShowMsg(msg, Controls.EncryptionType.Des, Utils.ByteTransUtil.bytesTostring(des.GetKey().getKeyBytes()), M, C);
             }
             else
             {
-                msgShowWin.ShowMsg(msg, Controls.EncryptionType.Plain, "", msg.bodyToString(), "");
+                //明文在外面判断
+                //msgShowWin.ShowMsg(msg, Controls.EncryptionType.Plain, "", msg.bodyToString(), "");
             }
 
             byte[] data = msg.composeFull();
             try
             {
-                _clientSocket.BeginSend(data, 0, data.Length, SocketFlags.None, asyncResult =>
-                {
-                    int length = _clientSocket.EndSend(asyncResult);
-
-                    logger.Debug(string.Format("发送报文 Head:[P2P:{0} Type:{1} State:{2} Length:{3}]",
+                _clientSocket.Send(data, 0, data.Length, SocketFlags.None);
+                logger.Debug(string.Format("发送报文 Head:[P2P:{0} Type:{1} State:{2} Length:{3}]",
                 msg.MessageP2P, msg.MessageType, msg.StateCode, msg.Length));
-                    logger.Debug(msg.bodyToString());
-
-                    //OnSend(string.Format("客户端发送消息:{0}", msg));
-                }, null);
+                logger.Debug(msg.bodyToString());
             }
             catch (Exception e)
             {
@@ -184,11 +179,12 @@ namespace Client.MsgTrans
                     }
                     else
                         M = "";
-                    msgShowWin.ShowMsg(message, Controls.EncryptionType.Des, des.GetKey().ToString(), M, C);
+                    msgShowWin.ShowMsg(message, Controls.EncryptionType.Des, Utils.ByteTransUtil.bytesTostring(des.GetKey().getKeyBytes()), M, C);
                 }
                 else
                 {
-                    msgShowWin.ShowMsg(message, Controls.EncryptionType.Plain, "", message.bodyToString(), "");
+                    //明文在外面判断
+                    //msgShowWin.ShowMsg(message, Controls.EncryptionType.Plain, "", message.bodyToString(), "");
                 }
 
                 logger.Debug(string.Format("收到服务器消息:P2P:{0},Type:{1},State:{2},Length:{3} body: {4}", message.MessageP2P, message.MessageType, message.StateCode, message.Length,message.Length==0?"空": message.bodyToString()));
