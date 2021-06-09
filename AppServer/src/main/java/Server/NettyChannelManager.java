@@ -94,6 +94,22 @@ public class NettyChannelManager {
         }
     }
 
+    /**
+     * 判断该用户是否已经存在
+     * @param uid
+     * @return
+     */
+    public boolean hasUser(String uid)
+    {
+        return userChannels.containsKey(uid);
+    }
+
+
+    /**
+     * 查找用户
+     * @param channel
+     * @return 有返回用户名 否则返回 null
+     */
     public String findUser(Channel channel)
     {
         return channel.attr(CHANNEL_ATTR_KEY_USER).get();

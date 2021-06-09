@@ -194,6 +194,7 @@ public class AuthenticationMessage {
         this.TS=authenticator.TS;
         return true;
     }
+
     public void VCMessage(byte[] message,DesKey Kcv){
         DESUtils des=new DESUtils(Kcv);
         byte[] MESSAGE=des.Decryption(message);

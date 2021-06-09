@@ -278,3 +278,518 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 2021-06-09 23:57:47  [ nioEventLoopGroup-3-5:3919218 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
 2021-06-09 23:57:47  [ nioEventLoopGroup-3-5:3919219 ] - [ INFO ]  用户lzh开始进行验证
 2021-06-09 23:57:47  [ nioEventLoopGroup-3-5:3919219 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:11:40  [ nioEventLoopGroup-3-3:7802678 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:36]
+2021-06-10 00:11:41  [ nioEventLoopGroup-3-3:7803084 ] - [ INFO ]  用户������开始进行验证
+2021-06-10 00:12:16  [ nioEventLoopGroup-3-4:7838955 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 00:12:16  [ nioEventLoopGroup-3-4:7838955 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:12:17  [ nioEventLoopGroup-3-4:7839298 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:12:19  [ nioEventLoopGroup-3-6:4790700 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 00:12:19  [ nioEventLoopGroup-3-6:4790826 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:12:19  [ nioEventLoopGroup-3-6:4790826 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:12:55  [ nioEventLoopGroup-3-5:7877955 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 00:12:55  [ nioEventLoopGroup-3-5:7877955 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:12:56  [ nioEventLoopGroup-3-5:7878650 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:12:56  [ nioEventLoopGroup-3-7:4828314 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 00:12:56  [ nioEventLoopGroup-3-7:4828315 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:12:56  [ nioEventLoopGroup-3-7:4828315 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:27:54  [ nioEventLoopGroup-3-6:8776373 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 00:27:54  [ nioEventLoopGroup-3-6:8776374 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:27:55  [ nioEventLoopGroup-3-6:8777066 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:27:55  [ nioEventLoopGroup-3-8:5726802 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 00:27:55  [ nioEventLoopGroup-3-8:5726853 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:27:55  [ nioEventLoopGroup-3-8:5726882 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:28:06  [ nioEventLoopGroup-3-7:8788320 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 00:28:06  [ nioEventLoopGroup-3-7:8788320 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:28:06  [ nioEventLoopGroup-3-7:8788896 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:28:07  [ nioEventLoopGroup-3-9:5738619 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 00:28:07  [ nioEventLoopGroup-3-9:5738628 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:28:07  [ nioEventLoopGroup-3-9:5738629 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:29:54  [ nioEventLoopGroup-3-8:8896601 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 00:29:54  [ nioEventLoopGroup-3-8:8896682 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:29:56  [ nioEventLoopGroup-3-8:8898316 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:29:56  [ nioEventLoopGroup-3-10:5847960 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 00:29:56  [ nioEventLoopGroup-3-10:5847961 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:29:56  [ nioEventLoopGroup-3-10:5847961 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:37:35  [ nioEventLoopGroup-3-9:9357145 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 00:37:35  [ nioEventLoopGroup-3-9:9357146 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:37:36  [ nioEventLoopGroup-3-9:9358400 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:37:37  [ nioEventLoopGroup-3-11:6308726 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 00:37:37  [ nioEventLoopGroup-3-11:6308741 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:37:37  [ nioEventLoopGroup-3-11:6308741 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:37:48  [ nioEventLoopGroup-3-10:9370383 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 00:37:48  [ nioEventLoopGroup-3-10:9370384 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:37:48  [ nioEventLoopGroup-3-10:9370656 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:37:48  [ nioEventLoopGroup-3-12:6320327 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 00:37:48  [ nioEventLoopGroup-3-12:6320327 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 00:37:48  [ nioEventLoopGroup-3-12:6320328 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 00:38:21  [ nioEventLoopGroup-3-11:9403534 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:36]
+2021-06-10 00:38:21  [ nioEventLoopGroup-3-11:9403711 ] - [ INFO ]  用户������开始进行验证
+2021-06-10 00:38:37  [ nioEventLoopGroup-3-12:9419453 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:36]
+2021-06-10 00:38:37  [ nioEventLoopGroup-3-12:9419453 ] - [ INFO ]  用户������开始进行验证
+2021-06-10 00:40:04  [ main:0 ] - [ DEBUG ]  Using Log4J as the default logging framework
+2021-06-10 00:40:04  [ main:12 ] - [ DEBUG ]  -Dio.netty.eventLoopThreads: 16
+2021-06-10 00:40:04  [ main:78 ] - [ DEBUG ]  Platform: Windows
+2021-06-10 00:40:04  [ main:90 ] - [ DEBUG ]  -Dio.netty.noUnsafe: false
+2021-06-10 00:40:04  [ main:92 ] - [ DEBUG ]  Java version: 14
+2021-06-10 00:40:04  [ main:96 ] - [ DEBUG ]  sun.misc.Unsafe.theUnsafe: available
+2021-06-10 00:40:04  [ main:97 ] - [ DEBUG ]  sun.misc.Unsafe.copyMemory: available
+2021-06-10 00:40:04  [ main:101 ] - [ DEBUG ]  java.nio.Buffer.address: available
+2021-06-10 00:40:04  [ main:104 ] - [ DEBUG ]  direct buffer constructor: available
+2021-06-10 00:40:04  [ main:106 ] - [ DEBUG ]  java.nio.Bits.unaligned: available, true
+2021-06-10 00:40:04  [ main:109 ] - [ DEBUG ]  jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @516be40f
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:376)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:647)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:556)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:312)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:303)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:208)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:79)
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:32)
+	at io.netty.util.Signal$1.<init>(Signal.java:27)
+	at io.netty.util.Signal.<clinit>(Signal.java:27)
+	at io.netty.util.concurrent.DefaultPromise.<clinit>(DefaultPromise.java:43)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:52)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:87)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:82)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:63)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:51)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:43)
+	at ASserver.server.bind(server.java:19)
+	at ASserver.serverMain.main(serverMain.java:6)
+2021-06-10 00:40:04  [ main:113 ] - [ DEBUG ]  java.nio.DirectByteBuffer.<init>(long, int): available
+2021-06-10 00:40:04  [ main:114 ] - [ DEBUG ]  sun.misc.Unsafe: available
+2021-06-10 00:40:04  [ main:154 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 00:40:04  [ main:155 ] - [ DEBUG ]  -Dio.netty.tmpdir: C:\WINDOWS\TEMP (java.io.tmpdir)
+2021-06-10 00:40:04  [ main:155 ] - [ DEBUG ]  -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2021-06-10 00:40:04  [ main:160 ] - [ DEBUG ]  -Dio.netty.noPreferDirect: false
+2021-06-10 00:40:04  [ main:161 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 00:40:04  [ main:162 ] - [ DEBUG ]  -Dio.netty.maxDirectMemory: 2111832064 bytes
+2021-06-10 00:40:04  [ main:162 ] - [ DEBUG ]  -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2021-06-10 00:40:04  [ main:163 ] - [ DEBUG ]  java.nio.ByteBuffer.cleaner(): available
+2021-06-10 00:40:04  [ main:194 ] - [ DEBUG ]  -Dio.netty.noKeySetOptimization: false
+2021-06-10 00:40:04  [ main:195 ] - [ DEBUG ]  -Dio.netty.selectorAutoRebuildThreshold: 512
+2021-06-10 00:40:04  [ main:208 ] - [ DEBUG ]  org.jctools-core.MpscChunkedArrayQueue: available
+2021-06-10 00:40:04  [ main:482 ] - [ DEBUG ]  -Dio.netty.processId: 26856 (auto-detected)
+2021-06-10 00:40:04  [ main:485 ] - [ DEBUG ]  -Djava.net.preferIPv4Stack: false
+2021-06-10 00:40:04  [ main:486 ] - [ DEBUG ]  -Djava.net.preferIPv6Addresses: false
+2021-06-10 00:40:04  [ main:503 ] - [ DEBUG ]  Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2021-06-10 00:40:04  [ main:504 ] - [ DEBUG ]  Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2021-06-10 00:40:04  [ main:541 ] - [ DEBUG ]  -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:08 (auto-detected)
+2021-06-10 00:40:04  [ main:557 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2021-06-10 00:40:04  [ main:558 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2021-06-10 00:40:05  [ main:571 ] - [ DEBUG ]  -Dio.netty.leakDetection.level: simple
+2021-06-10 00:40:05  [ main:572 ] - [ DEBUG ]  -Dio.netty.leakDetection.targetRecords: 4
+2021-06-10 00:40:05  [ main:605 ] - [ DEBUG ]  -Dio.netty.allocator.numHeapArenas: 16
+2021-06-10 00:40:05  [ main:605 ] - [ DEBUG ]  -Dio.netty.allocator.numDirectArenas: 16
+2021-06-10 00:40:05  [ main:605 ] - [ DEBUG ]  -Dio.netty.allocator.pageSize: 8192
+2021-06-10 00:40:05  [ main:606 ] - [ DEBUG ]  -Dio.netty.allocator.maxOrder: 11
+2021-06-10 00:40:05  [ main:606 ] - [ DEBUG ]  -Dio.netty.allocator.chunkSize: 16777216
+2021-06-10 00:40:05  [ main:606 ] - [ DEBUG ]  -Dio.netty.allocator.tinyCacheSize: 512
+2021-06-10 00:40:05  [ main:606 ] - [ DEBUG ]  -Dio.netty.allocator.smallCacheSize: 256
+2021-06-10 00:40:05  [ main:606 ] - [ DEBUG ]  -Dio.netty.allocator.normalCacheSize: 64
+2021-06-10 00:40:05  [ main:606 ] - [ DEBUG ]  -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2021-06-10 00:40:05  [ main:606 ] - [ DEBUG ]  -Dio.netty.allocator.cacheTrimInterval: 8192
+2021-06-10 00:40:05  [ main:607 ] - [ DEBUG ]  -Dio.netty.allocator.useCacheForAllThreads: true
+2021-06-10 00:40:05  [ main:615 ] - [ DEBUG ]  -Dio.netty.allocator.type: pooled
+2021-06-10 00:40:05  [ main:616 ] - [ DEBUG ]  -Dio.netty.threadLocalDirectBufferSize: 65536
+2021-06-10 00:40:05  [ main:616 ] - [ DEBUG ]  -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2021-06-10 00:44:07  [ nioEventLoopGroup-3-1:243102 ] - [ DEBUG ]  -Dio.netty.recycler.maxCapacityPerThread: 32768
+2021-06-10 00:44:07  [ nioEventLoopGroup-3-1:243103 ] - [ DEBUG ]  -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2021-06-10 00:44:07  [ nioEventLoopGroup-3-1:243104 ] - [ DEBUG ]  -Dio.netty.recycler.linkCapacity: 16
+2021-06-10 00:44:07  [ nioEventLoopGroup-3-1:243104 ] - [ DEBUG ]  -Dio.netty.recycler.ratio: 8
+2021-06-10 00:44:07  [ nioEventLoopGroup-3-1:243112 ] - [ DEBUG ]  -Dio.netty.buffer.bytebuf.checkAccessible: true
+2021-06-10 00:44:07  [ nioEventLoopGroup-3-1:243114 ] - [ DEBUG ]  Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@50c31d43
+2021-06-10 00:44:07  [ nioEventLoopGroup-3-1:243121 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:36]
+2021-06-10 00:44:14  [ nioEventLoopGroup-3-1:250396 ] - [ INFO ]  用户������开始进行验证
+2021-06-10 00:45:12  [ main:1 ] - [ DEBUG ]  Using Log4J as the default logging framework
+2021-06-10 00:45:12  [ main:11 ] - [ DEBUG ]  -Dio.netty.eventLoopThreads: 16
+2021-06-10 00:45:12  [ main:59 ] - [ DEBUG ]  Platform: Windows
+2021-06-10 00:45:12  [ main:68 ] - [ DEBUG ]  -Dio.netty.noUnsafe: false
+2021-06-10 00:45:12  [ main:69 ] - [ DEBUG ]  Java version: 14
+2021-06-10 00:45:12  [ main:74 ] - [ DEBUG ]  sun.misc.Unsafe.theUnsafe: available
+2021-06-10 00:45:12  [ main:75 ] - [ DEBUG ]  sun.misc.Unsafe.copyMemory: available
+2021-06-10 00:45:12  [ main:78 ] - [ DEBUG ]  java.nio.Buffer.address: available
+2021-06-10 00:45:12  [ main:81 ] - [ DEBUG ]  direct buffer constructor: available
+2021-06-10 00:45:12  [ main:83 ] - [ DEBUG ]  java.nio.Bits.unaligned: available, true
+2021-06-10 00:45:12  [ main:86 ] - [ DEBUG ]  jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @516be40f
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:376)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:647)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:556)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:312)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:303)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:208)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:79)
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:32)
+	at io.netty.util.Signal$1.<init>(Signal.java:27)
+	at io.netty.util.Signal.<clinit>(Signal.java:27)
+	at io.netty.util.concurrent.DefaultPromise.<clinit>(DefaultPromise.java:43)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:52)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:87)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:82)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:63)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:51)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:43)
+	at ASserver.server.bind(server.java:19)
+	at ASserver.serverMain.main(serverMain.java:6)
+2021-06-10 00:45:12  [ main:90 ] - [ DEBUG ]  java.nio.DirectByteBuffer.<init>(long, int): available
+2021-06-10 00:45:12  [ main:90 ] - [ DEBUG ]  sun.misc.Unsafe: available
+2021-06-10 00:45:12  [ main:130 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 00:45:12  [ main:131 ] - [ DEBUG ]  -Dio.netty.tmpdir: C:\WINDOWS\TEMP (java.io.tmpdir)
+2021-06-10 00:45:12  [ main:131 ] - [ DEBUG ]  -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2021-06-10 00:45:12  [ main:136 ] - [ DEBUG ]  -Dio.netty.noPreferDirect: false
+2021-06-10 00:45:12  [ main:137 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 00:45:12  [ main:137 ] - [ DEBUG ]  -Dio.netty.maxDirectMemory: 2111832064 bytes
+2021-06-10 00:45:12  [ main:138 ] - [ DEBUG ]  -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2021-06-10 00:45:12  [ main:140 ] - [ DEBUG ]  java.nio.ByteBuffer.cleaner(): available
+2021-06-10 00:45:12  [ main:185 ] - [ DEBUG ]  -Dio.netty.noKeySetOptimization: false
+2021-06-10 00:45:12  [ main:185 ] - [ DEBUG ]  -Dio.netty.selectorAutoRebuildThreshold: 512
+2021-06-10 00:45:12  [ main:195 ] - [ DEBUG ]  org.jctools-core.MpscChunkedArrayQueue: available
+2021-06-10 00:45:13  [ main:390 ] - [ DEBUG ]  -Dio.netty.processId: 14156 (auto-detected)
+2021-06-10 00:45:13  [ main:394 ] - [ DEBUG ]  -Djava.net.preferIPv4Stack: false
+2021-06-10 00:45:13  [ main:395 ] - [ DEBUG ]  -Djava.net.preferIPv6Addresses: false
+2021-06-10 00:45:13  [ main:418 ] - [ DEBUG ]  Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2021-06-10 00:45:13  [ main:419 ] - [ DEBUG ]  Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2021-06-10 00:45:13  [ main:459 ] - [ DEBUG ]  -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:08 (auto-detected)
+2021-06-10 00:45:13  [ main:463 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2021-06-10 00:45:13  [ main:463 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2021-06-10 00:45:13  [ main:475 ] - [ DEBUG ]  -Dio.netty.leakDetection.level: simple
+2021-06-10 00:45:13  [ main:476 ] - [ DEBUG ]  -Dio.netty.leakDetection.targetRecords: 4
+2021-06-10 00:45:13  [ main:512 ] - [ DEBUG ]  -Dio.netty.allocator.numHeapArenas: 16
+2021-06-10 00:45:13  [ main:513 ] - [ DEBUG ]  -Dio.netty.allocator.numDirectArenas: 16
+2021-06-10 00:45:13  [ main:514 ] - [ DEBUG ]  -Dio.netty.allocator.pageSize: 8192
+2021-06-10 00:45:13  [ main:514 ] - [ DEBUG ]  -Dio.netty.allocator.maxOrder: 11
+2021-06-10 00:45:13  [ main:515 ] - [ DEBUG ]  -Dio.netty.allocator.chunkSize: 16777216
+2021-06-10 00:45:13  [ main:515 ] - [ DEBUG ]  -Dio.netty.allocator.tinyCacheSize: 512
+2021-06-10 00:45:13  [ main:516 ] - [ DEBUG ]  -Dio.netty.allocator.smallCacheSize: 256
+2021-06-10 00:45:13  [ main:516 ] - [ DEBUG ]  -Dio.netty.allocator.normalCacheSize: 64
+2021-06-10 00:45:13  [ main:516 ] - [ DEBUG ]  -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2021-06-10 00:45:13  [ main:516 ] - [ DEBUG ]  -Dio.netty.allocator.cacheTrimInterval: 8192
+2021-06-10 00:45:13  [ main:517 ] - [ DEBUG ]  -Dio.netty.allocator.useCacheForAllThreads: true
+2021-06-10 00:45:13  [ main:529 ] - [ DEBUG ]  -Dio.netty.allocator.type: pooled
+2021-06-10 00:45:13  [ main:530 ] - [ DEBUG ]  -Dio.netty.threadLocalDirectBufferSize: 65536
+2021-06-10 00:45:13  [ main:530 ] - [ DEBUG ]  -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2021-06-10 00:45:16  [ nioEventLoopGroup-3-1:4344 ] - [ DEBUG ]  -Dio.netty.recycler.maxCapacityPerThread: 32768
+2021-06-10 00:45:16  [ nioEventLoopGroup-3-1:4345 ] - [ DEBUG ]  -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2021-06-10 00:45:16  [ nioEventLoopGroup-3-1:4345 ] - [ DEBUG ]  -Dio.netty.recycler.linkCapacity: 16
+2021-06-10 00:45:16  [ nioEventLoopGroup-3-1:4345 ] - [ DEBUG ]  -Dio.netty.recycler.ratio: 8
+2021-06-10 00:45:16  [ nioEventLoopGroup-3-1:4352 ] - [ DEBUG ]  -Dio.netty.buffer.bytebuf.checkAccessible: true
+2021-06-10 00:45:16  [ nioEventLoopGroup-3-1:4354 ] - [ DEBUG ]  Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@50f95f74
+2021-06-10 00:45:16  [ nioEventLoopGroup-3-1:4359 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:36]
+2021-06-10 00:45:21  [ nioEventLoopGroup-3-1:9292 ] - [ INFO ]  用户������开始进行验证
+2021-06-10 00:46:36  [ main:1 ] - [ DEBUG ]  Using Log4J as the default logging framework
+2021-06-10 00:46:36  [ main:11 ] - [ DEBUG ]  -Dio.netty.eventLoopThreads: 16
+2021-06-10 00:46:36  [ main:54 ] - [ DEBUG ]  Platform: Windows
+2021-06-10 00:46:36  [ main:60 ] - [ DEBUG ]  -Dio.netty.noUnsafe: false
+2021-06-10 00:46:36  [ main:61 ] - [ DEBUG ]  Java version: 14
+2021-06-10 00:46:36  [ main:66 ] - [ DEBUG ]  sun.misc.Unsafe.theUnsafe: available
+2021-06-10 00:46:36  [ main:68 ] - [ DEBUG ]  sun.misc.Unsafe.copyMemory: available
+2021-06-10 00:46:36  [ main:69 ] - [ DEBUG ]  java.nio.Buffer.address: available
+2021-06-10 00:46:36  [ main:72 ] - [ DEBUG ]  direct buffer constructor: available
+2021-06-10 00:46:36  [ main:74 ] - [ DEBUG ]  java.nio.Bits.unaligned: available, true
+2021-06-10 00:46:36  [ main:76 ] - [ DEBUG ]  jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @516be40f
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:376)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:647)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:556)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:312)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:303)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:208)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:79)
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:32)
+	at io.netty.util.Signal$1.<init>(Signal.java:27)
+	at io.netty.util.Signal.<clinit>(Signal.java:27)
+	at io.netty.util.concurrent.DefaultPromise.<clinit>(DefaultPromise.java:43)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:52)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:87)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:82)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:63)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:51)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:43)
+	at ASserver.server.bind(server.java:19)
+	at ASserver.serverMain.main(serverMain.java:6)
+2021-06-10 00:46:36  [ main:83 ] - [ DEBUG ]  java.nio.DirectByteBuffer.<init>(long, int): available
+2021-06-10 00:46:36  [ main:84 ] - [ DEBUG ]  sun.misc.Unsafe: available
+2021-06-10 00:46:36  [ main:116 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 00:46:37  [ main:117 ] - [ DEBUG ]  -Dio.netty.tmpdir: C:\WINDOWS\TEMP (java.io.tmpdir)
+2021-06-10 00:46:37  [ main:117 ] - [ DEBUG ]  -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2021-06-10 00:46:37  [ main:120 ] - [ DEBUG ]  -Dio.netty.noPreferDirect: false
+2021-06-10 00:46:37  [ main:121 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 00:46:37  [ main:122 ] - [ DEBUG ]  -Dio.netty.maxDirectMemory: 2111832064 bytes
+2021-06-10 00:46:37  [ main:122 ] - [ DEBUG ]  -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2021-06-10 00:46:37  [ main:123 ] - [ DEBUG ]  java.nio.ByteBuffer.cleaner(): available
+2021-06-10 00:46:37  [ main:156 ] - [ DEBUG ]  -Dio.netty.noKeySetOptimization: false
+2021-06-10 00:46:37  [ main:156 ] - [ DEBUG ]  -Dio.netty.selectorAutoRebuildThreshold: 512
+2021-06-10 00:46:37  [ main:171 ] - [ DEBUG ]  org.jctools-core.MpscChunkedArrayQueue: available
+2021-06-10 00:46:37  [ main:405 ] - [ DEBUG ]  -Dio.netty.processId: 24164 (auto-detected)
+2021-06-10 00:46:37  [ main:408 ] - [ DEBUG ]  -Djava.net.preferIPv4Stack: false
+2021-06-10 00:46:37  [ main:408 ] - [ DEBUG ]  -Djava.net.preferIPv6Addresses: false
+2021-06-10 00:46:37  [ main:429 ] - [ DEBUG ]  Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2021-06-10 00:46:37  [ main:430 ] - [ DEBUG ]  Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2021-06-10 00:46:37  [ main:481 ] - [ DEBUG ]  -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:08 (auto-detected)
+2021-06-10 00:46:37  [ main:488 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2021-06-10 00:46:37  [ main:488 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2021-06-10 00:46:37  [ main:502 ] - [ DEBUG ]  -Dio.netty.leakDetection.level: simple
+2021-06-10 00:46:37  [ main:502 ] - [ DEBUG ]  -Dio.netty.leakDetection.targetRecords: 4
+2021-06-10 00:46:37  [ main:528 ] - [ DEBUG ]  -Dio.netty.allocator.numHeapArenas: 16
+2021-06-10 00:46:37  [ main:529 ] - [ DEBUG ]  -Dio.netty.allocator.numDirectArenas: 16
+2021-06-10 00:46:37  [ main:529 ] - [ DEBUG ]  -Dio.netty.allocator.pageSize: 8192
+2021-06-10 00:46:37  [ main:529 ] - [ DEBUG ]  -Dio.netty.allocator.maxOrder: 11
+2021-06-10 00:46:37  [ main:529 ] - [ DEBUG ]  -Dio.netty.allocator.chunkSize: 16777216
+2021-06-10 00:46:37  [ main:529 ] - [ DEBUG ]  -Dio.netty.allocator.tinyCacheSize: 512
+2021-06-10 00:46:37  [ main:529 ] - [ DEBUG ]  -Dio.netty.allocator.smallCacheSize: 256
+2021-06-10 00:46:37  [ main:530 ] - [ DEBUG ]  -Dio.netty.allocator.normalCacheSize: 64
+2021-06-10 00:46:37  [ main:530 ] - [ DEBUG ]  -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2021-06-10 00:46:37  [ main:530 ] - [ DEBUG ]  -Dio.netty.allocator.cacheTrimInterval: 8192
+2021-06-10 00:46:37  [ main:530 ] - [ DEBUG ]  -Dio.netty.allocator.useCacheForAllThreads: true
+2021-06-10 00:46:37  [ main:539 ] - [ DEBUG ]  -Dio.netty.allocator.type: pooled
+2021-06-10 00:46:37  [ main:539 ] - [ DEBUG ]  -Dio.netty.threadLocalDirectBufferSize: 65536
+2021-06-10 00:46:37  [ main:540 ] - [ DEBUG ]  -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2021-06-10 00:46:41  [ nioEventLoopGroup-3-1:4202 ] - [ DEBUG ]  -Dio.netty.recycler.maxCapacityPerThread: 32768
+2021-06-10 00:46:41  [ nioEventLoopGroup-3-1:4203 ] - [ DEBUG ]  -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2021-06-10 00:46:41  [ nioEventLoopGroup-3-1:4203 ] - [ DEBUG ]  -Dio.netty.recycler.linkCapacity: 16
+2021-06-10 00:46:41  [ nioEventLoopGroup-3-1:4203 ] - [ DEBUG ]  -Dio.netty.recycler.ratio: 8
+2021-06-10 00:46:41  [ nioEventLoopGroup-3-1:4209 ] - [ DEBUG ]  -Dio.netty.buffer.bytebuf.checkAccessible: true
+2021-06-10 00:46:41  [ nioEventLoopGroup-3-1:4211 ] - [ DEBUG ]  Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@44994b15
+2021-06-10 00:46:41  [ nioEventLoopGroup-3-1:4217 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:36]
+2021-06-10 00:46:45  [ nioEventLoopGroup-3-1:9052 ] - [ INFO ]  用户������开始进行验证
+2021-06-10 01:12:51  [ main:0 ] - [ DEBUG ]  Using Log4J as the default logging framework
+2021-06-10 01:12:51  [ main:19 ] - [ DEBUG ]  -Dio.netty.eventLoopThreads: 16
+2021-06-10 01:12:51  [ main:59 ] - [ DEBUG ]  Platform: Windows
+2021-06-10 01:12:51  [ main:64 ] - [ DEBUG ]  -Dio.netty.noUnsafe: false
+2021-06-10 01:12:51  [ main:65 ] - [ DEBUG ]  Java version: 14
+2021-06-10 01:12:51  [ main:68 ] - [ DEBUG ]  sun.misc.Unsafe.theUnsafe: available
+2021-06-10 01:12:51  [ main:68 ] - [ DEBUG ]  sun.misc.Unsafe.copyMemory: available
+2021-06-10 01:12:51  [ main:69 ] - [ DEBUG ]  java.nio.Buffer.address: available
+2021-06-10 01:12:51  [ main:71 ] - [ DEBUG ]  direct buffer constructor: available
+2021-06-10 01:12:51  [ main:71 ] - [ DEBUG ]  java.nio.Bits.unaligned: available, true
+2021-06-10 01:12:51  [ main:73 ] - [ DEBUG ]  jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @59e84876
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:376)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:647)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:556)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:312)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:303)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:208)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:79)
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:32)
+	at io.netty.util.Signal$1.<init>(Signal.java:27)
+	at io.netty.util.Signal.<clinit>(Signal.java:27)
+	at io.netty.util.concurrent.DefaultPromise.<clinit>(DefaultPromise.java:43)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:52)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:87)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:82)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:63)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:51)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:43)
+	at ASserver.server.bind(server.java:19)
+	at ASserver.serverMain.main(serverMain.java:6)
+2021-06-10 01:12:51  [ main:100 ] - [ DEBUG ]  java.nio.DirectByteBuffer.<init>(long, int): available
+2021-06-10 01:12:51  [ main:101 ] - [ DEBUG ]  sun.misc.Unsafe: available
+2021-06-10 01:12:52  [ main:113 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 01:12:52  [ main:114 ] - [ DEBUG ]  -Dio.netty.tmpdir: C:\WINDOWS\TEMP (java.io.tmpdir)
+2021-06-10 01:12:52  [ main:115 ] - [ DEBUG ]  -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2021-06-10 01:12:52  [ main:117 ] - [ DEBUG ]  -Dio.netty.noPreferDirect: false
+2021-06-10 01:12:52  [ main:117 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 01:12:52  [ main:117 ] - [ DEBUG ]  -Dio.netty.maxDirectMemory: 2111832064 bytes
+2021-06-10 01:12:52  [ main:118 ] - [ DEBUG ]  -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2021-06-10 01:12:52  [ main:118 ] - [ DEBUG ]  java.nio.ByteBuffer.cleaner(): available
+2021-06-10 01:12:52  [ main:165 ] - [ DEBUG ]  -Dio.netty.noKeySetOptimization: false
+2021-06-10 01:12:52  [ main:165 ] - [ DEBUG ]  -Dio.netty.selectorAutoRebuildThreshold: 512
+2021-06-10 01:12:52  [ main:172 ] - [ DEBUG ]  org.jctools-core.MpscChunkedArrayQueue: available
+2021-06-10 01:12:52  [ main:467 ] - [ DEBUG ]  -Dio.netty.processId: 18720 (auto-detected)
+2021-06-10 01:12:52  [ main:470 ] - [ DEBUG ]  -Djava.net.preferIPv4Stack: false
+2021-06-10 01:12:52  [ main:470 ] - [ DEBUG ]  -Djava.net.preferIPv6Addresses: false
+2021-06-10 01:12:52  [ main:488 ] - [ DEBUG ]  Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2021-06-10 01:12:52  [ main:490 ] - [ DEBUG ]  Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2021-06-10 01:12:52  [ main:723 ] - [ DEBUG ]  -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:08 (auto-detected)
+2021-06-10 01:12:52  [ main:729 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2021-06-10 01:12:52  [ main:729 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2021-06-10 01:12:52  [ main:739 ] - [ DEBUG ]  -Dio.netty.leakDetection.level: simple
+2021-06-10 01:12:52  [ main:739 ] - [ DEBUG ]  -Dio.netty.leakDetection.targetRecords: 4
+2021-06-10 01:12:52  [ main:769 ] - [ DEBUG ]  -Dio.netty.allocator.numHeapArenas: 16
+2021-06-10 01:12:52  [ main:769 ] - [ DEBUG ]  -Dio.netty.allocator.numDirectArenas: 16
+2021-06-10 01:12:52  [ main:769 ] - [ DEBUG ]  -Dio.netty.allocator.pageSize: 8192
+2021-06-10 01:12:52  [ main:769 ] - [ DEBUG ]  -Dio.netty.allocator.maxOrder: 11
+2021-06-10 01:12:52  [ main:770 ] - [ DEBUG ]  -Dio.netty.allocator.chunkSize: 16777216
+2021-06-10 01:12:52  [ main:770 ] - [ DEBUG ]  -Dio.netty.allocator.tinyCacheSize: 512
+2021-06-10 01:12:52  [ main:770 ] - [ DEBUG ]  -Dio.netty.allocator.smallCacheSize: 256
+2021-06-10 01:12:52  [ main:770 ] - [ DEBUG ]  -Dio.netty.allocator.normalCacheSize: 64
+2021-06-10 01:12:52  [ main:770 ] - [ DEBUG ]  -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2021-06-10 01:12:52  [ main:770 ] - [ DEBUG ]  -Dio.netty.allocator.cacheTrimInterval: 8192
+2021-06-10 01:12:52  [ main:770 ] - [ DEBUG ]  -Dio.netty.allocator.useCacheForAllThreads: true
+2021-06-10 01:12:52  [ main:780 ] - [ DEBUG ]  -Dio.netty.allocator.type: pooled
+2021-06-10 01:12:52  [ main:780 ] - [ DEBUG ]  -Dio.netty.threadLocalDirectBufferSize: 65536
+2021-06-10 01:12:52  [ main:780 ] - [ DEBUG ]  -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2021-06-10 01:12:59  [ main:0 ] - [ DEBUG ]  Using Log4J as the default logging framework
+2021-06-10 01:12:59  [ main:6 ] - [ DEBUG ]  -Dio.netty.eventLoopThreads: 16
+2021-06-10 01:12:59  [ main:33 ] - [ DEBUG ]  Platform: Windows
+2021-06-10 01:12:59  [ main:37 ] - [ DEBUG ]  -Dio.netty.noUnsafe: false
+2021-06-10 01:12:59  [ main:37 ] - [ DEBUG ]  Java version: 14
+2021-06-10 01:12:59  [ main:39 ] - [ DEBUG ]  sun.misc.Unsafe.theUnsafe: available
+2021-06-10 01:12:59  [ main:40 ] - [ DEBUG ]  sun.misc.Unsafe.copyMemory: available
+2021-06-10 01:12:59  [ main:40 ] - [ DEBUG ]  java.nio.Buffer.address: available
+2021-06-10 01:12:59  [ main:41 ] - [ DEBUG ]  direct buffer constructor: available
+2021-06-10 01:12:59  [ main:42 ] - [ DEBUG ]  java.nio.Bits.unaligned: available, true
+2021-06-10 01:12:59  [ main:43 ] - [ DEBUG ]  jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @7ca48474
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:376)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:647)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:556)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:312)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:303)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:208)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:79)
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:32)
+	at io.netty.util.Signal$1.<init>(Signal.java:27)
+	at io.netty.util.Signal.<clinit>(Signal.java:27)
+	at io.netty.util.concurrent.DefaultPromise.<clinit>(DefaultPromise.java:43)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:52)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:87)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:82)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:63)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:51)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:43)
+	at TGSserver.serverTGS.bind(serverTGS.java:19)
+	at TGSserver.serverMain.main(serverMain.java:7)
+2021-06-10 01:12:59  [ main:45 ] - [ DEBUG ]  java.nio.DirectByteBuffer.<init>(long, int): available
+2021-06-10 01:12:59  [ main:46 ] - [ DEBUG ]  sun.misc.Unsafe: available
+2021-06-10 01:12:59  [ main:60 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 01:12:59  [ main:61 ] - [ DEBUG ]  -Dio.netty.tmpdir: C:\WINDOWS\TEMP (java.io.tmpdir)
+2021-06-10 01:12:59  [ main:61 ] - [ DEBUG ]  -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2021-06-10 01:12:59  [ main:63 ] - [ DEBUG ]  -Dio.netty.noPreferDirect: false
+2021-06-10 01:12:59  [ main:63 ] - [ DEBUG ]  maxDirectMemory: 2111832064 bytes (maybe)
+2021-06-10 01:12:59  [ main:63 ] - [ DEBUG ]  -Dio.netty.maxDirectMemory: 2111832064 bytes
+2021-06-10 01:12:59  [ main:64 ] - [ DEBUG ]  -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2021-06-10 01:12:59  [ main:64 ] - [ DEBUG ]  java.nio.ByteBuffer.cleaner(): available
+2021-06-10 01:12:59  [ main:82 ] - [ DEBUG ]  -Dio.netty.noKeySetOptimization: false
+2021-06-10 01:12:59  [ main:82 ] - [ DEBUG ]  -Dio.netty.selectorAutoRebuildThreshold: 512
+2021-06-10 01:12:59  [ main:97 ] - [ DEBUG ]  org.jctools-core.MpscChunkedArrayQueue: available
+2021-06-10 01:12:59  [ main:253 ] - [ DEBUG ]  -Dio.netty.processId: 8064 (auto-detected)
+2021-06-10 01:12:59  [ main:255 ] - [ DEBUG ]  -Djava.net.preferIPv4Stack: false
+2021-06-10 01:12:59  [ main:255 ] - [ DEBUG ]  -Djava.net.preferIPv6Addresses: false
+2021-06-10 01:12:59  [ main:274 ] - [ DEBUG ]  Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2021-06-10 01:12:59  [ main:274 ] - [ DEBUG ]  Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2021-06-10 01:12:59  [ main:323 ] - [ DEBUG ]  -Dio.netty.machineId: 00:50:56:ff:fe:c0:00:08 (auto-detected)
+2021-06-10 01:12:59  [ main:329 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2021-06-10 01:12:59  [ main:329 ] - [ DEBUG ]  -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2021-06-10 01:12:59  [ main:338 ] - [ DEBUG ]  -Dio.netty.leakDetection.level: simple
+2021-06-10 01:12:59  [ main:338 ] - [ DEBUG ]  -Dio.netty.leakDetection.targetRecords: 4
+2021-06-10 01:13:00  [ main:370 ] - [ DEBUG ]  -Dio.netty.allocator.numHeapArenas: 16
+2021-06-10 01:13:00  [ main:370 ] - [ DEBUG ]  -Dio.netty.allocator.numDirectArenas: 16
+2021-06-10 01:13:00  [ main:371 ] - [ DEBUG ]  -Dio.netty.allocator.pageSize: 8192
+2021-06-10 01:13:00  [ main:371 ] - [ DEBUG ]  -Dio.netty.allocator.maxOrder: 11
+2021-06-10 01:13:00  [ main:371 ] - [ DEBUG ]  -Dio.netty.allocator.chunkSize: 16777216
+2021-06-10 01:13:00  [ main:371 ] - [ DEBUG ]  -Dio.netty.allocator.tinyCacheSize: 512
+2021-06-10 01:13:00  [ main:372 ] - [ DEBUG ]  -Dio.netty.allocator.smallCacheSize: 256
+2021-06-10 01:13:00  [ main:372 ] - [ DEBUG ]  -Dio.netty.allocator.normalCacheSize: 64
+2021-06-10 01:13:00  [ main:372 ] - [ DEBUG ]  -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2021-06-10 01:13:00  [ main:372 ] - [ DEBUG ]  -Dio.netty.allocator.cacheTrimInterval: 8192
+2021-06-10 01:13:00  [ main:373 ] - [ DEBUG ]  -Dio.netty.allocator.useCacheForAllThreads: true
+2021-06-10 01:13:00  [ main:386 ] - [ DEBUG ]  -Dio.netty.allocator.type: pooled
+2021-06-10 01:13:00  [ main:387 ] - [ DEBUG ]  -Dio.netty.threadLocalDirectBufferSize: 65536
+2021-06-10 01:13:00  [ main:387 ] - [ DEBUG ]  -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2021-06-10 01:13:30  [ nioEventLoopGroup-3-1:38780 ] - [ DEBUG ]  -Dio.netty.recycler.maxCapacityPerThread: 32768
+2021-06-10 01:13:30  [ nioEventLoopGroup-3-1:38781 ] - [ DEBUG ]  -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2021-06-10 01:13:30  [ nioEventLoopGroup-3-1:38782 ] - [ DEBUG ]  -Dio.netty.recycler.linkCapacity: 16
+2021-06-10 01:13:30  [ nioEventLoopGroup-3-1:38782 ] - [ DEBUG ]  -Dio.netty.recycler.ratio: 8
+2021-06-10 01:13:30  [ nioEventLoopGroup-3-1:38789 ] - [ DEBUG ]  -Dio.netty.buffer.bytebuf.checkAccessible: true
+2021-06-10 01:13:30  [ nioEventLoopGroup-3-1:38790 ] - [ DEBUG ]  Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@35dd1c56
+2021-06-10 01:13:30  [ nioEventLoopGroup-3-1:38798 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:1 State:0 UnCode:-1 Length:0]
+2021-06-10 01:13:31  [ nioEventLoopGroup-3-1:39115 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:2 State:0 UnCode:-1 Length:128]
+2021-06-10 01:13:41  [ nioEventLoopGroup-3-1:49427 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:3 State:0 UnCode:-1 Length:40]
+2021-06-10 01:13:45  [ nioEventLoopGroup-3-1:53465 ] - [ INFO ]  注册成功
+2021-06-10 01:13:52  [ nioEventLoopGroup-3-2:60196 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:13:52  [ nioEventLoopGroup-3-2:60822 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:13:52  [ nioEventLoopGroup-3-2:60970 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53433 ] - [ DEBUG ]  -Dio.netty.recycler.maxCapacityPerThread: 32768
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53434 ] - [ DEBUG ]  -Dio.netty.recycler.maxSharedCapacityFactor: 2
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53435 ] - [ DEBUG ]  -Dio.netty.recycler.linkCapacity: 16
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53435 ] - [ DEBUG ]  -Dio.netty.recycler.ratio: 8
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53440 ] - [ DEBUG ]  -Dio.netty.buffer.bytebuf.checkAccessible: true
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53441 ] - [ DEBUG ]  Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@658ff550
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53445 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53451 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:13:53  [ nioEventLoopGroup-3-1:53451 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:14:06  [ nioEventLoopGroup-3-3:74686 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:14:06  [ nioEventLoopGroup-3-3:74687 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:14:07  [ nioEventLoopGroup-3-3:75891 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:14:07  [ nioEventLoopGroup-3-2:68164 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:14:07  [ nioEventLoopGroup-3-2:68166 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:14:07  [ nioEventLoopGroup-3-2:68167 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:18:35  [ nioEventLoopGroup-3-4:343110 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:18:35  [ nioEventLoopGroup-3-4:343110 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:18:35  [ nioEventLoopGroup-3-4:343255 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:18:35  [ nioEventLoopGroup-3-3:335528 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:18:35  [ nioEventLoopGroup-3-3:335530 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:18:35  [ nioEventLoopGroup-3-3:335530 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:18:43  [ nioEventLoopGroup-3-5:351530 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:18:43  [ nioEventLoopGroup-3-5:351531 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:18:43  [ nioEventLoopGroup-3-5:351703 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:18:43  [ nioEventLoopGroup-3-4:343973 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:18:43  [ nioEventLoopGroup-3-4:343974 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:18:43  [ nioEventLoopGroup-3-4:343975 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:28:19  [ nioEventLoopGroup-3-6:927823 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:28:19  [ nioEventLoopGroup-3-6:927823 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:28:20  [ nioEventLoopGroup-3-6:928839 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:28:20  [ nioEventLoopGroup-3-5:921113 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:28:20  [ nioEventLoopGroup-3-5:921115 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:28:20  [ nioEventLoopGroup-3-5:921115 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:34:30  [ nioEventLoopGroup-3-7:1298955 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:34:30  [ nioEventLoopGroup-3-7:1298955 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:34:31  [ nioEventLoopGroup-3-7:1299111 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:34:31  [ nioEventLoopGroup-3-6:1291386 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:34:31  [ nioEventLoopGroup-3-6:1291386 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:34:31  [ nioEventLoopGroup-3-6:1291387 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:37:12  [ nioEventLoopGroup-3-8:1460143 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:37:12  [ nioEventLoopGroup-3-8:1460144 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:37:12  [ nioEventLoopGroup-3-8:1460459 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:37:12  [ nioEventLoopGroup-3-7:1452733 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:37:12  [ nioEventLoopGroup-3-7:1452734 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:37:12  [ nioEventLoopGroup-3-7:1452735 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:38:22  [ nioEventLoopGroup-3-9:1530965 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:38:22  [ nioEventLoopGroup-3-9:1530965 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:38:23  [ nioEventLoopGroup-3-9:1531405 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:38:23  [ nioEventLoopGroup-3-8:1523693 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:38:23  [ nioEventLoopGroup-3-8:1523695 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:38:23  [ nioEventLoopGroup-3-8:1523698 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:38:54  [ nioEventLoopGroup-3-10:1562943 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:38:54  [ nioEventLoopGroup-3-10:1562944 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:38:55  [ nioEventLoopGroup-3-10:1563639 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:38:55  [ nioEventLoopGroup-3-9:1555912 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:38:55  [ nioEventLoopGroup-3-9:1555913 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:38:55  [ nioEventLoopGroup-3-9:1555913 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:46:24  [ nioEventLoopGroup-3-11:2012698 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:46:24  [ nioEventLoopGroup-3-11:2012699 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:46:24  [ nioEventLoopGroup-3-11:2012906 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:46:24  [ nioEventLoopGroup-3-10:2005181 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:46:24  [ nioEventLoopGroup-3-10:2005182 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:46:24  [ nioEventLoopGroup-3-10:2005183 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:46:35  [ nioEventLoopGroup-3-12:2023537 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:46:35  [ nioEventLoopGroup-3-12:2023537 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:46:35  [ nioEventLoopGroup-3-12:2023690 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:46:35  [ nioEventLoopGroup-3-11:2015962 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:46:35  [ nioEventLoopGroup-3-11:2015963 ] - [ INFO ]  用户wbc开始进行验证
+2021-06-10 01:46:35  [ nioEventLoopGroup-3-11:2015964 ] - [ INFO ]  用户wbc验证成功
+2021-06-10 01:48:32  [ nioEventLoopGroup-3-13:2140326 ] - [ INFO ]  接收到报文Head:[P2P:0 Type:0 State:0 UnCode:-1 Length:33]
+2021-06-10 01:48:32  [ nioEventLoopGroup-3-13:2140326 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:48:32  [ nioEventLoopGroup-3-13:2140786 ] - [ INFO ]  用户lzh验证成功
+2021-06-10 01:48:32  [ nioEventLoopGroup-3-12:2133083 ] - [ INFO ]  接收到报文Head:[P2P:2 Type:0 State:0 UnCode:-1 Length:113]
+2021-06-10 01:48:32  [ nioEventLoopGroup-3-12:2133084 ] - [ INFO ]  用户lzh开始进行验证
+2021-06-10 01:48:32  [ nioEventLoopGroup-3-12:2133084 ] - [ INFO ]  用户lzh验证成功

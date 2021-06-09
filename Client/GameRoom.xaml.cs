@@ -222,7 +222,8 @@ namespace Client
             }
             finally
             {
-                client.Close();
+                //这里不能关闭，退出去还要使用！！
+                //client.Close();
             }
         }
 

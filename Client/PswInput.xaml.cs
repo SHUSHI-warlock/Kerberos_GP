@@ -1,5 +1,6 @@
 ﻿using Client.core.Services;
 using Client.Utils.LogHelper;
+using Panuon.UI.Silver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,12 @@ namespace Client
             if (RoomPsw.Text == "")
             {
                 logger.Error("房间密码为空！");
+                MessageBoxX.Show("房间密码不能为空！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new Panuon.UI.Silver.Core.MessageBoxXConfigurations()
+                {
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "好",
+                });
                 return;
             }
             

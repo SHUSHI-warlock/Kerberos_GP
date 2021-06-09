@@ -56,6 +56,10 @@ namespace Client
             InitializeComponent();
             Logining = false;
             messageShowWin.Show();
+
+
+           
+
         }
         /// <summary>
         /// 登录
@@ -422,10 +426,6 @@ namespace Client
             }
         }
         
-        
-
-
-
 
         /// <summary>
         /// 注册
@@ -616,22 +616,36 @@ namespace Client
         {
             if (!Registing)
             {
+                string errstr = "";
+                bool canRigist = true;
                 if (registId.Text == "" || registPassword.Password == "")
                 {
                     logger.Info("账号密码不能为空！");
-                    //MessageBox.Show("账号密码不能为空！");
-                    MessageBoxX.Show("账号密码不能为空，懂？！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
-                    {
-                        MessageBoxIcon = MessageBoxIcon.Warning,
-                        ButtonBrush = "#F1C825".ToColor().ToBrush(),
-                        OKButton = "懂了",
-                    });
-                    return;
+                    errstr = "账号密码不能为空，懂？！";
+                    canRigist = false;
                 }
-                if(!registPassword.Password.Equals(rePassword.Password))
+                if (Encoding.UTF8.GetBytes(registId.Text).Length > 20 || Encoding.UTF8.GetBytes(registPassword.Password).Length > 20)
+                {
+                    logger.Info("账号密码最长为20字符");
+                    errstr = "账号密码最长为20字符，懂？！";
+                    canRigist = false;
+                }
+                //判断组成
+                if (!fnIsDigitOrLetter(registId.Text, 0, 20) || !fnIsDigitOrLetter(registPassword.Password, 0, 20))
+                {
+                    logger.Info("账号密码只能使用字母和数字的组合");
+                    errstr = "账号密码只能使用字母和数字的组合，懂？！";
+                    canRigist = false;
+                }
+                if (!registPassword.Password.Equals(rePassword.Password))
                 {
                     logger.Info("前后两次密码输入不一致！");
-                    MessageBoxX.Show("前后两次密码输入不一致，懂？！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                    errstr = "前后两次密码输入不一致，懂？！";
+                    canRigist = false;
+                }
+                if (!canRigist)
+                {
+                    MessageBoxX.Show(errstr, "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
                     {
                         MessageBoxIcon = MessageBoxIcon.Warning,
                         ButtonBrush = "#F1C825".ToColor().ToBrush(),
@@ -639,6 +653,7 @@ namespace Client
                     });
                     return;
                 }
+
                 Registing = true;
 
                 if (TryRegist(registId.Text,registPassword.Password))
@@ -676,18 +691,38 @@ namespace Client
         /// <param name="e"></param>
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-
             if (!Logining)
             {
+                string errstr = "";
+                bool canLogin = true;
                 if (userId.Text == "" || userPassword.Password == "")
                 {
-                    MessageBoxX.Show("账号密码不能为空，懂？！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                    logger.Info("账号密码不能为空！");
+                    errstr = "账号密码不能为空，懂？！";
+                    canLogin = false;
+                }
+                //判断长度
+                if (Encoding.UTF8.GetBytes(userId.Text).Length > 20 || Encoding.UTF8.GetBytes(userPassword.Password).Length > 20)
+                {
+                    logger.Info("账号密码最长为20字符");
+                    errstr = "账号密码最长为20字符，懂？！";
+                    canLogin = false;
+                }
+                //判断组成
+                if (!fnIsDigitOrLetter(userId.Text,0,20)||!fnIsDigitOrLetter(userPassword.Password,0,20))
+                {
+                    logger.Info("账号密码只能使用字母和数字的组合");
+                    errstr = "账号密码只能使用字母和数字的组合，懂？！";
+                    canLogin = false;
+                }
+                if (!canLogin)
+                {
+                    MessageBoxX.Show(errstr, "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
                     {
                         MessageBoxIcon = MessageBoxIcon.Warning,
                         ButtonBrush = "#F1C825".ToColor().ToBrush(),
                         OKButton = "懂了",
                     });
-
                     return;
                 }
                 Logining = true;
@@ -710,6 +745,45 @@ namespace Client
             Environment.Exit(0);
         }
 
-        
+
+        /// <summary>
+        /// 判断是否为数字或字母
+        /// </summary>
+        /// <param name="strMessage">要判断的字符串</param>
+        /// <param name="iMinLong">最小长度</param>
+        /// <param name="iMaxLong">最大长度</param>
+        /// <returns>结果</returns>
+        public bool fnIsDigitOrLetter(string strMessage, int iMinLong, int iMaxLong)
+        {
+            bool bResult = false;
+
+            //开头匹配一个字母或数字+匹配两个十进制数字+匹配一个字母或数字+匹配两个相同格式的的（-加数字）+已字母或数字结尾
+            //如：1111-111-1119
+            //string pattern = @"^[a-zA-Z0-9]\d{2}[a-zA-Z0-9](-\d{3}){2}[A-Za-z0-9]$";
+
+            //string pattern = @"^[a-zA-Z0-9]\d{2}$"; //开头以字母或数字，然后后面加两个数字字符
+
+            string pattern = @"^[a-zA-Z0-9]*$"; //匹配所有字符都在字母和数字之间
+
+            //string pattern = @"^[a-z0-9]*$"; //匹配所有字符都在小写字母和数字之间
+
+            //string pattern = @"^[A-Z][0-9]*$"; //以大写字母开头，后面的都是数字
+
+            //string pattern = @"^\d{3}-\d{2}$";//匹配 333-22 格式,三个数字加-加两个数字
+
+            if (strMessage.Length >= iMinLong && strMessage.Length <= iMaxLong)//判断字符串长度
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(strMessage, pattern))
+                {
+                    bResult = true;
+                }
+                else
+                {
+                    bResult = false;
+                }
+            }
+
+            return bResult;
+        }
     }
 }

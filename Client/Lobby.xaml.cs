@@ -226,7 +226,7 @@ namespace Client
                     ShowRoomInfo();
                     ShowUserInfo(lobbyMsg.users);
                     //通知
-                    Notice.Show(string.Format("刷新成功！\n当前：房间数：{0} 大厅人数：{1}", roomInfos.Count, users.Count), "通知", 5);
+                    Notice.Show(string.Format("刷新成功！\n当前：房间数：{0} 大厅人数：{1}", roomInfos.Count, users.Count), "通知",3,MessageBoxIcon.Info);
 
                 });
 }
@@ -662,7 +662,7 @@ namespace Client
             //有密码？有则弹出密码框
             if (room.HasPsw == 1)
             {//弹出创建房间页面
-                ShowNavigationWindow("输入房间密码", "PswInput.xaml", 300, 200);
+                ShowNavigationWindow("输入房间密码", "PswInput.xaml", 350, 250);
                 if (createRoom == null)
                 {
                     logger.Debug(String.Format("用户取消进入房间！"));

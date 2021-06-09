@@ -82,15 +82,17 @@ public class CheckerRoom implements Room {
 
         p.userState = Constant.exit_rome;
 
+        //必须向自己也发送，自己需要根据这个来关闭消息读取器
+        NettyMessage playerStateMessage = new NettyMessage(5,6,0);
+        playerStateMessage.setMessageBody(gson.toJson(p));
+        sendAll(playerStateMessage);
+
         roomInfo.removePlayer(p);
         playerPos[p.pos]=false;
         p.roomId = -1;
         p.userState = Constant.online;
 
-        //向其他人发送
-        NettyMessage playerStateMessage = new NettyMessage(5,6,0);
-        playerStateMessage.setMessageBody(gson.toJson(p));
-        sendAll(playerStateMessage);
+
 
 
     }

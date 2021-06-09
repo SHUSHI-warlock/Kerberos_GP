@@ -43,6 +43,7 @@
                     <TextBlock Text="Login" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
 
                     <TextBox Grid.Row="3"  x:Name="userId" Width="200"
+                             
                     pu:TextBoxHelper.Watermark="账号"
                     pu:TextBoxHelper.Icon="&#xf11c;"
                     pu:TextBoxHelper.FocusedBorderBrush="#00FFCE"

@@ -1,5 +1,6 @@
 ﻿using Client.core.Services;
 using Client.Utils.LogHelper;
+using Panuon.UI.Silver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,17 +46,35 @@ namespace Client
             if(RoomName.Text=="")
             {
                 logger.Error("房间名为空！");
+                MessageBoxX.Show("房间名不能为空！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "好",
+                });
                 return;
             }
             if((bool)yesButton.IsChecked&&Password.Text=="")
             {
                 logger.Error("密码不能为空！");
+                MessageBoxX.Show("密码不能为空！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "好",
+                });
                 return;
             }
             int res;
             if(!int.TryParse(MaxPlayer.Text,out res))
             {
                 logger.Error("请选择最大人数！");
+                MessageBoxX.Show("请指定游戏人数！", "警告", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations()
+                {
+                    MessageBoxIcon = MessageBoxIcon.Warning,
+                    ButtonBrush = "#F1C825".ToColor().ToBrush(),
+                    OKButton = "好",
+                });
                 return;
             }
 

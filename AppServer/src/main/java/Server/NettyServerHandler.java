@@ -41,7 +41,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 	//玩家列表
 	private ConcurrentHashMap<String, Player>players = new ConcurrentHashMap<>();
 
-
 	private DesKey TGSKeyV;
 	private SERVER server;
 
@@ -77,8 +76,9 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 		if(message.getMessageType()==0)//用户认证
 		{
 			// TODO: 2021/6/2 添加登录验证
-			logger.info("即将进行认证");
 			try {
+				logger.info("即将进行认证");
+
 				enterLobby(ctx, message);
 			}catch(Exception e)
 			{
@@ -164,22 +164,30 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 //				server.ADc+=" ";
 //			}
 //		}
-
 		if(server.status==0){
-			logger.info(String.format("用户%s验证成功", fromClient.IDc));
-			byte[] mess=server.generateBack(fromClient.TS, server.Kcv);
-			NettyMessage back=new NettyMessage(5,0,0);
-			back.setMessageBody(mess);
-			System.out.println("正在发送消息");
-			ctx.writeAndFlush(back);
-
 			//
-			User user = new User(fromClient.IDc);
-			channelManager.addUser(ctx.channel(), fromClient.IDc, fromClient.Key);
-			user.userState = Constant.online;
-			players.put(user.getUserId(),new Player(user));
+			if(channelManager.hasUser(fromClient.IDc))
+			{
+				logger.info(String.format("用户%s已经在大厅中了！",fromClient.IDc));
+				NettyMessage back=new NettyMessage(5,0,4);
+				ctx.writeAndFlush(back);
+			}
+			else{
+				logger.info(String.format("用户%s验证成功", fromClient.IDc));
+				byte[] mess=server.generateBack(fromClient.TS, server.Kcv);
+				NettyMessage back=new NettyMessage(5,0,0);
+				back.setMessageBody(mess);
+				System.out.println("正在发送消息");
+				ctx.writeAndFlush(back);
 
-			logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
+				User user = new User(fromClient.IDc);
+				channelManager.addUser(ctx.channel(), fromClient.IDc, fromClient.Key);
+				user.userState = Constant.online;
+				players.put(user.getUserId(),new Player(user));
+
+				logger.info(String.format("用户%s进入大厅 || 大厅总人数%d",user.getUserId(),players.size()));
+			}
+
 		}
 		else{
 			//System.out.println(tgs.status);
